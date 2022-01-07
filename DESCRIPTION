@@ -12,3 +12,11 @@ Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.2
 Suggests: 
     learnr
+Imports: 
+    openintro (>= 2.2.0),
+    gradethis (>= 0.2.4.9000),
+    usdata (>= 0.2.0)
+Remotes:  
+    rstudio-education/gradethis,
+    OpenIntroStat/openintro,
+    OpenIntroStat/usdata
