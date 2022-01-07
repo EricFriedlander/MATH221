@@ -1,0 +1,224 @@
+---
+title: "Lesson 1-Hello Data"
+output: 
+  learnr::tutorial:
+    progresive: true
+runtime: shiny_prerendered
+---
+
+```{r setup, include=FALSE}
+library(learnr)
+library(tidyverse)
+library(openintro)
+library(usdata)
+gradethis::gradethis_setup()
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+
+
+
+## Case study: Using stents to prevent strokes
+An experiment is designed to study the effectiveness of stents in treating patients at risk of stroke (Chimowitz et al. 2011). Stents are small mesh tubes that are placed inside narrow or weak arteries to assist in patient recovery after cardiac events and reduce the risk of an additional heart attack or death.
+
+Many doctors have hoped that there would be similar benefits for patients at risk of stroke. We start by writing the principal question the researchers hope to answer:
+
+>Does the use of stents reduce the risk of stroke?
+
+The researchers who asked this question conducted an experiment with 451 at-risk patients. Each volunteer patient was randomly assigned to one of two groups:
+
+**Treatment group**. Patients in the treatment group received a stent and medical management. The medical management included medications, management of risk factors, and help in lifestyle modification.
+
+**Control group**. Patients in the control group received the same medical management as the treatment group, but they did not receive stents.
+
+### Exercise 1
+
+First we must import the `tidyverse` package and the `openintro` package:
+
+```{r setup2, exercise=TRUE}
+library(tidyverse)
+library(openintro)
+```
+
+Using the skills you learned from the tutorial, take a glimpse at the dataset `stent30`:
+
+```{r stent30-glimpse, exercise=TRUE}
+glimpse(____)
+```
+
+```{r stent30-glimpse-check}
+grade_result(
+  pass_if(~identical(.result, glimpse(stent30)))
+)
+```
+
+Now take a glimpse at the `stent365` dataset:
+
+```{r stent365-glimpse, exercise=TRUE}
+
+```
+
+```{r stent365-glimpse-check}
+grade_result(
+  pass_if(~identical(.result, glimpse(stent365)))
+)
+```
+
+The code below will count the number of patients in the control and treatment groups who have had a stroke in the `stent30` dataset:
+```{r stent30-summary, exercise=TRUE}
+stent30 %>%
+  count(group, outcome)
+```
+
+Use R as a calculator to compute the proportion of those in the control group who had a stroke:
+```{r stent30-calculator1, exercise=TRUE}
+
+```
+
+```{r stent30-calculator1-check}
+grade_result(
+  pass_if(~identical(.result, 13 / (13+214)))
+)
+```
+
+Use R as a calculator to compute the proportion of those in the treatment group who had a stroke:
+```{r stent30-calculator2, exercise=TRUE}
+
+```
+
+```{r stent30-calculator2-check}
+grade_result(
+  pass_if(~identical(.result, 33 / (191+33)))
+)
+```
+
+Use code similar that written above to count the number of patients in the control and treatment groups who have had a stroke in the `stent365` dataset:
+```{r stent365-summary, exercise=TRUE}
+
+```
+
+```{r stent365-summary-check}
+answer <- stent365 %>%
+            count(group, outcome)
+grade_result(
+  pass_if(~identical(.result, answer))
+)
+```
+
+Use R as a calculator to compute the proportion of those in the control group who had a stroke:
+```{r stent365-calculator1, exercise=TRUE}
+
+```
+
+```{r stent365-calculator1-check}
+grade_result(
+  pass_if(~identical(.result, 28/(28+199)))
+)
+```
+
+Use R as a calculator to compute the proportion of those in the treatment group who had a stroke:
+```{r stent365-calculator2, exercise=TRUE}
+
+```
+
+```{r stent365-calculator2-check}
+grade_result(
+  pass_if(~identical(.result, 45 / (179+45)))
+)
+```
+
+In your group discuss whether your results. What can we say we about how whether the use of stents prevent strokes?
+
+
+## Data Basics
+
+Use the `head` function to display the first 6 rows of the `county` dataset:
+```{r display-county, exercise=TRUE}
+
+```
+
+Now let's introduce some vocabulary:
+- **case** or **observational unit**: each row
+- **variable**: each column
+- **data frame**: whole table
+- **tidy data**: data frame where each row is a unique case (observational unit), each column is a variable, and each cell is a single value
+
+When working with data, it's extremely important that we understand important information about our data, such as what each variable means and what it's unit of measurement is. In the code box below type `?` before `county` to get 
+
+Use the code box below to figure out how many *cases* and how many *variables* are in the `county` dataset:
+```{r county-sandbox, exercise=TRUE}
+
+```
+
+<div id="county-sandbox-hint">
+**Hint:** You may want to use the `glimpse` function.
+</div>
+
+```{r cases-question, echo=FALSE}
+question("How many *cases* are in the `county` dataset?",
+  answer(2000),
+  answer(3142, correct = TRUE),
+  answer(15),
+  answer(43671)
+)
+```
+
+```{r variables-question, echo=FALSE}
+question("How many *variables* are in the `county` dataset?",
+  answer(2000),
+  answer(3142),
+  answer(15, correct = TRUE),
+  answer(43671)
+)
+```
+
+Recall the different types of variables:
+- **numerical**: takes range of numerical values, and it is sensible to add, subtract, or take averages with those values
+  - **discrete**: only takes numerical values in jumps
+  - **continuous**: takes all values in an interval
+- **categorical**: values are categories called **levels**
+  - **ordinal**: the **levels** have a natural ordering
+  - **nominal**: the **levels** have no ordering
+  
+Use the following sandbox to answer the following questions:
+```{r county-sandbox2, exercise=TRUE}
+
+```
+
+
+<!-- ```{r variables-question, echo=FALSE} -->
+<!-- question("What kind of variable is `state`?", -->
+<!--   answer("Continuous"), -->
+<!--   answer("Discrete"), -->
+<!--   answer("Ordinal"), -->
+<!--   answer("Nominal", correct = TRUE) -->
+<!-- ) -->
+<!-- ``` -->
+
+<!-- ```{r variables-question, echo=FALSE} -->
+<!-- question("What kind of variable is `unemployment_rate`?", -->
+<!--   answer("Continuous", correct = TRUE), -->
+<!--   answer("Discrete"), -->
+<!--   answer("Ordinal"), -->
+<!--   answer("Nominal") -->
+<!-- ) -->
+<!-- ``` -->
+
+<!-- ```{r variables-question, echo=FALSE} -->
+<!-- question("What kind of variable is `median_edu`?", -->
+<!--   answer("Continuous"), -->
+<!--   answer("Discrete"), -->
+<!--   answer("Ordinal", correct = TRUE), -->
+<!--   answer("Nominal") -->
+<!-- ) -->
+<!-- ``` -->
+
+<!-- ```{r variables-question, echo=FALSE} -->
+<!-- question("What kind of variable is `pop2017`?", -->
+<!--   answer("Continuous"), -->
+<!--   answer("Discrete", correct = TRUE), -->
+<!--   answer("Ordinal"), -->
+<!--   answer("Nominal") -->
+<!-- ) -->
+<!-- ``` -->
+
