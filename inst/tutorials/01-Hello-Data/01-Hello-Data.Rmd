@@ -122,25 +122,49 @@ grade_result(
 )
 ```
 
-In your group discuss whether your results. What can we say we about how whether the use of stents prevent strokes?
+In your group discuss your results. What can we say we about how whether the use of stents prevent strokes?
 
 
 ## Data Basics
 
+### Observations, variables, and data matrices
+
+In the console below use `?` to find the help page for the function `head`.
+
+```{r head-help, exercise=TRUE}
+
+```
+
+```{r head-help-check, exercise=TRUE}
+grade_result(
+  pass_if(~identical(.result, ?head))
+```
+
 Use the `head` function to display the first 6 rows of the `county` dataset:
+
 ```{r display-county, exercise=TRUE}
 
 ```
 
-Now let's introduce some vocabulary:
-- **case** or **observational unit**: each row
-- **variable**: each column
+Now let's review some vocabulary:
+- **case** or **observational unit**: each row, a single unit of data
+- **variable**: each column, a property of each unit of data
 - **data frame**: whole table
 - **tidy data**: data frame where each row is a unique case (observational unit), each column is a variable, and each cell is a single value
 
-When working with data, it's extremely important that we understand important information about our data, such as what each variable means and what it's unit of measurement is. In the code box below type `?` before `county` to get 
+When working with data, it's extremely important that we understand important information about our data, such as what each variable means and what it's unit of measurement is. In the code box below type `?` before `county` to get the **metadata** for this  dataset:
+
+```{r county-meta, exercise=TRUE}
+
+```
+
+```{r county-meta-check, exercise=TRUE}
+grade_result(
+  pass_if(~identical(.result, ?head))
+```
 
 Use the code box below to figure out how many *cases* and how many *variables* are in the `county` dataset:
+
 ```{r county-sandbox, exercise=TRUE}
 
 ```
@@ -167,6 +191,9 @@ question("How many *variables* are in the `county` dataset?",
 )
 ```
 
+
+### Types of variables
+
 Recall the different types of variables:
 - **numerical**: takes range of numerical values, and it is sensible to add, subtract, or take averages with those values
   - **discrete**: only takes numerical values in jumps
@@ -181,41 +208,90 @@ Use the following sandbox to answer the following questions:
 ```
 
 
-<!-- ```{r variables-question, echo=FALSE} -->
-<!-- question("What kind of variable is `state`?", -->
-<!--   answer("Continuous"), -->
-<!--   answer("Discrete"), -->
-<!--   answer("Ordinal"), -->
-<!--   answer("Nominal", correct = TRUE) -->
-<!-- ) -->
-<!-- ``` -->
+```{r variables-question1, echo=FALSE}
+question("What kind of variable is `name`?",
+  answer("Continuous"),
+  answer("Discrete"),
+  answer("Ordinal"),
+  answer("Nominal", correct = TRUE)
+)
+```
 
-<!-- ```{r variables-question, echo=FALSE} -->
-<!-- question("What kind of variable is `unemployment_rate`?", -->
-<!--   answer("Continuous", correct = TRUE), -->
-<!--   answer("Discrete"), -->
-<!--   answer("Ordinal"), -->
-<!--   answer("Nominal") -->
-<!-- ) -->
-<!-- ``` -->
+```{r variables-question2, echo=FALSE}
+question("What kind of variable is `pop_change`?",
+  answer("Continuous", correct = TRUE),
+  answer("Discrete"),
+  answer("Ordinal"),
+  answer("Nominal")
+)
+```
 
-<!-- ```{r variables-question, echo=FALSE} -->
-<!-- question("What kind of variable is `median_edu`?", -->
-<!--   answer("Continuous"), -->
-<!--   answer("Discrete"), -->
-<!--   answer("Ordinal", correct = TRUE), -->
-<!--   answer("Nominal") -->
-<!-- ) -->
-<!-- ``` -->
+```{r variables-question3, echo=FALSE}
+question("What kind of variable is `smoking_ban`?",
+  answer("Continuous"),
+  answer("Discrete"),
+  answer("Ordinal", correct = TRUE),
+  answer("Nominal")
+)
+```
 
-<!-- ```{r variables-question, echo=FALSE} -->
-<!-- question("What kind of variable is `pop2017`?", -->
-<!--   answer("Continuous"), -->
-<!--   answer("Discrete", correct = TRUE), -->
-<!--   answer("Ordinal"), -->
-<!--   answer("Nominal") -->
-<!-- ) -->
-<!-- ``` -->
+```{r variables-question4, echo=FALSE}
+question("What kind of variable is `pop2000`?",
+  answer("Continuous"),
+  answer("Discrete", correct = TRUE),
+  answer("Ordinal"),
+  answer("Nominal")
+)
+```
+
+### Relationships between variables
+Recall the following definitions:
+- **positive association**: when one variable increases, the other variable also increases
+- **negative association**: when one variable increases, the other variable decreases
+- **independent**: when two variables are not associated.
+
+
+In the console below plot any two variables which are positively associated in the `county` dataset:
+```{r county-positive-association, exercise=TRUE}
+
+```
+
+```{r county-positive-association-hint}
+ggplot(____, aes(x=____, y=____))
+  + geom_point()
+```
+
+In the console below plot any two variables which are positively associated in the `county` dataset:
+```{r county-negative-association, exercise=TRUE}
+
+```
+
+### Explanatory and Response Variables
+
+When we suspect one variable might causally affect another, we label the first variable the **explanatory variable** and the second the **response variable**. We also use the terms explanatory and response to describe variables where the response might be predicted using the explanatory even if there is no causal relationship.
+
+In console below, write down a research question about the relationship of two numerical variables in the `county` dataset. Write this as a comment. Remember you can use the `#` symbol to write comments in `R`. 
+
+```{r research-question, exercise=TRUE}
+
+```
+
+What is the explanatory and response variable in your research question?
+
+```{r research-exp-resp, exercise=TRUE}
+
+```
+
+Plot of the explanatory vs. the response variable below:
+
+```{r research-scatter, exercise=TRUE}
+
+```
+
+### Observational studies and experiments
+
+- **randomized experiment**: when indiviual are randomly assigned to a groups
+- **observational study**: when researchers do not directly interfere with how the data arise
 
 ## Marvel Cinematic Universe films
 
