@@ -890,11 +890,33 @@ Can this study be used to conclude a causal relationship between increased stres
 
 ## Submit
 
-```{r context="server"}
-learnrhash::encoder_logic()
+```{css echo=FALSE}
+@media print {
+  .topicsContainer,
+  .topicActions,
+  .exerciseActions .skip {
+    display: none;
+  }
+  .topics .tutorialTitle,
+  .topics .section.level2,
+  .topics .section.level3:not(.hide) {
+    display: block;
+  }
+  .topics {
+    width: 100%;
+  }
+  .tutorial-exercise, .tutorial-question {
+    page-break-inside: avoid;
+  }
+  .section.level3.done h3 {
+    padding-left: 0;
+    background-image: none;
+  }
+  .topics .showSkip .exerciseActions::before {
+    content: "Topic not yet completed...";
+    font-style: italic;
+  }
+}
 ```
 
-```{r encode, echo=FALSE}
-learnrhash::encoder_ui(ui_before = learnrhash::default_ui(url="https://forms.gle/EgGscjvpPDGJJDJZA"))
-```
 
