@@ -6,9 +6,316 @@ runtime: shiny_prerendered
 
 ```{r setup, include=FALSE}
 library(learnr)
+library(openintro)
+library(tidyverse)
+
+gradethis::gradethis_setup()
 knitr::opts_chunk$set(echo = FALSE)
+
+population2000 <- read_csv("../../../Datasets/gss2002.csv") %>% 
+  mutate_if(is.character, factor)                           
 ```
 
+## 2000 Presidential Election {data-progressive=TRUE}
+
+As a reminder, here is some vocabulary that may be useful for today's activity:
+
+* **population**: the group of items or events that you're interested in. Can be finite or infinite. May be hypothetical (e.g. all humans who have ever lived or will ever live).
+* **sample**: the data you have. Usually a small portion of the population. Ideally, looks like a smaller version of the population and has similar properties.
+* **census**: a sample of the whole population.
+* **bias**: we say a sample is **biased** if it doesn't resemble the population.
+* **simple random sampling**: a sample is chosen by randomly selecting cases from a population
+* **stratified sampling**: the population is divided into groups called **strata**. The strata are chosen so that similar cases are grouped together, then a second sampling method, usually simple random sampling, is employed within each stratum.
+* **cluster sampling**:  we break up the population into many groups, called clusters. Then we sample a fixed number of clusters and include all observations from each of those clusters in the sample.
+* **multistage sampling**: like a cluster sample, but rather than keeping all observations in each cluster, we would collect a random sample within each selected cluster.
+
+### Designing a poll
+
+![](images/chads.gif)
+
+From Wikipedia: The 2000 United States presidential election was the 54th quadrennial presidential election, held on Tuesday, November 7, 2000. Republican candidate George W. Bush, the governor of Texas and eldest son of the 41st president, George H. W. Bush, won the election, defeating incumbent Vice President Al Gore. It was the fourth of five American presidential elections, and the first since 1888, in which the winning candidate lost the popular vote, and is considered one of the closest elections in US history, with longstanding controversy surrounding the ultimate results.
+
+For today, I want us to step in our time machines, go back to the year 2000 and pretend that we're pollsters trying to predict the outcome of the election. 
+
+You've been divided into "polling firms" (i.e. groups). The first thing I want you to do with your group is decide on a name for your polling firm. 
+
+What is the population of interest in this scenario? Is it feasible to collect a *census* of the population?
+
+```{r population, exercise=TRUE}
+# Answer:
+```
+
+Take about 5 minutes to brainstorm how you would try and collect a sample to try an predict who would win the 2000 election. Try an use some vocabulary from above. Important things to consider:
+* What information (i.e. variables) would you want to collect about each individual?
+* What type of sampling would you use?
+* How much labor and expense would it take to collect this sample?
+* How will you try to eliminate bias in your sample?
+Use the console below to write down your answer and then copy it into padlet:
+
+```{r brainstorm, exercise=TRUE}
+# Answer:
+```
+
+### Working with data
+
+![One of George W. Bush's dog paintings](images/gwbdog.jpeg){width=50%}
+
+I've assembled a dataset, stored as `population2000` which has 100,000 observations and 5 variables. For now, let's pretend that this dataset contains the true underlying population (i.e. all voters in the 2000 election) and our goal is the estimate the proportion of voters who will vote for George "Dubya" Bush and what proportion will vote for Al Gore. The variables in the dataset are as follows:
+
+* *age*: the voter's age bucketed into equally sized levels `[18,36]`, `(36,53]`, `(53,89]`
+* *race*: the voter's race with levels `white`, `black of african american`, `american indian or alska native`, `asian or pacific islander`, `hispanic`, `other`
+* *degree*: the highest degree obtained by the voter with levels:
+  * `lt high school`: some high school
+  * `high school`: completed high school
+  * `junior college`: completed junior college
+  * `bachelor`: completed a bachelors degree
+  * `graduate`: completed a graduate degree
+* `provider`: the voter's phone provider with levels `Sprint`, `Comcast`, `Verizon`, `AT&T`, `Time Warner`
+* `pres00`: who they plan to vote for in the 2002 election. The variable has levels `gore`, `bush`, or `nader`
+
+### Population Proportions
+
+Let's first compute the true population proportion of voter's who plan to vote for Bush and Gore. To do that you must:
+1. Pipe `population2000` into the `count` function, making sure to count the variable `pres00`. This will create a new column `n` which contains the counts for each candidate.
+2. To get the proportions, pipe the output from the previous step into a `mutate` function and specify `prop = n/sum(n)` which will compute the proportion for each level.
+
+```{r bush-popprop, exercise=TRUE}
+
+```
+
+```{r bush-popprop-hint-1}
+____ %>%
+  ____(____) %>%
+  ____(____)
+```
+
+```{r bush-popprop-hint-2}
+____ %>%
+  count(____) %>%
+  mutate(____)
+```
+
+```{r bush-popprop-hint-3}
+population2000 %>%
+  count(pres00) %>%
+  mutate(prop = n / sum(n))
+```
+
+```{r bush-popprop-check}
+grade_result(
+  pass_if(~identical(.result, population2000 %>%
+  count(pres00) %>%
+  mutate(prop = n / sum(n))))
+)
+```
+
+### Simple Random Sample
+
+Now suppose that you only have enough funding to collect a sample of 300 voters. Take a simple random sample of 300 voters from `population2000`, and call it `pop2000_srs`:
+
+```{r srs-setup}
+set.seed(1988)
+```
+
+```{r srs, exercise=TRUE}
+
+```
+
+```{r srs-hint-1}
+# You may find the function `slice_sample` useful.
+```
+
+```{r srs-hint-2}
+pop2000_srs <- ____ %>%
+  ____(n = ____)
+```
+
+```{r srs-hint-3}
+pop2000_srs <- ____ %>%
+  slice_sample(n = ____)
+```
+
+```{r srs-hint-4}
+pop2000_srs <- population2000 %>%
+  slice_sample(n = 300)
+```
+
+```{r srs-check}
+set.seed(1988)
+grade_result(
+  pass_if(~identical(pop2000_srs, population2000 %>%
+  slice_sample(n = 300)))
+)
+```
+
+Now, using similar code as above, compute the sample proportion of voter's who plan to vote for Bush and Gore. To do that you must:
+1. Pipe `pop2000_srs` into the `count` function, making sure to count the variable `pres00`. This will create a new column `n` which contains the counts for each candidate.
+2. To get the proportions, pipe the output from the previous step into a `mutate` function and specify `prop = n/sum(n)` which will compute the proportion for each level.
+
+```{r srs-gen}
+set.seed(1988)
+pop2000_srs <- population2000 %>%
+  slice_sample(n = 300)
+```
+
+```{r srs-prop, exercise=TRUE, exercise.setup="srs-gen"}
+
+```
+
+```{r srs-prop-hint-1}
+____ %>%
+  ____(____) %>%
+  ____(____)
+```
+
+```{r srs-prop-hint-2}
+____ %>%
+  count(____) %>%
+  mutate(____)
+```
+
+```{r srs-prop-hint-3}
+pop2000_srs %>%
+  count(pres00) %>%
+  mutate(prop = n / sum(n))
+```
+
+```{r srs-prop-check}
+grade_result(
+  pass_if(~identical(.result, pop2000_srs %>%
+  count(pres00) %>%
+  mutate(prop = n / sum(n))))
+)
+  
+```
+
+### Using phone providers
+
+The way that your firm actually conducts your poll is by paying different phone providers for a list of numbers for you do dial. Suppose that you don't have enough money to pay all 5 telecom companies so you decide to randomly select 2 providers and conduct a simple random sample of size 150 in each. Assume that the properties of the population of voters that use each provider are very similar.
+
+```{r ms-q}
+question_radio(
+  "What type of sample is this?",
+  answer("Simple Random Sample"),
+  answer("Stratified Sample"),
+  answer("Cluser Sample", message="Very close! This would be a cluster sample if we were to survey all of the voters for the selected providers."),
+  answer("Multistage Sample", correct=TRUE, message="Correct! This is a multistage sample since we first select a sample of providers and then a simple random sample of voters belonging to each provider.")
+)
+```
+
+### Multistage Sampling
+
+We have made the assumption that those using each provider are very similar. Below, brainstorm some reasons why this may not be true and then post those reasons in the padlet.
+
+```{r not-similar, exercise=TRUE}
+# Brainstorm: 
+```
+
+The code below will randomly select a sample of 2 providers. The `level` function get's the levels of the `provider` variable and the `sample` function takes a random sample of the input vector. Feel free to use `?` to look up the help files on these function. Remember that you can select a column by name by putting `$` between the name of the data frame and the name of the column.
+
+```{r select-providers-setup}
+set.seed(2000)
+```
+
+```{r select-providers, exercise=TRUE}
+sample(levels(population2000$provider), size=2)
+```
+
+As we can see we're surveying customers of Verizon and Time Warner. In the console, the pre-populated code generates a data frame called `pop2000_verizon_tw` which contains only customers of Verizon and Time Warner. Note that `==` tests whether two things are equal and `|` stands for a [logical "or"](https://en.wikipedia.org/wiki/Logical_disjunction). Create a data frame containing counts of Bush and Gore voters within each cluster. To do this:
+1. Collect a simple random sample of size 150 from each by piping `pop2000_verizon_tw` into the function `group_by`. Make sure to group by provider.
+2. Pipe the result into the `slice_sample` function. Make sure to specify the sample size.
+3. Pipe the result into `ungroup`. We haven't learned this function yet. We do this because so that when we eventually compute the proportion of voters who plan on voting for each candidate, it won't aggregate by `provider`.
+3. Store the result in a data frame called `pop2000_provider_srs`.
+
+```{r providers-srs-setup}
+set.seed(5001)
+```
+
+```{r providers-srs, exercise=TRUE}
+pop2000_verizon_tw <- population2000 %>%
+  filter(provider == "Verizon" | provider == "Time Warner")
+
+# Add code below:
+
+
+# Add code above. The line below will print out your result
+glimpse(pop2000_provider_srs)
+```
+
+```{r providers-srs-hint-1}
+pop2000_provider_srs <- _____ %>%
+  _____(_____) %>%
+  _____(_____) %>%
+  _____
+```
+
+```{r providers-srs-hint-2}
+pop2000_provider_srs <- pop2000_verizon_tw %>%
+  group_by(_____) %>%
+  slice_sample(_____) %>%
+  ungroup()
+```
+
+```{r providers-srs-hint-3}
+pop2000_provider_srs <- pop2000_verizon_tw %>%
+  group_by(provider) %>%
+  slice_sample(n=150) %>%
+  ungroup()
+```
+
+```{r providers-srs-check}
+set.seed(5001)
+grade_result(
+  pass_if(~identical(pop2000_provider_srs, pop2000_verizon_tw %>%
+  group_by(provider) %>%
+  slice_sample(n=150) %>%
+  ungroup()))
+)
+```
+
+Compute the proportion of voters in `pop2000_provider_srs` who plan on voting for Gore and Bush in the console below:
+
+```{r providers-prop-setup}
+set.seed(5001)
+
+pop2000_verizon_tw <- population2000 %>%
+  filter(provider == "Verizon" | provider == "Time Warner")
+
+pop2000_provider_srs <- pop2000_verizon_tw %>%
+  group_by(provider) %>%
+  slice_sample(n=150) %>%
+  ungroup()
+```
+
+```{r providers-prop, exercise=TRUE}
+
+```
+
+```{r providers-prop-hint-1}
+_____ %>%
+  count(_____) %>%
+  mutate(_____)
+```
+
+```{r providers-prop-hint-2}
+pop2000_provider_srs %>%
+  count(pres00) %>%
+  mutate(prop = n / sum(n))
+```
+
+```{r providers-prop-check}
+grade_result(
+  pass_if(~identical(.result, pop2000_provider_srs %>%
+  count(pres00) %>%
+  mutate(prop = n / sum(n))))
+)
+```
+
+Would you expect this sampling scheme to be more or less accurate than a simple random sample? Why? Enter your answer below and then copy that into the padlet:
+
+```{r multi-accurate, exercise=TRUE}
+# Answer:
+```
 
 ## Sample and Population Questions
 
