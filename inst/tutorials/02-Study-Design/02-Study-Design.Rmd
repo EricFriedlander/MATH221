@@ -426,7 +426,7 @@ grade_result(
 
 ### Using race
 
-Your polling firm as done further research and has found that people's voting behaviors vary even more based on their race. The problem is that there aren't an equal number of voters of each race. Below brainstorm how you might generate a sample that is representative of the population and ways you might go about creating an unbiased estime of the proportion of voters who vote for each cadidate. Please then post this in the padlet.
+Your polling firm as done further research and has found that people's voting behaviors vary even more based on their race. The problem is that there aren't an equal number of voters of each race. Below brainstorm how you might generate a sample that is representative of the population and ways you might go about creating an unbiased estimate of the proportion of voters who vote for each cadidate. Please then post this in the padlet.
 
 ```{r race-brainstorm, exercise=TRUE}
 # Brainstorm: 
