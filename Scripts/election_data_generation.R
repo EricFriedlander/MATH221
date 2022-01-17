@@ -5,11 +5,11 @@ gss2002_all <- gss_get_yr(2002)
 
 gss2002 <- gss2002_all %>%
   mutate(
-    race = as_factor(racecen1),
+    # race = as_factor(racecen1),
     age = cut_number(age, n=3),
-    degree = as_factor(degree),
+    # degree = as_factor(degree),
     region = as_factor(region)) %>%
-  select(c(age, race, degree, pres00)) %>%
+  select(c(age, pres00)) %>%
   filter(pres00 == 1 | pres00== 2 | pres00 == 3) %>%
   mutate(pres00 = as_factor(pres00),
          race = fct_collapse(race,

@@ -62,14 +62,14 @@ Use the console below to write down your answer and then copy it into padlet:
 
 I've assembled a dataset, stored as `population2000` which has 100,000 observations and 5 variables. For now, let's pretend that this dataset contains the true underlying population (i.e. all voters in the 2000 election) and our goal is the estimate the proportion of voters who will vote for George "Dubya" Bush and what proportion will vote for Al Gore. The variables in the dataset are as follows:
 
-* *age*: the voter's age bucketed into equally sized levels `[18,36]`, `(36,53]`, `(53,89]`
-* *race*: the voter's race with levels `white`, `black of african american`, `american indian or alska native`, `asian or pacific islander`, `hispanic`, `other`
-* *degree*: the highest degree obtained by the voter with levels:
-  * `lt high school`: some high school
-  * `high school`: completed high school
-  * `junior college`: completed junior college
-  * `bachelor`: completed a bachelors degree
-  * `graduate`: completed a graduate degree
+* `age`: the voter's age bucketed into equally sized levels `[18,36]`, `(36,53]`, `(53,89]`
+<!-- * `race`: the voter's race with levels `white`, `black of african american`, `american indian or alska native`, `asian or pacific islander`, `hispanic`, `other` -->
+<!-- * *degree*: the highest degree obtained by the voter with levels: -->
+<!--   * `lt high school`: some high school -->
+<!--   * `high school`: completed high school -->
+<!--   * `junior college`: completed junior college -->
+<!--   * `bachelor`: completed a bachelors degree -->
+<!--   * `graduate`: completed a graduate degree -->
 * `provider`: the voter's phone provider with levels `Sprint`, `Comcast`, `Verizon`, `AT&T`, `Time Warner`
 * `pres00`: who they plan to vote for in the 2002 election. The variable has levels `gore`, `bush`, or `nader`
 
@@ -114,7 +114,7 @@ grade_result(
 Now suppose that you only have enough funding to collect a sample of 300 voters. Take a simple random sample of 300 voters from `population2000`, and call it `pop2000_srs`:
 
 ```{r srs-setup}
-set.seed(1988)
+set.seed(1989)
 ```
 
 ```{r srs, exercise=TRUE}
@@ -141,7 +141,7 @@ pop2000_srs <- population2000 %>%
 ```
 
 ```{r srs-check}
-set.seed(1988)
+set.seed(1989)
 grade_result(
   pass_if(~identical(pop2000_srs, population2000 %>%
   slice_sample(n = 300)))
@@ -153,7 +153,7 @@ Now, using similar code as above, compute the sample proportion of voter's who p
 2. To get the proportions, pipe the output from the previous step into a `mutate` function and specify `prop = n/sum(n)` which will compute the proportion for each level.
 
 ```{r srs-gen}
-set.seed(1988)
+set.seed(1989)
 pop2000_srs <- population2000 %>%
   slice_sample(n = 300)
 ```
@@ -198,8 +198,9 @@ question_radio(
   "What type of sample is this?",
   answer("Simple Random Sample"),
   answer("Stratified Sample"),
-  answer("Cluser Sample", message="Very close! This would be a cluster sample if we were to survey all of the voters for the selected providers."),
-  answer("Multistage Sample", correct=TRUE, message="Correct! This is a multistage sample since we first select a sample of providers and then a simple random sample of voters belonging to each provider.")
+  answer("Cluster Sample", message="Very close! This would be a cluster sample if we were to survey all of the voters for the selected providers."),
+  answer("Multistage Sample", correct=TRUE, message="Correct! This is a multistage sample since we first select a sample of providers and then a simple random sample of voters belonging to each provider."),
+               allow_retry = TRUE
 )
 ```
 
@@ -316,6 +317,121 @@ Would you expect this sampling scheme to be more or less accurate than a simple 
 ```{r multi-accurate, exercise=TRUE}
 # Answer:
 ```
+
+### Using age
+
+Your polling firm as done some research and has found that people's voting behaviors greatly vary based on their age. As a result, when you create your sample, you want to make sure that the sample you collect accurately represents the distribution of ages in the population. The variable `age` contains three age buckets with a (roughly) equal number of voters. To assemble your sample, you plan to select 100 voters from each bucket.
+
+```{r strat-q}
+question_radio(
+  "What type of sample is this?",
+  answer("Simple Random Sample"),
+  answer("Stratified Sample", correct=TRUE),
+  answer("Cluster Sample"),
+  answer("Multistage Sample"),
+               allow_retry = TRUE
+)
+```
+
+### Stratified Sampling
+
+In the console below assemble a sample of 300 voters by selecting 100 from each age bucket. You can reuse some of the code above when we generated a sample of 150 from two different telecome providers. Call the new data frame `pop2000_strat`:
+
+```{r strat-gen-setup}
+set.seed(2020)
+```
+
+```{r strat-gen, exercise=TRUE}
+pop2000_strat <-
+```
+
+```{r strat-gen-hint-1}
+# 1. Pipe population2000 into a group_by function (make sure to group by age)
+# 2. Pipe this result into a slice_sample function (make sure to select the correct sample size)
+# 3. Pipe this result into an ungroup function
+```
+
+```{r strat-gen-hint-2}
+pop2000_strat <- _____ %>%
+  _____(_____) %>%
+  _____(_____) %>%
+  _____
+```
+
+```{r strat-gen-hint-3}
+pop2000_strat <- population2000 %>%
+  group_by(_____) %>%
+  slice_sample(_____) %>%
+  ungroup()
+```
+
+```{r strat-gen-hint-4}
+pop2000_strat <- population2000 %>%
+  group_by(age) %>%
+  slice_sample(n = 100) %>%
+  ungroup()
+```
+
+```{r strat-gen-check}
+set.seed(2020)
+
+grade_result(
+  pass_if(~identical(pop2000_strat, population2000 %>%
+  group_by(age) %>%
+  slice_sample(n = 100) %>%
+  ungroup()))
+)
+```
+
+Finally compute the proportion of voters who plan on voting for each candidate in this new stratified sample:
+
+```{r strat-prop-setup}
+set.seed(2020)
+
+pop2000_strat <- population2000 %>%
+  group_by(age) %>%
+  slice_sample(n = 100) %>%
+  ungroup()
+```
+
+```{r strat-prop, exercise=TRUE}
+
+```
+
+```{r strat-prop-hint-1}
+_____ %>%
+  _____(_____) %>%
+  _____(_____)
+```
+
+```{r strat-prop-hint-2}
+pop2000_strat %>%
+  count(_____) %>%
+  mutate(_____)
+```
+
+```{r strat-prop-hint-3}
+pop2000_strat %>%
+  count(pres00) %>%
+  mutate(prop = n / sum(n))
+```
+
+```{r strat-prop-check}
+grade_result(
+  pass_if(~identical(.result, pop2000_strat %>%
+  count(pres00) %>%
+  mutate(prop = n / sum(n))))
+)
+```
+
+### Using race
+
+Your polling firm as done further research and has found that people's voting behaviors vary even more based on their race. The problem is that there aren't an equal number of voters of each race. Below brainstorm how you might generate a sample that is representative of the population and ways you might go about creating an unbiased estime of the proportion of voters who vote for each cadidate. Please then post this in the padlet.
+
+```{r race-brainstorm, exercise=TRUE}
+# Brainstorm: 
+```
+
 
 ## Sample and Population Questions
 
@@ -507,6 +623,7 @@ question_checkbox("Select each method which is reasonable.",
 ```
 
 
+
 ## Haters are gonna hate, study confirms. 
 
 A study published in the Journal of Personality and Social Psychology asked a group of 200 randomly sampled participants recruited online using Amazon’s Mechanical Turk to evaluate how they felt about various subjects, such as camping, health care, architecture, taxidermy, crossword puzzles, and Japan in order to measure their attitude towards mostly independent stimuli. Then, they presented the participants with information about a new product: a microwave oven. This microwave oven does not exist, but the participants didn’t know this, and were given three positive and three negative fake reviews. People who reacted positively to the subjects on the dispositional attitude measurement also tended to react positively to the microwave oven, and those who reacted negatively tended to react negatively to it. Researchers concluded that “some people tend to like things, whereas others tend to dislike things, and a more thorough understanding of this tendency will lead to a more thorough understanding of the psychology of attitudes.” (Hepler and Albarracı́n 2013)
@@ -557,7 +674,8 @@ quiz(
                  allow_retry = TRUE),
   question_radio("Can the results of the study be generalized to the population at large?",
                  answer("Yes", message="The results of the study can be generalized to the population at large since the sample is random.", correct=TRUE),
-                 answer("No", message="The results of the study can be generalized to the population at large since the sample is random."))
+                 answer("No", message="The results of the study can be generalized to the population at large since the sample is random."),
+               allow_retry = TRUE)
 )
 ```
 
@@ -569,7 +687,8 @@ A researcher is interested in the effects of exercise on mental health, and they
 ```{r exercise-q1, echo=FALSE}
 question_radio("What type of study is this?",
                answer("Experiement", correct=TRUE),
-               answer("Observational Study"))
+               answer("Observational Study"),
+               allow_retry = TRUE)
 ```
 
 
@@ -681,4 +800,50 @@ Sample the 200 households closest to the city council offices.
 # Answer: Convenience sampling. This is not an effective method since it will result in a biased sample for households that are similar to each other (in the same neighborhood) and the sample will not contain any houses from neighborhoods far from the city council offices.
 ```
 
+## Submit
 
+```{css echo=FALSE}
+@media print {
+  .topicsContainer,
+  .topicActions,
+  .exerciseActions .skip {
+    display: none;
+  }
+  .topics .tutorialTitle,
+  .topics .section.level2,
+  .topics .section.level3:not(.hide) {
+    display: block;
+  }
+  .topics {
+    width: 100%;
+  }
+  .tutorial-exercise, .tutorial-question {
+    page-break-inside: avoid;
+  }
+  .section.level3.done h3 {
+    padding-left: 0;
+    background-image: none;
+  }
+  .topics .showSkip .exerciseActions::before {
+    content: "Topic not yet completed...";
+    font-style: italic;
+  }
+}
+```
+
+Make sure you have the tutorial open in a brower (preferably Google Chrome). Please press `print page` button below to print the tutorial. Make sure to print it to a `pdf` file and upload it into Moodle.
+
+```{js print2pdf1, context="server"}
+    // the following 2 chunks print the completed sections of the tutorial to PDF
+    // uses "css/print2pdf.css"
+    $(document).on('shiny:inputchanged', function(event) {
+      if (event.name === 'print2pdf') {
+        window.print();
+      }
+    });
+    ```
+    
+```{r print2pdf2}
+    # button can be placed anywhere in the tutorial
+    actionButton("print2pdf", "Print page", style="opacity: .7; color: #000;")
+```
