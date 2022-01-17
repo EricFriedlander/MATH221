@@ -24,6 +24,8 @@ As a reminder, here is some vocabulary that may be useful for today's activity:
 * **sample**: the data you have. Usually a small portion of the population. Ideally, looks like a smaller version of the population and has similar properties.
 * **census**: a sample of the whole population.
 * **bias**: we say a sample is **biased** if it doesn't resemble the population.
+* **parameter**: a number calculated from the whole population
+* **statistic**: a number calculated from a sample of data
 * **simple random sampling**: a sample is chosen by randomly selecting cases from a population
 * **stratified sampling**: the population is divided into groups called **strata**. The strata are chosen so that similar cases are grouped together, then a second sampling method, usually simple random sampling, is employed within each stratum.
 * **cluster sampling**:  we break up the population into many groups, called clusters. Then we sample a fixed number of clusters and include all observations from each of those clusters in the sample.
