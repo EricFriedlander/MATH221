@@ -2,7 +2,7 @@
 title: "Lesson 1-Hello Data"
 output: 
   learnr::tutorial:
-    progressive: true
+    progressive: false
 runtime: shiny_prerendered
 ---
 
@@ -101,7 +101,7 @@ grade_result(
 )
 ```
 
-Use R as a calculator to compute the proportion of those in the control group who had a stroke:
+For the new dataset, use R as a calculator to compute the proportion of those in the control group who had a stroke:
 ```{r stent365-calculator1, exercise=TRUE}
 
 ```
@@ -112,7 +112,7 @@ grade_result(
 )
 ```
 
-Use R as a calculator to compute the proportion of those in the treatment group who had a stroke:
+for the new dataset, use R as a calculator to compute the proportion of those in the treatment group who had a stroke:
 ```{r stent365-calculator2, exercise=TRUE}
 
 ```
@@ -123,7 +123,7 @@ grade_result(
 )
 ```
 
-In your group discuss your results. What can we say we about how whether the use of stents prevent strokes?
+In your group discuss your results. What can we say we about how whether the use of stents prevent strokes? Please put your answers in [this padlet](https://padlet.com/ericfriedlander/br43evrbgtnblwa).
 
 
 ## Data Basics
@@ -267,7 +267,7 @@ Recall the following definitions:
 * **independent**: when two variables are not associated.
 
 
-In the console below plot any two variables which are positively associated in the `county` dataset:
+In the console below plot any two variables which are positively associated in the `county` data set. Then write down these two variables in the [padlet](https://padlet.com/ericfriedlander/br43evrbgtnblwa).
 ```{r county-positive-association, exercise=TRUE}
 
 ```
@@ -277,7 +277,7 @@ ggplot(____, aes(x=____, y=____)) +
   geom_point()
 ```
 
-In the console below plot any two variables which are negatively associated in the `county` dataset:
+In the console below plot any two variables which are negatively associated in the `county` data set. Then write down these two variables in the [padlet](https://padlet.com/ericfriedlander/br43evrbgtnblwa).
 ```{r county-negative-association, exercise=TRUE}
 
 ```
@@ -308,6 +308,8 @@ Plot of the explanatory vs. the response variable below:
 
 * **randomized experiment**: when indiviual are randomly assigned to a groups
 * **observational study**: when researchers do not directly interfere with how the data arise
+
+# Homework
 
 ## Marvel Cinematic Universe films
 
@@ -377,52 +379,52 @@ What are the variables in the study? Identify each variable as numerical or cate
 # stations as well as length of gestation. Continuous numerical variables.
 ```
 
-## Gamification and statistics, study components {data-progressive=TRUE}
+<!-- ## Gamification and statistics, study components {data-progressive=TRUE} -->
 
-Gamification is the application of game-design elements and game principles in non-game contexts. In educational settings, gamification is often implemented as educational activities to solve problems by using characteristics of game elements. Researchers investigating the effects of gamification on learning statistics conducted a study where they split college students in a statistics class into four groups: (1) no reading exercises and no gamification, (2) reading exercises but no gamification, (3) gamification but no reading exercises, and (4) gamification and reading exercises. Students in all groups also attended lectures. Students in the class were from two majors: Electrical and Computer Engineering (n = 279) and Business Administration (n = 86). After their assigned learning experience, each student took a final evaluation comprised of 30 multiple choice question and their score was measured as the number of questions they answered correctly. The researchers considered students’ gender, level of studies (first through fourth year) and academic major. Other variables considered were expertise in the English language and use of personal computers and games, both of which were measured on a scale of 1 (beginner) to 5 (proficient). The study found that gamification had a positive effect on student learning compared to traditional teaching methods involving lectures and reading exercises. They also found that the effect was larger for females and Engineering students. (Legaki et al. 2020)
+<!-- Gamification is the application of game-design elements and game principles in non-game contexts. In educational settings, gamification is often implemented as educational activities to solve problems by using characteristics of game elements. Researchers investigating the effects of gamification on learning statistics conducted a study where they split college students in a statistics class into four groups: (1) no reading exercises and no gamification, (2) reading exercises but no gamification, (3) gamification but no reading exercises, and (4) gamification and reading exercises. Students in all groups also attended lectures. Students in the class were from two majors: Electrical and Computer Engineering (n = 279) and Business Administration (n = 86). After their assigned learning experience, each student took a final evaluation comprised of 30 multiple choice question and their score was measured as the number of questions they answered correctly. The researchers considered students’ gender, level of studies (first through fourth year) and academic major. Other variables considered were expertise in the English language and use of personal computers and games, both of which were measured on a scale of 1 (beginner) to 5 (proficient). The study found that gamification had a positive effect on student learning compared to traditional teaching methods involving lectures and reading exercises. They also found that the effect was larger for females and Engineering students. (Legaki et al. 2020) -->
 
-Identify the main research question of the study. Enter it below as a comment, this will not be graded. You can click `solution` for the correct solution.
+<!-- Identify the main research question of the study. Enter it below as a comment, this will not be graded. You can click `solution` for the correct solution. -->
 
-```{r RQ2, exercise=TRUE, exercise.cap="Answer"}
-# Answer:
-```
+<!-- ```{r RQ2, exercise=TRUE, exercise.cap="Answer"} -->
+<!-- # Answer: -->
+<!-- ``` -->
 
-```{r RQ2-solution}
-# What is the effect of gamification on learning outcomes compared to traditional teaching methods?
-```
+<!-- ```{r RQ2-solution} -->
+<!-- # What is the effect of gamification on learning outcomes compared to traditional teaching methods? -->
+<!-- ``` -->
 
-```{r game-subjects, echo=FALSE}
-question_numeric(
-  "How many subjects did this study include are included?",
-  answer(365, correct = TRUE),
-  allow_retry = TRUE
-)
-```
+<!-- ```{r game-subjects, echo=FALSE} -->
+<!-- question_numeric( -->
+<!--   "How many subjects did this study include are included?", -->
+<!--   answer(365, correct = TRUE), -->
+<!--   allow_retry = TRUE -->
+<!-- ) -->
+<!-- ``` -->
 
-Who were the subjects of this study?  Enter it below as a comment, this will not be graded. You can click `solution` for the correct solution.
-```{r game-subjects2, exercise=TRUE, exercise.cap="Answer"}
-# Answer:
-```
+<!-- Who were the subjects of this study?  Enter it below as a comment, this will not be graded. You can click `solution` for the correct solution. -->
+<!-- ```{r game-subjects2, exercise=TRUE, exercise.cap="Answer"} -->
+<!-- # Answer: -->
+<!-- ``` -->
 
-```{r game-subjects2-solution}
-# Answer:  College students taking a statistics course
-```
+<!-- ```{r game-subjects2-solution} -->
+<!-- # Answer:  College students taking a statistics course -->
+<!-- ``` -->
 
-What are the variables in the study? Identify each variable as numerical or categorical. If numerical, state whether the variable is discrete or continuous. If categorical, state whether the variable is ordinal.
+<!-- What are the variables in the study? Identify each variable as numerical or categorical. If numerical, state whether the variable is discrete or continuous. If categorical, state whether the variable is ordinal. -->
 
-```{r game-variables, exercise=TRUE, exercise.cap="Answer"}
-# Answer: 
-```
+<!-- ```{r game-variables, exercise=TRUE, exercise.cap="Answer"} -->
+<!-- # Answer:  -->
+<!-- ``` -->
 
-```{r game-variables-solution}
-# Gender (categorical) 
-# level of studies (categorical, ordinal)
-# academic major (categorical)
-# expertise in English language (categorical, ordinal)
-# use of personal computers and games (categorical, ordinal)
-# treatment group (categorical)
-# score (numerical, discrete).
-```
+<!-- ```{r game-variables-solution} -->
+<!-- # Gender (categorical)  -->
+<!-- # level of studies (categorical, ordinal) -->
+<!-- # academic major (categorical) -->
+<!-- # expertise in English language (categorical, ordinal) -->
+<!-- # use of personal computers and games (categorical, ordinal) -->
+<!-- # treatment group (categorical) -->
+<!-- # score (numerical, discrete). -->
+<!-- ``` -->
 
 ## Migraine and acupunture {data-progressive=TRUE}
 A migraine is a particularly painful type of headache, which patients sometimes wish to treat with acupuncture. To determine whether acupuncture relieves migraine pain, researchers conducted a randomized controlled study where 89 individuals who identified as female diagnosed with migraine headaches were randomly assigned to one of two groups: treatment or control. Forty-three (43) patients in the treatment group received acupuncture that is specifically designed to treat migraines. Forty-six (46) patients in the control group received placebo acupuncture (needle insertion at non-acupoint locations). Twenty-four (24) hours after patients received acupuncture, they were asked if they were pain free. Results are summarized in the contingency table below. Also provided is a figure from the original paper displaying the appropriate area (M) versus the inappropriate area (S) used in the treatment of migraine attacks. (Allais et al. 2011)
@@ -683,109 +685,109 @@ question_radio(
 )
 ```
 
-## Smoking habits of UK Residents
+<!-- ## Smoking habits of UK Residents -->
 
-A survey was conducted to study the smoking habits of 1,691 UK residents.The data frame `smoking` contains the data collected in this survey. A blank cell or `NA` indicates that data for that variable was not available for a given respondent.
+<!-- A survey was conducted to study the smoking habits of 1,691 UK residents.The data frame `smoking` contains the data collected in this survey. A blank cell or `NA` indicates that data for that variable was not available for a given respondent. -->
 
-Use the following console to answer the questions below:
+<!-- Use the following console to answer the questions below: -->
 
-```{r smoking-console, exercise=TRUE}
+<!-- ```{r smoking-console, exercise=TRUE} -->
 
-```
+<!-- ``` -->
 
-What does each row of the data frame represent:
-```{r smoking-rows, exercise=TRUE, exercise.cap="Answer"}
-# Answer: 
-```
+<!-- What does each row of the data frame represent: -->
+<!-- ```{r smoking-rows, exercise=TRUE, exercise.cap="Answer"} -->
+<!-- # Answer:  -->
+<!-- ``` -->
 
-```{r smoking-rows-solution, exercise.cap="Answer"}
-# Answer: Each row of the data frame represents a participant in the survey.
-```
+<!-- ```{r smoking-rows-solution, exercise.cap="Answer"} -->
+<!-- # Answer: Each row of the data frame represents a participant in the survey. -->
+<!-- ``` -->
 
-```{r smoking-num-participants, echo=FALSE}
-question_numeric(
-  "How many participants were included in the survey?",
-  answer(1691, correct=TRUE)
-)
-```
+<!-- ```{r smoking-num-participants, echo=FALSE} -->
+<!-- question_numeric( -->
+<!--   "How many participants were included in the survey?", -->
+<!--   answer(1691, correct=TRUE) -->
+<!-- ) -->
+<!-- ``` -->
 
-For each variable listed below, indicate its type. Make sure to look at the metadata for this dataset:
-```{r smoking-type1, echo=FALSE}
-question_radio(
-  "sex",
-  answer("Numeric, continuous", correct=FALSE),
-         answer("Numeric, discrete", correct=FALSE),
-         answer("Categorical, ordinal", correct=FALSE),
-         answer("Categorical, nominal", correct=TRUE),
-         allow_retry = TRUE
-)
-```
+<!-- For each variable listed below, indicate its type. Make sure to look at the metadata for this dataset: -->
+<!-- ```{r smoking-type1, echo=FALSE} -->
+<!-- question_radio( -->
+<!--   "sex", -->
+<!--   answer("Numeric, continuous", correct=FALSE), -->
+<!--          answer("Numeric, discrete", correct=FALSE), -->
+<!--          answer("Categorical, ordinal", correct=FALSE), -->
+<!--          answer("Categorical, nominal", correct=TRUE), -->
+<!--          allow_retry = TRUE -->
+<!-- ) -->
+<!-- ``` -->
 
-```{r smoking-type2, echo=FALSE}
-question_radio(
-  "age",
-  answer("Numeric, continuous", correct=TRUE),
-         answer("Numeric, discrete", correct=FALSE, message="Even though the data is rounded to whole years age is continuous."),
-         answer("Categorical, ordinal", correct=FALSE),
-         answer("Categorical, nominal", correct=FALSE),
-         allow_retry = TRUE
-)
-```
+<!-- ```{r smoking-type2, echo=FALSE} -->
+<!-- question_radio( -->
+<!--   "age", -->
+<!--   answer("Numeric, continuous", correct=TRUE), -->
+<!--          answer("Numeric, discrete", correct=FALSE, message="Even though the data is rounded to whole years age is continuous."), -->
+<!--          answer("Categorical, ordinal", correct=FALSE), -->
+<!--          answer("Categorical, nominal", correct=FALSE), -->
+<!--          allow_retry = TRUE -->
+<!-- ) -->
+<!-- ``` -->
 
-```{r smoking-type3, echo=FALSE}
-question_radio(
-  "martial_status",
-  answer("Numeric, continuous", correct=FALSE),
-         answer("Numeric, discrete", correct=FALSE),
-         answer("Categorical, ordinal", correct=FALSE),
-         answer("Categorical, nominal", correct=TRUE),
-         allow_retry = TRUE
-)
-```
+<!-- ```{r smoking-type3, echo=FALSE} -->
+<!-- question_radio( -->
+<!--   "martial_status", -->
+<!--   answer("Numeric, continuous", correct=FALSE), -->
+<!--          answer("Numeric, discrete", correct=FALSE), -->
+<!--          answer("Categorical, ordinal", correct=FALSE), -->
+<!--          answer("Categorical, nominal", correct=TRUE), -->
+<!--          allow_retry = TRUE -->
+<!-- ) -->
+<!-- ``` -->
 
-```{r smoking-type4, echo=FALSE}
-question_radio(
-  "gross_income",
-  answer("Numeric, continuous", correct=FALSE, message="Make sure you use the `?` command to read the metadata about this dataset."),
-         answer("Numeric, discrete", correct=FALSE,  message="Make sure you use the `?` command to read the metadata about this dataset."),
-         answer("Categorical, ordinal", correct=TRUE),
-         answer("Categorical, nominal", correct=FALSE),
-         allow_retry = TRUE
-)
-```
+<!-- ```{r smoking-type4, echo=FALSE} -->
+<!-- question_radio( -->
+<!--   "gross_income", -->
+<!--   answer("Numeric, continuous", correct=FALSE, message="Make sure you use the `?` command to read the metadata about this dataset."), -->
+<!--          answer("Numeric, discrete", correct=FALSE,  message="Make sure you use the `?` command to read the metadata about this dataset."), -->
+<!--          answer("Categorical, ordinal", correct=TRUE), -->
+<!--          answer("Categorical, nominal", correct=FALSE), -->
+<!--          allow_retry = TRUE -->
+<!-- ) -->
+<!-- ``` -->
 
-```{r smoking-type5, echo=FALSE}
-question_radio(
-  "smoke",
-  answer("Numeric, continuous", correct=FALSE),
-         answer("Numeric, discrete", correct=FALSE),
-         answer("Categorical, ordinal", correct=FALSE),
-         answer("Categorical, nominal", correct=TRUE),
-         allow_retry = TRUE
-)
-```
+<!-- ```{r smoking-type5, echo=FALSE} -->
+<!-- question_radio( -->
+<!--   "smoke", -->
+<!--   answer("Numeric, continuous", correct=FALSE), -->
+<!--          answer("Numeric, discrete", correct=FALSE), -->
+<!--          answer("Categorical, ordinal", correct=FALSE), -->
+<!--          answer("Categorical, nominal", correct=TRUE), -->
+<!--          allow_retry = TRUE -->
+<!-- ) -->
+<!-- ``` -->
 
-```{r smoking-type6, echo=FALSE}
-question_radio(
-  "amt_weekends",
-  answer("Numeric, continuous", correct=FALSE),
-         answer("Numeric, discrete", correct=TRUE),
-         answer("Categorical, ordinal", correct=FALSE),
-         answer("Categorical, nominal", correct=FALSE),
-         allow_retry = TRUE
-)
-```
+<!-- ```{r smoking-type6, echo=FALSE} -->
+<!-- question_radio( -->
+<!--   "amt_weekends", -->
+<!--   answer("Numeric, continuous", correct=FALSE), -->
+<!--          answer("Numeric, discrete", correct=TRUE), -->
+<!--          answer("Categorical, ordinal", correct=FALSE), -->
+<!--          answer("Categorical, nominal", correct=FALSE), -->
+<!--          allow_retry = TRUE -->
+<!-- ) -->
+<!-- ``` -->
 
-```{r smoking-type7, echo=FALSE}
-question_radio(
-  "amt_weekdays",
-  answer("Numeric, continuous", correct=FALSE),
-         answer("Numeric, discrete", correct=TRUE),
-         answer("Categorical, ordinal", correct=FALSE),
-         answer("Categorical, nominal", correct=FALSE),
-         allow_retry = TRUE
-)
-```
+<!-- ```{r smoking-type7, echo=FALSE} -->
+<!-- question_radio( -->
+<!--   "amt_weekdays", -->
+<!--   answer("Numeric, continuous", correct=FALSE), -->
+<!--          answer("Numeric, discrete", correct=TRUE), -->
+<!--          answer("Categorical, ordinal", correct=FALSE), -->
+<!--          answer("Categorical, nominal", correct=FALSE), -->
+<!--          allow_retry = TRUE -->
+<!-- ) -->
+<!-- ``` -->
 
 
 ## Stanford Open Policing
@@ -867,26 +869,26 @@ question_radio("Is the relationship positive or negative?",
 
 
 
-## Stressed out in an elevator
+<!-- ## Stressed out in an elevator -->
 
-In a study evaluating the relationship between stress and muscle cramps, half the subjects are randomly assigned to be exposed to increased stress by being placed into an elevator that falls rapidly and stops abruptly and the other half are left at no or baseline stress.
+<!-- In a study evaluating the relationship between stress and muscle cramps, half the subjects are randomly assigned to be exposed to increased stress by being placed into an elevator that falls rapidly and stops abruptly and the other half are left at no or baseline stress. -->
 
-```{r elevator-type, echo=FALSE}
-question_radio("What type of study is this?",
-         answer("Observational study"),
-         answer("Experiment", correct=TRUE),
-         allow_retry = TRUE
-)
-```
+<!-- ```{r elevator-type, echo=FALSE} -->
+<!-- question_radio("What type of study is this?", -->
+<!--          answer("Observational study"), -->
+<!--          answer("Experiment", correct=TRUE), -->
+<!--          allow_retry = TRUE -->
+<!-- ) -->
+<!-- ``` -->
 
-Can this study be used to conclude a causal relationship between increased stress and muscle cramps?
-```{r elevator-cause, exercise=TRUE, exercise.cap="Answer"}
-# Answer:
-```
+<!-- Can this study be used to conclude a causal relationship between increased stress and muscle cramps? -->
+<!-- ```{r elevator-cause, exercise=TRUE, exercise.cap="Answer"} -->
+<!-- # Answer: -->
+<!-- ``` -->
 
-```{r elevator-cause-solution}
-# Answer: Yes, since the study is an experiment, we can infer causation.
-```
+<!-- ```{r elevator-cause-solution} -->
+<!-- # Answer: Yes, since the study is an experiment, we can infer causation. -->
+<!-- ``` -->
 
 ## Submit
 
