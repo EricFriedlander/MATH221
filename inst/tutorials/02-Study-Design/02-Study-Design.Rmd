@@ -12,7 +12,7 @@ library(tidyverse)
 gradethis::gradethis_setup()
 knitr::opts_chunk$set(echo = FALSE)
 
-population2000 <- read_csv("../../../Datasets/gss2002.csv") %>% 
+population2000 <- read_csv("https://raw.githubusercontent.com/EricFriedlander/MATH221SP22/main/Datasets/gss2002.csv") %>% 
   mutate_if(is.character, factor)                           
 ```
 
