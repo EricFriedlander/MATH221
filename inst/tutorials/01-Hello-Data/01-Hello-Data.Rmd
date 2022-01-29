@@ -231,8 +231,8 @@ question("What kind of variable is `name`?",
 
 ```{r variables-question2, echo=FALSE}
 question("What kind of variable is `pop_change`?",
-  answer("Numerical, Continuous"),
-  answer("Numerical, Discrete", correct = TRUE),
+  answer("Numerical, Continuous", correct = TRUE),
+  answer("Numerical, Discrete"),
   answer("Categorical, Ordinal"),
   answer("Categorical, Nominal"),
   allow_retry = TRUE
@@ -921,7 +921,7 @@ question_radio("Is the relationship positive or negative?",
 }
 ```
 
-Make sure you have the tutorial open in a brower (preferably Google Chrome). Please press `print page` button below to print the tutorial. Make sure to print it to a `pdf` file and upload it into Moodle.
+Make sure you have the tutorial open in a browser (preferably Google Chrome). Please press `print page` button below to print the tutorial. Make sure to print it to a `pdf` file and upload it into Moodle.
 
 ```{js print2pdf1, context="server"}
     // the following 2 chunks print the completed sections of the tutorial to PDF

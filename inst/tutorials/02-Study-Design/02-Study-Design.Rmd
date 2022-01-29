@@ -16,7 +16,7 @@ population2000 <- read_csv("../../../Datasets/gss2002.csv") %>%
   mutate_if(is.character, factor)                           
 ```
 
-## 2000 Presidential Election {data-progressive=TRUE}
+## 2000 Presidential Election
 
 As a reminder, here is some vocabulary that may be useful for today's activity:
 
@@ -48,21 +48,19 @@ What is the population of interest in this scenario? Is it feasible to collect a
 ```
 
 Take about 5 minutes to brainstorm how you would try and collect a sample to try an predict who would win the 2000 election. Try an use some vocabulary from above. Important things to consider:
+
 * What information (i.e. variables) would you want to collect about each individual?
 * What type of sampling would you use?
 * How much labor and expense would it take to collect this sample?
 * How will you try to eliminate bias in your sample?
-Use the console below to write down your answer and then copy it into padlet:
 
-```{r brainstorm, exercise=TRUE}
-# Answer:
-```
+Post you answer into the [padlet](https://padlet.com/ericfriedlander/lbkja0u0ge1swsqf).
 
 ### Working with data
 
 ![One of George W. Bush's dog paintings](images/gwbdog.jpeg){width=50%}
 
-I've assembled a dataset, stored as `population2000` which has 100,000 observations and 5 variables. For now, let's pretend that this dataset contains the true underlying population (i.e. all voters in the 2000 election) and our goal is the estimate the proportion of voters who will vote for George "Dubya" Bush and what proportion will vote for Al Gore. The variables in the dataset are as follows:
+I've assembled a data set, stored as `population2000` which has 100,000 observations and 5 variables. For now, let's pretend that this data set contains the true underlying population (i.e. all voters in the 2000 election) and our goal is the estimate the proportion of voters who will vote for George "Dubya" Bush and what proportion will vote for Al Gore. The variables in the data set are as follows:
 
 * `age`: the voter's age bucketed into equally sized levels `[18,36]`, `(36,53]`, `(53,89]`
 <!-- * `race`: the voter's race with levels `white`, `black of african american`, `american indian or alska native`, `asian or pacific islander`, `hispanic`, `other` -->
@@ -78,6 +76,7 @@ I've assembled a dataset, stored as `population2000` which has 100,000 observati
 ### Population Proportions
 
 Let's first compute the true population proportion of voter's who plan to vote for Bush and Gore. To do that you must:
+
 1. Pipe `population2000` into the `count` function, making sure to count the variable `pres00`. This will create a new column `n` which contains the counts for each candidate.
 2. To get the proportions, pipe the output from the previous step into a `mutate` function and specify `prop = n/sum(n)` which will compute the proportion for each level.
 
@@ -113,7 +112,7 @@ grade_result(
 
 ### Simple Random Sample
 
-Now suppose that you only have enough funding to collect a sample of 300 voters. Take a simple random sample of 300 voters from `population2000`, and call it `pop2000_srs`:
+Now suppose that you only have enough funding to collect a sample of 300 voters. Take a simple random sample of 300 voters from `population2000`, and call it `pop2000_srs` (note that this will not generate any output):
 
 ```{r srs-setup}
 set.seed(1989)
@@ -151,6 +150,7 @@ grade_result(
 ```
 
 Now, using similar code as above, compute the sample proportion of voter's who plan to vote for Bush and Gore. To do that you must:
+
 1. Pipe `pop2000_srs` into the `count` function, making sure to count the variable `pres00`. This will create a new column `n` which contains the counts for each candidate.
 2. To get the proportions, pipe the output from the previous step into a `mutate` function and specify `prop = n/sum(n)` which will compute the proportion for each level.
 
@@ -208,13 +208,9 @@ question_radio(
 
 ### Multistage Sampling
 
-We have made the assumption that those using each provider are very similar. Below, brainstorm some reasons why this may not be true and then post those reasons in the padlet.
+We have made the assumption that those using each provider are very similar. Brainstorm some reasons why this may not be true and then post those reasons in the [padlet](https://padlet.com/ericfriedlander/lbkja0u0ge1swsqf).
 
-```{r not-similar, exercise=TRUE}
-# Brainstorm: 
-```
-
-The code below will randomly select a sample of 2 providers. The `level` function get's the levels of the `provider` variable and the `sample` function takes a random sample of the input vector. Feel free to use `?` to look up the help files on these function. Remember that you can select a column by name by putting `$` between the name of the data frame and the name of the column.
+The code below will randomly select a sample of 2 providers. The `levels` function gets the levels of the `provider` variable and the `sample` function takes a random sample of the input vector. Feel free to use `?` to look up the help files on these function. Remember that you can select a column by name by putting `$` between the name of the data frame and the name of the column.
 
 ```{r select-providers-setup}
 set.seed(2000)
@@ -224,11 +220,12 @@ set.seed(2000)
 sample(levels(population2000$provider), size=2)
 ```
 
-As we can see we're surveying customers of Verizon and Time Warner. In the console, the pre-populated code generates a data frame called `pop2000_verizon_tw` which contains only customers of Verizon and Time Warner. Note that `==` tests whether two things are equal and `|` stands for a [logical "or"](https://en.wikipedia.org/wiki/Logical_disjunction). Create a data frame containing counts of Bush and Gore voters within each cluster. To do this:
-1. Collect a simple random sample of size 150 from each by piping `pop2000_verizon_tw` into the function `group_by`. Make sure to group by provider.
+As we can see we're surveying customers of Verizon and Time Warner. In the console, the pre-populated code generates a data frame called `pop2000_verizon_tw` which contains only customers of Verizon and Time Warner. Note that `==` tests whether two things are equal and `|` stands for a [logical "or"](https://en.wikipedia.org/wiki/Logical_disjunction). Collect a simple random sample of size 150 and create a data frame containing counts of Bush and Gore voters within each cluster. To do this:
+
+1. Pipe `pop2000_verizon_tw` into the function `group_by`. Make sure to group by provider.
 2. Pipe the result into the `slice_sample` function. Make sure to specify the sample size.
 3. Pipe the result into `ungroup`. We haven't learned this function yet. We do this because so that when we eventually compute the proportion of voters who plan on voting for each candidate, it won't aggregate by `provider`.
-3. Store the result in a data frame called `pop2000_provider_srs`.
+4. Store the result in a data frame called `pop2000_provider_srs`.
 
 ```{r providers-srs-setup}
 set.seed(5001)
@@ -314,11 +311,8 @@ grade_result(
 )
 ```
 
-Would you expect this sampling scheme to be more or less accurate than a simple random sample? Why? Enter your answer below and then copy that into the padlet:
+Would you expect this sampling scheme to be more or less accurate than a simple random sample? Why? Enter your answer into the [padlet](https://padlet.com/ericfriedlander/lbkja0u0ge1swsqf):
 
-```{r multi-accurate, exercise=TRUE}
-# Answer:
-```
 
 ### Using age
 
@@ -337,7 +331,7 @@ question_radio(
 
 ### Stratified Sampling
 
-In the console below assemble a sample of 300 voters by selecting 100 from each age bucket. You can reuse some of the code above when we generated a sample of 150 from two different telecome providers. Call the new data frame `pop2000_strat`:
+In the console below assemble a sample of 300 voters by selecting 100 from each age bucket. You can reuse some of the code above when we generated a sample of 150 from two different telecom providers. Call the new data frame `pop2000_strat` (note that this will not generate output):
 
 ```{r strat-gen-setup}
 set.seed(2020)
@@ -426,207 +420,208 @@ grade_result(
 )
 ```
 
+Would you expect this sampling method to be more or less accurate than simple random sampling? Why? Please put your answer in the [padlet](https://padlet.com/ericfriedlander/lbkja0u0ge1swsqf).
+
 ### Using race
 
-Your polling firm as done further research and has found that people's voting behaviors vary even more based on their race. The problem is that there aren't an equal number of voters of each race. Below brainstorm how you might generate a sample that is representative of the population and ways you might go about creating an unbiased estimate of the proportion of voters who vote for each cadidate. Please then post this in the padlet.
-
-```{r race-brainstorm, exercise=TRUE}
-# Brainstorm: 
-```
+Your polling firm has done further research and has found that people's voting behaviors vary even more based on their race. The problem is that there aren't an equal number of voters of each race. Below brainstorm how you might generate a sample that is representative of the population and ways you might go about creating an unbiased estimate of the proportion of voters who vote for each candidate. Please then post this in the [padlet](https://padlet.com/ericfriedlander/lbkja0u0ge1swsqf).
 
 
-## Sample and Population Questions
+<!-- ## Sample and Population Questions -->
 
-### Sleeping in college
+<!-- This is the beginning of your homework. Please submit all of your answer in [this google form](https://forms.gle/R8mcSmxN5grQ85Md7). -->
 
-A recent article in a college newspaper stated that college students get an average of 5.5 hours of sleep each night. A student who was skeptical about this value decided to conduct a survey by randomly sampling 25 students. On average, the sampled students slept 6.25 hours per night. Identify which value represents the sample mean and which value represents the claimed population mean.
+<!-- ### Sleeping in college -->
 
-```{r sleeping-in-college, echo=FALSE}
-quiz(
-  caption="Sleeping in college",
-  question_numeric("Sample mean",
-                   answer(6.25, correct = TRUE),
-                   allow_retry = TRUE),
-  question_numeric("Claimed Population Mean",
-                   answer(5.5, correct = TRUE),
-                   allow_retry = TRUE)
-)
-```
+<!-- A recent article in a college newspaper stated that college students get an average of 5.5 hours of sleep each night. A student who was skeptical about this value decided to conduct a survey by randomly sampling 25 students. On average, the sampled students slept 6.25 hours per night. Identify which value represents the sample mean and which value represents the claimed population mean. -->
 
-### Cheaters, scope of inference
+<!-- ```{r sleeping-in-college, echo=FALSE} -->
+<!-- quiz( -->
+<!--   caption="Sleeping in college", -->
+<!--   question_numeric("Sample mean", -->
+<!--                    answer(6.25, correct = TRUE), -->
+<!--                    allow_retry = TRUE), -->
+<!--   question_numeric("Claimed Population Mean", -->
+<!--                    answer(5.5, correct = TRUE), -->
+<!--                    allow_retry = TRUE) -->
+<!-- ) -->
+<!-- ``` -->
 
-Researchers studying the relationship between honesty, age and self-control conducted an experiment on 160 children between the ages of 5 and 15. The researchers asked each child to toss a fair coin in private and to record the outcome (white or black) on a paper sheet and said they would only reward children who report white. Half the students were explicitly told not to cheat, and the others were not given any explicit instructions. Differences were observed in the cheating rates in the instruction and no instruction groups, as well as some differences across children’s characteristics within each group. (Bucciol and Piovesan 2011)
+<!-- ### Cheaters, scope of inference -->
 
-```{r cheaters, echo=FALSE}
-quiz(
-  caption="Cheaters",
-  question_radio("Identify the population of interest in this study.",
-                   answer("All human beings"),
-                   answer("All children"),
-                   answer("All children between the ages of 5 and 15", correct = TRUE),
-                   answer("160 children between the ages of 5 and 15"),
-                   allow_retry = TRUE),
-  question_radio("Identify the sample in this study.",
-                   answer("All human beings"),
-                   answer("All children"),
-                   answer("All children between the ages of 5 and 15"),
-                   answer("160 children between the ages of 5 and 15", correct = TRUE),
-                   allow_retry = TRUE)
-)
-```
+<!-- Researchers studying the relationship between honesty, age and self-control conducted an experiment on 160 children between the ages of 5 and 15. The researchers asked each child to toss a fair coin in private and to record the outcome (white or black) on a paper sheet and said they would only reward children who report white. Half the students were explicitly told not to cheat, and the others were not given any explicit instructions. Differences were observed in the cheating rates in the instruction and no instruction groups, as well as some differences across children’s characteristics within each group. (Bucciol and Piovesan 2011) -->
 
-Comment on whether the results of the study can be generalized to the population, and if the findings of the study can be used to establish causal relationships.
+<!-- ```{r cheaters, echo=FALSE} -->
+<!-- quiz( -->
+<!--   caption="Cheaters", -->
+<!--   question_radio("Identify the population of interest in this study.", -->
+<!--                    answer("All human beings"), -->
+<!--                    answer("All children"), -->
+<!--                    answer("All children between the ages of 5 and 15", correct = TRUE), -->
+<!--                    answer("160 children between the ages of 5 and 15"), -->
+<!--                    allow_retry = TRUE), -->
+<!--   question_radio("Identify the sample in this study.", -->
+<!--                    answer("All human beings"), -->
+<!--                    answer("All children"), -->
+<!--                    answer("All children between the ages of 5 and 15"), -->
+<!--                    answer("160 children between the ages of 5 and 15", correct = TRUE), -->
+<!--                    allow_retry = TRUE) -->
+<!-- ) -->
+<!-- ``` -->
 
-```{r cheater-generalization, exercise=TRUE}
-# Answer: 
-```
+<!-- Comment on whether the results of the study can be generalized to the population, and if the findings of the study can be used to establish causal relationships. -->
 
-```{r cheater-generalization-solution}
-# Answer: If the children in this sample, who are likely not randomly sampled, 
-# can be considered to be representative of all children between the ages of 5 
-# and 15, then the results are generalizable to the population defined above. 
-# Additionally, since the study is experimental, the findings can be used to 
-# establish causal relationships.
-```
+<!-- ```{r cheater-generalization, exercise=TRUE} -->
+<!-- # Answer:  -->
+<!-- ``` -->
 
-### Cats on YouTube
+<!-- ```{r cheater-generalization-solution} -->
+<!-- # Answer: If the children in this sample, who are likely not randomly sampled,  -->
+<!-- # can be considered to be representative of all children between the ages of 5  -->
+<!-- # and 15, then the results are generalizable to the population defined above.  -->
+<!-- # Additionally, since the study is experimental, the findings can be used to  -->
+<!-- # establish causal relationships. -->
+<!-- ``` -->
 
-Suppose you want to estimate the percentage of videos on YouTube that are cat videos. It is impossible for you to watch all videos on YouTube, so you use a random video picker to select 1000 videos for you. You find that 2% of these videos are cat videos. Determine which of the following is an observation, a variable, a sample statistic, or a population parameter.
+<!-- ### Cats on YouTube -->
 
-```{r cats, echo=FALSE}
-quiz(
-  caption="Cats on Youtube",
-  question_radio("Percentage of all videos on YouTube that are cat videos.",
-                 answer("Observation"),
-                 answer("Variable"),
-                 answer("Sample Statistic"),
-                 answer("Population Parameter", correct = TRUE),
-                 allow_retry = TRUE),
-  question_radio("2%.",
-                 answer("Observation"),
-                 answer("Variable"),
-                 answer("Sample Statistic", correct = TRUE),
-                 answer("Population Parameter"),
-                 allow_retry = TRUE),
-  question_radio("A video in your sample.",
-                 answer("Observation", correct = TRUE),
-                 answer("Variable"),
-                 answer("Sample Statistic"),
-                 answer("Population Parameter"),
-                 allow_retry = TRUE),
-  question_radio("Whether a video is a cat video.",
-                 answer("Observation"),
-                 answer("Variable", correct = TRUE),
-                 answer("Sample Statistic"),
-                 answer("Population Parameter"),
-                 allow_retry = TRUE)
-)
-```
+<!-- Suppose you want to estimate the percentage of videos on YouTube that are cat videos. It is impossible for you to watch all videos on YouTube, so you use a random video picker to select 1000 videos for you. You find that 2% of these videos are cat videos. Determine which of the following is an observation, a variable, a sample statistic, or a population parameter. -->
 
-## Types of Study and Sampling Questions
+<!-- ```{r cats, echo=FALSE} -->
+<!-- quiz( -->
+<!--   caption="Cats on Youtube", -->
+<!--   question_radio("Percentage of all videos on YouTube that are cat videos.", -->
+<!--                  answer("Observation"), -->
+<!--                  answer("Variable"), -->
+<!--                  answer("Sample Statistic"), -->
+<!--                  answer("Population Parameter", correct = TRUE), -->
+<!--                  allow_retry = TRUE), -->
+<!--   question_radio("2%.", -->
+<!--                  answer("Observation"), -->
+<!--                  answer("Variable"), -->
+<!--                  answer("Sample Statistic", correct = TRUE), -->
+<!--                  answer("Population Parameter"), -->
+<!--                  allow_retry = TRUE), -->
+<!--   question_radio("A video in your sample.", -->
+<!--                  answer("Observation", correct = TRUE), -->
+<!--                  answer("Variable"), -->
+<!--                  answer("Sample Statistic"), -->
+<!--                  answer("Population Parameter"), -->
+<!--                  allow_retry = TRUE), -->
+<!--   question_radio("Whether a video is a cat video.", -->
+<!--                  answer("Observation"), -->
+<!--                  answer("Variable", correct = TRUE), -->
+<!--                  answer("Sample Statistic"), -->
+<!--                  answer("Population Parameter"), -->
+<!--                  allow_retry = TRUE) -->
+<!-- ) -->
+<!-- ``` -->
 
-### Course satisfaction across sections.
+<!-- ## Types of Study and Sampling Questions -->
 
-A large college class has 160 students. All 160 students attend the lectures together, but the students are divided into 4 groups, each of 40 students, for lab sections administered by different teaching assistants. The professor wants to conduct a survey about how satisfied the students are with the course, and he believes that the lab section a student is in might affect the student’s overall satisfaction with the course.
+<!-- ### Course satisfaction across sections. -->
 
-```{r course-satisfaction}
-quiz(
-  caption = "Course satisfaction across sections",
-  question_radio("What type of study is this?",
-                 answer("Experiment"),
-                 answer("Observational Study", correct = TRUE),
-                 allow_retry = TRUE),
-  question_radio("What sampling strategy would be best for carrying out this study.",
-                 answer("Simple random sampling", message = "Not quite! With SRS we can't ensure that all section are represented."),
-                 answer("Stratified sampling where each section is a strata", correct = TRUE, message = "The professor suspects students in a given section may have similar feelings about a course. To ensure each section is reasonably represented, she may choose to randomly select a fixed number of students, say 10, from each section for a total sample size of 40 students. Since a random sample of fixed size was taken within each section in this scenario, this represents a stratified sampling."),
-                 answer("Cluster sampling where each section is a cluster", message = "Sorry! If we suspect that the section impacts performance then the clusters wouldn't resemble one another."),
-                  answer("Multistage sampling where each section is a cluster", message = "Sorry! If we suspect that the section impacts performance then the clusters wouldn't resemble one another."),
-                 allow_retry = TRUE)
-)
-```
+<!-- A large college class has 160 students. All 160 students attend the lectures together, but the students are divided into 4 groups, each of 40 students, for lab sections administered by different teaching assistants. The professor wants to conduct a survey about how satisfied the students are with the course, and he believes that the lab section a student is in might affect the student’s overall satisfaction with the course. -->
 
-
-### Stressed out
-
-A study that surveyed a random sample of otherwise healthy high school students found that they are more likely to get muscle cramps when they are stressed. The study also noted that students drink more coffee and sleep less when they are stressed.
-
-```{r stressed, echo=FALSE}
-quiz(
-  caption="Stressed out",
-  question_radio("What type of study is this?",
-                 answer("Experiment"),
-                 answer("Observational Study", correct = TRUE),
-                 allow_retry = TRUE),
-  question_radio("Can this study be used to conclude a causal relationship between increased stress and muscle cramps?",
-                 answer("Yes", message="Since the study is observational we cannot infer causation."),
-                 answer("No", correct=TRUE, message="Since the study is observational we cannot infer causation."),
-                 allow_retry = TRUE),
-  question_checkbox("Which of the following are possible confounding variables that might explain the observed relationship between increased stress and muscle cramps?",
-                    answer("Stress"),
-                    answer("Muscle Cramps"),
-                    answer("Caffeine", correct = TRUE),
-                    answer("Lack of sleep", correct = TRUE),
-                    allow_retry = TRUE,
-                    random_answer_order = TRUE)
-  
-)
-```
-
-### Sampling strategies. 
-
-A statistics student who is curious about the relationship between the amount of time students spend on social networking sites and their performance at school decides to conduct a survey. Various research strategies for collecting data are described below. In each, name the sampling method proposed and any bias you might expect.
-
-They randomly sample 40 students from the study’s population, give them the survey, ask them to fill it out and bring it back the next day.
-
-```{r sampling1, exercise=TRUE}
-# Answer:
-```
-
-```{r sampling1-solution}
-# Answer: Simple random sample. Non-response bias, if only those people who have strong opinions about the survey responds their sample may not be representative of the population.
-
-```
+<!-- ```{r course-satisfaction} -->
+<!-- quiz( -->
+<!--   caption = "Course satisfaction across sections", -->
+<!--   question_radio("What type of study is this?", -->
+<!--                  answer("Experiment"), -->
+<!--                  answer("Observational Study", correct = TRUE), -->
+<!--                  allow_retry = TRUE), -->
+<!--   question_radio("What sampling strategy would be best for carrying out this study?", -->
+<!--                  answer("Simple random sampling", message = "Not quite! With SRS we can't ensure that all section are represented."), -->
+<!--                  answer("Stratified sampling where each section is a strata", correct = TRUE, message = "The professor suspects students in a given section may have similar feelings about a course. To ensure each section is reasonably represented, she may choose to randomly select a fixed number of students, say 10, from each section for a total sample size of 40 students. Since a random sample of fixed size was taken within each section in this scenario, this represents a stratified sampling."), -->
+<!--                  answer("Cluster sampling where each section is a cluster", message = "Sorry! If we suspect that the section impacts performance then the clusters wouldn't resemble one another."), -->
+<!--                   answer("Multistage sampling where each section is a cluster", message = "Sorry! If we suspect that the section impacts performance then the clusters wouldn't resemble one another."), -->
+<!--                  allow_retry = TRUE) -->
+<!-- ) -->
+<!-- ``` -->
 
 
-They give out the survey only to their friends, making sure each one of them fills out the survey.
+<!-- ### Stressed out -->
 
-```{r sampling2, exercise=TRUE}
-# Answer:
-```
+<!-- A study that surveyed a random sample of otherwise healthy high school students found that they are more likely to get muscle cramps when they are stressed. The study also noted that students drink more coffee and sleep less when they are stressed. -->
 
-```{r sampling2-solution}
-# Answer: Convenience sample. Their sample may not be representative of the population since it consists only of their friends. This is called "under coverage bias". It is also possible that the study will have non-response bias if some choose to not bring back the survey.
-```
+<!-- ```{r stressed, echo=FALSE} -->
+<!-- quiz( -->
+<!--   caption="Stressed out", -->
+<!--   question_radio("What type of study is this?", -->
+<!--                  answer("Experiment"), -->
+<!--                  answer("Observational Study", correct = TRUE), -->
+<!--                  allow_retry = TRUE), -->
+<!--   question_radio("Can this study be used to conclude a causal relationship between increased stress and muscle cramps?", -->
+<!--                  answer("Yes", message="Since the study is observational we cannot infer causation."), -->
+<!--                  answer("No", correct=TRUE, message="Since the study is observational we cannot infer causation."), -->
+<!--                  allow_retry = TRUE), -->
+<!--   question_checkbox("Which of the following are possible confounding variables that might explain the observed relationship between increased stress and muscle cramps?", -->
+<!--                     answer("Stress"), -->
+<!--                     answer("Muscle Cramps"), -->
+<!--                     answer("Caffeine", correct = TRUE), -->
+<!--                     answer("Lack of sleep", correct = TRUE), -->
+<!--                     allow_retry = TRUE, -->
+<!--                     random_answer_order = TRUE) -->
 
-They randomly sample 5 classes and asks a random sample of students from those classes to fill out the survey.
+<!-- ) -->
+<!-- ``` -->
 
-```{r sampling3, exercise=TRUE}
-# Answer:
-```
+<!-- ### Sampling strategies.  -->
 
-```{r sampling3-solution}
-# Answer: Multi-stage sampling. If the classes are similar to each other with respect to student composition this approach should not introduce bias, other than potential non-response bias.
-```
+<!-- A statistics student who is curious about the relationship between the amount of time students spend on social networking sites and their performance at school decides to conduct a survey. Various research strategies for collecting data are described below. In each, name the sampling method proposed and any bias you might expect. -->
+
+<!-- They randomly sample 40 students from the study’s population, give them the survey, ask them to fill it out and bring it back the next day. -->
+
+<!-- ```{r sampling1, exercise=TRUE} -->
+<!-- # Answer: -->
+<!-- ``` -->
+
+<!-- ```{r sampling1-solution} -->
+<!-- # Answer: Simple random sample. Non-response bias, if only those people who have strong opinions about the survey responds their sample may not be representative of the population. -->
+
+<!-- ``` -->
+
+
+<!-- They give out the survey only to their friends, making sure each one of them fills out the survey. -->
+
+<!-- ```{r sampling2, exercise=TRUE} -->
+<!-- # Answer: -->
+<!-- ``` -->
+
+<!-- ```{r sampling2-solution} -->
+<!-- # Answer: Convenience sample. Their sample may not be representative of the population since it consists only of their friends. This is called "under coverage bias". It is also possible that the study will have non-response bias if some choose to not bring back the survey. -->
+<!-- ``` -->
+
+<!-- They randomly sample 5 classes and asks a random sample of students from those classes to fill out the survey. -->
+
+<!-- ```{r sampling3, exercise=TRUE} -->
+<!-- # Answer: -->
+<!-- ``` -->
+
+<!-- ```{r sampling3-solution} -->
+<!-- # Answer: Multi-stage sampling. If the classes are similar to each other with respect to student composition this approach should not introduce bias, other than potential non-response bias. -->
+<!-- ``` -->
 
 
 
 
-### Evaluate sampling methods. 
+<!-- ### Evaluate sampling methods.  -->
 
-A university wants to determine what fraction of its undergraduate student body support a new $25 annual fee to improve the student union. 
+<!-- A university wants to determine what fraction of its undergraduate student body support a new $25 annual fee to improve the student union.  -->
 
-```{r evaluate-sampling-method, echo=FALSE}
-question_checkbox("Select each method which is reasonable.",
-                  answer("Survey a simple random sample of 500 students.", message = "Simple random sampling is okay. In fact, it’s rare for simple random sampling to not be a reasonable sampling method!", correct=TRUE),
-                  answer("Stratify students by their field of study, then sample 10% of students from each stratum.", message = "The student opinions may vary by field of study, so the stratifying by this variable makes sense and would be reasonable.", correct=TRUE),
-                  answer("Cluster students by their ages (e.g., 18 years old in one cluster, 19 years old in one cluster, etc.), then randomly sample three clusters and survey all students in those clusters.", message="Students of similar ages are probably going to have more similar opinions, and we want clusters to be diverse with respect to the outcome of interest, so this would not be a good approach. (Additional thought: the clusters in this case may also have very different numbers of people, which can also create unexpected sample sizes.)", correct=FALSE),
-                  allow_retry = TRUE
-)
-```
+<!-- ```{r evaluate-sampling-method, echo=FALSE} -->
+<!-- question_checkbox("Select each method which is reasonable.", -->
+<!--                   answer("Survey a simple random sample of 500 students.", message = "Simple random sampling is okay. In fact, it’s rare for simple random sampling to not be a reasonable sampling method!", correct=TRUE), -->
+<!--                   answer("Stratify students by their field of study, then sample 10% of students from each stratum.", message = "The student opinions may vary by field of study, so the stratifying by this variable makes sense and would be reasonable.", correct=TRUE), -->
+<!--                   answer("Cluster students by their ages (e.g., 18 years old in one cluster, 19 years old in one cluster, etc.), then randomly sample three clusters and survey all students in those clusters.", message="Students of similar ages are probably going to have more similar opinions, and we want clusters to be diverse with respect to the outcome of interest, so this would not be a good approach. (Additional thought: the clusters in this case may also have very different numbers of people, which can also create unexpected sample sizes.)", correct=FALSE), -->
+<!--                   allow_retry = TRUE -->
+<!-- ) -->
+<!-- ``` -->
 
 
 
 ## Haters are gonna hate, study confirms. 
+This is the beginning of your homework. Please submit all of your answer in [this google form](https://forms.gle/R8mcSmxN5grQ85Md7).
 
 A study published in the Journal of Personality and Social Psychology asked a group of 200 randomly sampled participants recruited online using Amazon’s Mechanical Turk to evaluate how they felt about various subjects, such as camping, health care, architecture, taxidermy, crossword puzzles, and Japan in order to measure their attitude towards mostly independent stimuli. Then, they presented the participants with information about a new product: a microwave oven. This microwave oven does not exist, but the participants didn’t know this, and were given three positive and three negative fake reviews. People who reacted positively to the subjects on the dispositional attitude measurement also tended to react positively to the microwave oven, and those who reacted negatively tended to react negatively to it. Researchers concluded that “some people tend to like things, whereas others tend to dislike things, and a more thorough understanding of this tendency will lead to a more thorough understanding of the psychology of attitudes.” (Hepler and Albarracı́n 2013)
 
@@ -802,50 +797,50 @@ Sample the 200 households closest to the city council offices.
 # Answer: Convenience sampling. This is not an effective method since it will result in a biased sample for households that are similar to each other (in the same neighborhood) and the sample will not contain any houses from neighborhoods far from the city council offices.
 ```
 
-## Submit
+<!-- ## Submit -->
 
-```{css echo=FALSE}
-@media print {
-  .topicsContainer,
-  .topicActions,
-  .exerciseActions .skip {
-    display: none;
-  }
-  .topics .tutorialTitle,
-  .topics .section.level2,
-  .topics .section.level3:not(.hide) {
-    display: block;
-  }
-  .topics {
-    width: 100%;
-  }
-  .tutorial-exercise, .tutorial-question {
-    page-break-inside: avoid;
-  }
-  .section.level3.done h3 {
-    padding-left: 0;
-    background-image: none;
-  }
-  .topics .showSkip .exerciseActions::before {
-    content: "Topic not yet completed...";
-    font-style: italic;
-  }
-}
-```
+<!-- ```{css echo=FALSE} -->
+<!-- @media print { -->
+<!--   .topicsContainer, -->
+<!--   .topicActions, -->
+<!--   .exerciseActions .skip { -->
+<!--     display: none; -->
+<!--   } -->
+<!--   .topics .tutorialTitle, -->
+<!--   .topics .section.level2, -->
+<!--   .topics .section.level3:not(.hide) { -->
+<!--     display: block; -->
+<!--   } -->
+<!--   .topics { -->
+<!--     width: 100%; -->
+<!--   } -->
+<!--   .tutorial-exercise, .tutorial-question { -->
+<!--     page-break-inside: avoid; -->
+<!--   } -->
+<!--   .section.level3.done h3 { -->
+<!--     padding-left: 0; -->
+<!--     background-image: none; -->
+<!--   } -->
+<!--   .topics .showSkip .exerciseActions::before { -->
+<!--     content: "Topic not yet completed..."; -->
+<!--     font-style: italic; -->
+<!--   } -->
+<!-- } -->
+<!-- ``` -->
 
-Make sure you have the tutorial open in a brower (preferably Google Chrome). Please press `print page` button below to print the tutorial. Make sure to print it to a `pdf` file and upload it into Moodle.
+<!-- Make sure you have the tutorial open in a browser (preferably Google Chrome). Please press `print page` button below to print the tutorial. Make sure to print it to a `pdf` file and upload it into Moodle. -->
 
-```{js print2pdf1, context="server"}
-    // the following 2 chunks print the completed sections of the tutorial to PDF
-    // uses "css/print2pdf.css"
-    $(document).on('shiny:inputchanged', function(event) {
-      if (event.name === 'print2pdf') {
-        window.print();
-      }
-    });
-    ```
-    
-```{r print2pdf2}
-    # button can be placed anywhere in the tutorial
-    actionButton("print2pdf", "Print page", style="opacity: .7; color: #000;")
-```
+<!-- ```{js print2pdf1, context="server"} -->
+<!--     // the following 2 chunks print the completed sections of the tutorial to PDF -->
+<!--     // uses "css/print2pdf.css" -->
+<!--     $(document).on('shiny:inputchanged', function(event) { -->
+<!--       if (event.name === 'print2pdf') { -->
+<!--         window.print(); -->
+<!--       } -->
+<!--     }); -->
+<!--     ``` -->
+
+<!-- ```{r print2pdf2} -->
+<!--     # button can be placed anywhere in the tutorial -->
+<!--     actionButton("print2pdf", "Print page", style="opacity: .7; color: #000;") -->
+<!-- ``` -->
