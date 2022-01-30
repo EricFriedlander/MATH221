@@ -1,0 +1,208 @@
+---
+title: "Exploring Categorical Data"
+output: learnr::tutorial
+runtime: shiny_prerendered
+---
+
+```{r setup, include=FALSE}
+library(learnr)
+library(openintro)
+library(tidyverse)
+
+gradethis::gradethis_setup()
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+
+## Heart transplant data display
+
+This is the beginning of your homework. Please submit all answers into this [google form.](https://forms.gle/CwbADH5KEKtD8fnn8)
+
+The Stanford University Heart Transplant Study was conducted to determine whether an experimental heart transplant program increased lifespan. Each patient entering the program was officially designated a heart transplant candidate, meaning that he was gravely ill and might benefit from a new heart. Patients were randomly assigned into treatment and control groups. Patients in the treatment group received a transplant, and those in the control group did not. The visualization below displays two different versions of the data. (Turnbull, Brown, and Hu 1974)
+
+The data from this study is stored in the data frame `heart_transplant`. In the console below, create a contingency table the columns represent the outcome of the transplant (i.e. `alive` or `dead`) and the rows represent whether or not the patient received a transplant. Note that you will have figure out what the numbers of the variables are.
+
+```{r contingency-table, exercise=TRUE}
+
+```
+
+```{r contingency-table-hint-1}
+# You must use the count function and the pivot wider funder
+```
+
+```{r contingency-table-hint-2}
+heart_transplant %>%
+  count(_____, _____) %>%
+  pivot_wider(names_from = _____, values_from = _____)
+```
+
+```{r contingency-table-hint-3}
+heart_transplant %>%
+  count(survived, transplant) %>%
+  pivot_wider(names_from = transplant, values_from = n)
+```
+
+```{r contingency-table-check}
+grade_result(
+  pass_if(~identical(.result, heart_transplant %>%
+  count(survived, transplant) %>%
+  pivot_wider(names_from = transplant, values_from = n)))
+)
+
+```
+
+Recreate the same contingency table as above, except now make the entries proportions:
+```{r prop-table, exercise=TRUE}
+
+```
+
+```{r prop-table-hint-1}
+# You can largely use the same code as above with an extra mutate to create the proportions and you must add an id_cols argument to your pivot_wider function to select the survived, transplant, and proportion columns (note the proportion columns will be called hwatever you name it in your mutate function)
+```
+
+```{r prop-table-hint-2}
+heart_transplant %>%
+  count(_____, _____) %>%
+  mutate(_____, _____) %>%
+  pivot_wider(id_cols = c(_____, _____, _____), names_from = _____, values_from = _____)
+```
+
+```{r prop-table-hint-3}
+heart_transplant %>%
+  count(survived, transplant) %>%
+  mutate(prop = n/sum(n)) %>%
+  pivot_wider(id_cols = c(survived, transplant, prop), names_from = transplant, values_from = prop)
+
+```
+
+```{r prop-table-check}
+grade_result(
+  pass_if(~identical(.result, heart_transplant %>%
+  count(survived, transplant) %>%
+  mutate(prop = n/sum(n)) %>%
+  pivot_wider(id_cols = c(survived, transplant, prop), names_from = transplant, values_from = prop)
+))
+)
+
+```
+
+Recreate this contingency tables with the row proportions:
+```{r rowprop-table, exercise=TRUE}
+
+```
+
+```{r rowprop-table-hint-1}
+# You can largely use the same code as above adding in a group_by command to group by the survived variable
+```
+
+```{r rowprop-table-hint-2}
+heart_transplant %>%
+  count(_____, _____) %>%
+  group_by(______) %>%
+  mutate(_____, _____) %>%
+  pivot_wider(id_cols = c(_____, _____, _____), names_from = _____, values_from = _____)
+```
+
+```{r rowprop-table-hint-3}
+heart_transplant %>%
+  count(survived, transplant) %>%
+  group_by(survived) %>%
+  mutate(prop = n/sum(n)) %>%
+  pivot_wider(id_cols = c(survived, transplant, prop), names_from = transplant, values_from = prop)
+
+```
+
+```{r rowprop-table-check}
+grade_result(
+  pass_if(~identical(.result, heart_transplant %>%
+  count(survived, transplant) %>%
+  group_by(survived) %>%
+  mutate(prop = n/sum(n)) %>%
+  pivot_wider(id_cols = c(survived, transplant, prop), names_from = transplant, values_from = prop)
+))
+)
+```
+
+Recreate this contingency tables with the columns proportions:
+```{r colprop-table, exercise=TRUE}
+
+```
+
+```{r colprop-table-hint-1}
+# You can largely use the same code as above but simply change the variable you group by
+```
+
+```{r colprop-table-hint-2}
+heart_transplant %>%
+  count(_____, _____) %>%
+  group_by(______) %>%
+  mutate(_____, _____) %>%
+  pivot_wider(id_cols = c(_____, _____, _____), names_from = _____, values_from = _____)
+```
+
+```{r colprop-table-hint-3}
+heart_transplant %>%
+  count(survived, transplant) %>%
+  group_by(transplant) %>%
+  mutate(prop = n/sum(n)) %>%
+  pivot_wider(id_cols = c(survived, transplant, prop), names_from = transplant, values_from = prop)
+
+```
+
+```{r colprop-table-check}
+grade_result(
+  pass_if(~identical(.result, heart_transplant %>%
+  count(survived, transplant) %>%
+  group_by(transplant) %>%
+  mutate(prop = n/sum(n)) %>%
+  pivot_wider(id_cols = c(survived, transplant, prop), names_from = transplant, values_from = prop)
+))
+)
+```
+
+
+
+```{r survival-question}
+question_radio("If you are interested on whether receiving a transplant increases a patients change of survival, which table would be most useful?",
+               answer("Contingency table of counts"),
+               answer("Contingency table of proportions"),
+               answer("Contingency table of row proportions"),
+               answer("Contingency table of columns proportions", correct=TRUE, message="You'd want columnn proportions since it shows you whether a higher proportion of patients survive after receiving a transplant."),
+               allow_retry=TRUE
+)
+```
+
+It's frequently difficult to read data in a table like this. Let's put it in a plot. In the console below create a standardized bar chart where each bar represents whether they received a treatment and the colors represent whether they survived. Make sure to rename the y-axis label to "Proportion":
+
+```{r standardized-plot, exercise=TRUE}
+
+```
+
+```{r standardized-plot-hint-1}
+ggplot(_____, _____(x=_____, fill=_____)) +
+  geom_bar(_____ = "______") +
+  labs(y = "_____")
+```
+
+```{r standardized-plot-hint-2}
+ggplot(_____, aes(x=_____, fill=_____)) +
+  geom_bar(position = "______")+
+  labs(y = "_____")
+```
+
+```{r standardized-plot-hint-3}
+ggplot(heart_transplant, aes(x=transplant, fill=survived)) +
+  geom_bar(position = "fill") +
+  labs(y = "Position")
+```
+
+
+Does receiving a transplant seem to impact survival? Briefly explain.
+
+```{r association, exercise=TRUE}
+#
+```
+
+```{r association-solution}
+# Yes, from the plot it is clear that a smalle proportion of partients die after receiving a transplant.
+```
