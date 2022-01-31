@@ -797,50 +797,50 @@ Sample the 200 households closest to the city council offices.
 # Answer: Convenience sampling. This is not an effective method since it will result in a biased sample for households that are similar to each other (in the same neighborhood) and the sample will not contain any houses from neighborhoods far from the city council offices.
 ```
 
-<!-- ## Submit -->
+## Submit
 
-<!-- ```{css echo=FALSE} -->
-<!-- @media print { -->
-<!--   .topicsContainer, -->
-<!--   .topicActions, -->
-<!--   .exerciseActions .skip { -->
-<!--     display: none; -->
-<!--   } -->
-<!--   .topics .tutorialTitle, -->
-<!--   .topics .section.level2, -->
-<!--   .topics .section.level3:not(.hide) { -->
-<!--     display: block; -->
-<!--   } -->
-<!--   .topics { -->
-<!--     width: 100%; -->
-<!--   } -->
-<!--   .tutorial-exercise, .tutorial-question { -->
-<!--     page-break-inside: avoid; -->
-<!--   } -->
-<!--   .section.level3.done h3 { -->
-<!--     padding-left: 0; -->
-<!--     background-image: none; -->
-<!--   } -->
-<!--   .topics .showSkip .exerciseActions::before { -->
-<!--     content: "Topic not yet completed..."; -->
-<!--     font-style: italic; -->
-<!--   } -->
-<!-- } -->
-<!-- ``` -->
+```{css echo=FALSE}
+@media print {
+  .topicsContainer,
+  .topicActions,
+  .exerciseActions .skip {
+    display: none;
+  }
+  .topics .tutorialTitle,
+  .topics .section.level2,
+  .topics .section.level3:not(.hide) {
+    display: block;
+  }
+  .topics {
+    width: 100%;
+  }
+  .tutorial-exercise, .tutorial-question {
+    page-break-inside: avoid;
+  }
+  .section.level3.done h3 {
+    padding-left: 0;
+    background-image: none;
+  }
+  .topics .showSkip .exerciseActions::before {
+    content: "Topic not yet completed...";
+    font-style: italic;
+  }
+}
+```
 
-<!-- Make sure you have the tutorial open in a browser (preferably Google Chrome). Please press `print page` button below to print the tutorial. Make sure to print it to a `pdf` file and upload it into Moodle. -->
+Make sure you have the tutorial open in a browser (preferably Google Chrome). Please press `print page` button below to print the tutorial. Make sure to print it to a `pdf` file and upload it into Moodle.
 
-<!-- ```{js print2pdf1, context="server"} -->
-<!--     // the following 2 chunks print the completed sections of the tutorial to PDF -->
-<!--     // uses "css/print2pdf.css" -->
-<!--     $(document).on('shiny:inputchanged', function(event) { -->
-<!--       if (event.name === 'print2pdf') { -->
-<!--         window.print(); -->
-<!--       } -->
-<!--     }); -->
-<!--     ``` -->
+```{js print2pdf1, context="server"}
+    // the following 2 chunks print the completed sections of the tutorial to PDF
+    // uses "css/print2pdf.css"
+    $(document).on('shiny:inputchanged', function(event) {
+      if (event.name === 'print2pdf') {
+        window.print();
+      }
+    });
+    ```
 
-<!-- ```{r print2pdf2} -->
-<!--     # button can be placed anywhere in the tutorial -->
-<!--     actionButton("print2pdf", "Print page", style="opacity: .7; color: #000;") -->
-<!-- ``` -->
+```{r print2pdf2}
+    # button can be placed anywhere in the tutorial
+    actionButton("print2pdf", "Print page", style="opacity: .7; color: #000;")
+```
