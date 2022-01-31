@@ -9,9 +9,226 @@ library(learnr)
 library(openintro)
 library(tidyverse)
 
+covid <- read_csv("https://raw.githubusercontent.com/EricFriedlander/MATH221SP22/main/Datasets/simpsons_paradox_covid.csv")
+
 gradethis::gradethis_setup()
 knitr::opts_chunk$set(echo = FALSE)
 ```
+
+## COVID Vaccine and Simpson's Paradox
+
+In this activity we're going to use contingency tables and bar charts to explore dataset on Delta Variant COVID-19 cases in the UK. Let start by taking a look at the dataset. It's called `covid`. How many rows and columns does it have? What are the variables?
+
+```{r covid-explore, exercise=TRUE}
+
+```
+
+When beginning to work with a dataset it makes sense to explore some of the properties of the data before starting to make inferences. In the console below generate a contingency table with `age_group` in the columns and `outcome` in the rows. To do this:
+
+1. Pipe `covid` into the `count` function making sure to add `age_group` and `outcome` as arguments in `count`.
+2. Pipe the result into the `pivot_wider` function. Make sure to use the `id_cols` and `names_from` arguments to specifiy which variables your need and which variable will be the columns. In addition, make sure you specify `values_from = n` so R knows where to get the counts from.
+
+```{r age-cont, exercise=TRUE}
+
+```
+
+```{r age-cont-hint-1}
+covid %>%
+  _____(____, ____) %>%
+  ____(id_cols = c(____, ____, ____), names_from = _____, values_from = _____)
+```
+
+```{r age-cont-hint-2}
+covid %>%
+  count(_____, _____) %>%
+  pivot_wider(id_cols = c(_____, _____, _____), names_from = _____, values_from = _____)
+```
+
+```{r age-cont-hint-3}
+covid %>%
+  count(_____, _____) %>%
+  pivot_wider(id_cols = c(_____, _____, n), names_from = _____, values_from = _____)
+```
+
+```{r age-cont-hint-4}
+covid %>%
+  count(outcome, age_group) %>%
+  pivot_wider(id_cols = c(age_group, outcome, n), names_from = age_group, values_from = n)
+```
+
+
+Unless you need to actual numbers, a better way to summarize your data is visually, using a bar plot. Take a minute and brain storm what type of bar plot would be best to visualize this data if we're only interested in the relative counts.
+
+```{r best-bar}
+question_radio("Which plot would be best?",
+               answer("Stacked Bar", message="This one would be ok but it can sometimes be hard to see what raw counts are with a stacked bar plot."),
+               answer("Dodged Bar Chart", correct=TRUE),
+               answer("Standardized Bar Chart", message="This isn't good since we can't see the counts in this plot."),
+               allow_retry = TRUE)
+```
+
+In the console below create a dodged bar plot with `age_group` on the x-axis and the colors corresponding to `outcome`.
+
+1. Create a plot using the `ggplot` function. Make sure to specify the dataset, the `x` variable, and `fill` variable (`outcome`)
+2. Add a `geom_bar` with `position = "dodge"`.
+
+```{r dodge-plot, exercise=TRUE}
+
+```
+
+```{r dodge-plot-hint-1}
+ggplot(____, ____(x =_____, fill = _____)) +
+  geom_bar(____ = "____")
+```
+
+```{r dodge-plot-hint-2}
+ggplot(covid, aes(x =_____, fill = _____)) +
+  geom_bar(fill = "____")
+```
+
+```{r dodge-plot-hint-3}
+ggplot(covid, aes(x=age_group, fill=outcome)) +
+  geom_bar(position = "dodge")
+```
+
+It's difficult to see the deaths on this plot. Instead, let's use faceting to visualize the survivors and dead in different plots. In the console below use the function `facet_wrap` to create bar charts for each `outcome` with `age_group` on the x-axis. To do this:
+
+1. Create a plot using ``ggplot``, specifying the x-variable in the `aes` function. There's no need for a `fill` argument.
+2. Add a `geom_bar` layer.
+3. Add a `facet_wrap` layer making sure to specify `~outcome`.
+
+```{r facet-age, exercise=TRUE}
+# Create plot
+____ +
+  # geom_bar layer
+  ____ +
+  # facet wrap layer, not that the scales argument will allow the bar charts to have different y limits
+  facet_wrap(____, scales="free_y")
+```
+
+```{r facet-age-hint-1}
+# Create plot
+ggplot(____, aes(x=____)) +
+  # geom_bar layer
+  geom_bar() +
+  # facet wrap layer, not that the scales argument will allow the bar charts to have different y limits
+  facet_wrap(____, scales="free_y")
+```
+
+```{r facet-age-hint-2}
+# Create plot
+ggplot(____, aes(x=____)) +
+  # geom_bar layer
+  geom_bar() +
+  # facet wrap layer, not that the scales argument will allow the bar charts to have different y limits
+  facet_wrap(~outcome, scales="free_y")
+```
+
+```{r facet-age-hint-3}
+# Create plot
+ggplot(covid, aes(x=age_group)) +
+  # geom_bar layer
+  geom_bar() +
+  # facet wrap layer, not that the scales argument will allow the bar charts to have different y limits
+  facet_wrap(~outcome, scales="free_y")
+```
+
+What do you notice in these plots?
+
+### Vaccine efficacy
+
+We'd like to explore how effective COVID-19 vaccines are at preventing death. To do this, we'll use a contingency table. Suppose we split out the rows by `vaccine_status` and the columns by `outcome`.
+
+```{r rowsum-q}
+question_radio("What type of table will be best to assess the efficacy of the vaccine?",
+               answer("Counts"),
+               answer("Total proportions"),
+               answer("Proportions, rows sum to 1", correct=TRUE),
+               answer("Proportions, columns sum to 1"),
+               allow_retry = TRUE
+)
+```
+
+In the console below, create the contingency table discussed above. Make sure to `group_by` the correct variable, then use `mutate` to compute the proportions:
+
+```{r cont-vax-eff, exercise=TRUE}
+
+```
+
+```{r cont-vax-eff-hint-1}
+covid %>%
+  group_by(____) %>%
+  count(____) %>%
+  mutate(prop = ____) %>%
+  pivot_wider(id_cols=c(____, ____, _____), names_from = _____, values_from = _____)
+```
+
+```{r cont-vax-eff-hint-2}
+covid %>%
+  group_by(vaccine_status) %>%
+  count(outcome) %>%
+  mutate(prop = n/sum(n)) %>%
+  pivot_wider(id_cols=c(vaccine_status, outcome, prop), names_from = outcome, values_from = prop)
+```
+
+Based on these results what are your initial impressions on the efficacy of the vaccine in preventing death due to the delta variant?
+
+### Simpson's Paradox
+
+In the console below, create a standardized bar chart showing the proportion of vaccinated and unvaccinated individuals who from each age group. You can use similar to code to above, just make sure you specify `position="fill"` in the `geom_bar` layer. I encourage you to also label the y-axis as "Proportion":
+
+```{r stand-bar1, exercise=TRUE}
+
+```
+
+```{r stand-bar1-hint-1}
+ggplot(____, aes(x=____, fill=____)) +
+  geom_bar(____="____") +
+  labs(y="Proportion")
+```
+
+```{r stand-bar1-hint-2}
+ggplot(covid, aes(x=vaccine_status, fill=age_group)) +
+  geom_bar(position="fill")+
+  labs(y="Proportion")
+```
+
+What do you notice?
+
+Hmmm... Let's take a look at the mortality rate broken out by `vaccine_status` and `age_group`. Create two contingency tables below, one for each age bucket. You can use the `filter(age_group == "50+")`  and `filter(age_group == "under 50")` functions to help you (note that for the younger age group it will round some numbers to 1):
+
+```{r cavid-by-age, exercise=TRUE}
+# 50+ table
+____ %>%
+  filter(____) %>%
+  group_by(____) %>%
+  count(____) %>%
+  mutate(____) %>%
+  pivot_wider(id_cols=c(_____, _____, _____), names_from = _____, values_from = _____)
+
+# under 50 table (you can use very similar code to the table above)
+
+```
+
+```{r cavid-by-age-solution}
+# 50+ table
+covid %>%
+  filter(age_group == "50 +") %>%
+  group_by(vaccine_status) %>%
+  count(outcome) %>%
+  mutate(prop = n/sum(n)) %>%
+  pivot_wider(id_cols=c(vaccine_status, outcome, prop), names_from = outcome, values_from = prop)
+
+# under 50 table (you can use very similar code to the table above)
+covid %>%
+  filter(age_group == "under 50") %>%
+  group_by(vaccine_status) %>%
+  count(outcome) %>%
+  mutate(prop = n/sum(n)) %>%
+  pivot_wider(id_cols=c(vaccine_status, outcome, prop), names_from = outcome, values_from = prop)
+```
+
+Based on these results have your impressions on the efficacy of the vaccine in preventing death due to the delta variant changed? This reversal in trend is called **Simpson's Paradox**. How is it possible? What is driving this reversal?
 
 
 ## Heart transplant data display
