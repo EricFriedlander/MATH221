@@ -17,7 +17,7 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ## COVID Vaccine and Simpson's Paradox
 
-In this activity we're going to use contingency tables and bar charts to explore dataset on Delta Variant COVID-19 cases in the UK. Let start by taking a look at the dataset. It's called `covid`. How many rows and columns does it have? What are the variables?
+In this activity we're going to use contingency tables and bar charts to explore a data set on Delta Variant COVID-19 cases in the UK. Let start by taking a look at the dataset. It's called `covid`. How many rows and columns does it have? What are the variables?
 
 ```{r covid-explore, exercise=TRUE}
 
@@ -26,7 +26,7 @@ In this activity we're going to use contingency tables and bar charts to explore
 When beginning to work with a dataset it makes sense to explore some of the properties of the data before starting to make inferences. In the console below generate a contingency table with `age_group` in the columns and `outcome` in the rows. To do this:
 
 1. Pipe `covid` into the `count` function making sure to add `age_group` and `outcome` as arguments in `count`.
-2. Pipe the result into the `pivot_wider` function. Make sure to use the `id_cols` and `names_from` arguments to specifiy which variables your need and which variable will be the columns. In addition, make sure you specify `values_from = n` so R knows where to get the counts from.
+2. Pipe the result into the `pivot_wider` function. Make sure to use the `id_cols` and `names_from` arguments to specifiy which variables you need and which variable will be the columns. In addition, make sure you specify `values_from = n` so R knows where to get the counts from.
 
 ```{r age-cont, exercise=TRUE}
 
@@ -57,7 +57,7 @@ covid %>%
 ```
 
 
-Unless you need to actual numbers, a better way to summarize your data is visually, using a bar plot. Take a minute and brain storm what type of bar plot would be best to visualize this data if we're only interested in the relative counts.
+Unless you need the actual numbers, a better way to summarize your data is visually, using a bar plot. Take a minute and brain storm what type of bar plot would be best to visualize this data if we're only interested in the relative sizes of each group.
 
 ```{r best-bar}
 question_radio("Which plot would be best?",
@@ -133,7 +133,7 @@ ggplot(covid, aes(x=age_group)) +
   facet_wrap(~outcome, scales="free_y")
 ```
 
-What do you notice in these plots?
+What do you notice in these plots? Enter your observations in the [padlet](https://padlet.com/ericfriedlander/oy0hvpfxgi8ivqf5).
 
 ### Vaccine efficacy
 
@@ -171,11 +171,11 @@ covid %>%
   pivot_wider(id_cols=c(vaccine_status, outcome, prop), names_from = outcome, values_from = prop)
 ```
 
-Based on these results what are your initial impressions on the efficacy of the vaccine in preventing death due to the delta variant?
+Based on these results what are your initial impressions on the efficacy of the vaccine in preventing death due to the delta variant? Enter your impressions in the [padlet](https://padlet.com/ericfriedlander/oy0hvpfxgi8ivqf5).
 
 ### Simpson's Paradox
 
-In the console below, create a standardized bar chart showing the proportion of vaccinated and unvaccinated individuals who from each age group. You can use similar to code to above, just make sure you specify `position="fill"` in the `geom_bar` layer. I encourage you to also label the y-axis as "Proportion":
+In the console below, create a standardized bar chart showing the proportion of vaccinated and unvaccinated individuals who are from each age group. You can use similar to code to above, just make sure you specify `position="fill"` in the `geom_bar` layer. I encourage you to also label the y-axis as "Proportion":
 
 ```{r stand-bar1, exercise=TRUE}
 
@@ -193,9 +193,9 @@ ggplot(covid, aes(x=vaccine_status, fill=age_group)) +
   labs(y="Proportion")
 ```
 
-What do you notice?
+What do you notice? How are are the vaccines distributed? Enter your answer in the [padlet](https://padlet.com/ericfriedlander/oy0hvpfxgi8ivqf5).
 
-Hmmm... Let's take a look at the mortality rate broken out by `vaccine_status` and `age_group`. Create two contingency tables below, one for each age bucket. You can use the `filter(age_group == "50+")`  and `filter(age_group == "under 50")` functions to help you (note that for the younger age group it will round some numbers to 1):
+Hmmm... Let's take a look at the mortality rate broken out by `vaccine_status` and `age_group`. Create two contingency tables below, one for each age bucket. You can use the `filter(age_group == "50+")`  and `filter(age_group == "under 50")` commands to help you:
 
 ```{r cavid-by-age, exercise=TRUE}
 # 50+ table
@@ -228,7 +228,9 @@ covid %>%
   pivot_wider(id_cols=c(vaccine_status, outcome, prop), names_from = outcome, values_from = prop)
 ```
 
-Based on these results have your impressions on the efficacy of the vaccine in preventing death due to the delta variant changed? This reversal in trend is called **Simpson's Paradox**. How is it possible? What is driving this reversal?
+Based on these results have your impressions on the efficacy of the vaccine in preventing death due to the delta variant changed? Enter your answer in the [padlet](https://padlet.com/ericfriedlander/oy0hvpfxgi8ivqf5).
+
+This reversal in trend is called **Simpson's Paradox**. How is it possible? What is driving this reversal?
 
 
 ## Heart transplant data display
@@ -237,7 +239,7 @@ This is the beginning of your homework. Please submit all answers into this [goo
 
 The Stanford University Heart Transplant Study was conducted to determine whether an experimental heart transplant program increased lifespan. Each patient entering the program was officially designated a heart transplant candidate, meaning that he was gravely ill and might benefit from a new heart. Patients were randomly assigned into treatment and control groups. Patients in the treatment group received a transplant, and those in the control group did not. The visualization below displays two different versions of the data. (Turnbull, Brown, and Hu 1974)
 
-The data from this study is stored in the data frame `heart_transplant`. In the console below, create a contingency table the columns represent the outcome of the transplant (i.e. `alive` or `dead`) and the rows represent whether or not the patient received a transplant. Note that you will have figure out what the numbers of the variables are.
+The data from this study is stored in the data frame `heart_transplant`. In the console below, create a contingency table where the columns represent the outcome of the transplant (i.e. `alive` or `dead`) and the rows represent whether or not the patient received a transplant. Note that you will have figure out what the names of the variables are.
 
 ```{r contingency-table, exercise=TRUE}
 
@@ -303,7 +305,7 @@ grade_result(
 
 ```
 
-Recreate this contingency tables with the row proportions:
+Recreate this contingency table with row proportions (i.e. rows sum to 1):
 ```{r rowprop-table, exercise=TRUE}
 
 ```
@@ -340,7 +342,7 @@ grade_result(
 )
 ```
 
-Recreate this contingency tables with the columns proportions:
+Recreate this contingency tables with column proportions (i.e. columns sum to 1):
 ```{r colprop-table, exercise=TRUE}
 
 ```
