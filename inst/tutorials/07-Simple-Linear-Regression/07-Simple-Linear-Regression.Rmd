@@ -21,7 +21,7 @@ knitr::opts_chunk$set(echo = FALSE)
 We are going to start today's lesson by going over correlation. Recall that the formula for correlation is \[r=\frac{\sum(x_i-\bar{x})(y_i-\bar{y})}{\sqrt{\sum(x_i-\bar{x})^2\sum(y_i-\bar{y})^2}}\]
 where the the $x_i$s are observations for your first variable and $y_i$ are the observations for your second variable.
 
-For the first part of our lesson we're going to be using the data set `corr_match`. In the console below, take a look at the data set to get a good impression about what the data looks like. What are the dimension? What are the names of the variables?
+For the first part of our lesson we're going to be using the data set `corr_match`. In the console below, take a look at the data set to get a good impression about what the data looks like. What are the dimensions? What are the names of the variables?
 
 ```{r sandbox, exercise=TRUE}
 
@@ -53,7 +53,7 @@ Was your guess close? If not, why?
 # 
 ```
 
-We are going to repeat this process for the other variables. In the console's below, please repeat this process for each `y2` though `y8`. Please keep track of your answer using a piece of paper or text editor:
+We are going to repeat this process for the other variables. In the console's below, please repeat this process for each `y2` through `y8`. Please keep track of your answer using a piece of paper or text editor:
 
 Scatter plot:
 
@@ -81,7 +81,7 @@ Was your guess close? If not, why?
 
 ### Line Fitting
 
-We're not going to focus on the data set `bdims`. Run the console below to display the metadata for `bdims`:
+We're now going to focus on the data set `bdims`. Run the console below to display the metadata for `bdims`:
 
 ```{r bdims-help, exercise=TRUE}
 ?bdims
@@ -94,7 +94,7 @@ Let's suppose you're creating a model to help people figure out what size shirt 
 ```
 
 
-We'd like to fit a line of the form $y=b_0 + b_1*x$ to this data. In the console below adjust `b1` (the slope of your line) and `b` the y-intercept until you find a line which visually seems to fit the data well:
+We'd like to fit a line of the form $y=b_0 + b_1x$ to this data. In the console below adjust `b1` (the slope of your line) and `b` the y-intercept until you find a line which visually seems to fit the data well (be careful and make small changes until you get a line you like):
 
 ```{r visual-line-fit, exercise=TRUE}
 b0 <- 57
@@ -105,7 +105,7 @@ ggplot(bdims, aes(x=hgt, y=che_di)) +
   geom_abline(intercept = b0, slope = b1, color="red")
 ```
 
-In the console below use the line above to create a new columns in the `bdims` data set called `y_pred` that contains the predicted values of `y`. Then create another column called `residuals`
+In the console below use the line above to create a new column in the `bdims` data set called `y_pred` that contains the predicted values of `y`. Then create another column called `residuals`
 with the residuals from your model. You should be able to use one mutate function to do both of these calculations even though `residuals` will depend on `y_pred`. Finally, create a scatter plot with `hgt` on the x-axis and `residuals` on the y-axis. Play around with the values of `b1` and `b0` to see if you can find a line which you think fits the data better (i.e. results in smaller residuals):
 
 
@@ -124,7 +124,7 @@ b1 <- -57
 ```
 
 
-With your group, take 5-10 minutes to think of a more rigorous criteria for evaluating how well a line fits the data. You will be asked to share your method with the class.
+With your group, take 5-10 minutes to think of a more rigorous criterion for evaluating how well a line fits the data. You will be asked to share your method with the class.
 
 
 In the console below, use your criteria to evaluate how well your chosen line is working. If you'd like to play around with your values of `b0` and `b1` to find a better fitting line, go for it:
@@ -137,7 +137,7 @@ b1 <- -57
 
 
 
-# Evaluate your line (mutate and summarize will likely be useful here)
+# Evaluate the fit of your line (mutate and summarize will likely be useful here)
 
 
 
