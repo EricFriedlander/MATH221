@@ -1,30 +1,71 @@
 library(tidyverse)
 library(openintro)
 
-covid <- read_csv("https://raw.githubusercontent.com/EricFriedlander/MATH221SP22/main/Datasets/simpsons_paradox_covid.csv")
+ggplot(data = corr_match, aes(x = x, y = y1)) +
+  geom_point()
 
-glimpse(covid)
+ggplot(data = corr_match, aes(x = x, y = y2)) +
+  geom_point()
 
-covid %>%
-  count(age_group)
+ggplot(data = corr_match, aes(x = x, y = y3)) +
+  geom_point()
 
-covid %>%
-  count(outcome)
+ggplot(data = corr_match, aes(x = x, y = y4)) +
+  geom_point()
 
-covid %>%
-  count(outcome, age_group, vaccine_status)
+ggplot(data = corr_match, aes(x = x, y = y5)) +
+  geom_point()
 
-covid %>%
-  count(outcome, age_group) %>%
-  mutate(prop = n/sum(n))
+ggplot(data = corr_match, aes(x = x, y = y6)) +
+  geom_point()
 
-covid_sample <- covid %>%
-  slice_sample(n=5)
+ggplot(data = corr_match, aes(x = x, y = y7)) +
+  geom_point()
 
-covid_sample
+ggplot(data = corr_match, aes(x = x, y = y8)) +
+  geom_point()
 
-covid_strat_sample <- covid %>%
-  group_by(age_group) %>%
-  slice_sample(n=5)
+corr_match %>%
+  summarize(cor(x, y1))
 
-covid_strat_sample
+corr_match %>%
+  summarize(cor(x, y2))
+
+corr_match %>%
+  summarize(cor(x, y3))
+
+corr_match %>%
+  summarize(cor(x, y4))
+
+corr_match %>%
+  summarize(cor(x, y5))
+
+corr_match %>%
+  summarize(cor(x, y6))
+
+corr_match %>%
+  summarize(cor(x, y7))
+
+corr_match %>%
+  summarize(cor(x, y8))
+
+ggplot(bdims, aes(x=hgt, y=che_di)) +
+  geom_point()
+
+m <- .5
+b <- -57
+
+
+
+ggplot(bdims, aes(x=hgt, y=che_di)) +
+  geom_point() +
+  geom_abline(intercept = b, slope = m, color="red")
+
+bdims <- bdims %>%
+  mutate(
+    y_pred = m * hgt + b,
+    residuals = che_di - y_pred
+  )
+
+ggplot(bdims, aes(x=hgt, y=residuals)) + 
+  geom_point()
