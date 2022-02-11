@@ -147,7 +147,7 @@ b1 <- -57
 
 ## Part 2
 
-Let's revisit our problem from last time. We were attempting to predict chest diameter (`che_di`) from height (`hgt`) using linear regression. In the console below create a scatter plot with height on the x-axis and chest diameter on the y-axis:
+Let's revisit our problem from last time. We were attempting to predict chest diameter (`che_di`) from height (`hgt`) using linear regression on the `bdims` data set. In the console below create a scatter plot with height on the x-axis and chest diameter on the y-axis:
 
 ```{r bdims-scatter-2, exercise=TRUE}
 
@@ -164,20 +164,20 @@ question("In our scenario, which variable is $y$ and which variable is $x$",
          allow_retry= TRUE)
 ```
 
-In the console below, compute $\bar{x}$, $\bar{y}$, $s_y$, $s_x$, and $r$. The `summarize` coupled with `sd`, `mean`, and `cor` will be useful:
+In the console below, compute $\bar{x}$, $\bar{y}$, $s_y$, $s_x$, and $r$. The `summarize` function coupled with `sd`, `mean`, and `cor` will be useful:
 
 ```{r summary-stats, exercise=TRUE}
 
 ```
 
-Now, using R as a calculator, compute the least squares $b_0$ and $b_1$:
+Now, using R as a calculator, compute the least squares intecept and slope, $b_0$ and $b_1$:
 
 ```{r calculator, exercise=TRUE}
 
 
 ```
 
-Plug your answers in for `b0` and `b1` below:
+Plug your answers in for `b0` and `b1` below to create the same scatter plot with red line that you did during last lesson:
 
 ```{r visual-line-fit-2, exercise=TRUE}
 b0 <- 
@@ -203,7 +203,7 @@ Compare the line you've created here to the line you estimated visually last cla
 # 
 ```
 
-Now suppose you have a customer walk into your store looking to try on a suit. He says that he is 180 cm tall. Use R below as a calculator to estimate his chest diameter:
+Suppose a customer walks into a store looking to try on a suit. He says that he is 180 cm tall. Use R below as a calculator to estimate his chest diameter:
 
 ```{r predict-brute, exercise=TRUE}
 
