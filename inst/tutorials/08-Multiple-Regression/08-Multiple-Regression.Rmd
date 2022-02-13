@@ -1,0 +1,393 @@
+---
+title: "08 Multiple Regression"
+output: learnr::tutorial
+runtime: shiny_prerendered
+---
+
+```{r setup, include=FALSE}
+library(learnr)
+library(openintro)
+library(tidyverse)
+library(tidymodels)
+library(palmerpenguins)
+
+births14_clean <- births14 %>%
+  drop_na()  %>%
+  select(-lowbirthweight)
+
+set.seed(1988)
+#Create training set
+train <- births14_clean %>% sample_frac(.80)
+#Create test set
+test  <- anti_join(births14_clean, train)
+
+gradethis::gradethis_setup()
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+
+## Indicator and categorical predictors
+
+
+For today's lesson let's suppose we are interested in trying to predict the weight of newborn babies based on a variety of factors. The data set we'll be using today is called `births14`. In the console below, look at the metadata for this data set. Figure out the following:
+
+1. How many observations are there?
+2. How many variables are there?
+3. Where does this data come from?
+4. What is the name of the variable that contains the baby's birth weight?
+5. List 4 variables which you think will be helpful for predicting birth weight.
+
+```{r birth-sandbox, exercise=TRUE}
+
+```
+
+Let's start by thinking about how we can incorporate categorical variables into our model. We'll start by considering whether the mother was a smoker. This information is stored in the variable `habit`. Before we go any further, use the `count` function to count the number of observation in each level of the variable `habit`:
+
+```{r habit-count, exercise=TRUE}
+
+```
+
+Notice that there are a few observations with `NA`. This means that we have some missing data. In the console below, pipe `births14` into the function `drop_na()`. This will remove any observation that has an `NA`. Be careful with using this function as it will remove any observation that has missing data in ANY variable. Store the resulting data frame in a variable called `births14_clean`. Once you have `births14_clean` count the number of observations in each level of `habit` again. Notice that you've lost a decent about of data.
+
+```{r clean-births, exercise=TRUE}
+
+```
+
+Now create a bar chart with `habit` on the x-axis and average birth weight on the y-axis. Note that we've never used bar charts in this way so I've provided most of the syntax for you below. After you create your bar chart, use `group_by` and `summarize` to compute the mean birth weight for each level of `habit`. Make sure you use `births14_clean` to perform your analysis.
+
+```{r habit-bar, exercise=TRUE}
+### Bar chart
+ggplot(births14_clean, aes(x=____, y=____)) +
+  geom_bar(stat="summary", fun="mean")
+
+### Summarize
+```
+
+Use the `lm` function to fit a least-squares regression using `habit` to predict `weight`. Call the resulting `lm` object `habit_mod`. Then use `summary` to inspect `habit_mod`. Note that to specify your model you must use `weight ~ habit`.
+
+```{r habit-lm, exercise=TRUE}
+
+```
+
+Answer the following questions about the model in the console below:
+
+1. What is the **reference level** of this model?
+2. With no additional information, what would you predict the weight of baby born to a non-smoker to be?
+3. With no additional information, what would you predict the weight of baby born to a smoker to be?
+4. How do these numbers compare to the mean weights you computed earlier?
+5. How much of the variation in birth weight is explained by `habit`?
+
+```{r habit-lm-qs, exercise=TRUE}
+#
+```
+
+### Parallel Slopes
+
+It's clear that, while `habit` does capture some information about birth weight, it doesn't capture nearly enough to make useful predictions. Let's add in some more variables. We'll start be including the length of pregnancy `weeks`. In the console below, create a scatter plot with `weeks` on the x-axis, `weight` on the y-axis, and the point colored by `habit`:
+
+```{r scatter-1, exercise=TRUE}
+
+```
+
+```{r scatter-1-hint}
+ggplot(_____, aes(x=_____, y=_____, color=_____)) +
+  geom_point()
+```
+
+In the console below, fit a least-squares regression model using both `habit` and `weeks` to predict `weight`. In your `lm` command, you can specify the model as `weight ~ habit + weeks`. Call your model `births_mod` and make sure to use the `summary` function to inspect your model:
+
+```{r birth-reg-1, exercise=TRUE}
+
+```
+
+Answer the following questions about the model in the console below:
+
+1. With no additional information, what would you predict the weight of baby born to a non-smoker after 40 weeks to be?
+2. With no additional information, what would you predict the weight of baby born to a smoker after 40 weeks to be?
+3. If you increased the number of weeks to 41, how would you two estimates change? How do these changes compare to one another?
+4. How much of the variation in birth weight is explained by `habit` and `weeks`?
+
+```{r birth-reg-1-lm-qs, exercise=TRUE}
+#
+```
+
+We can visualize this model as two parallel slopes (one for smokers and one for non-smokers). In the console below do the following:
+
+1. Use the `augment` function to generate a data frame containing a punch of useful information about `births_mod`. Call this new data frame `augmented_mod`.
+2. Take a glimpse at this new data frame. Notice it has a column called `.fitted`. This includes the predicted values for all of your inputes.
+3. Create a the same scatter plot that you did above, this time use the `augmented_mod` data frame instead of `births14_clean`.
+4. Add the following layer to this scatter plot `geom_line(aes(y=.fitted))`. Don't forget that you'll need a `+` after your `geom_point` command in order to add this line.
+
+```{r parallel-slopes-setup}
+births_mod <- lm(weight ~ habit + weeks, data = births14_clean)
+```
+
+```{r parallel-slopes, exercise=TRUE}
+
+```
+
+Notice that we have two slopes here. Effectively what happens when you fit a linear regression model with a categorical variable, is you fit multiple regression lines, one for each level of your categorical variable, which are parallel. 
+
+## Multiple Regression
+
+### Adjusted R-squared
+
+Recall the definition of $R^2$:
+\[R^2 = 1-\frac{SSE}{SST} =  1 - \frac{\text{variability in residuals}}{\text{variability in the outcome}}
+    = 1 - \frac{Var(e_i)}{Var(y_i)}\]
+
+We can still use this formula when doing multiple regression, however we'll see its best to define a different statistic called **adjusted R-squared**:
+
+\begin{aligned}
+  R_{adj}^{2}
+    &= 1 - \frac{s_{\text{residuals}}^2 / (n-k-1)}
+        {s_{\text{outcome}}^2 / (n-1)} \\
+    &= 1 - \frac{s_{\text{residuals}}^2}{s_{\text{outcome}}^2}
+        \times \frac{n-1}{n-k-1}
+\end{aligned}
+
+The difference between these two statistics is that $R_{ajd}^2$ get's penalized for adding additional predictors into our model. When build a model every additional variable that you add will increase $R^2$ because we are computing $R^2$ based on the same data that we're using to fit the model. Eventually, these improvements in $R^2$ will not translate to better predictions when you use your model on new data. This is called **overfitting** and using $R_{adj}^2$ instead of $R^2$ to compare different models is one way of avoiding it.
+
+Another method that statisticians and data scientists use to avoid overfitting is to separate your data into a "test" set and a "train" set. The model is that fit on the "train" set and validated on the "test" set. In the console below:
+
+1. Fit the same model as above using the data frame `train`. Call it `births_mod`.
+2. Use the `predict` function to predict the birth weight of every observation in the `test` set. Use `predict` inside a `mutate` function in order ot add a column to `test`  called `prediction`.
+3. Use the `summarize` function to compute the SSE.
+4. Print out a summary of `births_mod`. 
+
+```{r test-set-1, exercise=TRUE}
+# Fit model
+births_mod <- lm(weight ~ habit + weeks, data = train)
+
+# Add prediction column
+
+# Compute SSE
+
+# Summary of births_mod
+
+```
+
+```{r test-set-1-hint-1}
+# Fit model
+births_mod <- lm(weight ~ habit + weeks, data = train)
+
+# Add prediction column
+test <- test %>%
+  mutate(prediction = predict(_____, newdata = _____))
+
+# Compute SSE
+
+# Summary of births_mod
+
+```
+
+
+```{r test-set-1-hint-2}
+# Fit model
+births_mod <- lm(weight ~ habit + weeks, data = train)
+
+# Add prediction column
+test <- test %>%
+  mutate(prediction = predict(_____, newdata = _____))
+
+# Compute SSE
+test %>%
+  summarize(____)
+
+# Summary of births_mod
+```
+
+```{r test-set-1-hint-3}
+# Fit model
+births_mod <- lm(weight ~ habit + weeks, data = train)
+
+# Add prediction column
+test <- test %>%
+  mutate(prediction = predict(_____, newdata = _____))
+
+# Compute SSE
+test %>%
+  summarize(____(____ - _____)^2)
+
+# Summary of births_mod
+```
+
+```{r test-set-1-hint-4}
+# Fit model
+births_mod <- lm(weight ~ habit + weeks, data = train)
+
+# Add prediction column
+test <- test %>%
+  mutate(prediction = predict(_____, newdata = _____))
+
+# Compute SSE
+test %>%
+  summarize(sum(____ - _____)^2)
+
+# Summary of births_mod
+```
+
+In the console above, add variables one at a time and re-run the chunk. In the console below, keep track of the SSE (from the new data set), the adjusted R-squared, and the normal R-squared. Stop once your adjusted R-squared decreases and SSE are both past their peak.
+
+```{r keep-track, exercise=TRUE}
+# SSE:
+
+# Adjusted R-squared:
+
+# Multiple R-squared:
+
+```
+
+What do you notice?
+
+## Model Selection
+
+We have 11 variables in our data set (other than `weight` and `lowbirthweight`, which I've removed from the data set). This leads to $2^11= 2048$ different possible models (high fives to anyone who can tell me why). Which one should we choose? Well... the process of choosing a model is called model selection and there are many different methods for doing this. The two that we're going to talk about today are called forward and backwards stepwise selection. In forward selection we start with no variables in the model and then add varibles one by one until we can no longer increase our $R^2_{adj}$. In order to choose which variable to add, we pick the one which increases $R^2_{adj}$ by the most. In the console below, manually figure out what the first two variables would be if we were to use forward selection (use `births14_clean`):
+
+```{r forward-selection, exercise=TRUE}
+### Fit model
+
+
+### Summary of model
+```
+
+In backward stepwise selection we start with the **full model**. I.e. the model with all of the covariates in it. We then remove variables one by one until $R_{adj}^2$ stops increasing. In the console below, manually perform the first two steps in backward selection:
+
+```{r backward-selection, exercise=TRUE}
+### Fit model
+_____ <- lm(weight ~ fage+mage+mature+weeks+premie+visits+gained+sex+habit+marital+whitemom, data = births14_clean)
+
+### Summary of model
+
+```
+
+
+Completing this by hand would be tedious and prohibitively inefficient when you have lots of covariates. We can leverage R to do this for us. Below is code that will perform the forward selection for us:
+
+```{r forward-auto, exercise=TRUE}
+forward <- regsubsets(weight ~ ., data=births14_clean, method = "forward", nvmax=12)
+with(summary(forward), data.frame(adjr2, bic, cp, outmat))
+```
+
+I've added a few extra criteria, called BIC, and Mallows $C_p$. Notice that they lead to slightly different models.
+
+The code below will do that same but with backward selection:
+
+```{r backward-auto, exercise=TRUE}
+backward <- regsubsets(weight ~ ., data=births14_clean, method = "backward", nvmax=12)
+with(summary(backward), data.frame(adjr2, bic, cp, outmat))
+
+```
+
+In this case, the forward and backward algorithms lead to the same models. However, this need not be true. In fact, the forward and backward algorithms may not even lead to the model with the largest $R^2_adj$.
+
+In the console below, pick a "best" model from above (use any criteria you like) and fit it using the `lm` function. Make sure to print out a summary of your model:
+
+```{r final-lm, exercise=TRUE}
+
+```
+
+## High correlation, good or bad? 
+
+Two friends, Frances and Annika, are in disagreement about whether high correlation values are always good in the context of regression. Frances claims that it’s desirable for all variables in the data set to be highly correlated to each other when building linear models. Annika claims that while it’s desirable for each of the predictors to be highly correlated with the outcome, it is not desirable for the predictors to be highly correlated with each other. Who is right: Frances, Annika, both, or neither? Explain your reasoning using appropriate terminology.
+
+```{r hw-1-ans, exercise=TRUE}
+# 
+```
+
+```{r hw-1-ans-solution}
+# Annika is right. All variables being highly correlated, including the predictor variables being highly correlated with each other, is not desirable as this would result in multicollinearity.
+```
+
+## Dealing with categorical predictors. 
+
+Two friends, Elliott and Adrian, want to build a model predicting typing speed (average number of words typed per minute) from whether the person wears glasses or not. Before building the model they want to conduct some exploratory analysis to evaluate the strength of the association between these two variables, but they’re in disagreement about how to evaluate how strongly a categorical predictor is associated with a numerical outcome. Elliott claims that it is not possible to calculate a correlation coefficient to summarize the relationship between a categorical predictor and a numerical outcome, however they’re not sure what a better alternative is. Adrian claims that you can recode a binary predictor as a 0/1 variable (assign one level to be 0 and the other to be 1), thus converting it to a numerical variable. According to Adrian, you can then calculate the correlation coefficient between the predictor and the outcome. Who is right: Elliott or Adrian? If you pick Elliott, can you suggest a better alternative for evaluating the association between the categorical predictor and the numerical outcome? 
+
+```{r hw-2-ans, exercise=TRUE}
+# 
+```
+
+```{r hw-2-ans-solution}
+# Elliott is right. The correlation coefficient measures the strength of the 
+# linear association between two numerical variables. Transforming a categorical 
+# predictor to a 0/1 variable doesn’t make it a numerical variable. A viable 
+# alternative is to visualize the relationship between the two variables using 
+# side-by-side box plots and evaluating the association visually.
+```
+
+## Multiple regression fact checking. 
+
+Determine which of the following statements are true and false. For each statement that is false, explain why it is false.
+
+a) If predictors are collinear, then removing one variable will have no influence on the point estimate of another variable’s coefficient.
+
+b) Suppose a numerical variable $x$ has a coefficient of $b_1=2.5$ in the multiple regression model. Suppose also that the first observation has $x_1=7.2$, the second observation has a value of $x_1=8.2$, and these two observations have the same values for all other predictors. Then the predicted value of the second observation will be 2.5 higher than the prediction of the first observation based on the multiple regression model.
+
+c) If a regression model’s first variable has a coefficient of $b_1=5.7$, then if we are able to influence the data so that an observation will have its $x_1$ be 1 larger than it would otherwise, the value $y_1$ for this observation would increase by 5.7.
+
+```{r hw-3-ans, exercise=TRUE}
+# a)
+
+# b)
+
+# c)
+```
+
+```{r hw-3-ans-solution}
+# a) False. When predictors are collinear, it means they are correlated, and the inclusion of one variable can have a substantial influence on the point estimate (and standard error) of another.
+
+# b) True.
+
+# c) False. This would only be the case if the data was from an experiment and x1 was one of the variables set by the researchers. (Multiple regression can be useful for forming hypotheses about causal relationships, but it offers zero guarantees.)
+```
+
+## Palmer penguins, predicting body mass. 
+
+Researchers studying a community of Antarctic penguins collected body measurement (bill length, bill depth, and flipper length measured in millimeters and body mass, measured in grams), species (Adelie, Chinstrap, or Gentoo), and sex (female or male) data on 344 penguins living on three islands (Torgersen, Biscoe, and Dream) in the Palmer Archipelago, Antarctica. In the console below fit a least-squares regression from the data frame `penguins` predicting `body_mass_g` from all the other variables. Remember you can use `body_mass_g~.` to tell `lm` to fit a full model.
+
+```{r penguin-regression, exercise=TRUE}
+
+```
+
+```{r penguin-regression-solution}
+penguins_mod <- lm(body_mass_g ~ ., data = penguins)
+
+summary(penguins_mod)
+```
+
+Answer the following questions:
+
+a) Write the equation of the regression model.
+
+b) Interpret each one of the slopes in this context.
+
+c) Calculate the residual for a male Adelie penguin that weighs 3750 grams with the following body measurements: bill_length_mm = 39.1, bill_depth_mm = 18.7, flipper_length_mm = 181. Does the model overpredict or underpredict this penguin’s weight?
+
+d) The $R^2$ of this model is 87.5%. Interpret this value in context of the data and the model.
+
+```{r penguins-qs, exercise=TRUE}
+# a)
+
+# b)
+
+# c)
+
+# d)
+```
+
+
+## Palmer penguins, forward selection. 
+
+Using body measurement and other relevant data on three species (Adelie, Chinstrap, or Gentoo) of penguins living in the Palmer Archipelago, Antarctica, we want to predict their body mass. In order to do so, we will evaluate five candidate predictors and make a decision about including them in the model using forward selection and adjusted $R^2$. Below are the five models we evaluate and their adjusted $R^2$ values:
+
+Predict body mass from `bill_length_mm`: 0.352
+Predict body mass from `bill_depth_mm`: 0.22
+Predict body mass from `flipper_length_mm`: 0.758
+Predict body mass from `sex`: 0.178
+Predict body mass from `species`: 0.668
+Which variable should be added to the model first?
+
+```{r penguins-q-2, exercise=TRUE}
+#
+```
+
