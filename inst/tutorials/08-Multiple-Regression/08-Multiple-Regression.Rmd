@@ -113,7 +113,7 @@ Answer the following questions about the model in the console below:
 
 We can visualize this model as two parallel slopes (one for smokers and one for non-smokers). In the console below do the following:
 
-1. Use the `augment` function to generate a data frame containing a punch of useful information about `births_mod`. Call this new data frame `augmented_mod`.
+1. Use the `augment` function to generate a data frame containing a bunch of useful information about `births_mod`. Call this new data frame `augmented_mod`.
 2. Take a glimpse at this new data frame. Notice it has a column called `.fitted`. This includes the predicted values for all of your inputes.
 3. Create a the same scatter plot that you did above, this time use the `augmented_mod` data frame instead of `births14_clean`.
 4. Add the following layer to this scatter plot `geom_line(aes(y=.fitted))`. Don't forget that you'll need a `+` after your `geom_point` command in order to add this line.
@@ -136,7 +136,7 @@ Recall the definition of $R^2$:
 \[R^2 = 1-\frac{SSE}{SST} =  1 - \frac{\text{variability in residuals}}{\text{variability in the outcome}}
     = 1 - \frac{Var(e_i)}{Var(y_i)}\]
 
-We can still use this formula when doing multiple regression, however we'll see its best to define a different statistic called **adjusted R-squared**:
+We can still use this formula when doing multiple regression, however we'll see it's best to define a different statistic called **adjusted R-squared**:
 
 \begin{aligned}
   R_{adj}^{2}
@@ -146,9 +146,9 @@ We can still use this formula when doing multiple regression, however we'll see 
         \times \frac{n-1}{n-k-1}
 \end{aligned}
 
-The difference between these two statistics is that $R_{ajd}^2$ get's penalized for adding additional predictors into our model. When build a model every additional variable that you add will increase $R^2$ because we are computing $R^2$ based on the same data that we're using to fit the model. Eventually, these improvements in $R^2$ will not translate to better predictions when you use your model on new data. This is called **overfitting** and using $R_{adj}^2$ instead of $R^2$ to compare different models is one way of avoiding it.
+The difference between these two statistics is that $R_{ajd}^2$ gets penalized for adding additional predictors into our model. When build a model every additional variable that you add will increase $R^2$ because we are computing $R^2$ based on the same data that we're using to fit the model. Eventually, these improvements in $R^2$ will not translate to better predictions when you use your model on new data. This is called **overfitting** and using $R_{adj}^2$ instead of $R^2$ to compare different models is one way of avoiding it.
 
-Another method that statisticians and data scientists use to avoid overfitting is to separate your data into a "test" set and a "train" set. The model is that fit on the "train" set and validated on the "test" set. In the console below:
+Another method that statisticians and data scientists use to avoid overfitting is to separate your data into a "test" set and a "train" set. The model is fit using the "train" set and validated on the "test" set. In the console below:
 
 1. Fit the same model as above using the data frame `train`. Call it `births_mod`.
 2. Use the `predict` function to predict the birth weight of every observation in the `test` set. Use `predict` inside a `mutate` function in order ot add a column to `test`  called `prediction`.
@@ -242,7 +242,7 @@ What do you notice?
 
 ## Model Selection
 
-We have 11 variables in our data set (other than `weight` and `lowbirthweight`, which I've removed from the data set). This leads to $2^11= 2048$ different possible models (high fives to anyone who can tell me why). Which one should we choose? Well... the process of choosing a model is called model selection and there are many different methods for doing this. The two that we're going to talk about today are called forward and backwards stepwise selection. In forward selection we start with no variables in the model and then add varibles one by one until we can no longer increase our $R^2_{adj}$. In order to choose which variable to add, we pick the one which increases $R^2_{adj}$ by the most. In the console below, manually figure out what the first two variables would be if we were to use forward selection (use `births14_clean`):
+We have 11 variables in our data set (other than `weight` and `lowbirthweight` which I've removed). This leads to $2^{11}= 2048$ different possible models (high fives to anyone who can tell me why). Which one should we choose? Well... the process of choosing a model is called model selection and there are many different methods for doing this. The two that we're going to talk about today are called forward and backwards stepwise selection. In forward selection we start with no variables in the model and then add varibles one by one until we can no longer increase our $R^2_{adj}$. In order to choose which variable to add, we pick the one which increases $R^2_{adj}$ by the most. In the console below, manually figure out what the first two variables would be if we were to use forward selection (use `births14_clean`):
 
 ```{r forward-selection, exercise=TRUE}
 ### Fit model
@@ -265,6 +265,8 @@ _____ <- lm(weight ~ fage+mage+mature+weeks+premie+visits+gained+sex+habit+marit
 Completing this by hand would be tedious and prohibitively inefficient when you have lots of covariates. We can leverage R to do this for us. Below is code that will perform the forward selection for us:
 
 ```{r forward-auto, exercise=TRUE}
+library(leaps)
+
 forward <- regsubsets(weight ~ ., data=births14_clean, method = "forward", nvmax=12)
 with(summary(forward), data.frame(adjr2, bic, cp, outmat))
 ```
@@ -274,6 +276,8 @@ I've added a few extra criteria, called BIC, and Mallows $C_p$. Notice that they
 The code below will do that same but with backward selection:
 
 ```{r backward-auto, exercise=TRUE}
+library(leaps)
+
 backward <- regsubsets(weight ~ ., data=births14_clean, method = "backward", nvmax=12)
 with(summary(backward), data.frame(adjr2, bic, cp, outmat))
 
@@ -288,6 +292,8 @@ In the console below, pick a "best" model from above (use any criteria you like)
 ```
 
 ## High correlation, good or bad? 
+
+This is the beginning of your homework. You can either submit your assignment as a PDF on moodle. If you can't get your PDF to show all of your work then you'll need to copy your answers into this [google form](https://forms.gle/UeMQASoQGWFbYevJA).
 
 Two friends, Frances and Annika, are in disagreement about whether high correlation values are always good in the context of regression. Frances claims that it’s desirable for all variables in the data set to be highly correlated to each other when building linear models. Annika claims that while it’s desirable for each of the predictors to be highly correlated with the outcome, it is not desirable for the predictors to be highly correlated with each other. Who is right: Frances, Annika, both, or neither? Explain your reasoning using appropriate terminology.
 
@@ -381,13 +387,66 @@ d) The $R^2$ of this model is 87.5%. Interpret this value in context of the data
 Using body measurement and other relevant data on three species (Adelie, Chinstrap, or Gentoo) of penguins living in the Palmer Archipelago, Antarctica, we want to predict their body mass. In order to do so, we will evaluate five candidate predictors and make a decision about including them in the model using forward selection and adjusted $R^2$. Below are the five models we evaluate and their adjusted $R^2$ values:
 
 Predict body mass from `bill_length_mm`: 0.352
+
 Predict body mass from `bill_depth_mm`: 0.22
+
 Predict body mass from `flipper_length_mm`: 0.758
+
 Predict body mass from `sex`: 0.178
+
 Predict body mass from `species`: 0.668
+
 Which variable should be added to the model first?
 
 ```{r penguins-q-2, exercise=TRUE}
 #
+```
+
+## Submit
+
+```{css echo=FALSE}
+@media print {
+  .topicsContainer,
+  .topicActions,
+  .exerciseActions .skip {
+    display: none;
+  }
+  .topics .tutorialTitle,
+  .topics .section.level2,
+  .topics .section.level3:not(.hide) {
+    display: block;
+  }
+  .topics {
+    width: 100%;
+  }
+  .tutorial-exercise, .tutorial-question {
+    page-break-inside: avoid;
+  }
+  .section.level3.done h3 {
+    padding-left: 0;
+    background-image: none;
+  }
+  .topics .showSkip .exerciseActions::before {
+    content: "Topic not yet completed...";
+    font-style: italic;
+  }
+}
+```
+
+Make sure you have the tutorial open in a browser (preferably Google Chrome). Please press `print page` button below to print the tutorial. Print it to a `pdf` file and upload it into Moodle. Make sure all code boxed are visible. If you can't do that please submit your answers to the Google Form.
+
+```{js print2pdf1, context="server"}
+    // the following 2 chunks print the completed sections of the tutorial to PDF
+    // uses "css/print2pdf.css"
+    $(document).on('shiny:inputchanged', function(event) {
+      if (event.name === 'print2pdf') {
+        window.print();
+      }
+    });
+    ```
+    
+```{r print2pdf2}
+    # button can be placed anywhere in the tutorial
+    actionButton("print2pdf", "Print page", style="opacity: .7; color: #000;")
 ```
 
