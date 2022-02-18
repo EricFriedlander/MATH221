@@ -104,6 +104,7 @@ data %>%
   hypothesize(null = "independence") %>%
   generate(reps = 10000, type = "permute") %>%
   calculate(stat = "diff in props", order = c("First Born", "Not First")) %>%
-  get_p_value(obs_stat = point_estimate, direction = "greater")
-
+  ggplot(aes(x = stat)) +
+  geom_histogram(binwidth=.1) +
+  geom_vline(aes(xintercept=-0.3), color="red")
   
