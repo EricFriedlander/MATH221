@@ -15,8 +15,9 @@ Suggests:
 Imports: 
     openintro (>= 2.2.0),
     gradethis (>= 0.2.4.9000),
-    usdata (>= 0.2.0)
-Remotes:  
+    usdata (>= 0.2.0),
+    infer
+Remotes: 
     rstudio-education/gradethis,
     OpenIntroStat/openintro,
     OpenIntroStat/usdata
