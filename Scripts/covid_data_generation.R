@@ -8,7 +8,7 @@ covid_under_50 <- covid %>%
 covid_50_plus <- covid %>%
   filter(age_group == "50 +")
 
-covid_50_plus %>%
+covid_50_plus_replicates <- covid_50_plus %>%
   specify(outcome~vaccine_status, success = "death") %>%
   hypothesize(null = "independence") %>%
   generate(reps = 1000, type = "permute") %>%
@@ -16,7 +16,7 @@ covid_50_plus %>%
   write_csv(file="Datasets/over_50_reps.csv")
 
 
-covid_under_50 %>%
+covid_under_50_replicates <- covid_under_50 %>%
   specify(outcome~vaccine_status, success = "death") %>%
   hypothesize(null = "independence") %>%
   generate(reps = 1000, type = "permute") %>%

@@ -11,24 +11,8 @@ library(tidyverse)
 library(infer)
 
 covid <- read_csv("https://raw.githubusercontent.com/EricFriedlander/MATH221SP22/main/Datasets/simpsons_paradox_covid.csv") 
-
-covid_under_50 <- covid %>%
-  filter(age_group == "under 50")
-
-covid_50_plus <- covid %>%
-  filter(age_group == "50 +")
-
-covid_50_plus_replicates <- covid_50_plus %>%
-  specify(outcome~vaccine_status, success = "death") %>%
-  hypothesize(null = "independence") %>%
-  generate(reps = 1000, type = "permute") %>%
-  calculate(stat = "diff in props", order = c("vaccinated", "unvaccinated")) 
-
-covid_under_50_replicates <- covid_under_50 %>%
-  specify(outcome~vaccine_status, success = "death") %>%
-  hypothesize(null = "independence") %>%
-  generate(reps = 1000, type = "permute") %>%
-  calculate(stat = "diff in props", order = c("vaccinated", "unvaccinated")) 
+covid_50_plus_replicates <- read_csv("https://raw.githubusercontent.com/EricFriedlander/MATH221SP22/main/Datasets/over_50_reps.csv")
+covid_under_50_replicates <- read_csv("https://raw.githubusercontent.com/EricFriedlander/MATH221SP22/main/Datasets/under_50_reps.csv")
 
 gradethis::gradethis_setup()
 knitr::opts_chunk$set(echo = FALSE)
@@ -39,9 +23,9 @@ knitr::opts_chunk$set(echo = FALSE)
 
 We're going to be looking at the same data set on COVID-19 cases from the UK. We're going to use randomization testing in order to determine whether the vaccine is effective at reducing the mortality of individuals in two age buckets: `under 50` and `50 +`. You can find the data for those under 50 in the data frame `covid_under 50` and the data for those over 50 in the data frame `covid_50_plus`. We have TWO main research questions today:
 
-> **Question 1**: Is the COVID-19 vaccine effective and preventing death from the Delta Variant in individuals above the age of 50?
+> **Question 1**: Is the COVID-19 vaccine effective at preventing death from the Delta Variant in individuals above the age of 50?
 
-> **Question 2**: Is the COVID-19 vaccine effective and preventing death from the Delta Variant in individuals below the age of 50?
+> **Question 2**: Is the COVID-19 vaccine effective at preventing death from the Delta Variant in individuals below the age of 50?
 
 Let's start be taking a quick look at our data. In the console below, create a contingency table containing counts with `vaccine_status` as the rows and `outcome` as the columns using `covid_50_plus`. Remember:
 
@@ -62,7 +46,7 @@ We are trying to estimate the parameter $p_{vax}-p_{unvax}$ where $p_{vax}$ repr
 
 1. Pipe `covid_50_plus` into `group_by` where you group by `vaccine_status`.
 2. Pipe the result into `count` making sure to count both `outcome` and `vaccine_status`.
-3. Pipe the result into `mutate` makes sure to compute that `proportion` as `n/sum(n)`.
+3. Pipe the result into `mutate` making sure to compute that `proportion` as `n/sum(n)`.
 4. Pipe the result into `pivot_wider` setting `outcome` as the columns by using the `names_from` parameter and setting `values_from` to use `proportion`. Don't forget to include the `id_cols` parameter and specify `c(vaccine_status, outcome, proportion)`.
 
 ```{r contingency-3, exercise=TRUE}
@@ -90,7 +74,7 @@ What is the **point estimate** for our parameter of interest in the younger age 
 
 Now let's conduct a hypothesis test to test our research questions.
 
-In the console below or on a sheet of paper write down the null and alternative hypotheses for both research questions. Please include your hypotheses in words and formulas:
+In the console below or on a sheet of paper write down the null and alternative hypotheses for both research questions. Please include your hypotheses in words and symbols:
 
 ```{r hypotheses, exercise=TRUE}
 # Question 1
@@ -108,7 +92,7 @@ In the console below, create 1,000 randomized replicates of the test statistic $
 2. Pipe the result into `hypothesize` and specify `null="independence"`.
 3. Pipe the result into `generate` and specify `reps=1000` and `type="permute"`.
 4. Pipe the result into `calculate` and specify `stat = "diff in props"` and `order = c("vaccinated", "unvaccinated")`.
-5. Make sure to save your result by adding `covid_50_plus_replicates <- ` at the beginning of the first line. Note that this will not print anything else. If you'd like to take a look at the data frame you've created you can use `glimpse` or `head`.
+5. Make sure to save your result by adding `covid_50_plus_replicates <- ` at the beginning of the first line. Note that this will not print anything. If you'd like to take a look at the data frame you've created you can use `glimpse` or `head`.
 
 ```{r create-reps, exercise=TRUE}
 
