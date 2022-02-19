@@ -39,7 +39,7 @@ data %>%
   pivot_wider(id_cols=c(major, first_born, proportion), names_from=major, values_from = proportion)
 
 # Point estimate of phat_fb - phat_nf
-point_estimate <- .5 - .5
+point_estimate <- 
 point_estimate
 
 
@@ -81,17 +81,6 @@ data %>%
             q.05 = quantile(stat, probs = 0.05), 
             q.95 = quantile(stat, probs = 0.95), 
             q.975 = quantile(stat, probs = 0.975))
-  
-
-data %>%
-  rep_sample_n(size = nrow(data), reps=10000, replace = FALSE) %>%
-  mutate(major_perm = sample(major)) %>%
-  group_by(replicate, first_born) %>%
-  summarize(prop_da = mean(major_perm == "Data Analytics")) %>%
-  summarize(diff_da = diff(prop_da)) %>%
-  ggplot(aes(x = diff_da)) +
-  geom_histogram(binwidth=.1) +
-  geom_vline(aes(xintercept=-0.3), color="red")
 
 
 point_estimate <- data %>%

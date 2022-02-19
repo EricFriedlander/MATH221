@@ -18,6 +18,7 @@ Imports:
     usdata (>= 0.2.0),
     infer
 Remotes: 
-    rstudio-education/gradethis,
+    rstudio/gradethis
+    rstudio/learnr
     OpenIntroStat/openintro,
     OpenIntroStat/usdata

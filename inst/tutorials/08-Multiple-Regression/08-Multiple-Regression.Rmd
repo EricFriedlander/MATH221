@@ -443,7 +443,7 @@ Make sure you have the tutorial open in a browser (preferably Google Chrome). Pl
         window.print();
       }
     });
-    ```
+```
     
 ```{r print2pdf2}
     # button can be placed anywhere in the tutorial
