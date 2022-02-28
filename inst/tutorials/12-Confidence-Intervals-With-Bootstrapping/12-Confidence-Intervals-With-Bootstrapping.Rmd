@@ -62,7 +62,7 @@ In the console below, compute the 2.5th and 97.5th percentiles:
 
 What is our point estimate and a 95% confidence interval for the $p_{app}$:
 
-```{r point-estimate-ci, exericse=TRUE}
+```{r point-estimate-ci, exercise=TRUE}
 # Point estimate:
 
 # 95% Confident interval:
@@ -70,7 +70,7 @@ What is our point estimate and a 95% confidence interval for the $p_{app}$:
 
 Use the console below to compute a 99% confidence interval:
 
-```{r ci-2, exericse=TRUE}
+```{r ci-99, exercise=TRUE}
 
 ```
 
