@@ -14,53 +14,53 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ## Computing Probabilities with the Normal Distribution
 
-Suppose that the weight of newborn babies is normally distributed with mean $\mu=7.5$ lbs and standard deviation $0.7$ lbs.
+Suppose that the weight of newborn babies is normally distributed with mean $\mu=7.5$ lb and standard deviation $0.7$ lb.
 
 For each of the questions below, generate a plot shading the region of a normal curve corresponding to the requested probability and compute the true probability.
 
-What is the probability of a baby weighing less than 7.5 lbs? (You should be able to do this in your head). 
+What is the probability of a baby weighing less than 7.5 lb? (You should be able to do this in your head). 
 
 ```{r prob-1, exercise=TRUE}
 
 ```
 
-What is the probability of a baby weighing less than 6.5 lbs?
+What is the probability of a baby weighing less than 6.5 lb?
 
 ```{r prob-2, exercise=TRUE}
 
 ```
 
-What is the probability that a new born weighs at least 8 lbs?
+What is the probability that a new born weighs at least 8 lb?
 
 ```{r prob-3, exercise=TRUE}
 
 ```
 
-What is the probability that a new born weights between 7 and 9 lbs?
+What is the probability that a new born weights between 7 and 9 lb?
 
 ```{r prob-4, exercise=TRUE}
 
 ```
 
-What is the probability that a new born weights between 5.5 and 7 lbs?
+What is the probability that a new born weights between 5.5 and 7 lb?
 
 ```{r prob-5, exercise=TRUE}
 
 ```
 
-What is the probability that a new born weight more than 8.5 lbs or less than 5.5 lbs?
+What is the probability that a new born weight more than 8.5 lb or less than 5.5 lb?
 
 ```{r prob-6, exercise=TRUE}
 
 ```
 
-What is the probability that a new born weight more than 9 lbs or less than 6 lbs?
+What is the probability that a new born weight more than 9 lb or less than 6 lb?
 
 ```{r prob-7, exercise=TRUE}
 
 ```
 
-What is the probability that a new born weight more than 9 lbs or less than 5 lbs?
+What is the probability that a new born weight more than 9 lb or less than 5 lb?
 
 ```{r prob-8, exercise=TRUE}
 
@@ -68,7 +68,7 @@ What is the probability that a new born weight more than 9 lbs or less than 5 lb
 
 ## Computing Quantiles/Percentiles with the Normal Distribution
 
-Suppose that the weight of newborn babies is normally distributed with mean $\mu=7.5$ lbs and standard deviation $0.7$ lbs.
+Suppose that the weight of newborn babies is normally distributed with mean $\mu=7.5$ lb and standard deviation $0.7$ lb.
 
 For each of the questions below, generate a plot shading the region of a normal curve corresponding to the requested probability and compute the requested quantities.
 
@@ -96,7 +96,7 @@ A baby is considered a "normal weight" if it fall in the middle 90% of weights. 
 
 ```
 
-Doctors recommend extra screenings for babies predicted to be in the 20% of baby weights that are farthest away from the mean (7.5 lbs). What are the cutoffs for the extra monitoring?
+Doctors recommend extra screenings for babies predicted to be in the 20% of baby weights that are farthest away from the mean (7.5 lb). What are the cutoffs for the extra monitoring?
 
 ```{r perc-5, exercise=TRUE}
 
