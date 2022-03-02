@@ -1,0 +1,103 @@
+---
+title: "13 Inference With Mathematical Models"
+output: learnr::tutorial
+runtime: shiny_prerendered
+---
+
+```{r setup, include=FALSE}
+library(learnr)
+library(openintro)
+library(tidyverse)
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+
+## Computing Probabilities with the Normal Distribution
+
+Suppose that the weight of newborn babies is normally distributed with mean $\mu=7.5$ lbs and standard deviation $0.7$ lbs.
+
+For each of the questions below, generate a plot shading the region of a normal curve corresponding to the requested probability and compute the true probability.
+
+What is the probability of a baby weighing less than 7.5 lbs? (You should be able to do this in your head). 
+
+```{r prob-1, exercise=TRUE}
+
+```
+
+What is the probability of a baby weighing less than 6.5 lbs?
+
+```{r prob-2, exercise=TRUE}
+
+```
+
+What is the probability that a new born weighs at least 8 lbs?
+
+```{r prob-3, exercise=TRUE}
+
+```
+
+What is the probability that a new born weights between 7 and 9 lbs?
+
+```{r prob-4, exercise=TRUE}
+
+```
+
+What is the probability that a new born weights between 5.5 and 7 lbs?
+
+```{r prob-5, exercise=TRUE}
+
+```
+
+What is the probability that a new born weight more than 8.5 lbs or less than 5.5 lbs?
+
+```{r prob-6, exercise=TRUE}
+
+```
+
+What is the probability that a new born weight more than 9 lbs or less than 6 lbs?
+
+```{r prob-7, exercise=TRUE}
+
+```
+
+What is the probability that a new born weight more than 9 lbs or less than 5 lbs?
+
+```{r prob-8, exercise=TRUE}
+
+```
+
+## Computing Quantiles/Percentiles with the Normal Distribution
+
+Suppose that the weight of newborn babies is normally distributed with mean $\mu=7.5$ lbs and standard deviation $0.7$ lbs.
+
+For each of the questions below, generate a plot shading the region of a normal curve corresponding to the requested probability and compute the requested quantities.
+
+What is the 90th percentile of baby weights?
+
+```{r perc-1, exercise=TRUE}
+
+```
+
+Doctors recommend bed rest for pregnant women whose babies are projected to weigh less than 95% of newborns. What is this weight? (Note: This is a made up fact)
+
+```{r perc-2, exercise=TRUE}
+
+```
+
+Doctors recommend a c-section for women whose babies are projected to weigh more than 96.5% of newborns. What is this weight? (Note: This is a made up fact)
+
+```{r perc-3, exercise=TRUE}
+
+```
+
+A baby is considered a "normal weight" if it fall in the middle 90% of weights. What are the cutoffs for this interval? (Note: This is a made up fact)
+
+```{r perc-4, exercise=TRUE}
+
+```
+
+Doctors recommend extra screenings for babies predicted to be in the 20% of baby weights that are farthest away from the mean (7.5 lbs). What are the cutoffs for the extra monitoring?
+
+```{r perc-5, exercise=TRUE}
+
+```
