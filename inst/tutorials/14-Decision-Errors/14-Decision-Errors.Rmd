@@ -262,7 +262,7 @@ d. With large sample sizes, even small differences between the null value and th
 }
 ```
 
-Make sure you have the tutorial open in a browser (preferably Google Chrome). Please press `print page` button below to print the tutorial. Print it to a `pdf` file and upload it into Moodle. Make sure all code boxed are visible. If you can't do that please submit your answers to [the Google Form](https://forms.gle/13PDq4eW1j5t4tpE7).
+Make sure you have the tutorial open in a browser (preferably Google Chrome). Please press `print page` button below to print the tutorial. Print it to a `pdf` file and upload it into Moodle. Make sure all code boxed are visible. If you can't do that please submit your answers to [the Google Form](https://forms.gle/cDqdcVmkEaYAynfQ7).
 
 ```{js print2pdf1, context="server"}
     // the following 2 chunks print the completed sections of the tutorial to PDF
