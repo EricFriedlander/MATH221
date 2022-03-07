@@ -159,3 +159,8 @@ mammals_selected <- mammals_clean %>%
 
 forward <- regsubsets(total_sleep ~ ., data=mammals_selected, method = "forward", nvmax=12)
 with(summary(forward), data.frame(adjr2, outmat))
+
+mammals %>% 
+  mutate(new = gestation %% 1 == 0) %>% 
+  count(new)
+e
