@@ -1,0 +1,224 @@
+---
+title: "16 - Inference For A Single Proportion"
+output: learnr::tutorial
+runtime: shiny_prerendered
+---
+
+```{r setup, include=FALSE}
+library(learnr)
+library(openintro)
+library(infer)
+library(tidyverse)
+
+knitr::opts_chunk$set(echo = FALSE)
+
+mice <- tibble(mouse_id = seq(1, 127), result = sample(c(rep("perfume", 80), rep("no perfume", 127-80))))
+```
+
+
+## Olfactory Responses in Mice
+
+Suppose you're a researcher who is researching the olfactory centers of mice. You are interested in investigating whether you can attract mice to a certain bowl of food by spraying the food with a "perfume" that contains pheromones from other mice. In your experiment a mouse is placed in between two bowls of food, one with the perfume and one without. The bowl that the mouse eats out of first is then recorded. Each mouse is independent of all other mice. The results of your experiment are stored in the data frame `mice`. Take a look at the data set below. 
+
+```{r sandbox, exercise=TRUE}
+
+```
+
+Your task is conduct a hypothesis test for your research question. If you feel up to it, try and do it all in the console below. This includes selecting your own significance level. If you don't feel comfortable doing this the remaining consoles will walk you through the steps.
+
+```{r advanced, exercise=TRUE}
+
+```
+
+
+Call the proportion of mice (in the population) that prefer the food with the perfume $p$. On a sheet of paper or in the console, write down what you think your null and alternative hypotheses are:
+
+```{r hypotheses, exercise=TRUE}
+# H0:
+# HA:
+```
+
+
+```{r hypotheses-solution}
+# H0: p=.5
+# HA: p>.5
+```
+
+Compute the test statistic:
+
+```{r test-statistic, exercise=TRUE}
+
+```
+
+```{r test-statistic-hint-1}
+_____ %>% 
+  _____
+```
+
+```{r test-statistic-hint-2}
+_____ %>% 
+  _____(point_estimate = mean(____ == "_____"))
+```
+
+```{r test-statistic-hint-3}
+mice %>% 
+  summarize(point_estimate = mean(result == "perfume"))
+```
+
+In the console below, compute the and standard error for this test:
+
+```{r standard-error, exercise=TRUE}
+
+```
+
+```{r standard-error-hint-1}
+sqrt(____ * (1 - _____)/_____)
+```
+
+```{r standard-error-hint-2}
+sqrt(.5 * (1 - .5)/127)
+```
+
+Now compute your z-score and use the `normTail` function to display the regiong of the standard normal distribution corresponding to your p-value:
+
+```{r z, exercise=TRUE}
+
+```
+
+```{r z-hint-1}
+z_score <- 
+z_score
+normTail(____, ____, _____)
+```
+
+```{r z-hint-2}
+z_score <- (_____ - _____)/_____
+z_score
+normTail(m=_____, s=____, U=_____)
+```
+
+```{r z-hint-3}
+z_score <- (_____ - 0.5)/0.04436783
+z_score
+normTail(m=0, s=1, U=_____)
+```
+
+```{r z-hint-4}
+z_score <- (0.630 - 0.5)/0.04436783
+z_score
+normTail(m=0, s=1, U=z_score)
+```
+
+Compute your p-value:
+
+```{r p-val, exercise=TRUE}
+
+```
+
+```{r p-val-hint-1}
+pnorm(____, ____, ____)
+```
+
+```{r p-val-hint-2}
+pnorm(____, mean = ____, sd = ____)
+```
+
+```{r p-val-hint-3}
+1-pnorm(2.930051, mean = 0, sd = 1)
+```
+
+```{r q-1}
+question_radio(
+"Would is the result of this hypothesis test with a significance level of $\\alpha = 0.05$",
+answer("Fail to Reject the Null Hypothesis"),
+answer("Reject the null hypothesis", correct=TRUE),
+allow_retry=TRUE
+)
+```
+
+## Global warming poll
+
+A 2010 Pew Research poll asked 1,306 Americans, "From what you've read and heard, is there solid evidence that the average temperature on earth has been getting warmer over the past few decades, or not?" The resulting data can be found in the data frame `global_warming_pew`. Take a look at the data below:
+
+```{r sandbox-gw, exercise=TRUE}
+
+```
+
+Your task is conduct a 90% confidence interval for the proportion of Americans (in 2010) who believe that the earth is warming. If you feel up to it, try and do it all in the console below. If you don't feel comfortable doing this the remaining consoles will walk you through the steps.
+
+```{r ci-advanced, exercise=TRUE}
+
+```
+
+Remember that confidence intervals take the form $\hat{p}\pm z^*\times SE$. Let first compute $\hat{p}$, our point estimate, which will be the proportion of responders in our data set that say the "Earth is warming". Compute this number in the console below:
+
+```{r point_est, exercise=TRUE}
+
+```
+
+```{r point_est-hint-1}
+_____ %>% 
+  _____
+```
+
+```{r point_est-hint-2}
+_____ %>% 
+  summarize(mean(_____=="_____"))
+```
+
+```{r point_est-hint-3}
+global_warming_pew %>% 
+  summarize(mean(response=="Earth is warming"))
+```
+
+Now that we have our point estimate, compute the standard error (technically the estimate of the standard error):
+
+```{r standard-err, exercise=TRUE}
+
+```
+
+```{r standard-err-hint-1}
+sqrt(_____*(1-_____)/_____)
+```
+
+```{r standard-err-hint-2}
+sqrt(0.5996449*(1-0.5996449)/2253)
+```
+
+Compute $z^*$ for a 90% confidence interval:
+
+```{r z-star, exercise=TRUE}
+
+```
+
+```{r z-star-hint-1}
+qnorm(_____, _____, _____)
+```
+
+```{r z-star-hint-2}
+qnorm(_____, mean=_____, sd=_____)
+```
+
+```{r z-star-hint-3}
+qnorm(.95, mean=0, sd=1)
+```
+
+Now that we have all the ingredients that we need, compute the confidence interval:
+
+```{r con-int, exercise=TRUE}
+
+```
+
+```{r con-int-hint-1}
+_____ - _____ * _____
+_____ + _____ * _____
+```
+
+```{r con-int-hint-2}
+0.5996449 - 1.644854 * 0.0103226
+0.5996449 + 1.644854 * 0.0103226
+```
+
+
+So our 90% confidence interval is (58.3%, 61.7%).
+

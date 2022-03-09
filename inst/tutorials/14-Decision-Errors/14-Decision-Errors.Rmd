@@ -113,7 +113,7 @@ Find  a sample size for at which you would reject the null for the first (one-si
 
 ### Exercise 5
 
-Suppose you are Dr. Arbuthnot and have not yet collected your data. You think that the true proportion of babies that are male is 52%. You may assume a population standard deviation of 0.5. If this is the true proportion, what sample size would you need so that the power (i.e. the probability of rejecting the null) of your two-sided hypothesis test is 99%? Use the console below for any  calculations.
+Suppose you are Dr. Arbuthnot and have not yet collected your data. You think that the true proportion of babies that are male is 52%. You may assume a population standard deviation of 0.5. If this is the true proportion, what sample size would you need so that the power (i.e. the probability of rejecting the null) of your two-sided hypothesis test is 90%? Use the console below for any  calculations.
 
 ```{r calculator, exercise=TRUE}
 
