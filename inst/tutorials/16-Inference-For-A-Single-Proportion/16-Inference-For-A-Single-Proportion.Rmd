@@ -541,7 +541,9 @@ question_radio(
 )
 ```
 
-## If I fits, I sits, bootstrap test. A citizen science project on which type of enclosed spaces cats are most likely to sit in compared (among other options) two different spaces taped to the ground. The first was a square, and the second was a shape known as Kanizsa square illusion. When comparing the two options given to 7 cats, 5 chose the square, and 2 chose the Kanizsa square illusion. We are interested to know whether these data provide convincing evidence that cats prefer one of the shapes over the other. (Smith, Chouinard, and Byosiere 2021)
+## If I fits, I sits, bootstrap test. 
+
+A citizen science project on which type of enclosed spaces cats are most likely to sit in compared (among other options) two different spaces taped to the ground. The first was a square, and the second was a shape known as Kanizsa square illusion. When comparing the two options given to 7 cats, 5 chose the square, and 2 chose the Kanizsa square illusion. We are interested to know whether these data provide convincing evidence that cats prefer one of the shapes over the other. (Smith, Chouinard, and Byosiere 2021)
 
 1. What are the null and alternative hypotheses for evaluating whether these data provide convincing evidence that cats have preference for one of the shapes
 
@@ -646,4 +648,52 @@ Solutions in the next section.
  n &\ge 11361
  \end{aligned}
  \]
+ 
+## Submit
+
+```{css echo=FALSE}
+@media print {
+  .topicsContainer,
+  .topicActions,
+  .exerciseActions .skip {
+    display: none;
+  }
+  .topics .tutorialTitle,
+  .topics .section.level2,
+  .topics .section.level3:not(.hide) {
+    display: block;
+  }
+  .topics {
+    width: 100%;
+  }
+  .tutorial-exercise, .tutorial-question {
+    page-break-inside: avoid;
+  }
+  .section.level3.done h3 {
+    padding-left: 0;
+    background-image: none;
+  }
+  .topics .showSkip .exerciseActions::before {
+    content: "Topic not yet completed...";
+    font-style: italic;
+  }
+}
+```
+
+Make sure you have the tutorial open in a browser (preferably Google Chrome). Please press `print page` button below to print the tutorial. Print it to a `pdf` file and upload it into Moodle. Make sure all code boxed are visible. If you can't do that please submit your answers to [the Google Form](https://forms.gle/bhWEjfaHazhDzATCA).
+
+```{js print2pdf1, context="server"}
+    // the following 2 chunks print the completed sections of the tutorial to PDF
+    // uses "css/print2pdf.css"
+    $(document).on('shiny:inputchanged', function(event) {
+      if (event.name === 'print2pdf') {
+        window.print();
+      }
+    });
+```
+    
+```{r print2pdf2}
+    # button can be placed anywhere in the tutorial
+    actionButton("print2pdf", "Print page", style="opacity: .7; color: #000;")
+```
  
