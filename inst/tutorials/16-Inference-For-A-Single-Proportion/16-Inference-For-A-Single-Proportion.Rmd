@@ -13,6 +13,24 @@ library(tidyverse)
 knitr::opts_chunk$set(echo = FALSE)
 
 mice <- tibble(mouse_id = seq(1, 127), result = sample(c(rep("perfume", 80), rep("no perfume", 127-80))))
+
+cwd <- read_csv("https://raw.githubusercontent.com/EricFriedlander/MATH221SP22/main/Datasets/PRNPII-data.csv")
+
+cwd_wi <- cwd %>% 
+  filter(STATE == "WI") %>% 
+  mutate(G96S = ifelse(G96S == "A", "A", "G"))
+
+cwd <- cwd %>% 
+  filter(Status != "NOT TESTED") %>% 
+  mutate(Q95H = ifelse(Q95H == "A", "A", "M"),
+         G96S = ifelse(G96S == "A", "A", "G"))
+
+cwd_A <- cwd %>% 
+  filter(G96S == "A")
+
+obs_prop <- cwd_A %>% 
+  specify(response = Status, success = "POSITIVE") %>% 
+  calculate(stat = "prop")
 ```
 
 
@@ -222,3 +240,410 @@ _____ + _____ * _____
 
 So our 90% confidence interval is (58.3%, 61.7%).
 
+## Estimating Prevelance of G96S Mutations
+
+You are doing research with Dr. Friedlander's esteemed colleague, Professor Adam Brandt, investigating Chronic Wasting Disease (CWD) in Wisconsin deer. A newly discovered mutation at the G96S SNP (having an `A` instead of a `G` at that site) shows promise in reducing the susceptibility of deer to CWD. Dr. Brandt assigns you to estimate the prevalence of this mutation in the deer population in Wisconsin. You can use the `cwd_wi` data frame which stores information on this mutation in the column `G96S`. Take a look around the dataset below:
+
+```{r sandbox-3, exercise=TRUE}
+
+```
+
+After discussing the matter with Dr. Brandt you decide to construct a 95% confidence interval for the prevalence of this `A` mutation at the G96S position in the deer genome. In the console below, determine whether this data meets the *success-failure* condition (you may assume that the observations are independent):
+
+```{r clt-1, exercise=TRUE}
+
+```
+
+```{r clt-1-hint-1}
+cwd_wi %>% 
+  count(G96S)
+```
+
+```{r q-2}
+question_radio(
+"Can you apply the CLT to this data",
+answer("Yes, the independence and success-failure conditions are both met"),
+answer("No, the independence condition is not met"),
+answer("No, the success-failure condition is not met", correct=TRUE),
+answer("No, neither the independence or success-failure conditions are met"),
+allow_retry=TRUE
+)
+```
+
+In the console below, if you feel confident (PUN INTENDED!!!!), construct a 95% bootstrapped confidence interval for the prevalence of this mutation. If you don't yet feel comfortable, walk through the steps below:
+
+```{r advanced-boot-ci, exercise=TRUE}
+
+```
+
+First, compute a point estimate for the proportion of deer with this mutation:
+
+```{r point-est-boot, exercise=TRUE}
+
+```
+
+```{r point-est-boot-hint-1}
+cwd_wi %>% 
+  summarize(_____)
+```
+
+```{r point-est-boot-hint-2}
+cwd_wi %>% 
+  summarize(mean(G96S == "A"))
+```
+
+Use the infer package to generate the 10,000 bootstrapped replicates of the data to approximate the sampling distribution for the prevalence of this mutation (call the resulting data frame `sampling_dist`) and then visualize this distribution:
+
+```{r sampling-dist, exercise=TRUE}
+
+```
+
+```{r sampling-dist-hint-1}
+sampling_dist <- _____ %>% 
+  specify(response = _____, success= "_____") %>% 
+  calculate(stat = "_____")
+
+sampling_dist %>% 
+  _____
+```
+
+```{r sampling-dist-hint-2}
+sampling_dist <- cwd_wi %>% 
+  specify(response = G96S, success = "A") %>% 
+  generate(reps = 10000, type = "bootstrap") %>% 
+  calculate(stat = "prop")
+
+sampling_dist %>% 
+  visualize(bins=100)
+```
+
+Now use the infer package to compute a 95% confidence interval based on this bootstrapped distribution and plot the shaded region using the `shade_ci` function:
+
+```{r ci-boot-setup}
+sampling_dist <- cwd_wi %>% 
+  specify(response = G96S, success = "A") %>% 
+  generate(reps = 10000, type = "bootstrap") %>% 
+  calculate(stat = "prop")
+```
+
+```{r ci-boot, exercise=TRUE}
+ 
+```
+
+```{r ci-boot-hint-1}
+ci <- _____ %>% 
+  _____(_____ = ____)
+ci
+
+_____ %>% 
+ _____ +  
+  _____(_____)
+```
+
+```{r ci-boot-hint-2}
+ci <- _____ %>% 
+  get_ci(_____ = _____)
+ci
+
+sampling_dist %>% 
+  visualize(bins=100) +  
+  shade_ci(_____)
+```
+
+```{r ci-boot-hint-3}
+ci <- sampling_dist %>% 
+  get_ci(level = 0.95)
+ci
+
+sampling_dist %>% 
+  visualize(bins=100) +  
+  shade_ci(ci)
+```
+
+What is our point estimate and 95% confidence interval:
+
+```{r boot-ci-final, exercise=TRUE}
+# 
+```
+
+```{r boot-ci-final-solution}
+# Our point estimate is 3.03% with a 95% confidence interval of 0.76% to 6.06%. 
+```
+
+## Susceptability of deer with mutation at G93S
+
+You and Dr. Brandt would now like to test whether this new mutation actually provides any protection against CWD. Recall, that the rate of CWD in deer is around 4%. Formulate null and alternative hypotheses to test whether this new mutation reduces the rate of infection:
+
+```{r boot-hyps, excise=TRUE}
+
+```
+
+```{r boot-hyps-solution}
+# H0: p = 0.04
+# HA: p<0.04
+```
+
+We are going to use a larger data set called `cwi` to answer this question. Let's first filter for only deer which have an `A` in the G95S position. Call the resulting data frame `cwi_A`. 
+
+```{r filter, exercise=TRUE}
+
+```
+
+```{r filter-hint-1}
+cwd_A <- cwd %>% 
+  filter(______)
+```
+
+```{r filter-hint-2}
+cwd_A <- cwd %>% 
+  filter(G96S == "A")
+```
+
+Is the success-failure condition met for this hypothesis test?
+
+```{r s-f-1, exercise=TRUE}
+
+```
+
+```{r s-f-1-hint-1}
+0.04 * _____
+```
+
+
+```{r s-f-1-hint-2}
+0.04 * 111
+(1-0.04) * 111
+```
+
+```{r qs}
+question_radio(
+  "Is the success-failure condition met?",
+  answer("Yes"),
+  answer("No", correct=TRUE),
+  allow_retry = TRUE
+)
+```
+
+Compute the observed sample proportion from the data using the infer package. Call the result `obs_prop`:
+
+```{r observed, exercise=TRUE}
+
+```
+
+```{r observed-hint-1}
+obs_prop <- cwd_A %>% 
+  specify(_____) %>% 
+  calculate(_____)
+obs_prop
+```
+
+```{r observed-hint-2}
+obs_prop <- cwd_A %>% 
+  specify(response = _____, success = "_____") %>% 
+  calculate(stat = "______")
+obs_prop
+```
+
+```{r observed-hint-3}
+obs_prop <- cwd_A %>% 
+  specify(response = Status, success = "POSITIVE") %>% 
+  calculate(stat = "prop")
+obs_prop
+```
+
+Use the infer package to generate the 10,000 replicate approximating the null distribution of this test and then visualize this distribution. Store the replicates in a data frame called `null_distribution`:
+
+```{r reps-ht, exercise=TRUE}
+
+```
+
+```{r reps-ht-hint-1}
+null_distribution <-_____ %>% 
+  specify(_____) %>% 
+  hypothesize(_____) %>% 
+  generate(_____) %>% 
+  calculate_____)
+
+null_distribution %>% 
+  visualize(bins=100)
+```
+
+```{r reps-ht-hint-2}
+null_distribution <-cwd_A %>% 
+  specify(response = _____, success = "_____") %>% 
+  hypothesize(null = "____", p=_____) %>% 
+  generate(reps = _____, type="_____") %>% 
+  calculate(stat="_____")
+
+null_distribution %>% 
+  visualize(bins=100)
+```
+
+```{r reps-ht-hint-3}
+null_distribution <-cwd_A %>% 
+  specify(response = Status, success = "POSITIVE") %>% 
+  hypothesize(null = "point", p=.04) %>% 
+  generate(reps = 10000, type="draw") %>% 
+  calculate(stat="prop")
+
+null_distribution %>% 
+  visualize(bins=100)
+```
+
+In the console below, compute the p-value of this test and use the `shade_p_value` function to visualize the p-value:
+
+```{r final-p-value-setup}
+null_distribution <-cwd_A %>% 
+  specify(response = Status, success = "POSITIVE") %>% 
+  hypothesize(null = "point", p=.04) %>% 
+  generate(reps = 10000, type="draw") %>% 
+  calculate(stat="prop")
+```
+
+```{r final-p-value, exercise=TRUE}
+
+```
+
+```{r final-p-value-hint-1}
+null_distribution %>% 
+  get_p_value(_____)
+
+null_distribution %>% 
+  visualize(bins=100) +
+  shade_p_value(_____)
+```
+
+```{r final-p-value-hint-2}
+null_distribution %>% 
+  get_p_value(_____, direction="_____")
+
+null_distribution %>% 
+  visualize(bins=100) +
+  shade_p_value(_____, direction = "_____")
+```
+
+```{r final-p-value-hint-3}
+null_distribution %>% 
+  get_p_value(obs_prop, direction="left")
+
+null_distribution %>% 
+  visualize(bins=100) +
+  shade_p_value(obs_prop, direction = "left")
+```
+
+
+```{r named}
+question_radio(
+  "What is the result of this test?",
+  answer("Fail to reject the null", correct=TRUE),
+  answer("Reject the null"),
+  allow_retry = TRUE
+)
+```
+
+## If I fits, I sits, bootstrap test. A citizen science project on which type of enclosed spaces cats are most likely to sit in compared (among other options) two different spaces taped to the ground. The first was a square, and the second was a shape known as Kanizsa square illusion. When comparing the two options given to 7 cats, 5 chose the square, and 2 chose the Kanizsa square illusion. We are interested to know whether these data provide convincing evidence that cats prefer one of the shapes over the other. (Smith, Chouinard, and Byosiere 2021)
+
+1. What are the null and alternative hypotheses for evaluating whether these data provide convincing evidence that cats have preference for one of the shapes
+
+2. A parametric bootstrap simulation (with 1,000 bootstrap samples) was run and the resulting null distribution is displayed in the histogram below.Find the p-value using this distribution and conclude the hypothesis test in the context of the problem.
+
+```{r answer-1, exercise=TRUE}
+# 1.
+
+# 2. 
+```
+
+```{r answer-1-solution}
+# 1. Let p be the true proportion of cats who prefer squares to Kanizsa spaces in the population. H0:p=0.5, HA:p≠0.5.The null is that cats in the population are equally likely to prefer the two spaces; the alternative is that cats in the population have a preference of one of the two spaces.
+
+# 2. The observed statistic is p̂ =5/7=0.714. Over 200 of the repetitions calculated a bootstrapped proportion of 5/7 or higher. And knowing that the test of interest is two-sided, the p-value is roughly 0.4. There is not evidence in the data (possibly because there are only 7 cats being measured!) to conclude that the cats have a preference one way or the other between the two shapes.
+```
+
+## CLT for proportions. 
+
+Define the term “sampling distribution” of the sample proportion, and describe how the shape, center, and spread of the sampling distribution change as the sample size increases when $p = 0.1$.
+
+```{r answer-2, exercise=TRUE}
+# 
+```
+
+```{r answer-2-solution}
+# The sampling distribution is the distribution of sample proportions from samples of the same size randomly sampled from the same population. As the same size increases, the shape of the sampling distribution (when p=0.1) will go from being right-skewed to being more symmetric and resembling the normal distribution. With larger sample sizes, the spread of the sampling distribution gets smaller. Regardless of the sample size, the center of the sampling distribution is equal to the true mean of that population, provided the sampling isn’t biased.
+```
+
+## Young Americans, American dream. 
+
+About 77% of young adults think they can achieve the American dream. Determine if the following statements are true or false, and explain your reasoning. (Vaughn 2011)
+
+1. The distribution of sample proportions of young Americans who think they can achieve the American dream in random samples of size 20 is left skewed.
+
+2. The distribution of sample proportions of young Americans who think they can achieve the American dream in random samples of size 40 is approximately normal since $n\geq 30$.
+
+3. A random sample of 60 young Americans where 85% think they can achieve the American dream would be considered unusual.
+
+4. A random sample of 120 young Americans where 85% think they can achieve the American dream would be considered unusual.
+
+```{r answer-3, exercise=TRUE}
+# 1.
+
+# 2.
+
+# 3.
+
+# 4. 
+```
+
+```{r answer-3-solution}
+# 1. True. The success-failure condition is not satisfied np=20×0.77=15.4 and n(1−p)=20×0.23=4.6, therefore we know that the distribution of p̂  is not approximately normal. In most samples we would expect p̂  to be close to 0.77, the true population proportion. While p̂  can be as low as 0 (though we would expect this to happen very rarely), it can only go as high as 1. Therefore, since 0.77 is closer to 1, the distribution would probably take on a left skewed shape. Plotting the sampling distribution would confirm this suspicion.
+
+# 2. False. Unlike with means, for the sampling distribution of proportions to be approximately normal, we need to have at least 10 successes and 10 failures in our sample. We do not use n≥30 as a condition to check for the normality of the distribution of p̂ .
+
+# 3. False. Standard error of p̂  in samples with n=60 can be calculated as: SEp̂ =sqrt(p(1−p)/n)=sqrt(0.77×0.23/60)=0.0543. A p̂  of 0.85 is only (.85-.7)/0.05433.008 standard errors away from the mean, which would be considered unusual.
+
+# 4. True. Standard error of p̂  in samples with n=120 can be calculated as: SEp̂ =sqrt(p(1−p)/n)=sqrt(0.77×0.23/120)=0.0384. A p̂  of 0.85 is Z=(0.85−0.77)/0.046=2.08 standard errors away from the mean, which would not be considered unusual.
+```
+
+## Will the coronavirus bring the world closer together? 
+
+An April 2021 YouGov poll asked 4,265 UK adults whether they think the coronavirus bring the world closer together or leave us further apart. 12% of the respondents said it will bring the world closer together. 37% said it would leave us further apart, 39% said it won’t make a difference and the remainder didn’t have an opinion on the matter. (YouGov 2021)
+
+1. Calculate, using a mathematical model, a 90% confidence interval for the proportion of UK adults who think the coronavirus will bring the world closer together, and interpret the interval in context.
+
+2. Suppose we wanted the margin of error for the 90% confidence level to be about 0.5%. How large of a sample size would you recommend for the poll?
+
+```{r answer-4, exercise=TRUE}
+# 1.
+
+# 2.
+
+
+```
+
+Solutions in the next section.
+
+## Will the coronavirus bring the world closer together? (Solutions)
+
+1. We are 90% confident that 11% to 13% of UK adults think the coronavirus will bring the world closer together.
+
+\[
+\begin{aligned}
+ \hat{p} \pm z^{\star} \sqrt{ \frac{\hat{p} (1 - \hat{p})}{n} } 
+ &= 0.12 \pm 1.64 \times \sqrt{\frac{0.12 \times 0.88}{4265}} \\
+ &= 0.12 \pm 1.64 \times 0.005 \\
+ &= 0.12 \pm 0.0082 \\
+ &= (0.11 , 0.13)
+ \end{aligned}
+ \]
+ 
+ 2. We are asked to solve for the sample size required to achieve a 0.5% margin of error for a 90% confidence interval and the point estimate is p̂ =0.12. The sample size n should be at least 11361.
+ 
+ \[
+ \begin{aligned}
+ ME = z^{\star} \sqrt{ \frac{\hat{p} (1-\hat{p})} {n} } \ \rightarrow \ 0.005 
+ &\ge 1.64 \sqrt{ \frac{0.12 \times 0.88} {n} } \\
+ 0.005^2 &\ge 1.64^2  \frac{0.12 \times 0.88}{n} \\
+ n &\ge \frac{1.64^2 \times 0.12 \times 0.88}{0.005^2} \\
+ n &\ge 11361
+ \end{aligned}
+ \]
+ 
