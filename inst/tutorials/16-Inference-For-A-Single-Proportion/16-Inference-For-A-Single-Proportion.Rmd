@@ -549,6 +549,8 @@ A citizen science project on which type of enclosed spaces cats are most likely 
 
 2. A parametric bootstrap simulation (with 1,000 bootstrap samples) was run and the resulting null distribution is displayed in the histogram below.Find the p-value using this distribution and conclude the hypothesis test in the context of the problem.
 
+![](sits.png){width=100%}
+
 ```{r answer-1, exercise=TRUE}
 # 1.
 

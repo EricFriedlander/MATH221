@@ -1,0 +1,331 @@
+---
+title: "17 Inference For Comparing Two Proportions"
+output: learnr::tutorial
+runtime: shiny_prerendered
+---
+
+```{r setup, include=FALSE}
+library(learnr)
+library(openintro)
+library(tidyverse)
+
+fish_oil <- fish_oil_18[['major_cardio_event']]
+
+p_fo <- 386/(386+12547)
+p_p <- 419/(419+12519)
+
+
+p_diff <- p_fo - p_p
+
+p_pool <- (39+26)/90
+
+SE <- sqrt(p_fo*(1-p_fo)/(386+12547) + p_p*(1-p_p)/(419+12519) )
+
+p_T <- 26/(26+14)
+p_C <- 39/(39+11)
+  
+nT <- (26+14)
+nC <- (29+11)
+  
+z <- (p_T- p_C) / sqrt(p_pool*(1-p_pool)*(1/nT+1/nC))
+
+z_star <- qnorm(.975, mean=0, sd=1)
+
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+
+## Fish Oil on Heart Attacks
+
+A 5-year experiment was conducted to evaluate the effectiveness of fish oils on reducing heart attacks, where each subject was randomized into one of two treatment groups. We’ll consider the data stored in the contingency table `fish_oil`. Take a look around the data set below. 
+
+```{r sandbox, exercise=TRUE}
+fish_oil
+```
+
+Your task is conduct a 95% confidence interval for the difference in the rate of major cardiac events between those in the `fish_oil` and `placebo` groups. Notice that our data meets the success-failure condition so we can use the CLT. If you feel up to it, try and do it all in the console below. If you don't feel comfortable doing this the remaining consoles will walk you through the steps.
+
+```{r ci-advanced, exercise=TRUE}
+
+```
+
+Remember that confidence intervals take the form $\hat{p}_1-\hat{p}_2\pm z^*\times SE$. Let first compute $\hat{p}_1-\hat{p}_2$, our point estimate:
+
+```{r point_est, exercise=TRUE}
+
+```
+
+```{r point_est-hint-1}
+p_fo <- _____
+p_p <- _____
+
+p_diff <- ______ - ______
+
+p_fo
+p_p
+p_diff
+```
+
+```{r point_est-hint-2}
+p_fo <- _____
+p_p <- _____
+
+p_diff <- p_fo - p_p
+
+p_fo
+p_p
+p_diff
+```
+
+```{r point_est-hint-3}
+p_fo <- 386/(386+12547)
+p_p <- 419/(419+12519)
+
+
+p_diff <- p_fo - p_p
+
+p_fo
+p_p
+p_diff
+```
+
+Now that we have our point estimate, compute the standard error (technically the estimate of the standard error):
+
+```{r standard-err, exercise=TRUE}
+
+```
+
+```{r standard-err-hint-1}
+SE <- sqrt(_____*(1-_____)/_____ + _____*(1-_____)/_____ )
+SE
+```
+
+```{r standard-err-hint-2}
+SE <- sqrt(p_fo*(1-p_fo)/(386+12547) + _____*(1-_____)/_____ )
+SE
+```
+
+```{r standard-err-hint-3}
+SE <- sqrt(p_fo*(1-p_fo)/(386+12547) + p_p*(1-p_p)/(419+12519) )
+SE
+```
+
+Compute $z^*$ for a 95% confidence interval:
+
+```{r z-star, exercise=TRUE}
+
+```
+
+```{r z-star-hint-1}
+z_star <- qnorm(_____, _____, _____)
+z_star
+```
+
+```{r z-star-hint-2}
+z_star <- qnorm(_____, mean=_____, sd=_____)
+z_star
+```
+
+```{r z-star-hint-3}
+z_star <- qnorm(.975, mean=0, sd=1)
+z_star
+```
+
+Now that we have all the ingredients that we need, compute the confidence interval:
+
+```{r con-int, exercise=TRUE}
+
+```
+
+```{r con-int-hint-1}
+_____ - _____ * _____
+_____ + _____ * _____
+```
+
+```{r con-int-hint-2}
+p_diff - z_star * SE
+p_diff + z_star * SE
+```
+
+
+So our 95% confidence interval is (-.68%, .17%).
+
+
+## CPR and Blood Thinners
+
+An experiment consisted of two treatments on patients who underwent CPR for a heart attack and were subsequently admitted to a hospital. Each patient was randomly assigned to either receive a blood thinner (treatment group) or not receive a blood thinner (control group). The outcome variable of interest was whether the patient survived for at least 24 hours. The data is stored in `cpr`:
+
+```{r sandy, exercise=TRUE}
+
+```
+
+Your task is to test whether giving patients a blood thinner impacts mortality. If you feel up to it, try and do it all in the console below. This includes selecting your own significance level. If you don't feel comfortable doing this the remaining consoles will walk you through the steps.
+
+```{r advanced, exercise=TRUE}
+
+```
+
+
+Call the mortality rate of the population that receives the treatment $p_T$ and the mortality rate of those who do not $p_C$. On a sheet of paper or in the console, write down what you think your null and alternative hypotheses are:
+
+```{r hypotheses, exercise=TRUE}
+# H0:
+# HA:
+```
+
+
+```{r hypotheses-solution}
+# H0: p_T - p_C = 0
+# HA: p_T - p_C ≄ 0
+```
+
+Create a contingency table:
+
+```{r cont_tab, exercise=TRUE}
+
+```
+
+```{r cont_tab-hint-1}
+______ %>% 
+  _____ %>% 
+  ______
+```
+
+```{r cont_tab-hint-2}
+cpr %>% 
+  count(_____, ______) %>% 
+  pivot_wider(names_from=______, values_from = _____)
+```
+
+```{r cont_tab-hint-3}
+cpr %>% 
+  count(group, outcome) %>% 
+  pivot_wider(names_from=group, values_from = n)
+```
+
+Compute $\hat{p}_{\textit{pool}}$
+
+```{r pool, exercise=TRUE}
+
+```
+
+```{r pool-hint-1}
+p_pool <- ____/______
+```
+
+```{r pool-hint-2}
+p_pool <- (39+26)/90
+p_pool
+```
+
+
+Does this test/data meet the success-failure criterion?
+
+```{r s-f, exercise=TRUE}
+
+```
+
+```{r s-f-hint-1}
+p_pool * ____
+(1-p_pool) * ____
+p_pool * ____
+(1-p_pool) * ____
+```
+
+```{r s-f-hint-2}
+p_pool * (39+11)
+(1-p_pool) * (39+11)
+p_pool * (26+14)
+(1-p_pool) * (26+14)
+
+# Since all these values are above 10 we satisfy the success-failure criterion
+```
+
+Compute the test statistic (z-score):
+
+```{r test-statistic, exercise=TRUE}
+
+```
+
+```{r test-statistic-hint-1}
+p_T <- _____
+p_C <- _____
+  
+nT <- _____
+nC <- _____
+  
+z <- _____
+z
+```
+
+```{r test-statistic-hint-2}
+p_T <- 26/(26+14)
+p_C <- 39/(39+11)
+  
+nT <- (26+14)
+nC <- (29+11)
+  
+z <- _____
+z
+```
+
+```{r test-statistic-hint-3}
+p_T <- 26/(26+14)
+p_C <- 39/(39+11)
+  
+nT <- (26+14)
+nC <- (29+11)
+  
+z <- (p_T- p_C) / sqrt(p_pool*(1-p_pool)*(1/nT+1/nC))
+z
+```
+
+Use the `normTail` function to display the region of the standard normal distribution corresponding to your p-value:
+
+```{r z, exercise=TRUE}
+
+```
+
+```{r z-hint-1}
+normTail(____, ____, _____, ____)
+```
+
+```{r z-hint-2}
+normTail(m=_____, s=____, L=_____, U=_____)
+```
+
+```{r z-hint-3}
+
+normTail(m=0, s=1,  L=_____, U=_____)
+```
+
+```{r z-hint-4}
+normTail(m=0, s=1, L=z, U=-z)
+```
+
+Compute your p-value:
+
+```{r p-val, exercise=TRUE}
+
+```
+
+```{r p-val-hint-1}
+2*pnorm(____, ____, ____)
+```
+
+```{r p-val-hint-2}
+2*pnorm(____, mean = ____, sd = ____)
+```
+
+```{r p-val-hint-3}
+2*pnorm(z, mean = 0, sd = 1)
+```
+
+```{r q-1}
+question_radio(
+"Would is the result of this hypothesis test with a significance level of $\\alpha = 0.05$",
+answer("Fail to Reject the Null Hypothesis", correct=TRUE),
+answer("Reject the null hypothesis"),
+allow_retry=TRUE
+)
+```
