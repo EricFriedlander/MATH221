@@ -1,20 +1,4 @@
-@relation caesarian
-
-
-
-
-@attribute 'Age' { 22,26,28,27,32,36,33,23,20,29,25,37,24,18,30,40,31,19,21,35,17,38 } 
-@attribute 'Delivery number' { 1,2,3,4 }
-@attribute 'Delivery time' { 0,1,2 }
-@attribute 'Blood of Pressure' { 2,1,0 }
-
-@attribute 'Heart Problem' { 1,0 } 
-@attribute Caesarian { 0,1 }
-
-
-@data
-
-
+Age,Delivery number,Delivery time,Blood of Pressure,Heart Problem,Caesarian
 22,1,0,2,0,0
 26,2,0,1,0,1
 26,2,1,1,0,0
