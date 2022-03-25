@@ -872,7 +872,7 @@ b. It is possible the conclusion of the test in part (a) is incorrect. If this i
 }
 ```
 
-Make sure you have the tutorial open in a browser (preferably Google Chrome). Please press `print page` button below to print the tutorial. Print it to a `pdf` file and upload it into Moodle. Make sure all code boxed are visible. If you can't do that please submit your answers to [the Google Form](https://forms.gle/bhWEjfaHazhDzATCA).
+Make sure you have the tutorial open in a browser (preferably Google Chrome). Please press `print page` button below to print the tutorial. Print it to a `pdf` file and upload it into Moodle. Make sure all code boxed are visible. If you can't do that please submit your answers to [the Google Form](https://forms.gle/iiVWeg5NjnhiQdrx5).
 
 ```{js print2pdf1, context="server"}
     // the following 2 chunks print the completed sections of the tutorial to PDF
