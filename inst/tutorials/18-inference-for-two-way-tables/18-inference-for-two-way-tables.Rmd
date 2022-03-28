@@ -1,0 +1,609 @@
+---
+title: "18 Inference For Two-Way Tables"
+output: learnr::tutorial
+runtime: shiny_prerendered
+---
+
+```{r setup, include=FALSE}
+library(learnr)
+library(openintro)
+library(tidyverse)
+library(infer)
+
+assortative_mating <- assortive_mating %>% 
+  mutate(color_XY = self_male,
+         color_XX = partner_female) %>% 
+  select(color_XY, color_XX)
+
+cwd <- read_csv("https://raw.githubusercontent.com/EricFriedlander/MATH221SP22/main/Datasets/PRNPII-data.csv") %>% 
+  drop_na(Q95H, G96S, Status) %>% 
+  filter(Status != "NOT TESTED")
+
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+
+## Assortative Mating
+
+In this activity we'll be exploring an example of a phenomena called "assortative mating". Assortative mating is a mating pattern and a form of sexual selection in which individuals with similar phenotypes or genotypes mate with one another more frequently than would be expected under a random mating pattern. In this case we'll be exploring whether a persons eye color impacts the eye color of the person they reproduce with. The data for this exercise is contained in `assortative_mating`. The column `color_XY` represents the eye color of the person with an X and Y chromosome and `color_XX` represents the eye color of the person with two X chromosomes. Check it out:
+
+```{r sandbox-1, exercise=TRUE}
+
+```
+
+In the console below create a standardized bar chart with `color_XY` on the x-axis and proportions of `color_XX` on the y-axis:
+
+```{r bar_plot-1, exercise=TRUE}
+
+```
+
+```{r bar_plot-1-hint-1}
+ggplot(_____, aes(_____)) +
+  ------
+```
+
+```{r bar_plot-1-hint-2}
+ggplot(_____, aes(_____)) +
+geom_bar(______)
+```
+
+```{r bar_plot-1-hint-3}
+ggplot(_____, aes(x=_____, fill=______)) +
+geom_bar(position='______')
+```
+
+```{r bar_plot-1-hint-4}
+ggplot(assortative_mating, aes(x=color_XY, fill=color_XX)) +
+  geom_bar(position="fill")
+```
+
+Formulate the hypotheses to test whether these is assortative mating based on eye color:
+
+```{r hyp-test-2, exercise=TRUE}
+#H0: 
+
+#HA:
+```
+
+```{r hyp-test-2-solution}
+#H0: There is no assortative mating
+
+#HA: There is assortative mating
+```
+
+In the console below create a contingency table of the data:
+
+```{r cont-tab-2, exercise=TRUE}
+
+```
+
+```{r cont-tab-2-hint-1}
+_____ %>% 
+  _____() %>% 
+  ______()
+```
+
+```{r cont-tab-2-hint-2}
+assortative_mating %>% 
+  table() %>% 
+  addmargins()
+```
+
+Assuming that our data is independent does this data meet our success-failure condition?
+
+```{r sf-2, exercise=TRUE}
+
+```
+
+```{r sf-2-hint-1}
+36*41/204
+```
+
+```{r q-4}
+question_radio("Would it be better to use a Chi-Squared Distribution or simulation for this data?",
+                answer("Chi-Squared", correct=TRUE),
+                answer("Simulation"),
+                allow_retry = TRUE)
+```
+
+If you feel up to it, try and do it all in the console below. This includes selecting your own significance level. If you don't feel comfortable doing this the remaining consoles will walk you through the steps.
+
+```{r self-1, exercise=TRUE}
+
+```
+
+In the console below compute the $X^2$ statistic using the `infer` package:
+
+```{r x2-1, exercise=TRUE}
+
+```
+
+```{r x2-1-hint-1}
+______ %>% 
+  ______(______)
+```
+
+```{r x2-1-hint-2}
+assortative_mating %>% 
+  observe(_____ ~ ______, stat="_____")
+```
+
+```{r x2-1-hint-3}
+assortative_mating %>% 
+  observe(color_XY ~ color_XX, stat="Chisq")
+```
+
+```{r q-2}
+question_numeric("How many degrees of freedom should we use in our Chi-Squared Distribution", 
+                 answer(4, correct=TRUE),
+                 allow_retry = TRUE)
+```
+
+On a separate sheet of paper sketch a Chi-Squared distribution and shade in the region corresponding to the p-value.
+
+In the console below, compute the p-value:
+
+```{r p-val-1, exercise=TRUE}
+
+```
+
+```{r p-val-1-hint-1}
+1-pchisq(33.7, df=4)
+```
+
+```{r q-8}
+question_radio("What is the outcome of the test with a sginificant level of $\alpha=0.05$?",
+               answer("Fail to reject the null"),
+               answer("Reject the null", correct=TRUE),
+               allow_retry = TRUE)
+```
+
+## Chronic Wasting Disease Revisited
+
+Recall Professor Adam Brandt's research on Chronic Wsting Disease (CWD). Last time I actually combined some categories to make the analysis easier. This time we consider the full data. We're first going to explore whether the nucleotide at the SNP `Q95H`, which can actually be `A`, `C`, or `M` where `A` implies the deer's genotype is AA, `C` implies the deers genotyps is `CC`, and `M` implies it is `AC`. Take a look at the data stored in `CWD`:
+
+```{r sandbox-2, exercise=TRUE}
+
+```
+
+In the console below create a standardized bar chart with `Q95H` on the x-axis and proportions of `Status` on the y-axis:
+
+```{r bar_plot-2, exercise=TRUE}
+
+```
+
+```{r bar_plot-2-hint-1}
+ggplot(_____, aes(_____)) +
+  ------
+```
+
+```{r bar_plot-2-hint-2}
+ggplot(_____, aes(_____)) +
+geom_bar(______)
+```
+
+```{r bar_plot-2-hint-3}
+ggplot(_____, aes(x=_____, fill=______)) +
+geom_bar(position='______')
+```
+
+```{r bar_plot-2-hint-4}
+ggplot(cwd, aes(x=Q95H, fill=Status)) +
+  geom_bar(position="fill")
+```
+
+Formulate the hypotheses to test whether the base-pair Q95H is correlated with the rate of CWD
+
+```{r hyp-test-1, exercise=TRUE}
+#H0: 
+
+#HA:
+```
+
+```{r hyp-test-1-solution}
+#H0: There is no relationship
+
+#HA: Q95H is related to the rate of CWD
+```
+
+In the console below create a contingency table of the data. You'll need to use the `select` function to select the columns `Q95H` and `Status`:
+
+```{r cont-tab-1, exercise=TRUE}
+
+```
+
+```{r cont-tab-1-hint-1}
+_____ %>% 
+  _____() %>% 
+  _____() %>% 
+  ______()
+```
+
+```{r cont-tab-1-hint-2}
+cwd %>% 
+  select(Q95H, Status) %>% 
+  table() %>% 
+  addmargins()
+```
+
+Assuming that our data is independent does this data meet our success-failure condition?
+
+```{r sf-1, exercise=TRUE}
+
+```
+
+```{r sf-1-hint-1}
+19*251/2282
+```
+
+```{r q-1}
+question_radio("Would it be better to use a Chi-Squared Distribution or simulation for this data?",
+                answer("Chi-Squared"),
+                answer("Simulation", correct=TRUE),
+                allow_retry = TRUE)
+```
+
+If you feel up to it, try and do it all in the console below. This includes selecting your own significance level. If you don't feel comfortable doing this the remaining consoles will walk you through the steps.
+
+```{r self-2, exercise=TRUE}
+
+```
+
+In the console below compute the $X^2$ statistic using the `infer` package:
+
+```{r x2-2, exercise=TRUE}
+
+```
+
+```{r x2-2-hint-1}
+______ %>% 
+  ______(______)
+```
+
+```{r x2-2-hint-2}
+cwd %>% 
+  observe(_____ ~ ______, stat="_____")
+```
+
+```{r x2-2-hint-3}
+cwd %>% 
+  observe(Status ~ Q95H, stat="Chisq")
+```
+
+In the console below, use the `infer` package and simulation to (a) generate a null distribution (b) visualize the null distribution (c) visualize the p-value (d) compute the p-value. Choose the largest number of replicates that will run on your computer:
+
+```{r p-val-2, exercise=TRUE}
+
+```
+
+```{r p-val-2-hint-1}
+null_distribution <- cwd %>% 
+  specify(Status ~ Q95H) %>% 
+  hypothesize(null = "independence" ) %>% 
+  generate(reps = 10000, type = "permute") %>% 
+  calculate(stat = "Chisq")
+
+visualize(null_distribution) +
+  shade_p_value(23.8, direction="right")
+
+null_distribution %>% 
+  get_p_value(23.8, direction="right")
+  
+```
+
+```{r q-3}
+question_radio("What is the outcome of the test with a sginificant level of $\alpha=0.05$?",
+               answer("Fail to reject the null"),
+               answer("Reject the null", correct=TRUE),
+               allow_retry = TRUE)
+```
+
+Now, without the walkthrough, perform a Chi-Squared test with `G96S` as the explanatory variable. As a not `A`, `G`, and `R` correspond to the genotypes `AA`, `GG`, and `AG`, respectively. Make sure to check whether you should use a mathematical model or simulation.
+
+```{r self-test, exercise=TRUE}
+
+```
+
+```{r self-test-hint-1}
+# You should be using a simulation-based test
+```
+
+```{r self-test-hint-2}
+# Your test statistic should be 58.8
+```
+
+```{r self-test-hint-3}
+# You should get an extremely small p-value... I got 0 but remember that its based on simulation
+# so it won't necessarily always be 0.
+```
+
+
+## Act on climate change.
+
+The table below summarizes results from a Pew Research poll which asked respondents whether they have personally taken action to help address climate change within the last year and their generation.
+The differences in each generational group may be due to chance.
+Complete the following computations under the null hypothesis of independence between an individual's generation and whether they have personally taken action to help address climate change within the last year. (Pew Research Center 2021b)
+
+```{r}
+suppressMessages(library(tidyverse))
+suppressMessages(library(kableExtra))
+suppressMessages(library(janitor))
+
+climate_change_action <- tribble(
+~Generation,        ~n,   ~p,
+"Gen Z",           912, 0.32,
+"Millenial",      3160, 0.28,
+"Gen X",          3518, 0.23,
+"Boomer & older", 6074, 0.21
+) %>%
+mutate(
+  Generation = fct_relevel(Generation, "Gen Z", "Millenial", "Gen X", "Boomer & older"),
+  `Took action` = round(n * p, 0),
+  `Didn't take action` = n - `Took action`
+) %>%
+select(-n, -p) %>%
+pivot_longer(cols = c(`Took action`, `Didn't take action`),
+             names_to = "response",
+             values_to = "n") %>%
+uncount(weights = n)
+
+climate_change_action %>%
+count(Generation, response) %>%
+pivot_wider(names_from = response, values_from = n) %>%
+select(Generation, `Took action`, `Didn't take action`) %>%
+adorn_totals(where = c("row", "col")) %>%
+kbl(linesep = "", booktabs = TRUE, align = "lrrr", format.args = list(big.mark = ",")) %>%
+kable_styling(bootstrap_options = c("striped", "condensed"), 
+              latex_options = "HOLD_position", 
+              full_width = FALSE) %>%
+column_spec(1, width = "7em") %>%
+column_spec(2:4, width = "5em") %>%
+add_header_above(c(" " = 1, "Response" = 2, " " = 1))
+```
+
+a. If there is no relationship between age and action, how many Gen Z'ers would you expect to have personally taken action to help address climate change within the last year?
+
+b. If there is no relationship between age and action, how many Millenials would you expect to have personally taken action to help address climate change within the last year?
+
+c. If there is no relationship between age and action, how many Gen X'ers would you expect to have personally taken action to help address climate change within the last year?
+    
+d. If there is no relationship between age and action, how many Boomers and older would you expect to have personally taken action to help address climate change within the last year?
+
+```{r hw1, exercise=TRUE}
+# a)
+
+# b)
+
+# c)
+
+# d)
+```
+
+```{r hw1-solution}
+# a) 3262∗91213644=218.
+
+# b) 3262∗316013644=755.
+
+# c) 3262∗351813644=841.
+
+# d) 3262∗607413644=1452.
+```
+
+## Disaggregating Asian American tobacco use, data.
+
+Understanding cultural differences in tobacco use across different demographic groups can lead to improved health care education and treatment. A recent study disaggregated tobacco use across Asian American ethnic groups including Asian-Indian (n = 4,373), Chinese (n = 4,736), and Filipino (n = 4,912), in comparison to non-Hispanic Whites (n = 275,025).  The number of current smokers in each group was reported as Asian-Indian (n = 223), Chinese (n = 279), Filipino (n = 609), and non-Hispanic Whites (n = 50,880). (Rao et al. 2021)
+
+In order to assess whether there is a difference in current smoking rates across three Asian American ethnic groups, the observed data is compared to the data that would be expected if there were no association between the variables.
+
+```{r}
+suppressMessages(library(tidyverse))
+suppressMessages(library(kableExtra))
+suppressMessages(library(janitor))
+
+
+asian_smoke <- tibble(
+ethnicity = c(
+  rep("Asian-Indian", 4373),
+  rep("Chinese", 4736),
+  rep("Filipino", 4912)
+),
+outcome = c(
+  rep("smoke", 223), rep("do not smoke", 4150),
+  rep("smoke", 279), rep("do not smoke", 4457),
+  rep("smoke", 609), rep("do not smoke", 4303)
+)
+)
+asian_smoke %>%
+count(ethnicity, outcome) %>%
+pivot_wider(names_from = outcome, values_from = n) %>%
+adorn_totals(where = c("row", "col")) %>%
+kbl(align = "lrrrr", booktabs = TRUE, format.args = list(big.mark = ",")) %>%
+kable_styling(bootstrap_options = c("striped", "condensed"), 
+              latex_options = "HOLD_position",
+              full_width = FALSE) %>%
+add_header_above(c(" " = 1, "Smoking" = 2, " " = 1)) %>%
+column_spec(1, width = "7em") %>%
+column_spec(2:4, width = "5em")
+```
+    
+a. If the variables on ethnicity and smoking status are independent, estimate the proportion of individuals (total) who smoke?
+    
+b. Given the overall proportion who smoke, how many of each Asian American ethnicity would you expect to smoke?
+    
+c. Compare the observed (original data) and expected (part b.) tables. From a first glance, does it seem as though the Asian American ethnicity and choice of smoking may be associated?
+    
+d. Compute the $X^2$ statistic for this data.
+
+e. What would be the result of a hypothesis test to determine if the two variables are associated for this data? Use $\alpha = 0.05$.
+
+```{r hw2, exercise=TRUE}
+# a)
+
+# b)
+
+# c)
+
+# d)
+
+# e)
+```
+
+## Disaggregating Asian American tobacco use, data. Solutions
+
+a. In the entire sample, the proportion who smoke is 0.0792383.
+
+b. The expected counts for each group are given by:
+
+```{r}
+library(tidyverse)
+library(kableExtra)
+
+asian_smoke <- tibble(
+  ethnic = c(
+    rep("Asian-Indian", 4373),
+    rep("Chinese", 4736),
+    rep("Filipino", 4912)
+  ),
+  outcome = c(
+    rep("smoke", 223), rep("don't smoke", 4150),
+    rep("smoke", 279), rep("don't smoke", 4457),
+    rep("smoke", 609), rep("don't smoke", 4303)
+  )
+)
+
+
+tab <- asian_smoke %>%
+  table()
+chisq.test(tab)$expected %>%
+  as.data.frame() %>%
+  kbl(align = "ccc") %>%
+  kable_styling(bootstrap_options = c("striped", "condensed"), 
+                latex_options = "HOLD_position",
+                full_width = FALSE) %>%
+  add_header_above(c(" " = 1, "Smoking" = 2)) %>%
+  column_spec(1:2, width = "7em")
+```
+
+
+c. Yes, the variables do seem associated. A much higher number of Filipinos smoke than would be expected if the variables were independent.
+
+d/e. $X^2 = 209.42$, p-value $\approx 2.2e-16$ so reject the null.
+
+    
+    
+## Coffee and depression.
+
+Researchers conducted a study investigating the relationship between caffeinated coffee consumption and risk of depression in women. They collected data on 50,739 women free of depression symptoms at the start of the study in the year 1996, and these women were followed through 2006. The researchers used questionnaires to collect data on caffeinated coffee consumption, asked each individual about physician-diagnosed depression, and asked about the use of antidepressants. The table below shows the distribution of incidences of depression by amount of caffeinated coffee consumption. (Lucas et al. 2011)
+
+```{r}
+library(tidyverse)
+library(kableExtra)
+tribble(
+  ~`Clinical depression`, ~`1 cup / week or fewer`, ~`2-6 cups / week`, ~`1 cups / day`, ~`2-3 cups / day`, ~`4 cups / day or more`, ~Total,
+  "Yes",                 670,          "___",        905,           564,         95,   2607,
+  "No",                11545,        "6,244",      16329,         11726,       2288,  48132,
+  "Total",             12215,        "6,617",      17234,         12290,       2383,  50739
+) %>%
+  kbl(linesep = "", booktabs = TRUE, align = "lrrrrrr", format.args = list(big.mark = ",")) %>%
+  kable_styling(bootstrap_options = c("striped", "condensed"), 
+                latex_options = "HOLD_position", 
+                full_width = FALSE) %>%
+  column_spec(1, width = "1em") %>%
+  column_spec(2:6, width = "3em") %>%
+  column_spec(7, width = "5em") %>%
+  add_header_above(c(" " = 1, "Caffeinated coffee consumption" = 5, " " = 1))
+```
+
+a.  What type of test is appropriate for evaluating if there is an association between coffee intake and depression?
+
+b.  Write the hypotheses for the test you identified in part (a).
+
+c.  Calculate the overall proportion of women who do and do not suffer from depression.
+
+d.  Identify the expected count for the empty cell, and calculate the contribution of this cell to the test statistic.
+
+e.  The test statistic is $\chi^2=20.93$. What is the p-value?
+
+f.  What is the conclusion of the hypothesis test?
+
+g.  One of the authors of this study was quoted on the NYTimes as saying it was "too early to recommend that women load up on extra coffee" based on just this study. (O’Connor 2011) Do you agree with this statement? Explain your reasoning.
+
+```{r hw3, exercise=TRUE}
+# a)
+
+# b)
+
+# c)
+
+# d)
+
+# e)
+
+# f)
+
+# g)
+```
+
+```{r hw3-solution}
+# a) Chi-squared test of independence.
+
+# b) The hypotheses are: H0: Depression and caffeinated coffee consumption are independent. HA: Depression and caffeinated coffee consumption are associated.
+
+# c) Depression: 2607/50739=0.0514. No depression: 1−0.0514=0.9486.
+
+# d) E=2607∗6617/50739=339.9854≈340. (O−E)^2/E=(373−340)^2/340=3.20.
+
+# e) df=(R−1)×(C−1)=1×4=4, and p−value<0.001.
+
+# f) p-value is small and we reject H0. The data provide convincing evidence to suggest that caffeinated coffee consumption and depression in women are associated.
+
+# g) Yes, this is an observational study. Based on this study we can’t deduce that drinking more coffee leads to less depression. There may be other factors, lurking variables, that cause decreased depression in women who drink more coffee.
+```
+
+## Submit
+
+```{css echo=FALSE}
+@media print {
+  .topicsContainer,
+  .topicActions,
+  .exerciseActions .skip {
+    display: none;
+  }
+  .topics .tutorialTitle,
+  .topics .section.level2,
+  .topics .section.level3:not(.hide) {
+    display: block;
+  }
+  .topics {
+    width: 100%;
+  }
+  .tutorial-exercise, .tutorial-question {
+    page-break-inside: avoid;
+  }
+  .section.level3.done h3 {
+    padding-left: 0;
+    background-image: none;
+  }
+  .topics .showSkip .exerciseActions::before {
+    content: "Topic not yet completed...";
+    font-style: italic;
+  }
+}
+```
+
+Make sure you have the tutorial open in a browser (preferably Google Chrome). Please press `print page` button below to print the tutorial. Print it to a `pdf` file and upload it into Moodle. Make sure all code boxed are visible. If you can't do that please submit your answers to [the Google Form](https://forms.gle/SZ63wujucdauZdxw5).
+
+```{js print2pdf1, context="server"}
+    // the following 2 chunks print the completed sections of the tutorial to PDF
+    // uses "css/print2pdf.css"
+    $(document).on('shiny:inputchanged', function(event) {
+      if (event.name === 'print2pdf') {
+        window.print();
+      }
+    });
+```
+    
+```{r print2pdf2}
+    # button can be placed anywhere in the tutorial
+    actionButton("print2pdf", "Print page", style="opacity: .7; color: #000;")
+```
