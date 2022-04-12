@@ -1,0 +1,1160 @@
+﻿State,County,County FIPS Code,2010 Population,CO          8-hr (ppm),Pb           3-mo (µg/m3),NO2         AM (ppb),NO2          1-hr (ppb),O3            8-hr (ppm),PM10        24-hr (µg/m3) ,PM2.5     Wtd AM (µg/m3) ,PM2.5     24-hr (µg/m3) ,SO2         1-hr (ppb)
+Alabama,Baldwin County,01003,182265,ND,ND,ND,ND,0.057,ND,7.9,17,ND
+Alabama,Clay County,01027,13932,ND,ND,ND,ND,ND,ND,6.7,14,ND
+Alabama,Colbert County,01033,54428,ND,ND,ND,ND,ND,ND,IN,IN,ND
+Alabama,DeKalb County,01049,71109,ND,ND,ND,ND,0.057,ND,7.1,17,ND
+Alabama,Elmore County,01051,79303,ND,ND,ND,ND,0.048,ND,ND,ND,ND
+Alabama,Escambia County,01053,38319,ND,ND,ND,ND,ND,ND,IN,IN,ND
+Alabama,Etowah County,01055,104430,ND,ND,ND,ND,0.053,ND,7.9,23,ND
+Alabama,Houston County,01069,101547,ND,ND,ND,ND,ND,ND,IN,IN,ND
+Alabama,Jefferson County,01073,658466,1,ND,11,44,0.062,83,10.1,25,12
+Alabama,Madison County,01089,334811,ND,ND,ND,ND,0.057,37,7.1,17,ND
+Alabama,Mobile County,01097,412992,ND,ND,ND,ND,0.054,ND,8,16,11
+Alabama,Montgomery County,01101,229363,ND,ND,ND,ND,0.053,25,7.9,24,ND
+Alabama,Morgan County,01103,119490,ND,ND,ND,ND,0.057,ND,7.1,16,ND
+Alabama,Pike County,01109,32899,ND,0.17,ND,ND,ND,ND,ND,ND,ND
+Alabama,Russell County,01113,52947,ND,ND,ND,ND,0.054,ND,8.5,19,ND
+Alabama,Shelby County,01117,195085,ND,ND,ND,ND,0.059,ND,IN,IN,37
+Alabama,Sumter County,01119,13763,ND,ND,ND,ND,0.051,ND,IN,IN,3
+Alabama,Talladega County,01121,82291,ND,ND,ND,ND,ND,ND,IN,IN,ND
+Alabama,Tuscaloosa County,01125,194656,ND,ND,ND,ND,0.052,ND,7.5,17,ND
+Alabama,Walker County,01127,67023,ND,ND,ND,ND,ND,ND,IN,IN,ND
+Alaska,Anchorage Municipality,02020,291826,3,ND,ND,ND,ND,77,5.9,22,ND
+Alaska,Bethel Census Area,02050,17013,ND,ND,ND,ND,ND,48,ND,ND,ND
+Alaska,Denali Borough,02068,1826,ND,ND,ND,ND,0.051,ND,IN,IN,ND
+Alaska,Fairbanks North Star Borough,02090,97581,2,ND,ND,ND,0.043,43,12.1,71,30
+Alaska,Juneau City and Borough,02110,31275,ND,ND,ND,ND,ND,34,4.8,17,ND
+Alaska,Kenai Peninsula Borough,02122,55400,ND,ND,ND,ND,ND,ND,IN,IN,ND
+Alaska,Ketchikan Gateway Borough,02130,13477,ND,ND,ND,ND,ND,ND,IN,IN,ND
+Alaska,Matanuska-Susitna Borough,02170,88995,ND,ND,ND,ND,ND,77,4.6,24,ND
+Alaska,Skagway Municipality,02232,968,ND,ND,ND,ND,ND,ND,IN,IN,ND
+Arizona,Apache County,04001,71518,ND,ND,ND,ND,ND,43,3.2,13,ND
+Arizona,Cochise County,04003,131346,ND,ND,ND,ND,0.066,136,IN,IN,ND
+Arizona,Coconino County,04005,134421,ND,ND,ND,ND,0.063,ND,IN,IN,ND
+Arizona,Gila County,04007,53597,ND,0.03,ND,ND,0.081,74,IN,IN,70
+Arizona,La Paz County,04012,20489,ND,ND,ND,ND,0.064,148,4.2,11,ND
+Arizona,Maricopa County,04013,3817117,3,ND,25,57,0.087,199,13.2,37,7
+Arizona,Mohave County,04015,200186,ND,ND,ND,ND,ND,127,IN,IN,ND
+Arizona,Navajo County,04017,107449,ND,ND,ND,ND,0.067,45,ND,ND,ND
+Arizona,Pima County,04019,980263,1,ND,8,37,0.072,211,5.9,14,1
+Arizona,Pinal County,04021,375770,ND,ND,ND,ND,0.08,624,15.5,41,ND
+Arizona,Santa Cruz County,04023,47420,ND,ND,ND,ND,ND,128,10.2,32,ND
+Arizona,Yavapai County,04025,211033,ND,ND,ND,ND,0.066,ND,IN,IN,ND
+Arizona,Yuma County,04027,195751,ND,ND,ND,ND,0.067,179,9.1,23,ND
+Arkansas,Arkansas County,05001,19019,ND,ND,ND,ND,ND,ND,7.2,17,ND
+Arkansas,Ashley County,05003,21853,ND,ND,ND,ND,ND,ND,7.4,18,ND
+Arkansas,Benton County,05007,221339,ND,ND,ND,ND,ND,ND,IN,IN,ND
+Arkansas,Clark County,05019,22995,ND,ND,ND,ND,0.052,ND,ND,ND,ND
+Arkansas,Craighead County,05031,96443,ND,ND,ND,ND,ND,ND,IN,IN,ND
+Arkansas,Crittenden County,05035,50902,ND,ND,7,36,0.069,ND,7.5,17,ND
+Arkansas,Faulkner County,05045,113237,ND,ND,ND,ND,ND,ND,IN,IN,ND
+Arkansas,Garland County,05051,96024,ND,ND,ND,ND,ND,ND,8,19,ND
+Arkansas,Jackson County,05067,17997,ND,ND,ND,ND,ND,ND,7.1,22,ND
+Arkansas,Jefferson County,05069,77435,ND,ND,ND,ND,ND,ND,IN,IN,ND
+Arkansas,Marion County,05089,16653,ND,ND,ND,ND,ND,ND,IN,IN,ND
+Arkansas,Miller County,05091,43462,ND,ND,ND,ND,ND,ND,IN,IN,ND
+Arkansas,Mississippi County,05093,46480,ND,ND,ND,ND,ND,ND,IN,IN,ND
+Arkansas,Newton County,05101,8330,ND,ND,ND,ND,0.06,ND,ND,ND,ND
+Arkansas,Phillips County,05107,21757,ND,ND,ND,ND,ND,ND,IN,IN,ND
+Arkansas,Polk County,05113,20662,ND,ND,ND,ND,0.058,ND,7.2,21,ND
+Arkansas,Pope County,05115,61754,ND,ND,ND,ND,ND,ND,IN,IN,ND
+Arkansas,Pulaski County,05119,382748,1,ND,7,36,0.064,35,9.7,24,5
+Arkansas,Sebastian County,05131,125744,ND,ND,ND,ND,ND,ND,IN,IN,ND
+Arkansas,Union County,05139,41639,ND,ND,ND,ND,ND,ND,8.5,22,ND
+Arkansas,Washington County,05143,203065,ND,ND,ND,ND,0.055,33,6.9,16,ND
+Arkansas,White County,05145,77076,ND,ND,ND,ND,ND,ND,IN,IN,ND
+California,Alameda County,06001,1510271,2,ND,14,48,0.071,ND,11.8,65,5
+California,Amador County,06005,38091,ND,ND,ND,ND,0.065,ND,ND,ND,ND
+California,Butte County,06007,220000,4,ND,5,27,0.074,325,16,92,ND
+California,Calaveras County,06009,45578,ND,ND,ND,ND,0.073,162,12.6,97,ND
+California,Colusa County,06011,21419,ND,ND,ND,ND,0.052,210,12.2,104,ND
+California,Contra Costa County,06013,1049025,2,ND,7,34,0.069,43,11.1,66,14
+California,Del Norte County,06015,28610,ND,ND,ND,ND,ND,ND,IN,IN,ND
+California,El Dorado County,06017,181058,ND,ND,ND,ND,0.086,169,IN,IN,ND
+California,Fresno County,06019,930450,2,ND,20,54,0.09,320,20.3,124,5
+California,Glenn County,06021,28122,ND,ND,ND,ND,0.056,152,ND,ND,ND
+California,Humboldt County,06023,134623,2,ND,2,16,0.04,131,IN,IN,1
+California,Imperial County,06025,174528,3,ND,10,51,0.08,190,12,34,7
+California,Inyo County,06027,18546,1,ND,ND,ND,0.072,526,11.8,308,1
+California,Kern County,06029,839631,1,ND,13,53,0.101,236,20.3,81,ND
+California,Kings County,06031,152982,ND,ND,9,44,0.084,323,19.9,87,ND
+California,Lake County,06033,64665,ND,ND,ND,ND,0.059,114,9.3,85,ND
+California,Los Angeles County,06037,9818605,3,0.02,23,86,0.124,169,14.8,53,3
+California,Madera County,06039,150865,ND,ND,6,29,0.085,314,16.9,88,ND
+California,Marin County,06041,252409,2,ND,8,36,0.06,39,8.6,41,ND
+California,Mariposa County,06043,18251,ND,ND,ND,ND,0.091,484,ND,ND,ND
+California,Mendocino County,06045,87841,ND,ND,ND,ND,0.059,187,12.4,62,ND
+California,Merced County,06047,255793,ND,ND,7,31,0.079,123,15.5,78,ND
+California,Modoc County,06049,9686,ND,ND,ND,ND,ND,ND,IN,IN,ND
+California,Mono County,06051,14202,ND,ND,ND,ND,ND,1955,40.3,453,ND
+California,Monterey County,06053,415057,1,ND,4,25,0.057,218,8.8,64,ND
+California,Napa County,06055,136484,2,ND,5,26,0.06,81,10.4,57,ND
+California,Nevada County,06057,98764,ND,ND,ND,ND,0.08,ND,14.1,90,ND
+California,Orange County,06059,3010232,2,ND,19,53,0.09,120,12.3,42,ND
+California,Placer County,06061,348432,ND,ND,6,IN,0.083,213,13.4,93,ND
+California,Plumas County,06063,20007,ND,ND,ND,ND,ND,ND,20.9,109,ND
+California,Riverside County,06065,2189641,2,IN,15,54,0.104,359,14.7,40,2
+California,Sacramento County,06067,1418788,2,ND,11,46,0.078,231,14.7,85,3
+California,San Benito County,06069,55269,ND,ND,ND,ND,0.069,116,8.9,59,ND
+California,San Bernardino County,06071,2035210,1,IN,29,78,0.125,205,15.1,43,5
+California,San Diego County,06073,3095313,2,0.02,14,49,0.082,158,20.5,75,1
+California,San Francisco County,06075,805235,2,ND,9,41,0.048,IN,10.5,40,ND
+California,San Joaquin County,06077,685306,2,ND,11,54,0.068,226,14.8,92,ND
+California,San Luis Obispo County,06079,269637,ND,ND,4,26,0.08,280,9.8,63,2
+California,San Mateo County,06081,718451,2,ND,8,38,0.054,ND,9.8,46,ND
+California,Santa Barbara County,06083,423895,1,ND,5,28,0.072,103,9.3,37,3
+California,Santa Clara County,06085,1781642,2,IN,14,49,0.069,91,12.5,56,2
+California,Santa Cruz County,06087,262382,ND,ND,ND,ND,0.048,ND,11,88,ND
+California,Shasta County,06089,177223,ND,ND,ND,ND,0.069,100,10.2,66,ND
+California,Siskiyou County,06093,44900,ND,ND,ND,ND,0.06,ND,10.9,85,ND
+California,Solano County,06095,413344,2,ND,7,42,0.066,170,12,52,4
+California,Sonoma County,06097,483878,2,ND,4,25,0.052,134,8.3,34,ND
+California,Stanislaus County,06099,514453,2,ND,9,41,0.08,216,15.5,87,ND
+California,Sutter County,06101,94737,ND,ND,6,38,0.083,246,16.4,91,ND
+California,Tehama County,06103,63463,ND,ND,ND,ND,0.074,151,13.2,87,ND
+California,Trinity County,06105,13786,ND,ND,ND,ND,ND,ND,IN,IN,ND
+California,Tulare County,06107,442179,ND,ND,9,48,0.095,270,19.6,83,ND
+California,Tuolumne County,06109,55365,ND,ND,ND,ND,0.08,ND,ND,ND,ND
+California,Ventura County,06111,823318,ND,ND,7,34,0.085,162,7.9,32,ND
+California,Yolo County,06113,200849,ND,ND,4,24,0.066,116,IN,134,ND
+Colorado,Adams County,08001,441603,1,ND,16,57,0.078,113,9.8,28,6
+Colorado,Arapahoe County,08005,572003,ND,ND,ND,ND,0.083,ND,6,24,ND
+Colorado,Archuleta County,08007,12084,ND,ND,IN,IN,0.066,59,IN,IN,ND
+Colorado,Boulder County,08013,294567,ND,ND,ND,ND,0.076,74,9.5,52,ND
+Colorado,Clear Creek County,08019,9088,ND,ND,ND,ND,0.073,ND,ND,ND,ND
+Colorado,Delta County,08029,30952,ND,ND,IN,IN,0.061,42,IN,IN,ND
+Colorado,Denver County,08031,600158,2,ND,25,71,0.078,104,10.5,39,7
+Colorado,Douglas County,08035,285465,ND,ND,ND,ND,0.083,ND,6.9,42,ND
+Colorado,Elbert County,08039,23086,ND,ND,ND,ND,ND,ND,IN,IN,ND
+Colorado,El Paso County,08041,622263,1,ND,ND,ND,0.079,50,6,21,9
+Colorado,Fremont County,08043,46824,ND,ND,ND,ND,ND,IN,ND,ND,ND
+Colorado,Garfield County,08045,56389,ND,ND,3,18,0.069,39,IN,IN,ND
+Colorado,Gilpin County,08047,5441,ND,ND,ND,ND,0.077,ND,ND,ND,ND
+Colorado,Gunnison County,08051,15324,ND,ND,ND,ND,0.066,ND,IN,IN,ND
+Colorado,Jefferson County,08059,534543,ND,ND,2,25,0.087,ND,ND,ND,ND
+Colorado,La Plata County,08067,51334,ND,ND,1,7,0.066,ND,IN,IN,ND
+Colorado,Larimer County,08069,299630,1,ND,ND,ND,0.075,ND,8.1,47,ND
+Colorado,Mesa County,08077,146723,ND,ND,ND,ND,0.065,71,6.1,20,ND
+Colorado,Montezuma County,08083,25535,ND,ND,ND,ND,0.067,ND,IN,IN,ND
+Colorado,Park County,08093,16206,ND,ND,ND,ND,ND,ND,IN,IN,ND
+Colorado,Pitkin County,08097,17148,ND,ND,ND,ND,ND,51,ND,ND,ND
+Colorado,Prowers County,08099,12551,ND,ND,ND,ND,ND,307,ND,ND,ND
+Colorado,Pueblo County,08101,159063,ND,ND,ND,ND,ND,52,IN,IN,ND
+Colorado,Rio Blanco County,08103,6666,ND,ND,2,26,0.065,ND,8.4,23,ND
+Colorado,Routt County,08107,23509,ND,ND,ND,ND,ND,69,IN,IN,ND
+Colorado,San Miguel County,08113,7359,ND,ND,ND,ND,ND,59,IN,IN,ND
+Colorado,Weld County,08123,252825,1,ND,IN,IN,0.076,ND,9.8,37,ND
+Connecticut,Fairfield County,09001,916829,ND,ND,8,39,0.077,48,8.1,25,3
+Connecticut,Hartford County,09003,894014,1,ND,12,42,0.064,45,7.6,20,ND
+Connecticut,Litchfield County,09005,189927,0,ND,ND,ND,0.063,29,5.1,13,1
+Connecticut,Middlesex County,09007,165676,ND,ND,ND,ND,0.069,ND,ND,ND,ND
+Connecticut,New Haven County,09009,862477,1,ND,11,45,0.08,66,8.2,23,2
+Connecticut,New London County,09011,274055,ND,ND,ND,ND,0.071,59,6.9,17,ND
+Connecticut,Tolland County,09013,152691,ND,ND,ND,ND,0.063,ND,ND,ND,ND
+Connecticut,Windham County,09015,118428,ND,ND,ND,ND,0.062,ND,ND,ND,ND
+Delaware,Kent County,10001,162310,ND,ND,ND,ND,0.062,ND,IN,IN,ND
+Delaware,New Castle County,10003,538479,1,ND,9,IN,0.063,ND,7.2,17,IN
+Delaware,Sussex County,10005,197145,ND,ND,ND,ND,0.06,ND,IN,IN,IN
+District of Columbia,District of Columbia,11001,601723,2,ND,12,45,0.063,46,7.8,21,4
+Florida,Alachua County,12001,247336,ND,ND,ND,ND,0.06,ND,7.6,16,ND
+Florida,Baker County,12003,27115,ND,ND,ND,ND,0.055,ND,ND,ND,ND
+Florida,Bay County,12005,168852,ND,ND,ND,ND,0.058,ND,IN,IN,ND
+Florida,Brevard County,12009,543376,ND,ND,ND,ND,0.058,85,7.9,17,ND
+Florida,Broward County,12011,1748066,1,ND,13,39,0.067,79,9.3,18,1
+Florida,Citrus County,12017,141236,ND,ND,ND,ND,ND,ND,IN,IN,37
+Florida,Collier County,12021,321520,ND,ND,ND,ND,0.057,ND,ND,ND,ND
+Florida,Columbia County,12023,67531,ND,ND,ND,ND,0.049,ND,ND,ND,ND
+Florida,Duval County,12031,864263,1,ND,10,37,0.057,98,8.3,18,16
+Florida,Escambia County,12033,297619,ND,ND,ND,ND,0.058,ND,9.7,20,4
+Florida,Flagler County,12035,95696,ND,ND,ND,ND,0.053,ND,ND,ND,ND
+Florida,Hamilton County,12047,14799,ND,ND,ND,ND,ND,ND,ND,ND,8
+Florida,Highlands County,12055,98786,ND,ND,ND,ND,0.059,ND,ND,ND,ND
+Florida,Hillsborough County,12057,1229226,1,0.09,9,35,0.065,57,8.4,18,42
+Florida,Holmes County,12059,19927,ND,ND,ND,ND,0.055,ND,ND,ND,ND
+Florida,Indian River County,12061,138028,ND,ND,ND,ND,0.059,ND,ND,ND,ND
+Florida,Lake County,12069,297052,ND,ND,ND,ND,0.062,ND,ND,ND,ND
+Florida,Lee County,12071,618754,ND,ND,ND,ND,0.061,57,IN,IN,ND
+Florida,Leon County,12073,275487,ND,ND,ND,ND,0.055,ND,7.5,18,ND
+Florida,Liberty County,12077,8365,ND,ND,ND,ND,0.054,ND,ND,ND,ND
+Florida,Manatee County,12081,322833,ND,ND,ND,ND,0.059,ND,IN,IN,7
+Florida,Marion County,12083,331298,ND,ND,ND,ND,0.061,ND,IN,IN,ND
+Florida,Martin County,12085,146318,ND,ND,ND,ND,0.057,ND,ND,ND,ND
+Florida,Miami-Dade County,12086,2496435,1,ND,9,34,0.06,87,7.7,16,1
+Florida,Nassau County,12089,73314,ND,ND,ND,ND,ND,ND,ND,ND,60
+Florida,Okaloosa County,12091,180822,ND,ND,ND,ND,0.056,55,ND,ND,ND
+Florida,Orange County,12095,1145956,1,ND,3,IN,0.062,41,6.8,17,4
+Florida,Osceola County,12097,268685,ND,ND,ND,ND,0.06,ND,ND,ND,ND
+Florida,Palm Beach County,12099,1320134,ND,ND,ND,ND,0.059,87,7.3,21,ND
+Florida,Pasco County,12101,464697,ND,ND,ND,ND,0.062,ND,ND,ND,ND
+Florida,Pinellas County,12103,916542,1,ND,8,27,0.064,60,7.9,18,6
+Florida,Polk County,12105,602095,ND,ND,ND,ND,0.062,47,8.4,19,13
+Florida,Putnam County,12107,74364,ND,ND,ND,ND,ND,47,ND,ND,8
+Florida,St. Lucie County,12111,277789,ND,ND,ND,ND,0.058,ND,IN,IN,ND
+Florida,Santa Rosa County,12113,151372,ND,ND,ND,ND,0.058,ND,IN,IN,ND
+Florida,Sarasota County,12115,379448,ND,ND,ND,ND,0.06,56,7.9,18,ND
+Florida,Seminole County,12117,422718,ND,ND,ND,ND,0.06,43,7.3,16,ND
+Florida,Volusia County,12127,494593,ND,ND,ND,ND,0.059,50,8.1,17,ND
+Florida,Wakulla County,12129,30776,0,ND,ND,ND,0.055,ND,ND,ND,1
+Georgia,Bibb County,13021,155547,ND,ND,ND,ND,0.054,ND,8.1,18,2
+Georgia,Chatham County,13051,265128,ND,ND,ND,ND,0.054,ND,8.9,18,64
+Georgia,Chattooga County,13055,26015,ND,ND,ND,ND,0.052,ND,ND,ND,ND
+Georgia,Clarke County,13059,116714,ND,ND,ND,ND,0.056,ND,8.4,20,ND
+Georgia,Clayton County,13063,259424,ND,ND,ND,ND,ND,ND,8.1,24,ND
+Georgia,Cobb County,13067,688078,ND,ND,ND,ND,0.056,ND,8.2,24,ND
+Georgia,Coffee County,13069,42356,ND,ND,ND,ND,ND,ND,6.8,16,ND
+Georgia,Columbia County,13073,124053,ND,ND,ND,ND,0.052,ND,ND,ND,ND
+Georgia,Dawson County,13085,22330,ND,ND,ND,ND,0.057,ND,ND,ND,ND
+Georgia,DeKalb County,13089,691893,1,ND,14,42,0.061,68,8.3,22,2
+Georgia,Dougherty County,13095,94565,ND,ND,ND,ND,ND,ND,9.1,24,ND
+Georgia,Douglas County,13097,132403,ND,ND,ND,ND,0.056,ND,ND,ND,ND
+Georgia,Floyd County,13115,96317,ND,ND,ND,ND,ND,ND,IN,IN,11
+Georgia,Fulton County,13121,920581,2,ND,16,41,0.063,33,9.5,25,3
+Georgia,Glynn County,13127,79626,ND,ND,ND,ND,0.052,ND,IN,IN,ND
+Georgia,Gwinnett County,13135,805321,ND,ND,ND,ND,0.066,ND,8.3,21,ND
+Georgia,Hall County,13139,179684,ND,ND,ND,ND,ND,ND,8.7,19,ND
+Georgia,Henry County,13151,203922,ND,ND,ND,ND,0.058,ND,ND,ND,ND
+Georgia,Houston County,13153,139900,ND,ND,ND,ND,ND,ND,8.9,21,ND
+Georgia,Lowndes County,13185,109233,ND,ND,ND,ND,ND,ND,8,19,ND
+Georgia,Murray County,13213,39628,ND,ND,ND,ND,0.057,ND,ND,ND,ND
+Georgia,Muscogee County,13215,189885,ND,0.01,ND,ND,0.053,ND,8.4,23,ND
+Georgia,Paulding County,13223,142324,ND,ND,ND,ND,ND,ND,IN,IN,ND
+Georgia,Pike County,13231,17869,ND,ND,ND,ND,0.054,ND,ND,ND,ND
+Georgia,Richmond County,13245,200549,ND,ND,ND,ND,0.056,39,10.7,23,58
+Georgia,Rockdale County,13247,85215,ND,ND,ND,ND,0.06,ND,ND,ND,ND
+Georgia,Sumter County,13261,32819,ND,ND,ND,ND,0.054,ND,ND,ND,ND
+Georgia,Walker County,13295,68756,ND,ND,ND,ND,ND,ND,IN,IN,ND
+Georgia,Washington County,13303,21187,ND,ND,ND,ND,ND,ND,8.7,21,ND
+Georgia,Wilkinson County,13319,9563,ND,ND,ND,ND,ND,ND,IN,IN,ND
+Hawaii,Hawaii County,15001,185079,ND,ND,ND,ND,ND,ND,3.5,10,274
+Hawaii,Honolulu County,15003,953207,1,ND,3,26,0.045,38,3.9,7,57
+Hawaii,Kauai County,15007,67091,ND,ND,3,34,ND,ND,IN,IN,4
+Hawaii,Maui County,15009,154834,ND,ND,ND,ND,ND,ND,3.9,7,ND
+Idaho,Ada County,16001,392365,2,ND,10,43,0.065,115,7.6,37,2
+Idaho,Bannock County,16005,82839,ND,ND,ND,ND,0.065,114,IN,IN,47
+Idaho,Benewah County,16009,9285,ND,ND,ND,ND,ND,ND,10.3,73,ND
+Idaho,Boise County,16015,7028,ND,ND,ND,ND,ND,ND,IN,IN,ND
+Idaho,Bonner County,16017,40877,ND,ND,ND,ND,ND,291,IN,IN,ND
+Idaho,Bonneville County,16019,104234,ND,ND,ND,ND,ND,ND,IN,IN,ND
+Idaho,Boundary County,16021,10972,ND,ND,ND,ND,ND,ND,IN,IN,ND
+Idaho,Butte County,16023,2891,ND,ND,ND,ND,0.066,ND,ND,ND,ND
+Idaho,Canyon County,16027,188923,ND,ND,ND,ND,ND,142,10.6,49,ND
+Idaho,Caribou County,16029,6963,ND,ND,ND,ND,ND,ND,IN,IN,44
+Idaho,Franklin County,16041,12786,ND,ND,ND,ND,ND,ND,6.4,26,ND
+Idaho,Gem County,16045,16719,ND,ND,ND,ND,ND,ND,IN,IN,ND
+Idaho,Idaho County,16049,16267,ND,ND,ND,ND,0.054,ND,IN,IN,ND
+Idaho,Jerome County,16053,22374,ND,ND,ND,ND,ND,ND,IN,IN,ND
+Idaho,Kootenai County,16055,138494,ND,ND,ND,ND,ND,ND,IN,IN,ND
+Idaho,Latah County,16057,37244,ND,ND,ND,ND,ND,ND,IN,IN,ND
+Idaho,Lemhi County,16059,7936,ND,ND,ND,ND,ND,ND,10.8,38,ND
+Idaho,Nez Perce County,16069,39265,ND,ND,ND,ND,ND,ND,IN,IN,ND
+Idaho,Power County,16077,7817,ND,ND,ND,ND,ND,ND,IN,IN,ND
+Idaho,Shoshone County,16079,12765,ND,ND,ND,ND,ND,236,11.1,34,ND
+Idaho,Twin Falls County,16083,77230,ND,ND,ND,ND,ND,ND,IN,IN,ND
+Idaho,Valley County,16085,9862,ND,ND,ND,ND,ND,ND,IN,IN,ND
+Illinois,Adams County,17001,67103,ND,ND,ND,ND,0.064,ND,IN,IN,ND
+Illinois,Champaign County,17019,201081,0,ND,ND,ND,0.069,ND,7.3,17,3
+Illinois,Clark County,17023,16335,ND,ND,ND,ND,0.06,ND,ND,ND,ND
+Illinois,Cook County,17031,5194675,1,IN,16,50,0.079,149,10.8,23,14
+Illinois,DuPage County,17043,916924,ND,ND,ND,ND,0.073,ND,9.1,21,ND
+Illinois,Effingham County,17049,34242,ND,ND,ND,ND,0.062,ND,ND,ND,ND
+Illinois,Hamilton County,17065,8457,ND,ND,ND,ND,0.067,ND,8.8,17,ND
+Illinois,Jersey County,17083,22985,ND,ND,ND,ND,0.062,ND,7.5,17,ND
+Illinois,Jo Daviess County,17085,22678,ND,ND,ND,ND,0.063,ND,ND,ND,ND
+Illinois,Kane County,17089,515269,ND,ND,ND,ND,0.073,ND,8.4,21,ND
+Illinois,Lake County,17097,703462,ND,ND,ND,ND,0.076,ND,IN,IN,ND
+Illinois,LaSalle County,17099,113924,ND,ND,ND,ND,ND,ND,IN,IN,8
+Illinois,McHenry County,17111,308760,ND,ND,ND,ND,0.076,ND,8.2,17,ND
+Illinois,McLean County,17113,169572,ND,ND,ND,ND,0.07,ND,8.5,19,ND
+Illinois,Macon County,17115,110768,ND,ND,ND,ND,0.065,ND,8.6,18,39
+Illinois,Macoupin County,17117,47765,ND,ND,2,16,0.063,ND,IN,IN,3
+Illinois,Madison County,17119,269282,ND,0.12,ND,ND,0.069,73,10.1,26,7
+Illinois,Monroe County,17133,32957,ND,ND,ND,ND,ND,ND,ND,ND,10
+Illinois,Peoria County,17143,186494,ND,ND,ND,ND,0.07,ND,IN,IN,ND
+Illinois,Randolph County,17157,33476,ND,ND,ND,ND,0.061,ND,8.3,19,ND
+Illinois,Rock Island County,17161,147546,ND,ND,ND,ND,0.063,ND,8.1,18,ND
+Illinois,St. Clair County,17163,270056,ND,ND,9,39,0.065,ND,9.5,22,8
+Illinois,Sangamon County,17167,197465,ND,ND,ND,ND,0.067,ND,7.6,18,ND
+Illinois,Tazewell County,17179,135394,ND,ND,ND,ND,ND,ND,ND,ND,14
+Illinois,Wabash County,17185,11947,ND,ND,ND,ND,ND,ND,ND,ND,49
+Illinois,Will County,17197,677560,ND,ND,ND,ND,0.067,ND,9.8,21,ND
+Illinois,Winnebago County,17201,295266,ND,ND,ND,ND,0.067,ND,9.1,21,ND
+Indiana,Allen County,18003,355329,ND,ND,ND,ND,0.065,ND,8.3,18,ND
+Indiana,Bartholomew County,18005,76794,ND,ND,ND,ND,0.065,ND,6.7,16,ND
+Indiana,Boone County,18011,56640,ND,ND,ND,ND,0.069,ND,ND,ND,ND
+Indiana,Brown County,18013,15242,ND,ND,ND,ND,0.062,ND,ND,ND,ND
+Indiana,Carroll County,18015,20155,ND,ND,ND,ND,0.062,ND,ND,ND,ND
+Indiana,Clark County,18019,110232,ND,ND,ND,ND,0.062,39,9.4,22,ND
+Indiana,Daviess County,18027,31648,ND,ND,ND,ND,ND,ND,ND,ND,11
+Indiana,Delaware County,18035,117671,ND,0.05,ND,ND,0.062,ND,8,17,ND
+Indiana,Dubois County,18037,41889,ND,ND,ND,ND,ND,25,8.4,16,ND
+Indiana,Elkhart County,18039,197559,ND,ND,ND,ND,0.062,ND,8.2,20,ND
+Indiana,Floyd County,18043,74578,ND,ND,ND,ND,0.066,ND,IN,IN,5
+Indiana,Gibson County,18051,33503,ND,ND,ND,ND,ND,ND,IN,IN,59
+Indiana,Greene County,18055,33165,ND,ND,ND,ND,0.064,ND,7.5,17,ND
+Indiana,Hamilton County,18057,274569,ND,ND,ND,ND,0.063,ND,9.4,20,ND
+Indiana,Hendricks County,18063,145448,ND,ND,ND,ND,0.063,ND,ND,ND,ND
+Indiana,Henry County,18065,49462,ND,ND,ND,ND,ND,ND,7.3,16,ND
+Indiana,Howard County,18067,82752,ND,ND,ND,ND,0.064,ND,6.7,15,ND
+Indiana,Knox County,18083,38440,ND,ND,ND,ND,0.065,ND,IN,IN,ND
+Indiana,Lake County,18089,496005,ND,0.05,IN,IN,0.074,59,9.6,20,32
+Indiana,LaPorte County,18091,111467,ND,ND,ND,ND,0.079,ND,IN,IN,ND
+Indiana,Madison County,18095,131636,ND,ND,ND,ND,0.059,ND,8.3,19,ND
+Indiana,Marion County,18097,903393,2,ND,11,39,0.067,65,11,24,6
+Indiana,Monroe County,18105,137974,ND,ND,ND,ND,ND,ND,7.4,18,ND
+Indiana,Montgomery County,18107,38124,ND,ND,ND,ND,ND,ND,IN,IN,ND
+Indiana,Perry County,18123,19338,ND,ND,ND,ND,0.065,ND,ND,ND,ND
+Indiana,Porter County,18127,164343,ND,IN,ND,ND,0.076,64,IN,IN,81
+Indiana,Posey County,18129,25910,ND,ND,ND,ND,0.064,ND,ND,ND,ND
+Indiana,St. Joseph County,18141,266931,ND,ND,4,IN,0.067,ND,9.1,22,ND
+Indiana,Shelby County,18145,44436,ND,ND,ND,ND,0.061,ND,ND,ND,ND
+Indiana,Spencer County,18147,20952,ND,ND,ND,ND,ND,ND,8,17,ND
+Indiana,Sullivan County,18153,21475,ND,ND,ND,ND,ND,ND,IN,IN,ND
+Indiana,Tippecanoe County,18157,172780,ND,ND,ND,ND,ND,ND,9.3,18,ND
+Indiana,Vanderburgh County,18163,179703,1,ND,7,30,0.067,36,9.1,19,7
+Indiana,Vigo County,18167,107848,ND,ND,ND,ND,0.064,ND,8.1,22,4
+Indiana,Wabash County,18169,32888,ND,ND,ND,ND,0.067,ND,ND,ND,ND
+Indiana,Warrick County,18173,59689,ND,ND,ND,ND,0.066,ND,ND,ND,ND
+Indiana,Whitley County,18183,33292,ND,ND,ND,ND,ND,ND,8.9,20,ND
+Iowa,Black Hawk County,19013,131090,ND,ND,ND,ND,ND,ND,7.9,22,ND
+Iowa,Bremer County,19017,24276,ND,ND,ND,ND,0.06,ND,IN,IN,ND
+Iowa,Cerro Gordo County,19033,44151,ND,ND,ND,ND,ND,68,IN,IN,ND
+Iowa,Clinton County,19045,49116,ND,ND,ND,ND,0.062,ND,8.5,22,19
+Iowa,Delaware County,19055,17764,ND,ND,ND,ND,ND,ND,IN,IN,ND
+Iowa,Emmet County,19063,10302,ND,ND,ND,ND,ND,ND,IN,IN,ND
+Iowa,Harrison County,19085,14928,ND,ND,ND,ND,0.061,ND,ND,ND,ND
+Iowa,Johnson County,19103,130882,ND,ND,ND,ND,ND,ND,7.8,19,ND
+Iowa,Lee County,19111,35862,ND,ND,ND,ND,ND,ND,7.8,17,ND
+Iowa,Linn County,19113,211226,ND,ND,ND,ND,0.064,62,8.1,21,43
+Iowa,Montgomery County,19137,10740,ND,ND,ND,ND,0.056,ND,6.7,15,ND
+Iowa,Muscatine County,19139,42745,ND,ND,ND,ND,ND,39,8.1,22,20
+Iowa,Palo Alto County,19147,9421,ND,ND,ND,ND,0.063,ND,7.1,19,ND
+Iowa,Polk County,19153,430640,ND,ND,6,33,0.057,61,7.6,17,ND
+Iowa,Pottawattamie County,19155,93158,ND,0.05,ND,ND,ND,68,8.3,22,ND
+Iowa,Scott County,19163,165224,1,ND,ND,ND,0.061,159,8.2,20,4
+Iowa,Story County,19169,89542,ND,ND,ND,ND,ND,ND,IN,IN,ND
+Iowa,Tama County,19171,17767,ND,ND,ND,ND,ND,ND,IN,IN,ND
+Iowa,Van Buren County,19177,7570,ND,ND,2,7,0.059,36,6.8,17,1
+Iowa,Woodbury County,19193,102172,ND,ND,ND,ND,ND,ND,7.6,21,ND
+Iowa,Wright County,19197,13229,ND,ND,ND,ND,ND,ND,IN,IN,ND
+Kansas,Ford County,20057,33848,ND,ND,ND,ND,ND,88,ND,ND,ND
+Kansas,Johnson County,20091,544179,ND,ND,ND,ND,0.055,54,8.1,19,ND
+Kansas,Leavenworth County,20103,76227,ND,ND,ND,ND,0.059,ND,ND,ND,ND
+Kansas,Linn County,20107,9656,ND,ND,ND,ND,ND,ND,IN,IN,ND
+Kansas,Neosho County,20133,16512,ND,ND,3,16,0.057,103,8.7,21,3
+Kansas,Saline County,20169,55606,ND,0.05,ND,ND,ND,ND,ND,ND,ND
+Kansas,Sedgwick County,20173,498365,ND,ND,6,34,0.06,95,IN,IN,ND
+Kansas,Shawnee County,20177,177934,ND,ND,ND,ND,0.057,77,IN,IN,ND
+Kansas,Sherman County,20181,6010,ND,ND,ND,ND,ND,137,ND,ND,ND
+Kansas,Sumner County,20191,24132,ND,ND,3,22,0.059,139,8.9,24,3
+Kansas,Trego County,20195,3001,ND,ND,1,4,0.059,82,IN,IN,4
+Kansas,Wyandotte County,20209,157505,1,ND,8,38,0.063,89,11,27,5
+Kentucky,Bell County,21013,28691,ND,ND,ND,ND,0.053,ND,7.4,14,ND
+Kentucky,Boone County,21015,118811,ND,ND,ND,ND,0.062,ND,ND,ND,ND
+Kentucky,Boyd County,21019,49542,ND,ND,5,27,0.059,40,7.5,16,5
+Kentucky,Bullitt County,21029,74319,ND,ND,ND,ND,0.065,ND,IN,IN,ND
+Kentucky,Campbell County,21037,90336,ND,ND,5,28,0.063,ND,7.6,16,10
+Kentucky,Carter County,21043,27720,ND,ND,ND,ND,0.053,17,5.6,11,ND
+Kentucky,Christian County,21047,73955,ND,ND,ND,ND,0.059,ND,7.9,21,ND
+Kentucky,Daviess County,21059,96656,ND,ND,4,26,0.065,ND,7.9,19,12
+Kentucky,Edmonson County,21061,12161,0,ND,ND,ND,0.056,ND,IN,IN,2
+Kentucky,Fayette County,21067,295803,ND,ND,5,38,0.06,21,7.5,17,3
+Kentucky,Franklin County,21073,49285,ND,ND,ND,ND,ND,ND,IN,IN,ND
+Kentucky,Greenup County,21089,36910,ND,ND,ND,ND,0.052,ND,ND,ND,6
+Kentucky,Hancock County,21091,8565,ND,ND,ND,ND,0.065,ND,ND,ND,ND
+Kentucky,Hardin County,21093,105543,ND,ND,ND,ND,0.06,ND,7.1,15,ND
+Kentucky,Henderson County,21101,46250,ND,ND,ND,ND,ND,ND,IN,IN,73
+Kentucky,Jefferson County,21111,741096,1,ND,13,44,0.071,47,9.7,22,15
+Kentucky,Jessamine County,21113,48586,ND,ND,ND,ND,0.059,ND,ND,ND,3
+Kentucky,Kenton County,21117,159720,ND,ND,ND,ND,ND,ND,IN,IN,ND
+Kentucky,Laurel County,21125,58849,ND,ND,ND,ND,ND,ND,IN,IN,ND
+Kentucky,Livingston County,21139,9519,ND,ND,ND,ND,0.064,IN,ND,ND,ND
+Kentucky,McCracken County,21145,65565,ND,ND,4,30,0.064,27,8.8,23,7
+Kentucky,Madison County,21151,82916,ND,0.02,ND,ND,ND,ND,IN,IN,ND
+Kentucky,Morgan County,21175,13923,ND,ND,ND,ND,0.054,ND,ND,ND,ND
+Kentucky,Ohio County,21183,23842,ND,ND,ND,ND,ND,ND,IN,IN,ND
+Kentucky,Oldham County,21185,60316,ND,ND,ND,ND,0.061,ND,ND,ND,ND
+Kentucky,Perry County,21193,28712,ND,ND,ND,ND,0.055,ND,7.2,14,ND
+Kentucky,Pike County,21195,65024,ND,ND,ND,ND,0.053,ND,6.6,14,ND
+Kentucky,Pulaski County,21199,63063,ND,ND,ND,ND,0.056,ND,7.3,14,ND
+Kentucky,Simpson County,21213,17327,ND,ND,ND,ND,0.055,ND,ND,ND,ND
+Kentucky,Trigg County,21221,14339,ND,ND,ND,ND,0.06,ND,ND,ND,ND
+Kentucky,Warren County,21227,113792,ND,ND,ND,ND,0.057,ND,7.8,16,ND
+Kentucky,Washington County,21229,11717,ND,ND,ND,ND,0.058,ND,ND,ND,ND
+Louisiana,Ascension Parish,22005,107215,ND,ND,6,28,0.066,ND,ND,ND,ND
+Louisiana,Bossier Parish,22015,116979,ND,ND,ND,ND,0.057,84,ND,ND,10
+Louisiana,Caddo Parish,22017,254969,ND,ND,ND,ND,0.055,ND,9.6,23,ND
+Louisiana,Calcasieu Parish,22019,192768,ND,ND,7,IN,0.064,ND,7.5,22,21
+Louisiana,Concordia Parish,22029,20822,ND,ND,ND,ND,ND,ND,IN,IN,ND
+Louisiana,East Baton Rouge Parish,22033,440171,1,0.01,7,40,0.066,62,8.2,20,19
+Louisiana,Iberville Parish,22047,33387,ND,ND,3,IN,0.069,ND,7.5,17,ND
+Louisiana,Jefferson Parish,22051,432552,ND,ND,5,34,0.063,ND,7.3,18,ND
+Louisiana,Lafayette Parish,22055,221578,ND,ND,ND,ND,0.058,90,8.2,27,ND
+Louisiana,Lafourche Parish,22057,96318,ND,ND,ND,ND,0.06,ND,ND,ND,ND
+Louisiana,Livingston Parish,22063,128026,ND,ND,2,12,0.063,ND,ND,ND,ND
+Louisiana,Orleans Parish,22071,343829,1,ND,8,43,ND,58,7.8,20,ND
+Louisiana,Ouachita Parish,22073,153720,ND,ND,ND,ND,0.057,ND,7.3,18,ND
+Louisiana,Plaquemines Parish,22075,23042,ND,ND,ND,ND,ND,ND,IN,IN,ND
+Louisiana,Pointe Coupee Parish,22077,22802,ND,ND,ND,ND,0.064,ND,ND,ND,ND
+Louisiana,Rapides Parish,22079,131613,ND,ND,ND,ND,ND,ND,7.3,18,ND
+Louisiana,St. Bernard Parish,22087,35897,ND,ND,ND,ND,0.059,53,7.9,21,45
+Louisiana,St. Charles Parish,22089,52780,ND,ND,ND,ND,ND,ND,IN,IN,56
+Louisiana,St. James Parish,22093,22102,ND,ND,ND,ND,0.06,ND,ND,ND,5
+Louisiana,St. John the Baptist Parish,22095,45924,ND,0.01,ND,ND,0.06,ND,ND,ND,ND
+Louisiana,St. Martin Parish,22099,52160,ND,ND,ND,ND,0.06,ND,ND,ND,ND
+Louisiana,St. Tammany Parish,22103,233740,ND,ND,ND,ND,0.059,ND,IN,IN,ND
+Louisiana,Tangipahoa Parish,22105,121097,ND,ND,ND,ND,ND,ND,7.3,18,ND
+Louisiana,Terrebonne Parish,22109,111860,ND,ND,ND,ND,ND,ND,7.4,20,ND
+Louisiana,West Baton Rouge Parish,22121,23788,ND,ND,7,36,0.068,ND,8.6,21,37
+Maine,Androscoggin County,23001,107702,ND,ND,ND,ND,0.052,23,5.1,15,ND
+Maine,Aroostook County,23003,71870,1,ND,IN,IN,0.051,100,5.7,15,IN
+Maine,Cumberland County,23005,281674,1,ND,6,47,0.058,49,7.3,17,4
+Maine,Franklin County,23007,30768,ND,ND,ND,ND,ND,ND,IN,IN,ND
+Maine,Hancock County,23009,54418,0,ND,ND,ND,0.068,16,2.7,9,1
+Maine,Kennebec County,23011,122151,ND,ND,IN,IN,0.052,35,5.8,14,IN
+Maine,Knox County,23013,39736,ND,ND,ND,ND,0.059,ND,ND,ND,ND
+Maine,Oxford County,23017,57833,ND,ND,ND,ND,0.051,ND,5.1,13,ND
+Maine,Penobscot County,23019,153923,ND,ND,ND,ND,0.056,38,IN,IN,ND
+Maine,Washington County,23029,32856,ND,ND,ND,ND,0.052,ND,ND,ND,ND
+Maine,York County,23031,197131,ND,ND,ND,ND,0.06,ND,ND,ND,ND
+Maryland,Allegany County,24001,75087,ND,ND,ND,ND,ND,ND,ND,ND,IN
+Maryland,Anne Arundel County,24003,537656,ND,ND,ND,ND,0.066,21,IN,IN,IN
+Maryland,Baltimore County,24005,805029,2,ND,13,39,0.069,ND,7.5,21,5
+Maryland,Calvert County,24009,88737,ND,ND,ND,ND,0.054,ND,ND,ND,ND
+Maryland,Carroll County,24013,167134,ND,ND,ND,ND,0.061,ND,ND,ND,ND
+Maryland,Cecil County,24015,101108,ND,ND,ND,ND,0.064,ND,5.6,14,ND
+Maryland,Charles County,24017,146551,ND,ND,ND,ND,0.052,ND,ND,ND,ND
+Maryland,Dorchester County,24019,32618,ND,ND,ND,ND,0.062,ND,4.4,10,1
+Maryland,Frederick County,24021,233385,ND,ND,ND,ND,0.063,ND,ND,ND,ND
+Maryland,Garrett County,24023,30097,0,ND,2,9,0.056,ND,4.6,10,2
+Maryland,Harford County,24025,244826,ND,ND,ND,ND,0.067,ND,5.8,15,ND
+Maryland,Howard County,24027,287085,1,ND,14,40,ND,ND,7,14,ND
+Maryland,Kent County,24029,20197,ND,ND,ND,ND,0.061,ND,4.6,10,ND
+Maryland,Montgomery County,24031,971777,ND,ND,ND,ND,0.059,ND,5.9,16,ND
+Maryland,Prince George's County,24033,863420,1,ND,5,32,0.065,17,5.7,13,1
+Maryland,Washington County,24043,147430,ND,ND,ND,ND,0.057,ND,6.6,18,ND
+Maryland,Baltimore city,24510,620961,ND,ND,12,48,0.061,32,6.4,18,ND
+Massachusetts,Barnstable County,25001,215888,ND,ND,ND,ND,0.063,ND,ND,ND,ND
+Massachusetts,Berkshire County,25003,131219,ND,ND,ND,ND,0.054,ND,7.6,17,ND
+Massachusetts,Bristol County,25005,548285,ND,ND,ND,ND,0.066,ND,6.2,17,3
+Massachusetts,Dukes County,25007,16535,ND,ND,ND,ND,0.06,ND,ND,ND,ND
+Massachusetts,Essex County,25009,743159,ND,ND,IN,IN,0.059,ND,5.5,14,ND
+Massachusetts,Franklin County,25011,71372,ND,ND,ND,ND,0.052,ND,8.2,20,ND
+Massachusetts,Hampden County,25013,463490,IN,ND,10,44,0.061,ND,8.6,22,3
+Massachusetts,Hampshire County,25015,158080,ND,ND,2,23,0.061,16,IN,IN,1
+Massachusetts,Middlesex County,25017,1503085,ND,ND,11,39,0.059,ND,6.7,14,ND
+Massachusetts,Norfolk County,25021,670850,ND,ND,3,25,0.053,ND,5.2,16,ND
+Massachusetts,Plymouth County,25023,494919,ND,ND,ND,ND,0.06,ND,7.5,16,ND
+Massachusetts,Suffolk County,25025,722023,1,ND,12,46,0.057,25,8.2,16,2
+Massachusetts,Worcester County,25027,798552,1,ND,10,45,0.063,33,8,16,2
+Michigan,Allegan County,26005,111408,ND,ND,ND,ND,0.076,ND,6,13,ND
+Michigan,Alpena County,26007,29598,ND,ND,ND,ND,ND,ND,IN,IN,ND
+Michigan,Bay County,26017,107771,ND,ND,ND,ND,ND,ND,4.7,14,ND
+Michigan,Benzie County,26019,17525,ND,ND,ND,ND,0.068,ND,ND,ND,ND
+Michigan,Berrien County,26021,156813,ND,ND,ND,ND,0.078,ND,IN,IN,ND
+Michigan,Cass County,26027,52293,ND,ND,ND,ND,0.075,ND,ND,ND,ND
+Michigan,Chippewa County,26033,38520,ND,ND,ND,ND,ND,ND,IN,IN,ND
+Michigan,Clinton County,26037,75382,ND,ND,ND,ND,0.064,ND,ND,ND,ND
+Michigan,Dickinson County,26043,26168,ND,ND,ND,ND,ND,ND,IN,IN,ND
+Michigan,Emmet County,26047,32694,ND,ND,ND,ND,ND,ND,IN,IN,ND
+Michigan,Genesee County,26049,425790,ND,ND,ND,ND,0.068,ND,6,15,ND
+Michigan,Grand Traverse County,26055,86986,ND,ND,ND,ND,ND,ND,IN,IN,ND
+Michigan,Huron County,26063,33118,ND,ND,ND,ND,0.075,ND,ND,ND,ND
+Michigan,Ingham County,26065,280895,ND,ND,6,33,0.062,ND,7.1,22,4
+Michigan,Ionia County,26067,63905,ND,0.01,ND,ND,ND,ND,ND,ND,ND
+Michigan,Iron County,26071,11817,ND,ND,ND,ND,ND,ND,IN,IN,ND
+Michigan,Kalamazoo County,26077,250331,ND,ND,ND,ND,0.072,ND,7.6,18,ND
+Michigan,Kent County,26081,602622,1,ND,ND,ND,0.078,27,7.7,18,3
+Michigan,Lenawee County,26091,99892,ND,ND,ND,ND,0.067,ND,8.2,19,ND
+Michigan,Macomb County,26099,840978,ND,ND,ND,ND,0.074,ND,6,16,ND
+Michigan,Manistee County,26101,24733,ND,ND,ND,ND,0.051,ND,IN,IN,ND
+Michigan,Mason County,26105,28705,ND,ND,ND,ND,0.068,ND,ND,ND,ND
+Michigan,Missaukee County,26113,14849,ND,ND,1,6,0.068,ND,IN,IN,ND
+Michigan,Monroe County,26115,152021,ND,ND,ND,ND,ND,83,IN,IN,7
+Michigan,Muskegon County,26121,172188,ND,ND,ND,ND,0.08,ND,IN,IN,ND
+Michigan,Oakland County,26125,1202362,ND,ND,ND,ND,0.074,ND,7.4,23,ND
+Michigan,Ottawa County,26139,263801,ND,ND,5,28,0.075,21,7.4,18,15
+Michigan,Saginaw County,26145,200169,ND,ND,ND,ND,ND,ND,IN,IN,ND
+Michigan,St. Clair County,26147,163040,ND,0.03,ND,ND,0.069,ND,6.7,17,76
+Michigan,Schoolcraft County,26153,8485,ND,ND,ND,ND,0.067,ND,IN,IN,ND
+Michigan,Tuscola County,26157,55729,ND,ND,ND,ND,0.067,ND,ND,ND,ND
+Michigan,Washtenaw County,26161,344791,ND,ND,ND,ND,0.072,ND,8.2,20,ND
+Michigan,Wayne County,26163,1820584,2,0.04,13,44,0.073,88,10.7,27,43
+Michigan,Wexford County,26165,32735,ND,ND,ND,ND,0.067,ND,ND,ND,ND
+Minnesota,Anoka County,27003,330844,1,0.01,5,IN,0.061,54,6.2,16,IN
+Minnesota,Becker County,27005,32504,ND,ND,ND,ND,0.059,ND,4.2,14,ND
+Minnesota,Beltrami County,27007,44442,ND,ND,ND,ND,ND,ND,5.7,13,ND
+Minnesota,Carlton County,27017,35386,ND,ND,ND,ND,0.054,ND,1.3,8,ND
+Minnesota,Cass County,27021,28567,ND,ND,ND,ND,ND,ND,4.4,13,ND
+Minnesota,Cook County,27031,5176,ND,ND,ND,ND,ND,ND,2.6,9,ND
+Minnesota,Crow Wing County,27035,62500,ND,ND,ND,ND,0.054,ND,4.2,12,ND
+Minnesota,Dakota County,27037,398552,1,0.08,7,27,ND,ND,7.6,17,12
+Minnesota,Douglas County,27041,36009,ND,ND,ND,ND,ND,ND,IN,IN,ND
+Minnesota,Freeborn County,27047,31255,ND,ND,ND,ND,ND,ND,IN,IN,ND
+Minnesota,Goodhue County,27049,46183,ND,ND,ND,ND,0.06,ND,ND,ND,ND
+Minnesota,Hennepin County,27053,1152425,1,0.01,11,IN,0.046,108,8.7,20,5
+Minnesota,Itasca County,27061,45058,ND,ND,ND,ND,ND,ND,IN,IN,ND
+Minnesota,Kandiyohi County,27067,42239,ND,ND,ND,ND,ND,ND,IN,IN,ND
+Minnesota,Lake County,27075,10866,ND,ND,ND,ND,0.055,ND,5.3,10,ND
+Minnesota,Lyon County,27083,25857,ND,ND,ND,ND,0.062,ND,5.3,17,ND
+Minnesota,McLeod County,27085,36651,ND,ND,ND,ND,ND,ND,IN,IN,ND
+Minnesota,Mille Lacs County,27095,26097,ND,ND,ND,ND,0.06,ND,IN,IN,ND
+Minnesota,Nicollet County,27103,32727,ND,ND,ND,ND,ND,ND,IN,IN,ND
+Minnesota,Olmsted County,27109,144248,ND,ND,ND,ND,0.067,ND,5.6,17,ND
+Minnesota,Otter Tail County,27111,57303,ND,ND,ND,ND,ND,ND,IN,IN,ND
+Minnesota,Ramsey County,27123,508640,ND,0.02,ND,ND,ND,72,7.1,17,ND
+Minnesota,St. Louis County,27137,200226,ND,ND,5,IN,0.054,74,7.3,15,IN
+Minnesota,Scott County,27139,129928,ND,ND,ND,ND,0.058,ND,5.8,15,ND
+Minnesota,Stearns County,27145,150642,ND,ND,ND,ND,0.061,ND,5.8,15,ND
+Minnesota,Washington County,27163,238136,ND,ND,ND,ND,0.06,ND,IN,IN,5
+Minnesota,Winona County,27169,51461,ND,ND,ND,ND,ND,ND,IN,IN,ND
+Minnesota,Wright County,27171,124700,ND,ND,ND,ND,0.063,ND,6.2,16,ND
+Mississippi,Adams County,28001,32297,ND,ND,ND,ND,ND,ND,IN,IN,ND
+Mississippi,Bolivar County,28011,34145,ND,ND,ND,ND,0.059,ND,8.6,20,ND
+Mississippi,DeSoto County,28033,161252,ND,ND,ND,ND,0.062,ND,8.2,18,ND
+Mississippi,Forrest County,28035,74934,ND,ND,ND,ND,ND,ND,9.6,19,ND
+Mississippi,Grenada County,28043,21906,ND,ND,ND,ND,ND,ND,IN,IN,ND
+Mississippi,Hancock County,28045,43929,ND,ND,ND,ND,0.059,ND,8.4,18,ND
+Mississippi,Harrison County,28047,187105,ND,ND,ND,ND,0.059,ND,9.6,20,ND
+Mississippi,Hinds County,28049,245285,1,ND,IN,IN,0.053,75,10.2,22,4
+Mississippi,Jackson County,28059,139668,ND,ND,3,27,0.059,ND,8.7,17,6
+Mississippi,Jones County,28067,67761,ND,ND,ND,ND,ND,ND,IN,IN,ND
+Mississippi,Lauderdale County,28075,80261,ND,ND,ND,ND,0.051,ND,IN,IN,ND
+Mississippi,Lee County,28081,82910,ND,ND,ND,ND,0.052,ND,IN,IN,ND
+Mississippi,Lowndes County,28087,59779,ND,ND,ND,ND,ND,ND,IN,IN,ND
+Mississippi,Pearl River County,28109,55834,ND,ND,ND,ND,ND,ND,IN,IN,ND
+Mississippi,Rankin County,28121,141617,ND,ND,ND,ND,ND,ND,IN,IN,ND
+Mississippi,Scott County,28123,28264,ND,ND,ND,ND,ND,ND,IN,IN,ND
+Mississippi,Warren County,28149,48773,ND,ND,ND,ND,ND,ND,IN,IN,ND
+Mississippi,Yalobusha County,28161,12678,ND,ND,ND,ND,0.054,ND,ND,ND,ND
+Missouri,Andrew County,29003,17291,ND,ND,ND,ND,0.061,ND,ND,ND,ND
+Missouri,Boone County,29019,162642,ND,ND,ND,ND,0.057,ND,IN,IN,ND
+Missouri,Buchanan County,29021,89201,ND,ND,ND,ND,ND,89,7.8,17,ND
+Missouri,Callaway County,29027,44332,ND,ND,ND,ND,0.059,ND,ND,ND,ND
+Missouri,Cass County,29037,99478,ND,ND,ND,ND,0.058,ND,6.2,15,ND
+Missouri,Cedar County,29039,13982,ND,ND,ND,ND,0.057,ND,6.5,14,ND
+Missouri,Clay County,29047,221939,ND,ND,ND,ND,0.066,ND,6.2,15,ND
+Missouri,Clinton County,29049,20743,ND,ND,ND,ND,0.063,ND,ND,ND,ND
+Missouri,Franklin County,29071,101492,ND,ND,ND,ND,ND,ND,ND,ND,34
+Missouri,Greene County,29077,275174,ND,ND,ND,ND,0.056,81,7.5,17,ND
+Missouri,Holt County,29087,4912,ND,0.02,ND,ND,ND,ND,ND,ND,ND
+Missouri,Howell County,29091,40400,ND,ND,ND,ND,ND,ND,IN,IN,ND
+Missouri,Iron County,29093,10630,ND,0.3,ND,ND,ND,ND,ND,ND,48
+Missouri,Jackson County,29095,674158,1,ND,10,42,ND,138,7.6,18,7
+Missouri,Jasper County,29097,117404,ND,ND,ND,ND,0.056,111,IN,IN,ND
+Missouri,Jefferson County,29099,218733,ND,0.06,ND,ND,0.066,58,7.6,18,22
+Missouri,Lincoln County,29113,52566,ND,ND,ND,ND,0.065,ND,ND,ND,ND
+Missouri,Maries County,29125,9176,ND,ND,ND,ND,ND,ND,IN,IN,ND
+Missouri,Mercer County,29129,3785,ND,ND,ND,ND,ND,ND,IN,IN,ND
+Missouri,Monroe County,29137,8840,ND,ND,2,8,0.056,38,IN,IN,5
+Missouri,New Madrid County,29143,18956,ND,ND,ND,ND,ND,ND,ND,ND,367
+Missouri,Perry County,29157,18971,ND,ND,ND,ND,0.06,ND,ND,ND,ND
+Missouri,Reynolds County,29179,6696,ND,0.03,ND,ND,ND,ND,ND,ND,ND
+Missouri,St. Charles County,29183,360485,ND,ND,ND,ND,0.071,ND,IN,IN,31
+Missouri,Ste. Genevieve County,29186,18145,ND,ND,ND,ND,0.061,ND,IN,IN,ND
+Missouri,St. Francois County,29187,65359,ND,0.03,ND,ND,ND,ND,ND,ND,ND
+Missouri,St. Louis County,29189,998954,ND,ND,9,39,0.074,ND,7.4,21,12
+Missouri,St. Louis city,29510,319294,2,ND,10,41,0.066,122,9,23,8
+Montana,Cascade County,30013,81327,ND,ND,ND,ND,ND,ND,IN,IN,ND
+Montana,Fergus County,30027,11586,ND,ND,1,12,0.057,89,4.7,23,ND
+Montana,Flathead County,30029,90928,ND,ND,ND,ND,0.052,167,7,38,ND
+Montana,Gallatin County,30031,89513,1,ND,2,24,ND,ND,2.3,40,ND
+Montana,Lake County,30047,28746,ND,ND,ND,ND,ND,ND,IN,IN,ND
+Montana,Lewis and Clark County,30049,63395,1,ND,ND,ND,0.059,ND,7.5,24,1
+Montana,Lincoln County,30053,19687,ND,ND,ND,ND,ND,248,13.8,45,ND
+Montana,Missoula County,30063,109299,ND,ND,ND,ND,0.055,132,8.6,33,ND
+Montana,Phillips County,30071,4253,ND,ND,1,6,0.052,150,IN,IN,ND
+Montana,Powder River County,30075,1743,ND,ND,1,9,0.06,124,7.7,30,ND
+Montana,Ravalli County,30081,40212,ND,ND,ND,ND,ND,ND,5.9,36,ND
+Montana,Richland County,30083,9746,ND,ND,1,9,0.054,40,4.3,12,7
+Montana,Rosebud County,30087,9233,ND,ND,1,6,0.059,96,IN,IN,ND
+Montana,Sanders County,30089,11413,ND,ND,ND,ND,ND,185,IN,IN,ND
+Montana,Silver Bow County,30093,34200,ND,ND,ND,ND,ND,123,6,41,ND
+Montana,Yellowstone County,30111,147972,ND,ND,ND,ND,ND,ND,7,27,18
+Nebraska,Cass County,31025,25241,ND,ND,ND,ND,ND,90,IN,IN,ND
+Nebraska,Cedar County,31027,8852,ND,ND,ND,ND,ND,ND,IN,IN,ND
+Nebraska,Cherry County,31031,5713,ND,ND,ND,ND,ND,ND,IN,IN,ND
+Nebraska,Deuel County,31049,1941,ND,ND,ND,ND,ND,ND,IN,IN,ND
+Nebraska,Douglas County,31055,517110,2,ND,ND,ND,0.058,74,7.3,18,44
+Nebraska,Hall County,31079,58607,ND,ND,ND,ND,ND,ND,5.5,19,ND
+Nebraska,Knox County,31107,8701,ND,ND,ND,ND,0.063,ND,ND,ND,ND
+Nebraska,Lancaster County,31109,285407,ND,ND,ND,ND,0.054,ND,6.1,17,25
+Nebraska,Lincoln County,31111,36288,ND,ND,ND,ND,ND,ND,IN,IN,ND
+Nebraska,Sarpy County,31153,158840,ND,ND,ND,ND,ND,ND,7.8,17,ND
+Nebraska,Scotts Bluff County,31157,36970,ND,ND,ND,ND,ND,ND,IN,IN,ND
+Nebraska,Washington County,31177,20234,ND,ND,ND,ND,ND,ND,6.2,16,ND
+Nevada,Churchill County,32001,24877,ND,ND,ND,ND,0.068,ND,ND,ND,ND
+Nevada,Clark County,32003,1951269,2,ND,23,57,0.078,210,12.2,33,5
+Nevada,Douglas County,32005,46997,ND,ND,ND,ND,ND,ND,9.4,70,ND
+Nevada,Elko County,32007,48818,ND,ND,ND,ND,ND,125,ND,ND,ND
+Nevada,Lyon County,32019,51980,ND,ND,ND,ND,0.069,277,ND,ND,ND
+Nevada,Nye County,32023,43946,ND,ND,ND,ND,ND,333,ND,ND,ND
+Nevada,Washoe County,32031,421407,2,ND,12,46,0.079,220,11.1,75,3
+Nevada,White Pine County,32033,10030,ND,ND,ND,ND,0.07,ND,ND,ND,ND
+Nevada,Carson City,32510,55274,ND,ND,ND,ND,0.075,ND,8.4,61,ND
+New Hampshire,Belknap County,33001,60088,ND,ND,ND,ND,0.053,ND,4.1,10,ND
+New Hampshire,Cheshire County,33005,77117,ND,ND,ND,ND,0.05,ND,6.2,18,ND
+New Hampshire,Coos County,33007,33055,ND,ND,ND,ND,0.058,ND,IN,IN,ND
+New Hampshire,Grafton County,33009,89118,ND,ND,ND,ND,0.05,ND,4.3,14,ND
+New Hampshire,Hillsborough County,33011,400721,0,ND,ND,ND,0.058,ND,3,9,1
+New Hampshire,Merrimack County,33013,146445,ND,ND,ND,ND,0.055,ND,IN,IN,24
+New Hampshire,Rockingham County,33015,295223,0,ND,2,IN,0.06,33,5.9,13,6
+New Hampshire,Sullivan County,33019,43742,ND,ND,ND,ND,ND,ND,IN,IN,ND
+New Jersey,Atlantic County,34001,274549,ND,ND,ND,ND,0.059,ND,6.5,16,1
+New Jersey,Bergen County,34003,905116,1,ND,15,51,0.066,ND,IN,IN,ND
+New Jersey,Camden County,34007,513657,1,ND,10,41,0.062,40,8.4,19,7
+New Jersey,Cumberland County,34011,156898,ND,ND,6,32,0.06,ND,8.3,16,ND
+New Jersey,Essex County,34013,783969,2,ND,14,54,0.064,32,8.5,21,3
+New Jersey,Gloucester County,34015,288288,ND,ND,ND,ND,0.064,ND,IN,IN,ND
+New Jersey,Hudson County,34017,634266,2,ND,17,51,0.063,IN,IN,IN,2
+New Jersey,Hunterdon County,34019,128349,ND,ND,ND,ND,0.059,ND,7.4,18,ND
+New Jersey,Mercer County,34021,366513,ND,ND,ND,ND,0.07,ND,7.2,16,ND
+New Jersey,Middlesex County,34023,809858,ND,ND,7,37,0.066,ND,7.6,21,ND
+New Jersey,Monmouth County,34025,630380,ND,ND,ND,ND,0.062,ND,ND,ND,ND
+New Jersey,Morris County,34027,492276,ND,ND,3,24,0.06,ND,IN,IN,4
+New Jersey,Ocean County,34029,576567,ND,ND,ND,ND,0.063,ND,6.1,14,ND
+New Jersey,Passaic County,34031,501226,ND,ND,ND,ND,0.062,ND,IN,IN,ND
+New Jersey,Union County,34039,536499,2,ND,18,55,ND,ND,8.5,20,4
+New Jersey,Warren County,34041,108692,ND,ND,10,37,0.054,ND,7.2,18,6
+New Mexico,Bernalillo County,35001,662564,1,ND,8,41,0.071,349,9.4,25,3
+New Mexico,Chaves County,35005,65645,ND,ND,ND,ND,ND,ND,IN,IN,ND
+New Mexico,Doña Ana County,35013,209233,ND,ND,8,49,0.077,367,9,21,ND
+New Mexico,Eddy County,35015,53829,ND,ND,5,IN,0.073,ND,ND,ND,ND
+New Mexico,Grant County,35017,29514,ND,ND,ND,ND,ND,ND,IN,IN,ND
+New Mexico,Lea County,35025,64727,ND,ND,5,32,0.06,ND,5.6,18,ND
+New Mexico,Luna County,35029,25095,ND,ND,ND,ND,ND,126,ND,ND,ND
+New Mexico,Rio Arriba County,35039,40246,ND,ND,ND,ND,0.064,ND,ND,ND,ND
+New Mexico,Sandoval County,35043,131561,ND,ND,ND,ND,0.074,ND,IN,IN,ND
+New Mexico,San Juan County,35045,130044,ND,ND,10,29,0.069,91,IN,IN,13
+New Mexico,Santa Fe County,35049,144170,ND,ND,ND,ND,0.069,ND,4.5,13,ND
+New Mexico,Taos County,35055,32937,ND,ND,ND,ND,ND,ND,5.8,16,ND
+New Mexico,Valencia County,35061,76569,ND,ND,ND,ND,0.07,ND,ND,ND,ND
+New York,Albany County,36001,304204,ND,ND,ND,ND,0.053,ND,7.8,23,2
+New York,Bronx County,36005,1385108,1,ND,15,53,0.069,IN,8,20,4
+New York,Broome County,36007,200600,ND,ND,ND,ND,ND,ND,IN,IN,ND
+New York,Chautauqua County,36013,134905,ND,ND,ND,ND,0.064,ND,5.2,12,3
+New York,Dutchess County,36027,297488,ND,ND,ND,ND,0.059,ND,IN,IN,1
+New York,Erie County,36029,919040,1,ND,8,40,0.066,27,6.8,19,16
+New York,Essex County,36031,39370,ND,ND,ND,ND,0.059,ND,3.2,9,1
+New York,Hamilton County,36041,4836,ND,ND,ND,ND,0.054,ND,ND,ND,1
+New York,Jefferson County,36045,116229,ND,ND,ND,ND,0.06,ND,ND,ND,ND
+New York,Kings County,36047,2504700,ND,ND,ND,ND,ND,ND,IN,IN,ND
+New York,Monroe County,36055,744344,1,ND,6,IN,0.061,25,6.3,15,2
+New York,Nassau County,36059,1339532,ND,ND,ND,ND,ND,ND,IN,IN,14
+New York,New York County,36061,1585873,1,ND,ND,ND,0.069,IN,IN,IN,ND
+New York,Niagara County,36063,216469,ND,ND,ND,ND,0.064,ND,IN,IN,ND
+New York,Oneida County,36065,234878,ND,ND,ND,ND,ND,ND,IN,IN,ND
+New York,Onondaga County,36067,467026,ND,ND,ND,ND,0.058,ND,6,14,1
+New York,Orange County,36071,372813,ND,ND,ND,ND,0.059,ND,IN,IN,ND
+New York,Oswego County,36075,122109,ND,ND,ND,ND,0.056,ND,ND,ND,ND
+New York,Putnam County,36079,99710,ND,ND,ND,ND,0.058,ND,ND,ND,1
+New York,Queens County,36081,2230722,2,ND,15,54,0.068,26,5.8,16,6
+New York,Richmond County,36085,468730,ND,ND,ND,ND,0.062,ND,IN,IN,ND
+New York,Rockland County,36087,311687,ND,ND,ND,ND,0.061,ND,ND,ND,ND
+New York,St. Lawrence County,36089,111944,ND,ND,ND,ND,ND,ND,IN,IN,89
+New York,Saratoga County,36091,219607,ND,ND,ND,ND,0.055,ND,ND,ND,ND
+New York,Schenectady County,36093,154727,ND,ND,ND,ND,ND,ND,IN,IN,ND
+New York,Steuben County,36101,98990,0,ND,ND,ND,0.053,ND,5.2,12,1
+New York,Suffolk County,36103,1493350,ND,ND,ND,ND,0.073,ND,IN,IN,2
+New York,Tompkins County,36109,101564,ND,ND,ND,ND,0.055,ND,ND,ND,ND
+New York,Wayne County,36117,93772,ND,ND,ND,ND,0.06,ND,ND,ND,ND
+New York,Westchester County,36119,949113,ND,ND,ND,ND,0.067,ND,IN,IN,ND
+North Carolina,Alamance County,37001,151131,ND,ND,ND,ND,ND,ND,IN,IN,ND
+North Carolina,Alexander County,37003,37198,ND,ND,ND,ND,0.053,54,ND,ND,ND
+North Carolina,Avery County,37011,17797,ND,ND,ND,ND,0.059,ND,ND,ND,ND
+North Carolina,Beaufort County,37013,47759,ND,ND,ND,ND,ND,ND,ND,ND,15
+North Carolina,Brunswick County,37019,107431,ND,ND,ND,ND,ND,ND,ND,ND,46
+North Carolina,Buncombe County,37021,238318,ND,ND,ND,ND,0.054,ND,4.9,12,IN
+North Carolina,Cabarrus County,37025,178011,ND,ND,ND,ND,ND,ND,IN,IN,ND
+North Carolina,Caldwell County,37027,83029,ND,ND,ND,ND,0.052,ND,ND,ND,IN
+North Carolina,Carteret County,37031,66469,ND,ND,ND,ND,0.054,ND,ND,ND,ND
+North Carolina,Caswell County,37033,23719,ND,ND,ND,ND,0.055,38,IN,IN,ND
+North Carolina,Catawba County,37035,154358,ND,ND,ND,ND,ND,ND,7.6,17,ND
+North Carolina,Chatham County,37037,63505,ND,ND,ND,ND,ND,ND,IN,IN,ND
+North Carolina,Cumberland County,37051,319431,ND,ND,ND,ND,0.055,53,6.8,17,ND
+North Carolina,Davidson County,37057,162878,ND,ND,ND,ND,ND,ND,8.2,19,ND
+North Carolina,Duplin County,37061,58505,ND,ND,ND,ND,ND,ND,IN,IN,ND
+North Carolina,Durham County,37063,267587,ND,ND,ND,ND,0.053,29,7.1,18,2
+North Carolina,Edgecombe County,37065,56552,ND,ND,ND,ND,0.054,ND,IN,IN,ND
+North Carolina,Forsyth County,37067,350670,ND,ND,5,30,0.062,60,8,26,3
+North Carolina,Gaston County,37071,206086,ND,ND,ND,ND,ND,ND,IN,IN,ND
+North Carolina,Graham County,37075,8861,ND,ND,ND,ND,0.06,ND,ND,ND,ND
+North Carolina,Granville County,37077,59916,ND,ND,ND,ND,0.054,ND,ND,ND,ND
+North Carolina,Guilford County,37081,488406,ND,ND,ND,ND,0.057,37,6.4,15,ND
+North Carolina,Haywood County,37087,59036,ND,ND,ND,ND,0.06,ND,IN,IN,22
+North Carolina,Jackson County,37099,40271,ND,ND,ND,ND,ND,ND,6.2,14,ND
+North Carolina,Johnston County,37101,168878,ND,ND,ND,ND,0.055,ND,6.6,17,ND
+North Carolina,Lee County,37105,57866,ND,ND,ND,ND,ND,ND,IN,IN,ND
+North Carolina,Lenoir County,37107,59495,ND,ND,ND,ND,0.056,12,IN,IN,ND
+North Carolina,Lincoln County,37109,78265,ND,ND,ND,ND,0.054,ND,ND,ND,ND
+North Carolina,McDowell County,37111,44996,ND,ND,ND,ND,ND,ND,IN,IN,ND
+North Carolina,Macon County,37113,33922,ND,ND,ND,ND,0.052,ND,ND,ND,ND
+North Carolina,Martin County,37117,24505,ND,ND,ND,ND,0.049,ND,IN,IN,IN
+North Carolina,Mecklenburg County,37119,919628,1,ND,9,32,0.06,49,8.4,18,2
+North Carolina,Mitchell County,37121,15579,ND,ND,ND,ND,ND,ND,5.2,12,ND
+North Carolina,Montgomery County,37123,27798,ND,ND,ND,ND,0.052,18,7.6,14,ND
+North Carolina,Nash County,37127,95840,ND,ND,ND,ND,ND,ND,IN,IN,ND
+North Carolina,New Hanover County,37129,202667,ND,ND,ND,ND,0.054,24,3.7,13,ND
+North Carolina,Northampton County,37131,22099,ND,ND,1,12,ND,ND,IN,IN,ND
+North Carolina,Onslow County,37133,177772,ND,ND,ND,ND,ND,ND,IN,IN,ND
+North Carolina,Orange County,37135,133801,ND,ND,ND,ND,ND,ND,IN,IN,ND
+North Carolina,Pasquotank County,37139,40661,ND,ND,ND,ND,ND,ND,IN,IN,ND
+North Carolina,Person County,37145,39464,ND,ND,ND,ND,0.051,ND,ND,ND,44
+North Carolina,Pitt County,37147,168148,ND,ND,ND,ND,0.055,ND,5.7,13,ND
+North Carolina,Robeson County,37155,134168,ND,ND,ND,ND,ND,ND,IN,IN,ND
+North Carolina,Rockingham County,37157,93643,ND,ND,ND,ND,0.055,ND,ND,ND,IN
+North Carolina,Rowan County,37159,138428,ND,ND,IN,IN,0.058,ND,7.6,18,ND
+North Carolina,Swain County,37173,13981,ND,ND,ND,ND,0.054,ND,6.1,15,ND
+North Carolina,Union County,37179,201292,ND,ND,ND,ND,0.051,ND,ND,ND,ND
+North Carolina,Wake County,37183,900993,1,ND,8,30,0.054,46,7.8,20,2
+North Carolina,Watauga County,37189,51079,ND,ND,ND,ND,ND,ND,IN,IN,ND
+North Carolina,Wayne County,37191,122623,ND,ND,ND,ND,ND,ND,IN,IN,ND
+North Carolina,Yancey County,37199,17818,ND,ND,ND,ND,0.063,ND,ND,ND,ND
+North Dakota,Billings County,38007,783,ND,ND,ND,ND,0.053,ND,3.6,12,5
+North Dakota,Burke County,38013,1968,ND,ND,2,IN,0.053,49,4.9,13,20
+North Dakota,Burleigh County,38015,81308,1,ND,5,28,0.051,64,5.3,15,11
+North Dakota,Cass County,38017,149778,ND,ND,4,34,0.056,33,6.4,14,3
+North Dakota,Dunn County,38025,3536,ND,ND,2,10,0.054,20,3.6,10,5
+North Dakota,Grand Forks County,38035,66861,ND,ND,ND,ND,ND,ND,IN,IN,ND
+North Dakota,McKenzie County,38053,6360,ND,ND,1,8,0.051,24,3.4,12,4
+North Dakota,Mercer County,38057,8424,ND,ND,2,18,0.052,ND,4.5,11,43
+North Dakota,Oliver County,38065,1846,ND,ND,2,IN,0.055,38,4.8,13,11
+North Dakota,Stark County,38089,24199,ND,ND,ND,ND,ND,ND,IN,IN,ND
+North Dakota,Steele County,38091,1975,ND,ND,ND,ND,ND,ND,IN,IN,ND
+North Dakota,Ward County,38101,61675,ND,ND,2,14,0.051,15,4.6,12,8
+North Dakota,Williams County,38105,22398,ND,ND,ND,ND,ND,ND,IN,IN,6
+Ohio,Adams County,39001,28550,ND,ND,ND,ND,ND,ND,ND,ND,IN
+Ohio,Allen County,39003,106331,ND,ND,ND,ND,0.065,ND,5.4,13,3
+Ohio,Ashtabula County,39007,101497,ND,ND,ND,ND,0.061,ND,ND,ND,IN
+Ohio,Athens County,39009,64757,ND,ND,ND,ND,ND,ND,IN,IN,ND
+Ohio,Belmont County,39013,70400,IN,ND,6,26,ND,54,IN,IN,1
+Ohio,Butler County,39017,368130,ND,ND,ND,ND,0.07,38,IN,IN,41
+Ohio,Clark County,39023,138333,ND,ND,ND,ND,0.066,ND,IN,IN,IN
+Ohio,Clermont County,39025,197363,ND,ND,ND,ND,0.064,ND,IN,IN,ND
+Ohio,Clinton County,39027,42040,ND,ND,ND,ND,0.062,ND,ND,ND,ND
+Ohio,Columbiana County,39029,107841,ND,IN,ND,ND,ND,30,ND,ND,3
+Ohio,Cuyahoga County,39035,1280122,2,0.05,8,36,0.074,73,9,22,19
+Ohio,Delaware County,39041,174214,ND,ND,ND,ND,0.063,ND,ND,ND,ND
+Ohio,Fayette County,39047,29030,ND,ND,ND,ND,0.061,ND,ND,ND,ND
+Ohio,Franklin County,39049,1163414,1,ND,8,39,0.067,28,7.8,18,IN
+Ohio,Fulton County,39051,42698,ND,IN,ND,ND,ND,ND,ND,ND,ND
+Ohio,Gallia County,39053,30934,ND,ND,ND,ND,ND,ND,ND,ND,58
+Ohio,Geauga County,39055,93389,ND,ND,ND,ND,0.065,ND,ND,ND,ND
+Ohio,Greene County,39057,161573,ND,ND,ND,ND,0.063,ND,IN,IN,ND
+Ohio,Guernsey County,39059,40087,ND,ND,ND,ND,ND,ND,ND,ND,IN
+Ohio,Hamilton County,39061,802374,2,ND,17,49,0.07,48,10.7,25,28
+Ohio,Hancock County,39063,74782,ND,ND,ND,ND,ND,ND,ND,ND,IN
+Ohio,Harrison County,39067,15864,1,ND,ND,ND,ND,IN,IN,IN,ND
+Ohio,Jefferson County,39081,69709,ND,ND,ND,ND,0.062,37,IN,IN,22
+Ohio,Knox County,39083,60921,ND,ND,ND,ND,0.058,ND,ND,ND,ND
+Ohio,Lake County,39085,230041,ND,ND,ND,ND,0.075,64,6.2,16,80
+Ohio,Lawrence County,39087,62450,ND,ND,ND,ND,0.057,30,IN,IN,3
+Ohio,Licking County,39089,166492,ND,ND,ND,ND,0.06,ND,ND,ND,ND
+Ohio,Lorain County,39093,301356,ND,ND,ND,ND,0.059,17,6.7,15,ND
+Ohio,Lucas County,39095,441815,ND,ND,ND,ND,0.076,ND,IN,IN,IN
+Ohio,Madison County,39097,43435,ND,ND,ND,ND,0.06,ND,ND,ND,ND
+Ohio,Mahoning County,39099,238823,ND,ND,ND,ND,0.064,ND,IN,IN,6
+Ohio,Marion County,39101,66501,ND,IN,ND,ND,ND,ND,ND,ND,ND
+Ohio,Medina County,39103,172332,ND,ND,ND,ND,0.064,ND,6.5,16,ND
+Ohio,Miami County,39109,102506,ND,ND,ND,ND,0.061,ND,ND,ND,ND
+Ohio,Montgomery County,39113,535153,ND,ND,ND,ND,0.071,48,9.6,20,ND
+Ohio,Morgan County,39115,15054,ND,ND,ND,ND,ND,ND,ND,ND,13
+Ohio,Noble County,39121,14645,ND,ND,ND,ND,0.06,ND,ND,ND,ND
+Ohio,Portage County,39133,161419,ND,ND,ND,ND,0.063,ND,IN,IN,ND
+Ohio,Preble County,39135,42270,0,ND,ND,ND,0.062,ND,7.4,16,7
+Ohio,Scioto County,39145,79499,ND,ND,ND,ND,ND,41,IN,IN,13
+Ohio,Stark County,39151,375586,ND,0.13,ND,ND,0.066,ND,8.7,20,ND
+Ohio,Summit County,39153,541781,ND,ND,ND,ND,0.062,ND,8.8,19,4
+Ohio,Trumbull County,39155,210312,ND,ND,ND,ND,0.062,28,6.2,18,ND
+Ohio,Warren County,39165,212693,ND,ND,ND,ND,0.071,ND,IN,IN,ND
+Ohio,Washington County,39167,61778,ND,IN,ND,ND,0.059,ND,ND,ND,ND
+Ohio,Wood County,39173,125488,ND,ND,ND,ND,0.06,ND,ND,ND,ND
+Oklahoma,Adair County,40001,22683,1,ND,ND,ND,0.053,77,IN,IN,2
+Oklahoma,Caddo County,40015,29600,ND,ND,ND,ND,ND,ND,IN,IN,ND
+Oklahoma,Canadian County,40017,115541,ND,ND,ND,ND,0.062,ND,IN,IN,ND
+Oklahoma,Carter County,40019,47557,ND,ND,ND,ND,0.067,ND,IN,IN,ND
+Oklahoma,Cherokee County,40021,46987,ND,ND,ND,ND,ND,ND,IN,IN,ND
+Oklahoma,Cleveland County,40027,255755,ND,ND,ND,ND,0.063,ND,9.9,25,ND
+Oklahoma,Comanche County,40031,124098,ND,ND,ND,ND,0.064,ND,7.4,19,ND
+Oklahoma,Creek County,40037,69967,ND,ND,ND,ND,0.062,ND,ND,ND,ND
+Oklahoma,Custer County,40039,27469,ND,ND,ND,ND,ND,ND,IN,IN,ND
+Oklahoma,Dewey County,40043,4810,ND,ND,ND,ND,0.061,ND,7.3,17,ND
+Oklahoma,Garfield County,40047,60580,ND,ND,ND,ND,ND,ND,IN,IN,32
+Oklahoma,Johnston County,40069,10957,ND,ND,ND,ND,0.067,ND,ND,ND,ND
+Oklahoma,Kay County,40071,46562,ND,ND,ND,ND,0.056,ND,9.4,21,23
+Oklahoma,Le Flore County,40079,50384,ND,ND,ND,ND,ND,ND,IN,IN,ND
+Oklahoma,Lincoln County,40081,34273,ND,ND,ND,ND,ND,ND,IN,IN,ND
+Oklahoma,Love County,40085,9423,ND,ND,ND,ND,ND,ND,IN,IN,ND
+Oklahoma,Mayes County,40097,41259,ND,ND,ND,ND,0.054,ND,IN,IN,IN
+Oklahoma,Muskogee County,40101,70990,ND,ND,ND,ND,ND,ND,IN,IN,IN
+Oklahoma,Nowata County,40105,10536,ND,ND,ND,ND,ND,ND,IN,IN,ND
+Oklahoma,Oklahoma County,40109,718633,1,ND,11,39,0.069,120,9.9,22,2
+Oklahoma,Osage County,40113,47472,ND,ND,ND,ND,0.062,ND,ND,ND,ND
+Oklahoma,Ottawa County,40115,31848,ND,0.02,ND,ND,0.046,107,IN,IN,ND
+Oklahoma,Pawnee County,40117,16577,ND,ND,ND,ND,ND,ND,IN,IN,ND
+Oklahoma,Payne County,40119,77350,ND,ND,ND,ND,ND,ND,IN,IN,ND
+Oklahoma,Pittsburg County,40121,45837,ND,0.01,ND,ND,0.057,ND,8.2,22,ND
+Oklahoma,Pottawatomie County,40125,69442,ND,ND,ND,ND,ND,ND,IN,IN,ND
+Oklahoma,Seminole County,40133,25482,ND,ND,ND,ND,ND,ND,IN,IN,ND
+Oklahoma,Sequoyah County,40135,42391,ND,ND,5,26,0.053,ND,7.2,20,ND
+Oklahoma,Tulsa County,40143,603403,1,ND,6,IN,0.061,96,8.9,20,7
+Oklahoma,Washington County,40147,50976,ND,ND,ND,ND,0.062,ND,IN,IN,ND
+Oregon,Benton County,41003,85579,ND,ND,ND,ND,ND,ND,IN,IN,ND
+Oregon,Clackamas County,41005,375992,ND,ND,ND,ND,0.07,ND,ND,ND,ND
+Oregon,Columbia County,41009,49351,ND,ND,ND,ND,0.051,ND,IN,IN,ND
+Oregon,Crook County,41013,20978,ND,ND,ND,ND,ND,ND,16.4,132,ND
+Oregon,Deschutes County,41017,157733,ND,ND,ND,ND,ND,ND,IN,IN,ND
+Oregon,Douglas County,41019,107667,ND,ND,ND,ND,ND,ND,IN,IN,ND
+Oregon,Harney County,41025,7422,ND,ND,ND,ND,ND,ND,11.9,61,ND
+Oregon,Jackson County,41029,203206,ND,ND,ND,ND,0.06,46,15.5,63,ND
+Oregon,Josephine County,41033,82713,ND,ND,ND,ND,ND,ND,14.5,29,ND
+Oregon,Klamath County,41035,66380,ND,ND,ND,ND,ND,488,19.8,88,ND
+Oregon,Lake County,41037,7895,ND,ND,ND,ND,ND,247,IN,36,ND
+Oregon,Lane County,41039,351715,ND,ND,ND,ND,0.055,579,14.9,240,ND
+Oregon,Linn County,41043,116672,ND,ND,ND,ND,ND,ND,IN,IN,ND
+Oregon,Marion County,41047,315335,ND,ND,ND,ND,0.057,ND,IN,IN,ND
+Oregon,Multnomah County,41051,735334,14,ND,6,30,0.059,35,10.7,31,2
+Oregon,Umatilla County,41059,75889,ND,ND,ND,ND,0.056,ND,IN,IN,ND
+Oregon,Union County,41061,25748,ND,ND,ND,ND,ND,39,IN,IN,ND
+Oregon,Wasco County,41065,25213,ND,ND,ND,ND,ND,ND,IN,IN,ND
+Oregon,Washington County,41067,529710,13,ND,10,30,0.059,ND,11.2,30,ND
+Pennsylvania,Adams County,42001,101407,0,ND,2,12,0.061,ND,IN,IN,2
+Pennsylvania,Allegheny County,42003,1223348,3,ND,9,34,0.071,72,9.8,27,65
+Pennsylvania,Armstrong County,42005,68941,ND,ND,ND,ND,0.07,ND,7.8,16,ND
+Pennsylvania,Beaver County,42007,170539,ND,0,8,36,0.067,56,8.5,24,10
+Pennsylvania,Berks County,42011,411442,ND,0.03,ND,ND,0.065,ND,7.9,19,IN
+Pennsylvania,Blair County,42013,127089,ND,ND,ND,ND,0.063,ND,7.7,19,4
+Pennsylvania,Bradford County,42015,62622,ND,ND,2,16,0.054,ND,6.6,16,ND
+Pennsylvania,Bucks County,42017,625249,ND,ND,ND,ND,0.071,ND,IN,IN,ND
+Pennsylvania,Cambria County,42021,143679,1,ND,6,31,0.06,40,8.5,21,8
+Pennsylvania,Carbon County,42025,65249,ND,0.06,ND,ND,ND,ND,ND,ND,ND
+Pennsylvania,Centre County,42027,153990,ND,ND,3,26,0.059,ND,7.2,19,2
+Pennsylvania,Chester County,42029,498886,ND,ND,ND,ND,0.06,ND,8.3,20,ND
+Pennsylvania,Clearfield County,42033,81642,ND,ND,ND,ND,0.053,ND,ND,ND,ND
+Pennsylvania,Cumberland County,42041,235406,ND,ND,ND,ND,ND,ND,7.5,21,ND
+Pennsylvania,Dauphin County,42043,268100,ND,ND,ND,ND,0.062,40,9.3,29,ND
+Pennsylvania,Delaware County,42045,558979,ND,0,8,IN,0.062,ND,9.7,23,ND
+Pennsylvania,Elk County,42047,31946,ND,ND,ND,ND,0.053,ND,ND,ND,ND
+Pennsylvania,Erie County,42049,280566,1,ND,4,31,0.061,37,6.5,16,ND
+Pennsylvania,Fayette County,42051,136606,ND,ND,3,15,0.06,ND,7.5,17,ND
+Pennsylvania,Franklin County,42055,149618,ND,ND,ND,ND,0.05,ND,ND,ND,ND
+Pennsylvania,Greene County,42059,38686,ND,ND,ND,ND,0.059,ND,6.5,14,ND
+Pennsylvania,Indiana County,42063,88880,ND,ND,ND,ND,0.066,ND,IN,IN,20
+Pennsylvania,Lackawanna County,42069,214437,1,ND,9,43,0.057,ND,6.9,19,ND
+Pennsylvania,Lancaster County,42071,519445,ND,0.04,ND,ND,0.062,59,8.8,28,ND
+Pennsylvania,Lawrence County,42073,91108,ND,0.02,ND,ND,0.06,ND,ND,ND,ND
+Pennsylvania,Lebanon County,42075,133568,ND,ND,ND,ND,0.03,ND,IN,IN,ND
+Pennsylvania,Lehigh County,42077,349497,ND,ND,ND,ND,0.063,34,IN,IN,ND
+Pennsylvania,Luzerne County,42079,320918,ND,ND,ND,ND,0.054,37,IN,IN,3
+Pennsylvania,Lycoming County,42081,116111,ND,ND,ND,ND,0.058,ND,7.3,19,ND
+Pennsylvania,Mercer County,42085,116638,ND,ND,ND,ND,0.063,ND,7.4,18,ND
+Pennsylvania,Monroe County,42089,169842,ND,ND,ND,ND,0.053,ND,IN,IN,ND
+Pennsylvania,Montgomery County,42091,799874,ND,ND,ND,ND,0.066,ND,7.3,21,ND
+Pennsylvania,Northampton County,42095,297735,ND,ND,8,37,0.06,ND,IN,IN,7
+Pennsylvania,Perry County,42099,45969,ND,ND,ND,ND,ND,ND,IN,IN,ND
+Pennsylvania,Philadelphia County,42101,1526006,2,ND,13,50,0.07,IN,8.2,25,5
+Pennsylvania,Somerset County,42111,77742,ND,ND,ND,ND,0.056,ND,ND,ND,ND
+Pennsylvania,Susquehanna County,42115,43356,ND,ND,ND,ND,ND,ND,6.1,14,ND
+Pennsylvania,Tioga County,42117,41981,ND,ND,1,9,0.057,ND,6.1,14,ND
+Pennsylvania,Warren County,42123,41815,ND,ND,ND,ND,ND,ND,ND,ND,47
+Pennsylvania,Washington County,42125,207820,ND,ND,6,30,0.062,ND,7.2,17,8
+Pennsylvania,Westmoreland County,42129,365169,ND,0,ND,ND,0.057,ND,7,16,ND
+Pennsylvania,Wyoming County,42131,28276,ND,ND,ND,ND,ND,ND,6.6,17,ND
+Pennsylvania,York County,42133,434972,ND,ND,7,39,0.058,ND,9.3,26,6
+Rhode Island,Kent County,44003,166158,ND,ND,ND,ND,0.065,ND,4.6,10,ND
+Rhode Island,Providence County,44007,626667,2,ND,15,45,0.064,30,8.3,20,1
+Rhode Island,Washington County,44009,126979,ND,ND,ND,ND,0.067,ND,4,11,ND
+South Carolina,Aiken County,45003,160099,ND,ND,ND,ND,0.051,ND,IN,IN,ND
+South Carolina,Anderson County,45007,187126,ND,ND,ND,ND,0.056,ND,ND,ND,ND
+South Carolina,Beaufort County,45013,162233,ND,ND,ND,ND,ND,ND,IN,IN,ND
+South Carolina,Berkeley County,45015,177843,ND,ND,ND,ND,0.051,ND,IN,IN,ND
+South Carolina,Charleston County,45019,350209,ND,ND,6,30,0.053,45,7.1,16,2
+South Carolina,Chesterfield County,45025,46734,ND,ND,ND,ND,0.056,ND,6.6,14,ND
+South Carolina,Colleton County,45029,38892,ND,ND,ND,ND,ND,ND,IN,IN,ND
+South Carolina,Darlington County,45031,68681,ND,ND,ND,ND,0.052,ND,ND,ND,ND
+South Carolina,Edgefield County,45037,26985,ND,ND,ND,ND,0.054,ND,6.7,17,ND
+South Carolina,Florence County,45041,136885,ND,0.15,ND,ND,ND,ND,6.7,15,ND
+South Carolina,Georgetown County,45043,60158,ND,ND,ND,ND,ND,ND,IN,IN,ND
+South Carolina,Greenville County,45045,451225,ND,ND,6,33,0.059,48,7.5,20,1
+South Carolina,Greenwood County,45047,69661,ND,ND,ND,ND,ND,ND,IN,IN,ND
+South Carolina,Horry County,45051,269291,ND,ND,ND,ND,0.052,ND,IN,IN,ND
+South Carolina,Lexington County,45063,262391,ND,ND,ND,ND,ND,42,7.1,17,IN
+South Carolina,Oconee County,45073,74273,ND,ND,ND,ND,ND,ND,IN,IN,IN
+South Carolina,Orangeburg County,45075,92501,ND,ND,ND,ND,ND,ND,IN,IN,ND
+South Carolina,Richland County,45079,384504,0,ND,3,IN,0.055,ND,6.7,16,2
+South Carolina,Spartanburg County,45083,284307,ND,ND,ND,ND,0.064,ND,8,17,ND
+South Carolina,York County,45091,226073,ND,ND,ND,ND,0.054,ND,6.6,15,2
+South Dakota,Brookings County,46011,31965,ND,ND,ND,ND,0.064,95,4.4,16,ND
+South Dakota,Brown County,46013,36531,ND,ND,ND,ND,ND,75,5.6,15,ND
+South Dakota,Codington County,46029,27227,ND,ND,ND,ND,0.057,129,6.7,16,ND
+South Dakota,Custer County,46033,8216,ND,ND,ND,ND,0.063,55,3.3,16,ND
+South Dakota,Hughes County,46065,17022,ND,ND,ND,ND,ND,ND,4,13,ND
+South Dakota,Jackson County,46071,3031,ND,ND,1,4,0.061,43,4.2,17,1
+South Dakota,Meade County,46093,25434,ND,ND,ND,ND,0.062,63,IN,IN,ND
+South Dakota,Minnehaha County,46099,169468,1,ND,4,31,0.064,71,6,16,4
+South Dakota,Pennington County,46103,100948,ND,ND,5,34,ND,124,6.8,23,IN
+South Dakota,Union County,46127,14399,ND,ND,2,22,0.063,88,6.1,17,2
+Tennessee,Anderson County,47001,75129,ND,ND,ND,ND,0.056,ND,ND,ND,ND
+Tennessee,Blount County,47009,123010,0,ND,1,5,0.058,ND,6.6,15,1
+Tennessee,Claiborne County,47025,32213,ND,ND,ND,ND,0.054,ND,ND,ND,ND
+Tennessee,Davidson County,47037,626681,1,ND,12,45,0.061,58,8.8,20,2
+Tennessee,DeKalb County,47041,18723,ND,ND,ND,ND,0.055,ND,ND,ND,ND
+Tennessee,Dyer County,47045,38335,ND,ND,ND,ND,ND,ND,6.2,15,ND
+Tennessee,Hamilton County,47065,336463,ND,ND,ND,ND,0.058,ND,8.3,20,ND
+Tennessee,Jefferson County,47089,51407,ND,ND,ND,ND,0.058,ND,ND,ND,ND
+Tennessee,Knox County,47093,432226,ND,0.04,ND,ND,0.053,45,8.3,20,ND
+Tennessee,Lawrence County,47099,41869,ND,ND,ND,ND,ND,ND,5.3,14,ND
+Tennessee,Loudon County,47105,48556,ND,ND,ND,ND,0.059,ND,6.3,14,ND
+Tennessee,McMinn County,47107,52266,ND,ND,ND,ND,ND,ND,6.8,16,ND
+Tennessee,Madison County,47113,98294,ND,ND,ND,ND,ND,ND,6.3,16,ND
+Tennessee,Maury County,47119,80956,ND,ND,ND,ND,ND,ND,5.7,14,ND
+Tennessee,Montgomery County,47125,172331,ND,ND,ND,ND,ND,ND,6.8,15,ND
+Tennessee,Putnam County,47141,72321,ND,ND,ND,ND,ND,ND,6.1,14,ND
+Tennessee,Roane County,47145,54181,ND,ND,ND,ND,ND,ND,6.7,15,ND
+Tennessee,Sevier County,47155,89889,ND,ND,ND,ND,0.062,ND,ND,ND,ND
+Tennessee,Shelby County,47157,927644,1,ND,10,33,0.062,64,9.1,20,2
+Tennessee,Sullivan County,47163,156823,ND,0,ND,ND,0.056,ND,5.8,13,73
+Tennessee,Sumner County,47165,160645,ND,ND,ND,ND,0.063,ND,6.9,15,ND
+Tennessee,Williamson County,47187,183182,ND,ND,ND,ND,0.057,ND,ND,ND,ND
+Tennessee,Wilson County,47189,113993,ND,ND,ND,ND,0.058,ND,ND,ND,ND
+Texas,Atascosa County,48013,44911,ND,ND,ND,ND,ND,ND,IN,IN,ND
+Texas,Bell County,48027,310235,ND,ND,3,23,0.064,ND,7.8,21,ND
+Texas,Bexar County,48029,1714773,1,ND,8,34,0.074,80,8.6,23,6
+Texas,Bowie County,48037,92565,ND,ND,ND,ND,ND,ND,9.4,21,ND
+Texas,Brazoria County,48039,313166,ND,ND,5,35,0.07,ND,IN,IN,ND
+Texas,Brazos County,48041,194851,ND,ND,ND,ND,ND,ND,8.1,21,ND
+Texas,Brewster County,48043,9232,ND,ND,ND,ND,0.06,ND,IN,IN,ND
+Texas,Caldwell County,48055,38066,ND,ND,ND,ND,ND,ND,IN,IN,ND
+Texas,Cameron County,48061,406220,ND,ND,ND,ND,0.053,ND,12.1,36,ND
+Texas,Collin County,48085,782341,ND,0.01,ND,ND,0.07,ND,IN,IN,ND
+Texas,Culberson County,48109,2398,ND,ND,ND,ND,0.072,ND,ND,ND,ND
+Texas,Dallas County,48113,2368139,1,ND,11,44,0.069,73,8.2,21,IN
+Texas,Denton County,48121,662614,ND,ND,5,35,0.071,ND,7.4,20,ND
+Texas,Ector County,48135,137130,ND,ND,ND,ND,ND,ND,7.2,20,ND
+Texas,Ellis County,48139,149610,ND,ND,3,23,0.061,ND,8.2,19,6
+Texas,El Paso County,48141,800647,2,0.01,13,59,0.079,99,9.1,24,7
+Texas,Freestone County,48161,19816,ND,ND,ND,ND,ND,ND,ND,ND,5
+Texas,Galveston County,48167,291309,ND,ND,3,22,0.068,87,8.3,28,IN
+Texas,Gregg County,48183,121730,ND,ND,3,16,0.055,ND,IN,IN,50
+Texas,Harris County,48201,4092459,2,ND,16,55,0.073,101,11.6,34,14
+Texas,Harrison County,48203,65631,ND,ND,2,14,0.055,ND,8.3,23,33
+Texas,Hidalgo County,48215,774769,ND,ND,ND,ND,0.055,82,10.8,33,ND
+Texas,Hood County,48221,51182,ND,ND,ND,ND,0.062,ND,ND,ND,ND
+Texas,Howard County,48227,35012,ND,ND,ND,ND,ND,ND,ND,ND,101
+Texas,Hunt County,48231,86129,ND,ND,3,23,0.061,ND,ND,ND,ND
+Texas,Hutchinson County,48233,22150,ND,ND,ND,ND,ND,ND,ND,ND,173
+Texas,Jeff Davis County,48243,2342,ND,ND,ND,ND,ND,ND,IN,IN,ND
+Texas,Jefferson County,48245,252273,ND,ND,5,29,0.065,ND,8.5,24,47
+Texas,Johnson County,48251,150934,ND,ND,ND,ND,0.067,ND,ND,ND,ND
+Texas,Karnes County,48255,14824,ND,ND,3,25,ND,ND,ND,ND,ND
+Texas,Kaufman County,48257,103350,ND,0.04,3,23,0.066,ND,IN,IN,8
+Texas,Kleberg County,48273,32061,ND,ND,ND,ND,ND,ND,10.6,33,ND
+Texas,Lubbock County,48303,278831,ND,ND,ND,ND,ND,ND,5.4,15,ND
+Texas,McLennan County,48309,234906,0,ND,ND,ND,0.063,ND,IN,IN,6
+Texas,Marion County,48315,10546,ND,ND,ND,ND,ND,ND,IN,IN,ND
+Texas,Maverick County,48323,54258,ND,ND,ND,ND,ND,ND,7.9,24,ND
+Texas,Milam County,48331,24757,ND,ND,ND,ND,ND,ND,ND,ND,IN
+Texas,Montgomery County,48339,455746,ND,ND,2,20,0.075,ND,IN,IN,ND
+Texas,Navarro County,48349,47735,ND,ND,2,IN,0.062,ND,ND,ND,123
+Texas,Nueces County,48355,340223,ND,ND,ND,ND,0.064,84,8,27,3
+Texas,Orange County,48361,81837,ND,ND,4,26,0.062,ND,8.7,22,IN
+Texas,Parker County,48367,116927,ND,ND,ND,ND,0.068,ND,ND,ND,ND
+Texas,Polk County,48373,45413,ND,ND,ND,ND,0.057,ND,ND,ND,ND
+Texas,Potter County,48375,121073,ND,ND,ND,ND,ND,ND,5.5,15,94
+Texas,Randall County,48381,120725,ND,ND,ND,ND,0.064,ND,ND,ND,ND
+Texas,Robertson County,48395,16622,ND,ND,ND,ND,ND,ND,ND,ND,IN
+Texas,Rockwall County,48397,78337,ND,ND,ND,ND,0.064,ND,ND,ND,ND
+Texas,Rusk County,48401,53330,ND,ND,ND,ND,ND,ND,ND,ND,84
+Texas,Smith County,48423,209714,ND,ND,2,12,0.06,ND,ND,ND,ND
+Texas,Tarrant County,48439,1809034,1,ND,12,45,0.077,ND,9.8,23,ND
+Texas,Titus County,48449,32334,ND,ND,ND,ND,ND,ND,ND,ND,13
+Texas,Travis County,48453,1024266,2,ND,12,43,0.063,91,9.5,23,IN
+Texas,Victoria County,48469,86793,ND,ND,ND,ND,0.06,ND,ND,ND,ND
+Texas,Webb County,48479,250304,2,ND,ND,ND,0.06,72,10.3,28,ND
+Texas,Wilson County,48493,42918,ND,ND,4,31,ND,ND,ND,ND,ND
+Utah,Box Elder County,49003,49975,ND,ND,1,11,0.066,ND,IN,IN,ND
+Utah,Cache County,49005,112656,ND,ND,5,31,0.068,260,8,29,ND
+Utah,Carbon County,49007,21403,ND,ND,2,18,0.067,ND,ND,ND,ND
+Utah,Davis County,49011,306479,ND,ND,11,44,0.08,IN,7.7,27,ND
+Utah,Duchesne County,49013,18607,ND,ND,5,27,0.064,ND,7.5,23,ND
+Utah,Garfield County,49017,5172,ND,ND,ND,ND,0.06,ND,ND,ND,ND
+Utah,Iron County,49021,46163,ND,ND,6,40,0.061,ND,5.4,17,ND
+Utah,Salt Lake County,49035,1029655,1,ND,17,51,0.08,112,10.5,33,5
+Utah,San Juan County,49037,14746,ND,ND,ND,ND,0.066,ND,ND,ND,ND
+Utah,Tooele County,49045,58218,ND,ND,4,21,0.07,ND,7.1,26,ND
+Utah,Uintah County,49047,32588,ND,ND,4,34,0.066,ND,6.6,22,ND
+Utah,Utah County,49049,516564,1,ND,10,43,0.07,90,7.9,26,ND
+Utah,Washington County,49053,138115,ND,ND,3,30,0.067,ND,5.8,17,ND
+Utah,Weber County,49057,231236,1,ND,11,47,0.074,77,6.9,23,ND
+Vermont,Addison County,50001,36821,ND,ND,ND,ND,ND,ND,IN,IN,ND
+Vermont,Bennington County,50003,37125,ND,ND,ND,ND,0.053,ND,5.6,18,ND
+Vermont,Chittenden County,50007,156545,1,ND,5,29,0.056,16,6.8,18,1
+Vermont,Rutland County,50021,61642,1,ND,6,32,0.053,29,7.6,22,2
+Vermont,Washington County,50023,59534,ND,ND,ND,ND,ND,ND,IN,IN,ND
+Virginia,Albemarle County,51003,98970,ND,ND,ND,ND,0.055,ND,6.5,12,ND
+Virginia,Arlington County,51013,207627,1,ND,7,38,0.062,ND,6.6,18,ND
+Virginia,Botetourt County,51023,33148,ND,ND,ND,ND,ND,ND,ND,ND,IN
+Virginia,Caroline County,51033,28545,ND,ND,ND,ND,0.053,ND,ND,ND,ND
+Virginia,Carroll County,51035,30042,ND,ND,ND,ND,ND,15,ND,ND,ND
+Virginia,Charles City County,51036,7256,ND,ND,3,26,0.054,ND,5.6,12,3
+Virginia,Chesterfield County,51041,316236,ND,ND,ND,ND,0.054,ND,5.5,11,ND
+Virginia,Fairfax County,51059,1081726,1,ND,14,43,0.057,16,7.9,16,2
+Virginia,Fauquier County,51061,65203,ND,ND,ND,ND,0.049,ND,ND,ND,ND
+Virginia,Frederick County,51069,78305,ND,ND,ND,ND,0.052,ND,6.6,16,ND
+Virginia,Giles County,51071,17286,ND,ND,ND,ND,0.055,ND,ND,ND,144
+Virginia,Hanover County,51085,99863,ND,ND,ND,ND,0.053,ND,ND,ND,ND
+Virginia,Henrico County,51087,306935,1,ND,5,29,0.055,24,6.9,15,2
+Virginia,Loudoun County,51107,312311,ND,ND,5,31,0.06,ND,IN,IN,ND
+Virginia,Madison County,51113,13308,ND,ND,ND,ND,0.053,ND,IN,IN,ND
+Virginia,Montgomery County,51121,94392,ND,0,ND,ND,ND,ND,ND,ND,ND
+Virginia,Page County,51139,24042,ND,ND,ND,ND,ND,ND,IN,IN,ND
+Virginia,Prince Edward County,51147,23368,ND,ND,ND,ND,0.051,ND,ND,ND,ND
+Virginia,Prince William County,51153,402002,ND,ND,3,21,0.057,ND,ND,ND,ND
+Virginia,Roanoke County,51161,92376,1,ND,5,31,0.054,ND,6.7,15,3
+Virginia,Rockbridge County,51163,22307,ND,ND,ND,ND,0.051,ND,ND,ND,ND
+Virginia,Rockingham County,51165,76314,ND,ND,8,34,0.053,ND,6.1,14,2
+Virginia,Stafford County,51179,128961,ND,ND,ND,ND,0.056,16,ND,ND,ND
+Virginia,Wythe County,51197,29235,ND,ND,ND,ND,0.054,ND,ND,ND,ND
+Virginia,Alexandria city,51510,139966,ND,ND,ND,ND,ND,ND,IN,IN,ND
+Virginia,Bristol city,51520,17835,ND,ND,ND,ND,ND,ND,6,14,ND
+Virginia,Chesapeake city,51550,222209,ND,ND,ND,ND,ND,ND,IN,IN,ND
+Virginia,Covington city,51580,5961,ND,ND,ND,ND,ND,ND,ND,ND,IN
+Virginia,Hampton city,51650,137436,1,ND,3,21,0.053,IN,5.9,13,4
+Virginia,Hopewell city,51670,22591,ND,ND,ND,ND,ND,15,ND,ND,ND
+Virginia,Lynchburg city,51680,75568,ND,ND,ND,ND,ND,ND,5.4,12,ND
+Virginia,Newport News city,51700,180719,ND,ND,ND,ND,ND,ND,IN,IN,ND
+Virginia,Norfolk city,51710,242803,1,ND,7,35,ND,21,IN,IN,2
+Virginia,Richmond city,51760,204214,1,ND,12,41,ND,ND,IN,IN,ND
+Virginia,Roanoke city,51770,97032,ND,IN,ND,ND,ND,ND,IN,IN,ND
+Virginia,Salem city,51775,24802,ND,ND,ND,ND,ND,ND,5.9,14,ND
+Virginia,Suffolk city,51800,84585,ND,ND,ND,ND,0.054,ND,ND,ND,ND
+Virginia,Virginia Beach city,51810,437994,ND,ND,ND,ND,ND,ND,IN,IN,ND
+Virginia,Winchester city,51840,26203,ND,ND,ND,ND,ND,18,ND,ND,ND
+Washington,Adams County,53001,18728,ND,ND,ND,ND,ND,ND,IN,IN,ND
+Washington,Asotin County,53003,21623,ND,ND,ND,ND,ND,ND,IN,IN,ND
+Washington,Benton County,53005,175177,ND,ND,ND,ND,0.061,566,IN,IN,ND
+Washington,Chelan County,53007,72453,ND,ND,ND,ND,ND,ND,IN,IN,2
+Washington,Clallam County,53009,71404,2,ND,ND,ND,0.049,ND,IN,IN,1
+Washington,Clark County,53011,425363,ND,ND,ND,ND,0.054,ND,13.9,147,ND
+Washington,Columbia County,53013,4078,ND,ND,ND,ND,0.035,ND,ND,ND,ND
+Washington,Cowlitz County,53015,102410,ND,ND,ND,ND,ND,ND,IN,IN,ND
+Washington,Grant County,53025,89120,ND,ND,ND,ND,ND,ND,IN,IN,ND
+Washington,Grays Harbor County,53027,72797,ND,ND,ND,ND,ND,ND,IN,IN,ND
+Washington,Jefferson County,53031,29872,ND,ND,ND,ND,ND,ND,IN,IN,ND
+Washington,King County,53033,1931249,2,ND,16,57,0.06,38,10.1,61,4
+Washington,Kitsap County,53035,251133,ND,ND,ND,ND,ND,ND,7.6,41,ND
+Washington,Kittitas County,53037,40915,ND,ND,ND,ND,ND,ND,IN,50,ND
+Washington,Lewis County,53041,75455,ND,ND,ND,ND,ND,ND,IN,IN,ND
+Washington,Mason County,53045,60699,ND,ND,ND,ND,ND,ND,IN,IN,ND
+Washington,Okanogan County,53047,41120,ND,ND,ND,ND,ND,ND,15,83,ND
+Washington,Pierce County,53053,795225,ND,ND,12,40,0.06,ND,9.4,41,ND
+Washington,Skagit County,53057,116901,ND,ND,ND,ND,0.046,ND,IN,IN,IN
+Washington,Skamania County,53059,11066,ND,ND,ND,ND,ND,ND,IN,IN,ND
+Washington,Snohomish County,53061,713335,ND,ND,ND,ND,ND,ND,10.6,51,ND
+Washington,Spokane County,53063,471221,ND,ND,ND,ND,0.055,343,10.3,31,ND
+Washington,Stevens County,53065,43531,ND,ND,ND,ND,ND,358,14.6,66,ND
+Washington,Thurston County,53067,252264,ND,ND,ND,ND,0.057,ND,IN,IN,ND
+Washington,Walla Walla County,53071,58781,ND,ND,ND,ND,ND,623,IN,IN,ND
+Washington,Whatcom County,53073,201140,ND,ND,ND,ND,0.05,ND,5.6,42,62
+Washington,Whitman County,53075,44776,ND,ND,ND,ND,ND,ND,IN,IN,ND
+Washington,Yakima County,53077,243231,ND,ND,ND,ND,ND,326,14.1,105,ND
+West Virginia,Berkeley County,54003,104169,ND,ND,ND,ND,0.055,ND,7.5,23,ND
+West Virginia,Brooke County,54009,24069,ND,ND,ND,ND,ND,37,8.1,18,41
+West Virginia,Cabell County,54011,96319,ND,ND,ND,ND,0.058,ND,6.7,14,ND
+West Virginia,Gilmer County,54021,8693,ND,ND,ND,ND,0.05,ND,ND,ND,ND
+West Virginia,Greenbrier County,54025,35480,ND,ND,ND,ND,0.052,ND,ND,ND,ND
+West Virginia,Hancock County,54029,30676,ND,ND,ND,ND,0.066,27,7.1,17,21
+West Virginia,Harrison County,54033,69099,ND,ND,ND,ND,ND,ND,6.6,13,ND
+West Virginia,Kanawha County,54039,193063,1,ND,ND,ND,0.057,ND,7,14,4
+West Virginia,Marion County,54049,56418,ND,ND,ND,ND,ND,ND,IN,IN,ND
+West Virginia,Marshall County,54051,33107,ND,ND,ND,ND,ND,ND,7.6,16,9
+West Virginia,Mason County,54053,27324,ND,ND,ND,ND,ND,ND,ND,ND,55
+West Virginia,Mercer County,54055,62264,ND,ND,ND,ND,ND,ND,IN,IN,ND
+West Virginia,Mineral County,54057,28212,ND,ND,ND,ND,ND,ND,ND,ND,IN
+West Virginia,Monongalia County,54061,96189,ND,ND,ND,ND,0.062,ND,6.2,16,10
+West Virginia,Ohio County,54069,44443,ND,ND,ND,ND,0.063,ND,6.7,15,ND
+West Virginia,Raleigh County,54081,78859,ND,ND,ND,ND,ND,ND,IN,IN,ND
+West Virginia,Summers County,54089,13927,ND,ND,ND,ND,ND,ND,IN,IN,ND
+West Virginia,Tucker County,54093,7141,ND,ND,ND,ND,0.054,ND,ND,ND,ND
+West Virginia,Wood County,54107,86956,ND,ND,ND,ND,0.058,ND,7,15,19
+Wisconsin,Ashland County,55003,16157,ND,ND,ND,ND,0.054,ND,5.2,13,ND
+Wisconsin,Brown County,55009,248007,ND,ND,ND,ND,0.064,ND,7.3,18,6
+Wisconsin,Columbia County,55021,56833,ND,ND,ND,ND,0.071,ND,ND,ND,ND
+Wisconsin,Dane County,55025,488073,ND,ND,ND,ND,0.069,33,8,18,2
+Wisconsin,Dodge County,55027,88759,0,ND,ND,ND,0.067,51,7.6,18,2
+Wisconsin,Door County,55029,27785,ND,ND,ND,ND,0.075,ND,IN,IN,ND
+Wisconsin,Douglas County,55031,44159,ND,ND,ND,ND,ND,ND,IN,IN,ND
+Wisconsin,Eau Claire County,55035,98736,ND,ND,ND,ND,0.063,47,7.7,17,ND
+Wisconsin,Fond du Lac County,55039,101633,ND,ND,ND,ND,0.065,ND,ND,ND,ND
+Wisconsin,Forest County,55041,9304,ND,ND,ND,ND,0.061,ND,5.7,14,2
+Wisconsin,Grant County,55043,51208,ND,ND,ND,ND,ND,ND,8.2,20,ND
+Wisconsin,Jefferson County,55055,83686,ND,ND,ND,ND,0.072,ND,IN,IN,ND
+Wisconsin,Kenosha County,55059,166426,ND,ND,IN,IN,0.078,ND,7.1,18,ND
+Wisconsin,Kewaunee County,55061,20574,ND,ND,ND,ND,0.063,ND,ND,ND,ND
+Wisconsin,La Crosse County,55063,114638,ND,ND,ND,ND,0.061,ND,7.7,18,ND
+Wisconsin,Manitowoc County,55071,81442,ND,ND,IN,IN,0.069,ND,IN,IN,ND
+Wisconsin,Marathon County,55073,134063,ND,ND,ND,ND,0.055,ND,ND,ND,ND
+Wisconsin,Milwaukee County,55079,947735,1,ND,12,40,0.075,46,9,21,2
+Wisconsin,Oneida County,55085,35998,ND,ND,ND,ND,ND,ND,ND,ND,IN
+Wisconsin,Outagamie County,55087,176695,ND,ND,ND,ND,0.067,ND,7.4,19,67
+Wisconsin,Ozaukee County,55089,86395,ND,ND,ND,ND,0.073,ND,6.5,17,ND
+Wisconsin,Racine County,55101,195408,ND,ND,ND,ND,0.077,ND,ND,ND,ND
+Wisconsin,Rock County,55105,160331,ND,ND,ND,ND,0.07,ND,IN,IN,ND
+Wisconsin,St. Croix County,55109,84345,ND,ND,ND,ND,ND,ND,IN,IN,ND
+Wisconsin,Sauk County,55111,61976,ND,ND,ND,ND,0.065,44,7.4,17,ND
+Wisconsin,Sheboygan County,55117,115507,ND,ND,ND,ND,0.076,ND,ND,ND,ND
+Wisconsin,Taylor County,55119,20689,ND,ND,ND,ND,0.057,ND,6.2,15,ND
+Wisconsin,Vilas County,55125,21430,ND,ND,ND,ND,0.059,ND,5,13,ND
+Wisconsin,Walworth County,55127,102228,ND,ND,ND,ND,0.074,ND,ND,ND,ND
+Wisconsin,Waukesha County,55133,389891,ND,ND,ND,ND,0.067,45,8.8,19,ND
+Wisconsin,Waupaca County,55135,52410,ND,ND,ND,ND,ND,ND,IN,IN,ND
+Wisconsin,Winnebago County,55139,166994,ND,ND,ND,ND,ND,ND,IN,IN,ND
+Wisconsin,Wood County,55141,74749,ND,ND,ND,ND,ND,ND,IN,IN,ND
+Wyoming,Albany County,56001,36299,ND,ND,ND,ND,0.066,184,6.2,38,ND
+Wyoming,Big Horn County,56003,11668,ND,ND,ND,ND,0.058,ND,IN,IN,ND
+Wyoming,Campbell County,56005,46133,ND,ND,1,IN,0.062,149,IN,IN,ND
+Wyoming,Carbon County,56007,15885,ND,ND,4,28,ND,ND,IN,IN,15
+Wyoming,Converse County,56009,13833,0,ND,2,18,0.071,83,IN,IN,IN
+Wyoming,Fremont County,56013,40123,ND,ND,1,4,0.067,70,7.3,37,41
+Wyoming,Goshen County,56015,13249,ND,ND,ND,ND,ND,ND,IN,IN,ND
+Wyoming,Johnson County,56019,8569,ND,ND,1,5,0.064,67,ND,ND,ND
+Wyoming,Laramie County,56021,91738,1,ND,3,IN,0.06,127,4.1,31,IN
+Wyoming,Lincoln County,56023,18106,ND,ND,ND,ND,ND,91,ND,ND,ND
+Wyoming,Natrona County,56025,75450,ND,ND,4,36,0.066,56,4.9,35,12
+Wyoming,Park County,56029,28205,ND,ND,ND,ND,ND,54,4.4,35,ND
+Wyoming,Platte County,56031,8667,ND,ND,ND,ND,ND,228,ND,ND,ND
+Wyoming,Sheridan County,56033,29116,ND,ND,ND,ND,0.059,52,6.4,34,ND
+Wyoming,Sublette County,56035,10247,ND,ND,2,17,0.069,63,3.1,18,ND
+Wyoming,Sweetwater County,56037,43806,ND,ND,6,37,0.064,301,3.6,16,7
+Wyoming,Teton County,56039,21294,1,ND,IN,IN,0.066,34,4.8,49,ND
+Wyoming,Uinta County,56041,21118,ND,ND,IN,IN,0.068,47,ND,ND,ND
+Wyoming,Weston County,56045,7208,ND,ND,ND,ND,0.066,ND,IN,IN,6
+Puerto Rico,"Adjuntas Municipio, Puerto Rico",72001,19483,ND,ND,ND,ND,ND,ND,IN,IN,ND
+Puerto Rico,"Arecibo Municipio, Puerto Rico",72013,96440,ND,IN,ND,ND,ND,ND,ND,ND,ND
+Puerto Rico,"Bayamón Municipio, Puerto Rico",72021,208116,4,ND,ND,ND,0.037,ND,IN,IN,IN
+Puerto Rico,"Caguas Municipio, Puerto Rico",72025,142893,2,ND,IN,IN,ND,ND,IN,IN,ND
+Puerto Rico,"Cataño Municipio, Puerto Rico",72033,28140,ND,ND,ND,ND,0.038,161,ND,ND,IN
+Puerto Rico,"Fajardo Municipio, Puerto Rico",72053,36993,ND,ND,ND,ND,ND,ND,IN,IN,ND
+Puerto Rico,"Guayama Municipio, Puerto Rico",72057,45362,ND,ND,ND,ND,ND,ND,IN,IN,ND
+Puerto Rico,"Guayanilla Municipio, Puerto Rico",72059,21581,ND,ND,ND,ND,ND,ND,IN,IN,ND
+Puerto Rico,"Guaynabo Municipio, Puerto Rico",72061,97924,IN,ND,IN,IN,ND,ND,IN,IN,ND
+Puerto Rico,"Humacao Municipio, Puerto Rico",72069,58466,ND,ND,ND,ND,ND,ND,IN,IN,ND
+Puerto Rico,"Juncos Municipio, Puerto Rico",72077,40290,ND,ND,ND,ND,0.07,ND,ND,ND,ND
+Puerto Rico,"Lares Municipio, Puerto Rico",72081,30753,ND,ND,ND,ND,ND,ND,IN,IN,ND
+Puerto Rico,"Mayagüez Municipio, Puerto Rico",72097,89080,ND,ND,ND,ND,0.03,ND,IN,IN,ND
+Puerto Rico,"Ponce Municipio, Puerto Rico",72113,166327,3,ND,ND,ND,ND,99,IN,IN,ND
+Puerto Rico,"San Juan Municipio, Puerto Rico",72127,395326,3,ND,ND,ND,ND,ND,IN,IN,ND
+,,,,,,,,,,,,
+CO -  Second maximum non-overlapping 8-hour concentration (applicable NAAQS is 9 ppm),,,,,,,,,,,,
+Pb  -  Maximum rolling 3 month average (applicable NAAQS is 0.15 µg/m3),,,,,,,,,,,,
+NO2  (AM) -  Arithmetic mean concentration (applicable NAAQS is 53 ppb),,,,,,,,,,,,
+NO2  (1-hr)  -  98th percentile daily maximum 1-hour concentration (applicable NAAQS is 100 ppb),,,,,,,,,,,,
+O3  -  Fourth daily maximum 8-hour concentration (applicable NAAQS is 0.070 ppm),,,,,,,,,,,,
+PM10  -  Second maximum 24-hour concentration (applicable NAAQS is 150 µg/m3),,,,,,,,,,,,
+PM2.5  (Wtd AM)  -  Weighted annual mean concentration (applicable NAAQS is 12 µg/m3),,,,,,,,,,,,
+PM2.5  (24-hr)  -  98th percentile 24-hour concentration (applicable NAAQS is 35 µg/m3),,,,,,,,,,,,
+SO2  -  99th percentile daily maximum 1-hour concentration (applicable NAAQS is 75 ppb),,,,,,,,,,,,
+ND  -  No Data,,,,,,,,,,,,
+IN  -  Insufficient data to calculate summary statistic,,,,,,,,,,,,
+µg/m3  -  micrograms per cubic meter,,,,,,,,,,,,
+ppm  -  parts per million,,,,,,,,,,,,
+ppb  -  parts per billion,,,,,,,,,,,,

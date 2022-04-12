@@ -1,0 +1,468 @@
+State,County,County_FIPS_Code,PM2.5_2015,PM2.5_2020
+Alabama,Baldwin County,01003,18,17
+Alabama,Clay County,01027,25,14
+Alabama,DeKalb County,01049,19,17
+Alabama,Etowah County,01055,18,23
+Alabama,Jefferson County,01073,24,25
+Alabama,Madison County,01089,17,17
+Alabama,Mobile County,01097,19,16
+Alabama,Montgomery County,01101,19,24
+Alabama,Morgan County,01103,17,16
+Alabama,Russell County,01113,17,19
+Alabama,Tuscaloosa County,01125,17,17
+Alaska,Anchorage Municipality,02020,18,22
+Alaska,Fairbanks North Star Borough,02090,112,71
+Alaska,Juneau City and Borough,02110,21,17
+Alaska,Matanuska-Susitna Borough,02170,38,24
+Arizona,Maricopa County,04013,28,37
+Arizona,Pima County,04019,10,14
+Arizona,Pinal County,04021,17,41
+Arizona,Santa Cruz County,04023,27,32
+Arkansas,Arkansas County,05001,20,17
+Arkansas,Ashley County,05003,17,18
+Arkansas,Crittenden County,05035,18,17
+Arkansas,Garland County,05051,19,19
+Arkansas,Jackson County,05067,18,22
+Arkansas,Polk County,05113,18,21
+Arkansas,Pulaski County,05119,21,24
+Arkansas,Union County,05139,20,22
+Arkansas,Washington County,05143,17,16
+California,Alameda County,06001,30,65
+California,Butte County,06007,30,92
+California,Calaveras County,06009,23,97
+California,Colusa County,06011,24,104
+California,Contra Costa County,06013,30,66
+California,Fresno County,06019,52,124
+California,Imperial County,06025,35,34
+California,Inyo County,06027,24,308
+California,Kern County,06029,57,81
+California,Kings County,06031,99,87
+California,Lake County,06033,7,85
+California,Los Angeles County,06037,42,53
+California,Madera County,06039,44,88
+California,Marin County,06041,31,41
+California,Mendocino County,06045,24,62
+California,Merced County,06047,40,78
+California,Monterey County,06053,13,64
+California,Napa County,06055,30,57
+California,Nevada County,06057,11,90
+California,Orange County,06059,15,42
+California,Placer County,06061,20,93
+California,Plumas County,06063,50,109
+California,Riverside County,06065,43,40
+California,Sacramento County,06067,38,85
+California,San Benito County,06069,11,59
+California,San Bernardino County,06071,40,43
+California,San Diego County,06073,20,75
+California,San Francisco County,06075,27,40
+California,San Joaquin County,06077,43,92
+California,San Luis Obispo County,06079,24,63
+California,San Mateo County,06081,22,46
+California,Santa Barbara County,06083,19,37
+California,Santa Clara County,06085,28,56
+California,Santa Cruz County,06087,20,88
+California,Shasta County,06089,20,66
+California,Siskiyou County,06093,37,85
+California,Solano County,06095,31,52
+California,Sonoma County,06097,23,34
+California,Stanislaus County,06099,47,87
+California,Sutter County,06101,31,91
+California,Tulare County,06107,46,83
+California,Ventura County,06111,22,32
+California,Yolo County,06113,21,134
+Colorado,Arapahoe County,08005,23,24
+Colorado,Boulder County,08013,23,52
+Colorado,Denver County,08031,26,39
+Colorado,El Paso County,08041,21,21
+Colorado,Larimer County,08069,27,47
+Colorado,Mesa County,08077,20,20
+Colorado,Rio Blanco County,08103,16,23
+Connecticut,Fairfield County,09001,26,25
+Connecticut,Hartford County,09003,23,20
+Connecticut,Litchfield County,09005,15,13
+Connecticut,New Haven County,09009,22,23
+Connecticut,New London County,09011,17,17
+Delaware,New Castle County,10003,27,17
+District of Columbia,District of Columbia,11001,22,21
+Florida,Alachua County,12001,12,16
+Florida,Brevard County,12009,12,17
+Florida,Broward County,12011,16,18
+Florida,Duval County,12031,16,18
+Florida,Escambia County,12033,17,20
+Florida,Hillsborough County,12057,23,18
+Florida,Leon County,12073,17,18
+Florida,Miami-Dade County,12086,16,16
+Florida,Orange County,12095,14,17
+Florida,Palm Beach County,12099,11,21
+Florida,Pinellas County,12103,17,18
+Florida,Polk County,12105,13,19
+Florida,Sarasota County,12115,14,18
+Florida,Seminole County,12117,15,16
+Florida,Volusia County,12127,13,17
+Georgia,Bibb County,13021,21,18
+Georgia,Chatham County,13051,18,18
+Georgia,Clarke County,13059,19,20
+Georgia,Clayton County,13063,18,24
+Georgia,Cobb County,13067,17,24
+Georgia,DeKalb County,13089,18,22
+Georgia,Dougherty County,13095,21,24
+Georgia,Fulton County,13121,23,25
+Georgia,Gwinnett County,13135,18,21
+Georgia,Hall County,13139,18,19
+Georgia,Houston County,13153,18,21
+Georgia,Lowndes County,13185,15,19
+Georgia,Muscogee County,13215,21,23
+Georgia,Richmond County,13245,18,23
+Georgia,Washington County,13303,19,21
+Hawaii,Hawaii County,15001,23,10
+Hawaii,Honolulu County,15003,13,7
+Hawaii,Maui County,15009,15,7
+Idaho,Ada County,16001,35,37
+Idaho,Benewah County,16009,37,73
+Idaho,Canyon County,16027,36,49
+Idaho,Franklin County,16041,19,26
+Idaho,Lemhi County,16059,43,38
+Idaho,Shoshone County,16079,46,34
+Illinois,Champaign County,17019,19,17
+Illinois,Cook County,17031,37,23
+Illinois,DuPage County,17043,23,21
+Illinois,Hamilton County,17065,22,17
+Illinois,Jersey County,17083,18,17
+Illinois,Kane County,17089,19,21
+Illinois,McLean County,17113,18,19
+Illinois,Macon County,17115,16,18
+Illinois,Madison County,17119,23,26
+Illinois,Randolph County,17157,17,19
+Illinois,Rock Island County,17161,23,18
+Illinois,St. Clair County,17163,22,22
+Illinois,Sangamon County,17167,21,18
+Illinois,Will County,17197,16,21
+Indiana,Allen County,18003,28,18
+Indiana,Bartholomew County,18005,21,16
+Indiana,Clark County,18019,26,22
+Indiana,Delaware County,18035,18,17
+Indiana,Dubois County,18037,23,16
+Indiana,Elkhart County,18039,29,20
+Indiana,Greene County,18055,19,17
+Indiana,Hamilton County,18057,25,20
+Indiana,Henry County,18065,18,16
+Indiana,Howard County,18067,24,15
+Indiana,Lake County,18089,27,20
+Indiana,Madison County,18095,20,19
+Indiana,Marion County,18097,24,24
+Indiana,Monroe County,18105,19,18
+Indiana,St. Joseph County,18141,24,22
+Indiana,Spencer County,18147,22,17
+Indiana,Tippecanoe County,18157,22,18
+Indiana,Vanderburgh County,18163,21,19
+Indiana,Vigo County,18167,20,22
+Indiana,Whitley County,18183,22,20
+Iowa,Black Hawk County,19013,22,22
+Iowa,Clinton County,19045,25,22
+Iowa,Johnson County,19103,21,19
+Iowa,Lee County,19111,24,17
+Iowa,Linn County,19113,23,21
+Iowa,Montgomery County,19137,19,15
+Iowa,Muscatine County,19139,27,22
+Iowa,Polk County,19153,18,17
+Iowa,Pottawattamie County,19155,19,22
+Iowa,Scott County,19163,27,20
+Iowa,Van Buren County,19177,20,17
+Iowa,Woodbury County,19193,19,21
+Kansas,Johnson County,20091,17,19
+Kansas,Neosho County,20133,18,21
+Kansas,Sumner County,20191,21,24
+Kansas,Wyandotte County,20209,20,27
+Kentucky,Boyd County,21019,24,16
+Kentucky,Carter County,21043,20,11
+Kentucky,Christian County,21047,22,21
+Kentucky,Daviess County,21059,22,19
+Kentucky,Fayette County,21067,19,17
+Kentucky,Hardin County,21093,21,15
+Kentucky,Jefferson County,21111,23,22
+Kentucky,Perry County,21193,16,14
+Kentucky,Pike County,21195,17,14
+Kentucky,Pulaski County,21199,19,14
+Kentucky,Warren County,21227,19,16
+Louisiana,Calcasieu Parish,22019,15,22
+Louisiana,East Baton Rouge Parish,22033,19,20
+Louisiana,Jefferson Parish,22051,21,18
+Louisiana,Lafayette Parish,22055,14,27
+Louisiana,Orleans Parish,22071,21,20
+Louisiana,Rapides Parish,22079,15,18
+Louisiana,St. Bernard Parish,22087,22,21
+Louisiana,Tangipahoa Parish,22105,17,18
+Louisiana,Terrebonne Parish,22109,16,20
+Louisiana,West Baton Rouge Parish,22121,20,21
+Maine,Androscoggin County,23001,18,15
+Maine,Aroostook County,23003,23,15
+Maine,Cumberland County,23005,20,17
+Maine,Hancock County,23009,13,9
+Maine,Oxford County,23017,20,13
+Maryland,Baltimore County,24005,26,21
+Maryland,Cecil County,24015,26,14
+Maryland,Dorchester County,24019,20,10
+Maryland,Garrett County,24023,15,10
+Maryland,Harford County,24025,22,15
+Maryland,Kent County,24029,22,10
+Maryland,Montgomery County,24031,22,16
+Maryland,Prince George's County,24033,22,13
+Maryland,Washington County,24043,25,18
+Maryland,Baltimore city,24510,28,18
+Massachusetts,Berkshire County,25003,19,17
+Massachusetts,Bristol County,25005,16,17
+Massachusetts,Essex County,25009,17,14
+Massachusetts,Franklin County,25011,16,20
+Massachusetts,Hampden County,25013,19,22
+Massachusetts,Norfolk County,25021,14,16
+Massachusetts,Plymouth County,25023,18,16
+Massachusetts,Suffolk County,25025,18,16
+Massachusetts,Worcester County,25027,18,16
+Michigan,Allegan County,26005,21,13
+Michigan,Bay County,26017,23,14
+Michigan,Genesee County,26049,22,15
+Michigan,Ingham County,26065,25,22
+Michigan,Kalamazoo County,26077,22,18
+Michigan,Kent County,26081,26,18
+Michigan,Lenawee County,26091,25,19
+Michigan,Macomb County,26099,32,16
+Michigan,Oakland County,26125,30,23
+Michigan,St. Clair County,26147,29,17
+Michigan,Washtenaw County,26161,26,20
+Michigan,Wayne County,26163,28,27
+Minnesota,Anoka County,27003,16,16
+Minnesota,Becker County,27005,17,14
+Minnesota,Beltrami County,27007,14,13
+Minnesota,Crow Wing County,27035,16,12
+Minnesota,Dakota County,27037,19,17
+Minnesota,Hennepin County,27053,18,20
+Minnesota,Lake County,27075,17,10
+Minnesota,Lyon County,27083,21,17
+Minnesota,Olmsted County,27109,17,17
+Minnesota,Ramsey County,27123,38,17
+Minnesota,St. Louis County,27137,18,15
+Minnesota,Scott County,27139,16,15
+Minnesota,Stearns County,27145,17,15
+Minnesota,Wright County,27171,17,16
+Mississippi,DeSoto County,28033,17,18
+Mississippi,Forrest County,28035,19,19
+Mississippi,Hancock County,28045,18,18
+Mississippi,Harrison County,28047,18,20
+Mississippi,Hinds County,28049,18,22
+Mississippi,Jackson County,28059,19,17
+Missouri,Buchanan County,29021,21,17
+Missouri,Cedar County,29039,18,14
+Missouri,Clay County,29047,18,15
+Missouri,Jackson County,29095,18,18
+Missouri,Jefferson County,29099,24,18
+Missouri,St. Louis County,29189,24,21
+Missouri,St. Louis city,29510,26,23
+Montana,Fergus County,30027,40,23
+Montana,Flathead County,30029,86,38
+Montana,Lewis and Clark County,30049,51,24
+Montana,Lincoln County,30053,68,45
+Montana,Missoula County,30063,67,33
+Montana,Powder River County,30075,31,30
+Montana,Ravalli County,30081,102,36
+Montana,Richland County,30083,35,12
+Montana,Silver Bow County,30093,44,41
+Nebraska,Douglas County,31055,22,18
+Nebraska,Hall County,31079,15,19
+Nebraska,Lancaster County,31109,15,17
+Nebraska,Sarpy County,31153,22,17
+Nebraska,Washington County,31177,16,16
+Nevada,Clark County,32003,26,33
+Nevada,Washoe County,32031,26,75
+Nevada,Carson City,32510,16,61
+New Hampshire,Belknap County,33001,12,10
+New Hampshire,Cheshire County,33005,23,18
+New Hampshire,Grafton County,33009,16,14
+New Hampshire,Hillsborough County,33011,16,9
+New Hampshire,Rockingham County,33015,16,13
+New Jersey,Atlantic County,34001,17,16
+New Jersey,Camden County,34007,26,19
+New Jersey,Essex County,34013,24,21
+New Jersey,Mercer County,34021,24,16
+New Jersey,Middlesex County,34023,20,21
+New Jersey,Ocean County,34029,21,14
+New Jersey,Union County,34039,27,20
+New Jersey,Warren County,34041,25,18
+New Mexico,Bernalillo County,35001,17,25
+New Mexico,Doña Ana County,35013,21,21
+New York,Albany County,36001,20,23
+New York,Bronx County,36005,26,20
+New York,Chautauqua County,36013,18,12
+New York,Erie County,36029,23,19
+New York,Essex County,36031,12,9
+New York,Monroe County,36055,21,15
+New York,Onondaga County,36067,17,14
+New York,Queens County,36081,23,16
+New York,Steuben County,36101,15,12
+North Carolina,Buncombe County,37021,14,12
+North Carolina,Catawba County,37035,17,17
+North Carolina,Cumberland County,37051,14,17
+North Carolina,Davidson County,37057,27,19
+North Carolina,Durham County,37063,19,18
+North Carolina,Forsyth County,37067,17,26
+North Carolina,Guilford County,37081,15,15
+North Carolina,Jackson County,37099,15,14
+North Carolina,Mecklenburg County,37119,16,18
+North Carolina,Mitchell County,37121,14,12
+North Carolina,Pitt County,37147,15,13
+North Carolina,Swain County,37173,17,15
+North Dakota,Billings County,38007,30,12
+North Dakota,Burke County,38013,44,13
+North Dakota,Burleigh County,38015,27,15
+North Dakota,Cass County,38017,20,14
+North Dakota,Dunn County,38025,37,10
+North Dakota,McKenzie County,38053,32,12
+North Dakota,Mercer County,38057,29,11
+North Dakota,Oliver County,38065,27,13
+Ohio,Allen County,39003,22,13
+Ohio,Cuyahoga County,39035,27,22
+Ohio,Franklin County,39049,24,18
+Ohio,Hamilton County,39061,23,25
+Ohio,Lake County,39085,20,16
+Ohio,Lorain County,39093,23,15
+Ohio,Medina County,39103,23,16
+Ohio,Montgomery County,39113,20,20
+Ohio,Preble County,39135,18,16
+Ohio,Stark County,39151,26,20
+Ohio,Summit County,39153,27,19
+Oklahoma,Cleveland County,40027,18,25
+Oklahoma,Comanche County,40031,16,19
+Oklahoma,Dewey County,40043,16,17
+Oklahoma,Oklahoma County,40109,18,22
+Oklahoma,Pittsburg County,40121,16,22
+Oklahoma,Sequoyah County,40135,16,20
+Oklahoma,Tulsa County,40143,17,20
+Oregon,Crook County,41013,42,132
+Oregon,Harney County,41025,26,61
+Oregon,Jackson County,41029,46,63
+Oregon,Josephine County,41033,18,29
+Oregon,Klamath County,41035,44,88
+Oregon,Lake County,41037,33,36
+Oregon,Lane County,41039,29,240
+Oregon,Multnomah County,41051,29,31
+Oregon,Washington County,41067,34,30
+Pennsylvania,Allegheny County,42003,35,27
+Pennsylvania,Armstrong County,42005,21,16
+Pennsylvania,Beaver County,42007,23,24
+Pennsylvania,Berks County,42011,29,19
+Pennsylvania,Blair County,42013,25,19
+Pennsylvania,Cambria County,42021,27,21
+Pennsylvania,Centre County,42027,21,19
+Pennsylvania,Chester County,42029,25,20
+Pennsylvania,Cumberland County,42041,28,21
+Pennsylvania,Dauphin County,42043,31,29
+Pennsylvania,Delaware County,42045,28,23
+Pennsylvania,Lackawanna County,42069,25,19
+Pennsylvania,Lancaster County,42071,34,28
+Pennsylvania,Mercer County,42085,23,18
+Pennsylvania,Montgomery County,42091,24,21
+Pennsylvania,Philadelphia County,42101,30,25
+Pennsylvania,Tioga County,42117,18,14
+Pennsylvania,Washington County,42125,24,17
+Pennsylvania,Westmoreland County,42129,21,16
+Pennsylvania,York County,42133,27,26
+Rhode Island,Kent County,44003,13,10
+Rhode Island,Providence County,44007,23,20
+Rhode Island,Washington County,44009,18,11
+South Carolina,Chesterfield County,45025,14,14
+South Carolina,Florence County,45041,17,15
+South Carolina,Greenville County,45045,20,20
+South Carolina,Lexington County,45063,18,17
+South Carolina,Richland County,45079,17,16
+South Carolina,Spartanburg County,45083,17,17
+South Dakota,Brookings County,46011,19,16
+South Dakota,Brown County,46013,14,15
+South Dakota,Codington County,46029,18,16
+South Dakota,Custer County,46033,21,16
+South Dakota,Hughes County,46065,15,13
+South Dakota,Jackson County,46071,23,17
+South Dakota,Minnehaha County,46099,22,16
+South Dakota,Pennington County,46103,30,23
+South Dakota,Union County,46127,20,17
+Tennessee,Blount County,47009,17,15
+Tennessee,Davidson County,47037,20,20
+Tennessee,Dyer County,47045,15,15
+Tennessee,Hamilton County,47065,17,20
+Tennessee,Knox County,47093,20,20
+Tennessee,Lawrence County,47099,15,14
+Tennessee,Loudon County,47105,18,14
+Tennessee,McMinn County,47107,16,16
+Tennessee,Madison County,47113,15,16
+Tennessee,Maury County,47119,17,14
+Tennessee,Montgomery County,47125,17,15
+Tennessee,Putnam County,47141,15,14
+Tennessee,Roane County,47145,19,15
+Tennessee,Shelby County,47157,17,20
+Tennessee,Sullivan County,47163,14,13
+Tennessee,Sumner County,47165,17,15
+Texas,Bexar County,48029,21,23
+Texas,Bowie County,48037,19,21
+Texas,Dallas County,48113,19,21
+Texas,El Paso County,48141,20,24
+Texas,Galveston County,48167,23,28
+Texas,Harris County,48201,25,34
+Texas,Harrison County,48203,16,23
+Texas,Hidalgo County,48215,23,33
+Texas,Nueces County,48355,23,27
+Texas,Tarrant County,48439,20,23
+Utah,Cache County,49005,29,29
+Utah,Davis County,49011,29,27
+Utah,Duchesne County,49013,21,23
+Utah,Salt Lake County,49035,33,33
+Utah,Utah County,49049,28,26
+Utah,Washington County,49053,11,17
+Vermont,Bennington County,50003,16,18
+Vermont,Chittenden County,50007,15,18
+Vermont,Rutland County,50021,30,22
+Virginia,Albemarle County,51003,17,12
+Virginia,Arlington County,51013,21,18
+Virginia,Charles City County,51036,17,12
+Virginia,Chesterfield County,51041,17,11
+Virginia,Fairfax County,51059,20,16
+Virginia,Frederick County,51069,23,16
+Virginia,Henrico County,51087,17,15
+Virginia,Roanoke County,51161,18,15
+Virginia,Rockingham County,51165,23,14
+Virginia,Bristol city,51520,13,14
+Virginia,Hampton city,51650,17,13
+Virginia,Lynchburg city,51680,15,12
+Virginia,Salem city,51775,19,14
+Washington,King County,53033,26,61
+Washington,Kitsap County,53035,14,41
+Washington,Pierce County,53053,33,41
+Washington,Snohomish County,53061,35,51
+Washington,Spokane County,53063,37,31
+Washington,Yakima County,53077,32,105
+West Virginia,Berkeley County,54003,29,23
+West Virginia,Brooke County,54009,24,18
+West Virginia,Cabell County,54011,21,14
+West Virginia,Hancock County,54029,22,17
+West Virginia,Harrison County,54033,20,13
+West Virginia,Kanawha County,54039,20,14
+West Virginia,Marshall County,54051,24,16
+West Virginia,Monongalia County,54061,20,16
+West Virginia,Wood County,54107,25,15
+Wisconsin,Brown County,55009,22,18
+Wisconsin,Dane County,55025,23,18
+Wisconsin,Eau Claire County,55035,17,17
+Wisconsin,Grant County,55043,22,20
+Wisconsin,Kenosha County,55059,23,18
+Wisconsin,La Crosse County,55063,21,18
+Wisconsin,Milwaukee County,55079,25,21
+Wisconsin,Outagamie County,55087,20,19
+Wisconsin,Sauk County,55111,17,17
+Wisconsin,Vilas County,55125,17,13
+Wisconsin,Waukesha County,55133,24,19
+Wyoming,Albany County,56001,15,38
+Wyoming,Fremont County,56013,20,37
+Wyoming,Laramie County,56021,25,31
+Wyoming,Natrona County,56025,15,35
+Wyoming,Park County,56029,19,35
+Wyoming,Sheridan County,56033,36,34
+Wyoming,Sublette County,56035,14,18
+Wyoming,Sweetwater County,56037,19,16
+Wyoming,Teton County,56039,15,49
