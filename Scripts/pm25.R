@@ -23,7 +23,9 @@ cty2020 <- cty2020 %>%
   mutate(PM2.5 = as.numeric(PM2.5)) %>% 
   drop_na()
 
-cty <- inner_join(cty2015, cty2020, by = c("State" = "State", "County" = "County", "County_FIPS_Code" = "County_FIPS_Code"), suffix = c("_2015", "_2020"))
+cty <- inner_join(cty2015, cty2020, by = c("State" = "State", "County" = "County", 
+                                           "County_FIPS_Code" = "County_FIPS_Code"), 
+                  suffix = c("_2015", "_2020"))
 
 cty %>% write_csv(file="ctyfactbook2015_2020.csv")
 

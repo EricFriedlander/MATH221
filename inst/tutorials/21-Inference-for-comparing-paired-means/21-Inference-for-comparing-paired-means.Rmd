@@ -1,0 +1,543 @@
+---
+title: "21 Inference For Comparing Paired Means"
+output: learnr::tutorial
+runtime: shiny_prerendered
+---
+
+```{r setup, include=FALSE}
+library(learnr)
+library(tidyverse)
+
+epa_pm2.5 <- read_csv("https://raw.githubusercontent.com/EricFriedlander/MATH221SP22/main/Datasets/ctyfactbook2015_2020.csv")
+
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+
+## Air pollution and COVD-19
+
+The EPA collects data and maintains datasets on all sorts of environmentally related things. One area that they monitor is [air quality]("https://www.airnow.gov/"). Fine particulate matter (PM2.5) is an air pollutant that is a concern for people's health when levels in air are high. PM2.5 are tiny particles in the air that reduce visibility and cause the air to appear hazy when levels are elevated. We'd like to know whether the disruption in people lives due to the pandemic altered the level of air pollution in the US. In the data set `epa_pm2.5`, you will find PM2.5 data from the years 2015 (pre-pandemic) `PM2.5_2015` and 2020 (post-pandemic) `PM2.5_2020`. Take a look in the console below:
+
+```{r sandbox-2, exercise=TRUE}
+
+```
+
+Your task is to test whether there is any difference between the the pre- and post-pandemic levels of pollution. If you feel comfortable doing this on your own please do so in the console below. Don't forget to check whether the data meets the normality assumptions:
+
+```{r self-2, exercise=TRUE}
+
+```
+
+In the console below or on a separate sheet of paper write down the null and alternative hypotheses for this test:
+
+```{r hyp, exercise=TRUE}
+# 
+```
+
+```{r hyp-solution}
+# H0: mu_2020 - mu_2015 = mu_diff = 0
+
+# HA: mu_2020 - mu_2015 = mu_diff ≠ 0
+```
+
+We need to create a new column in our data frame representing the difference between the 2020 and 2015 pollution levels. Note that in general the results of your analysis won't change based on the order in which you subtract the two quantities but you will have to remember the ordering when you interpret the results of any hypothesis tests and confidence intervals. In this case, please subtract 2015 from 2020 or the tutorial won't function correctly. In the console below, use `mutate` to add a column to the data frame `epa_pm2.5` called `diff`. Don't forget to store the result back in `epa_pm2.5`:
+
+```{r trans, exercise=TRUE}
+
+```
+
+```{r trans-hint-1}
+_____ <- _____ %>% 
+  mutate(_____)
+
+head(epa_pm2.5)
+```
+
+```{r trans-hint-2}
+epa_pm2.5 <- epa_pm2.5 %>% 
+  mutate(diff = _____ - _____)
+
+head(epa_pm2.5)
+```
+
+```{r trans-hint-3}
+epa_pm2.5 <- epa_pm2.5 %>% 
+  mutate(diff = PM2.5_2020 - PM2.5_2015)
+
+head(epa_pm2.5)
+```
+
+```{r transform}
+epa_pm2.5 <- epa_pm2.5 %>% 
+  mutate(diff = PM2.5_2020 - PM2.5_2015)
+```
+
+In the console below, create a histogram (use 10 bins) and box plot of the differences:
+
+```{r ben-viz, exercise=TRUE, exercise.setup = "transform"}
+
+```
+
+```{r ben-viz-hint-1}
+ggplot(_____) +
+  _____(_____)
+
+ggplot(_____) +
+  _____(_____)
+```
+
+```{r ben-viz-hint-2}
+ggplot(_____, _____) +
+  geom_histogram(_____)
+
+ggplot(_____, _____) +
+  geom_boxplot()
+```
+
+```{r ben-viz-hint-3}
+ggplot(_____, aes(x=_____)) +
+  geom_histogram(bins=_____)
+
+ggplot(_____, aes(x=_____)) +
+  geom_boxplot()
+```
+
+```{r ben-viz-hint-4}
+ggplot(epa_pm2.5, aes(x=diff)) +
+  geom_histogram(bins=10)
+
+ggplot(epa_pm2.5, aes(x=diff)) +
+  geom_boxplot()
+```
+
+1. Do you think we can use the t-distribution to model this data? Why or why not? 
+2. (Challenging question:) Why might our data not be independent?
+
+```{r suitable, exercise=TRUE}
+# 
+```
+
+```{r suitable-hint-1}
+# Would you expect data from counties that are close together to have similar measurements?
+```
+
+Going forward, assume that we can apply the t-distribution to model the test statistic, perform a hypothesis test, and construct confidence intervals.
+
+Recall that the formula for the t-statistic is \[T = \frac{\bar{x}_{diff} - 0}{s_{diff}/n}.\] In the console below, compute the t-statistic of the data.
+
+```{r t-stat, exercise=TRUE, exercise.setup = "transform"}
+
+```
+
+```{r t-stat-hint-1}
+epa_pm2.5 %>% 
+  _____
+
+
+T = ______
+T
+```
+
+```{r t-stat-hint-2}
+epa_pm2.5 %>% 
+  summarize(______, _____, _____)
+
+
+T = ______
+T
+```
+
+```{r t-stat-hint-3}
+epa_pm2.5 %>% 
+  summarize(mean(diff), sd(diff), n())
+
+
+T = ______
+T
+```
+
+```{r t-stat-hint-4}
+epa_pm2.5 %>% 
+  summarize(mean(diff), sd(diff), n())
+
+
+T = 3.708779/ (24.04611 / sqrt(467))
+T
+```
+
+```{r df-q}
+question_numeric("When computing our p-value, how many degrees of freedom should we use?",
+                 answer(466, correct=TRUE),
+                 allow_retry = TRUE)
+```
+
+In the console below, compute the p-value for this test. On a separate sheet of paper sketch the t-distribution and shade the region corresponding to the p-value:
+
+```{r p-val-setup}
+T = 3.708779/ (24.04611 / sqrt(467))
+````
+
+```{r p-val, exercise=TRUE}
+
+```
+
+```{r p-val-hint-1}
+2*pt(_____, df=_____)
+```
+
+```{r p-val-hint-2}
+2*pt(-T, df=466)
+
+2* (1-pt(T, df=466)) # Also works
+```
+
+```{r outcome-1}
+question_radio("What would be the outcome of the test with a significance level of 0.05?",
+               answer("Fail to reject"),
+               answer("Reject the null", correct=TRUE),
+               allow_retry = TRUE)
+```
+
+```{r outcome-2}
+question_radio("What would be the outcome of the test with a significance level of 0.01?",
+               answer("Fail to reject"),
+               answer("Reject the null", correct=TRUE),
+               allow_retry = TRUE)
+```
+
+
+Now that we've established that the levels of air pollution in 2020 are different than in 2015, let's estimate HOW different they are. We'll do this by constructing a 95% confidence interval for the difference in PM2.5 levels between 2015 and 2020. If you feel comfortable, go ahead and construct the confidence interval in the console below. Otherwise, the remainder of the tutorial will walk you through the process:
+
+```{r self-1, exercise=TRUE}
+
+```
+
+Recall the the formula for a confidence interval is $\bar{x}_{diff} \pm t^* SE$ where $SE = s_{diff}/\sqrt{n}$ and $\bar{x}_{diff}$ is the point estimate (our best guess) for the change in PM2.5 levels. In the console below, compute $\bar{x}_{diff}$ and the $SE$ (note that we've already computed these above, but compute them again for practice):
+
+```{r xbar-se-1, exercise=TRUE, exercise.setup = "transform"}
+
+```
+
+```{r xbar-se-1-hint-1}
+epa_pm2.5 %>% 
+  _____
+
+point_est <- _____
+SE <- _____
+
+point_est
+SE
+```
+
+```{r xbar-se-1-hint-2}
+epa_pm2.5 %>% 
+  summarize(______)
+
+point_est <- _____
+SE <- _____
+
+point_est
+SE
+```
+
+```{r xbar-se-1-hint-3}
+epa_pm2.5 %>% 
+  summarize(______, _____, _____)
+
+point_est <- _____
+SE <- _____
+
+point_est
+SE
+```
+
+```{r xbar-se-1-hint-4}
+epa_pm2.5 %>% 
+  summarize(mean(diff), sd(diff), n())
+
+point_est <- _____
+SE <- _____
+
+point_est
+SE
+```
+
+```{r xbar-se-1-hint-5}
+epa_pm2.5 %>% 
+  summarize(mean(diff), sd(diff), n())
+
+point_est <- 5.3
+SE <- 1.145426 / sqrt(467)
+
+point_est
+SE
+```
+
+
+Now let's find $t^\star$ for a 95% confidence interval.
+
+```{r q-12}
+question_numeric("How many degrees of free would you use in this t-distribution?",
+                 answer(466, correct=TRUE),
+                 allow_retry = TRUE)
+```
+
+In the console below, find $t^\star$. Compute $t^\star$ in two different ways:
+
+```{r t-1, exercise=TRUE}
+
+```
+
+```{r t-1-hint-1}
+tstar <- qt(_____, df=______)
+tstar
+
+tstar <- qt(_____, df=______)
+tstar
+```
+
+```{r t-1-hint-2}
+tstar <- qt(.975, df=466)
+tstar
+
+tstar <- -qt(.025, df=466)
+tstar
+```
+
+In the console below, compute the final confidence interval:
+
+```{r ci-1-setup}
+point_est <- 5.3
+SE <- 1.145426 / sqrt(467)
+tstar <- qt(.975, df=466)
+```
+
+```{r ci-1, exercise=TRUE}
+
+```
+
+
+```{r ci-1-hint-1}
+_____ - _____ * _____
+
+_____ + _____ * _____
+```
+
+```{r ci-1-hint-2}
+point_est - tstar * SE
+
+point_est + tstar * SE
+```
+
+So our point estimate for the average increase in PM2.5 from 2015 to 2020 is 5.30 $\mu g/m^3$ with a 95% confidence interval of 5.20 to 5.40 $\mu g/m^3$. Taking into account everything we know, is this enough evidence to conclude that COVID-19 is CAUSING an increase in pollution?
+
+```{r covid-q, exercise=TRUE}
+
+```
+
+```{r covid-q-hint-1}
+# Is this an experiment or observational study?
+```
+
+
+## Study environment. 
+
+In order to test the effects of listening to music while studying versus studying in silence, students agree to be randomized to two treatments (i.e., study with music or study in silence). There are two exams during the semester, so the researchers can either randomize the students to have one exam with music and one with silence (randomly selecting which exam corresponds to which study environment) or the researchers can randomize the students to one study habit for both exams.
+
+The researchers are interested in estimating the true population difference of exam score for those who listen to music while studying as compared to those who study in silence.
+
+a. Describe the experiment which is consistent with a paired designed experiment. How is the treatment assigned, and how are the data collected such that the observations are paired?
+
+b. Describe the experiment which is consistent with an independent samples experiment. How is the treatment assigned, and how are the data collected such that the observations are independent?
+
+```{r q-1, exercise=TRUE}
+# a)
+
+# b)
+```
+
+```{r q-1-solution}
+# a) Each student will have one study type per exam. Some students will listen to music on Exam 1, others will listen to music on Exam 2 (the treatment will be randomly assigned per student to the exams). The difference in each student’s score will be recorded, and the average of the differences will be used to estimate the population quantity of interest.
+
+# b) Each student will be assigned (randomly) to exactly one type of study environment. Each student’s two exam scores will be averaged for that that student. The average will then be taken across all students who listened to music; the average will be taken across all students who studied in silence. The difference between the music average and the silence average will be used to estimate the population quantity of interest.
+```
+
+
+## High School and Beyond, mathematical test.
+
+We considered the differences between the reading and writing scores of a random sample of 200 students who took the High School and Beyond Survey.
+
+a.  Create hypotheses appropriate for the following research question: is there an evident difference in the average scores of students in the reading and writing exam?
+
+b.  Check the conditions required to complete this test.
+
+c.  The average observed difference in scores is $\bar{x}_{read-write} = -0.545$, and the standard deviation of the differences is $s_{read-write} = 8.887$ points. Do these data provide convincing evidence of a difference between the average scores on the two exams?
+
+d.  What type of error might we have made? Explain what the error means in the context of the application.
+
+e.  Based on the results of this hypothesis test, would you expect a confidence interval for the average difference between the reading and writing scores to include 0? Explain your reasoning.
+
+```{r q-2, exercise=TRUE}
+# a)
+
+# b)
+
+# c)
+
+# d)
+
+# e)
+
+```
+
+```{r q-2-solution}
+# a) Let diff=read−write. Then the hypotheses are:
+
+# Then, H0:μdiff=0 and HA:μdiff≠0, where μdiff represents the average difference in scores across the population of students.
+
+# b) Independence: Students are randomly sampled and 200 < 10% of all students who take this survey, therefore we can assume that the reading and writing scores of one student are independent of another. Normality: The distribution of the differences appears fairly symmetric, so we can assume that the sampling distribution of average differences will be approximately normal.
+
+# c) The test statistic and the p-value are: T≈−0.87 and p-value = .38. Since the p-value > 0.05, fail to reject H0. The data do not provide convincing evidence of a difference between the average reading and writing scores.
+
+# d) We may have made a Type 2 error, i.e., we may have incorrectly failed to reject H0. In this context a Type 2 error means deciding that the data do not provide convincing evidence of a difference between the average reading and writing scores of students when in reality there is a difference.
+
+# e) Since we failed to reject H0, which claimed the average difference is equal to 0, we would expect a confidence interval to include this value.
+```
+
+## High school and beyond, mathematical interval.
+
+We considered the differences between the reading and writing scores of a random sample of 200 students who took the High School and Beyond Survey. 
+The mean and standard deviation of the differences are $\bar{x}_{read-write} = -0.545$ and $s_{read-write}$ = 8.887 points.
+
+a.  Calculate a 95% confidence interval for the average difference between the reading and writing scores of all students.
+
+b.  Interpret this interval in context.
+
+c.  Does the confidence interval provide convincing evidence that there is a real difference in the average scores? Explain.
+    
+```{r q-3, exercise=TRUE}
+# a)
+
+# b)
+
+# c)
+```
+
+```{r q-3-solution}
+# a) A 95% confidence interval is: (−1.79,0.70)
+
+# b) We are 95% confident that on the reading test students score, on average, 1.79 points lower to 0.70 points higher than they do on the writing test.
+
+# c) No, since 0 is included in the interval.
+```
+
+## Friday the 13th, accidents.
+
+In the early 1990's, researchers in the UK collected data the number of traffic accident related emergency room (ER) admissions on Friday the 13th with the goal of addressing issues of how superstitions regarding Friday the 13th affect human behavior and and whether Friday the 13th is an unlucky day.
+The histograms below show the distributions of numbers of ER admissions at specific emergency rooms on Friday the 6th and Friday the 13th for many such date pairs.
+Also provided are some sample statistics, where the difference is the ER admissions on the 6th minus the ER admissions on the 13th.
+
+```{r out.width = "100%", fig.asp = 0.3, fig.width = 8}
+suppressMessages(library(tidyverse))
+suppressMessages(library(scales))
+suppressMessages(library(kableExtra))
+suppressMessages(library(openintro))
+
+friday_accident <- friday %>% filter(type == "accident") %>%
+  pivot_longer(
+    cols = sixth:diff,
+    names_to = "observation",
+    values_to = "count"
+  ) %>%
+  mutate(observation = fct_relevel(observation, "sixth", "thirteenth", "diff"))
+
+friday_accident %>%
+  ggplot(aes(x = count)) +
+  geom_histogram(bins = 5) +
+  facet_wrap(~observation, scales = "free") +
+  labs(x = "Number of traffic accident related ER admissions", y = "Count")
+
+friday_accident %>%
+  group_by(observation) %>%
+  summarise(
+    n = n(),
+    Mean = mean(count),
+    SD = sd(count)
+  ) %>%
+  kbl(linesep = "", booktabs = TRUE, align = "lrrr", digits = 0,
+      format.args = list(big.mark = ","), col.names = c("", "n", "Mean", "SD")) %>%
+  kable_styling(bootstrap_options = c("striped", "condensed"), 
+                latex_options = "HOLD_position",
+                full_width = FALSE) %>%
+  column_spec(1:4, width = "5em")
+```
+
+a.  Conduct a hypothesis test using mathematical models to evaluate if there is a difference between the average numbers of traffic accident related emergency room admissions between Friday the 6$^{\text{th}}$ and Friday the 13$^{\text{th}}$.
+
+b.  Calculate a 95% confidence interval using mathematical models for the difference between the average numbers of traffic accident related emergency room admissions between Friday the 6$^{\text{th}}$ and Friday the 13$^{\text{th}}$.
+
+c.  The conclusion of the original study states, "Friday 13th is unlucky for some. The risk of hospital admissions a result of a transport accident may be increased by as much as 52%. Staying at home is recommended." Do you agree with this statement? Explain your reasoning.
+
+```{r q-4, exercise=TRUE}
+# a)
+
+# b)
+
+# c)
+```
+
+```{r q-4-solution}
+# a) A 95% confidence interval is: (−1.79,0.70)
+
+# b) We are 95% confident that on the reading test students score, on average, 1.79 points lower to 0.70 points higher than they do on the writing test.
+
+# c) No, since 0 is included in the interval.
+```
+
+## Submit
+
+```{css echo=FALSE}
+@media print {
+  .topicsContainer,
+  .topicActions,
+  .exerciseActions .skip {
+    display: none;
+  }
+  .topics .tutorialTitle,
+  .topics .section.level2,
+  .topics .section.level3:not(.hide) {
+    display: block;
+  }
+  .topics {
+    width: 100%;
+  }
+  .tutorial-exercise, .tutorial-question {
+    page-break-inside: avoid;
+  }
+  .section.level3.done h3 {
+    padding-left: 0;
+    background-image: none;
+  }
+  .topics .showSkip .exerciseActions::before {
+    content: "Topic not yet completed...";
+    font-style: italic;
+  }
+}
+```
+
+Make sure you have the tutorial open in a browser (preferably Google Chrome). Please press `print page` button below to print the tutorial. Print it to a `pdf` file and upload it into Moodle. Make sure all code boxed are visible. If you can't do that please submit your answers to [the Google Form](https://forms.gle/Frmi3hsWk5pixtm76).
+
+```{js print2pdf1, context="server"}
+    // the following 2 chunks print the completed sections of the tutorial to PDF
+    // uses "css/print2pdf.css"
+    $(document).on('shiny:inputchanged', function(event) {
+      if (event.name === 'print2pdf') {
+        window.print();
+      }
+    });
+```
+    
+```{r print2pdf2}
+    # button can be placed anywhere in the tutorial
+    actionButton("print2pdf", "Print page", style="opacity: .7; color: #000;")
+```
