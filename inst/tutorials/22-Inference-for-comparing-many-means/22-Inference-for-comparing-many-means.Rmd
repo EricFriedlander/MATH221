@@ -1,0 +1,438 @@
+---
+title: "22 Inference For Comparing Many Means"
+output: learnr::tutorial
+runtime: shiny_prerendered
+---
+
+```{r setup, include=FALSE}
+library(learnr)
+library(tidyverse)
+library(openintro)
+
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+
+## Chicken diet. 
+
+We return to the question of chicken diets. Chicken farming is a multi-billion dollar industry, and any methods that increase the growth rate of young chicks can reduce consumer costs while increasing company profits, possibly by millions of dollars. An experiment was conducted to measure and compare the effectiveness of various feed supplements on the growth rate of chickens. Newly hatched chicks were randomly allocated into six groups, and each group was given a different feed supplement. In this exercise we consider chicks that were fed horsebean and linseed. The dataset can be found in the data frame `chickwts`. Take a look below:
+
+
+```{r sandbox-2, exercise=TRUE}
+
+```
+
+Your task is to test whether there is any difference between the weights of chicken under any of their diets. If you feel comfortable doing this on you own please do so in the console below. Please perform the hypothesis test directly first, and then compare your results the results you get using `lm` and `anova`. Don't forget to check whether the data meets the normality and constant variance assumptions:
+
+```{r self-2, exercise=TRUE}
+
+```
+
+In the console below or on a separate sheet of paper write down the null and alternative hypotheses for this test:
+
+```{r hyp, exercise=TRUE}
+#
+```
+
+```{r hyp-solution}
+# H0: all means are equal (mu_1 = mu_2 = ...= mu_6)
+
+# HA: at least one of the means is different
+```
+
+
+In the console below, create faceted histograms (use 5 bins) and box plots of every group:
+
+```{r ben-viz, exercise=TRUE}
+
+```
+
+```{r ben-viz-hint-1}
+ggplot(_____) +
+  _____(_____) +
+  _____(_____)
+
+ggplot(_____) +
+  _____(_____)
+```
+
+```{r ben-viz-hint-2}
+ggplot(_____, _____) +
+  geom_histogram(_____) +
+  facet_wrap(_____)
+
+ggplot(_____, _____) +
+  geom_boxplot()
+```
+
+```{r ben-viz-hint-3}
+ggplot(_____, aes(x=_____)) +
+  geom_histogram(bins=_____) +
+  facet_wrap(_____)
+
+ggplot(_____, aes(x=_____, y=______)) +
+  geom_boxplot()
+```
+
+```{r ben-viz-hint-4}
+ggplot(chickwts, aes(x=weight)) +
+  geom_histogram(bins=5) +
+  facet_wrap(~feed)
+
+ggplot(chickwts, aes(x=weight, y=feed)) +
+  geom_boxplot()
+```
+
+While the data set is small, it does not seems to be skewed and there are no outliers so we should feel comfortable comfortable that each of our groups is normally distributed.
+
+Now let's check whether there is constant variance. The boxplots above all have (very roughly) the same spread. In the console below compute the standard deviation for each group:
+
+```{r sd-comp, exercise=TRUE}
+
+```
+
+```{r sd-comp-hint-1}
+chickwts %>% 
+  _____ %>% 
+  _____
+```
+
+```{r sd-comp-hint-2}
+chickwts %>% 
+  group_by(_____) %>% 
+  summarize(_____)
+```
+
+```{r sd-comp-hint-3}
+chickwts %>% 
+  group_by(feed) %>% 
+  summarize(sd(weight))
+```
+
+In this case, the standard deviation don't seem to be somewhat different without be too different. In the real world, you would apply a statistical test (called Bartlett's test) to determine whether the standard deviations are different between groups. However, this is beyond the scope of this course so let's assume that the constant variance assumption holds.
+
+In the console below compute the group means, variances, and number of observations in each group and for the whole dataset:
+
+```{r summary-stats, exercise=TRUE}
+
+```
+
+```{r summary-stats-hint-1}
+chickwts %>% 
+  _____ %>% 
+  ______
+
+chickwts %>% 
+  ______
+```
+
+```{r summary-stats-hint-2}
+chickwts %>% 
+  group_by(_____) %>% 
+  summarize(_____, ______, _____)
+
+chickwts %>% 
+  summarize(_____, ______, _____)
+```
+
+```{r summary-stats-hint-3}
+chickwts %>% 
+  group_by(feed) %>% 
+  summarize(mean(weight), var(weight), n())
+
+chickwts %>% 
+  summarize(mean(weight), var(weight), n())
+```
+
+Using the summary statistics from above, compute the $MSG$, $MSE$, and the $F$-statistic:
+
+```{r t-stat, exercise=TRUE}
+
+```
+
+```{r t-stat-hint-1}
+SSG <- _____
+MSG <- _____
+MSG
+
+SSE <- _____
+MSE <- _____
+MSE
+
+F <- ______
+F
+```
+
+```{r t-stat-hint-2}
+SSG <- 12*(323.5833 - 261.3099)^2 + 10*(160.2000 - 261.3099)^2 + 12*(218.7500	 - 261.3099)^2 +
+      11*(276.9091 - 261.3099)^2+ 14*(246.4286 - 261.3099)^2+ 12*(328.9167 - 261.3099)^2
+MSG <- SSG / (6-1)
+MSG
+
+SSE <- ______
+MSE <- _____
+MSE
+
+F <- ______
+F
+```
+
+```{r t-stat-hint-3}
+SSG <- 12*(323.5833 - 261.3099)^2 + 10*(160.2000 - 261.3099)^2 + 12*(218.7500	 - 261.3099)^2 +
+      11*(276.9091 - 261.3099)^2+ 14*(246.4286 - 261.3099)^2+ 12*(328.9167 - 261.3099)^2
+MSG <- SSG / (6-1)
+MSG
+
+SSE <- (12-1)*4151.720 + (10-1)*1491.956 + (12-1)*2728.568 + (11-1)*4212.091 + 
+  (14-1)*2929.956 + (12-1)*2384.992
+MSE <- SSE / (71-6)
+MSE
+
+F <- ______
+F
+```
+
+```{r t-stat-hint-4}
+SSG <- 12*(323.5833 - 261.3099)^2 + 10*(160.2000 - 261.3099)^2 + 12*(218.7500	 - 261.3099)^2 +
+      11*(276.9091 - 261.3099)^2+ 14*(246.4286 - 261.3099)^2+ 12*(328.9167 - 261.3099)^2
+MSG <- SSG / (6-1)
+MSG
+
+SSE <- (12-1)*4151.720 + (10-1)*1491.956 + (12-1)*2728.568 + (11-1)*4212.091 + 
+  (14-1)*2929.956 + (12-1)*2384.992
+MSE <- SSE / (71-6)
+MSE
+
+F <- MSG / MSE
+F
+```
+
+```{r df-q}
+question_numeric("When computing our p-value, what is the first degrees of freedom?",
+                 answer(5, correct=TRUE),
+                 allow_retry = TRUE)
+```
+
+```{r df-q-2}
+question_numeric("When computing our p-value, what is the second degrees of freedom?",
+                 answer(65, correct=TRUE),
+                 allow_retry = TRUE)
+```
+
+In the console below, compute the p-value for this test. On a separate sheet of paper sketch the F-distribution and shade the region corresponding to the p-value:
+
+```{r p-val-setup}
+SSG <- 12*(323.5833 - 261.3099)^2 + 10*(160.2000 - 261.3099)^2 + 12*(218.7500	 - 261.3099)^2 +
+       11*(276.9091 - 261.3099)^2+ 14*(246.4286 - 261.3099)^2+ 12*(328.9167 - 261.3099)^2
+MSG <- SSG / (6-1)
+
+SSE <- (12-1)*4151.720 + (10-1)*1491.956 + (12-1)*2728.568 + (11-1)*4212.091 + 
+  (14-1)*2929.956 + (12-1)*2384.992
+MSE <- SSE / (71-6)
+
+F <- MSG / MSE
+````
+
+```{r p-val, exercise=TRUE}
+
+```
+
+```{r p-val-hint-1}
+1-pf(_____, df1=_____, df2=_____)
+```
+
+```{r p-val-hint-2}
+1-pf(F, df1=5, df2=65)
+```
+
+```{r outcome-1}
+question_radio("What would be the outcome of the test with a significance level of 0.05?",
+               answer("Fail to reject"),
+               answer("Reject the null", correct=TRUE),
+               allow_retry = TRUE)
+```
+
+```{r outcome-2}
+question_radio("What would be the outcome of the test with a significance level of 0.01?",
+               answer("Fail to reject"),
+               answer("Reject the null", correct=TRUE),
+               allow_retry = TRUE)
+```
+
+In the console below, repeat the F-test using the `lm` and `anova` commands:
+
+```{r lm, exercise=TRUE}
+
+```
+
+```{r lm-hint-1}
+chick_model <- lm(weight ~ feed, data=chickwts)
+anova(chick_model)
+```
+
+## Fill in the blank
+
+When doing an ANOVA, you observe large differences in means between groups. Within the ANOVA framework, this would most likely be interpreted as evidence strongly favoring the _____________ hypothesis.
+
+```{r fil-in, exercise=TRUE}
+#
+```
+
+```{r fil-in-solution}
+# Alternative
+```
+
+## Which test? 
+
+We would like to test if students who are in the social sciences, natural sciences, arts and humanities, and other fields spend the same amount of time, on average, studying for a course. What type of test should we use? Explain your reasoning.
+
+```{r which, exercise=TRUE}
+#
+```
+
+```{r which-solution}
+# ANOVA, since we’re comparing means of more than two groups.
+```
+
+## Teaching descriptive statistics. 
+
+A study compared five different methods for teaching descriptive statistics. The five methods were traditional lecture and discussion, programmed textbook instruction, programmed text with lectures, computer instruction, and computer instruction with lectures. 45 students were randomly assigned, 9 to each method. After completing the course, students took a 1-hour exam.
+
+a) What are the hypotheses for evaluating if the average test scores are different for the different teaching methods?
+
+b) What are the degrees of freedom associated with the $F$-test for evaluating these hypotheses?
+
+c) Suppose the p-value for this test is 0.0168. What is the conclusion?
+
+```{r teaching, exercise=TRUE}
+# a)
+
+# b)
+
+# c)
+
+```
+
+```{r teaching-solution}
+# a) The hypotheses are: H0:μ_{lec+dis}c=μ_textbook=μ_{text+lec}=μ_comp=μ_{comp+lec}(all means are the same)
+# HA: The average score varies across some (or all) groups.
+
+# b) df_G=5−1=4, df_E=44−6=40
+
+# c) Since the p-value is small (assuming α=0.05), the data provide convincing evidence that the average score varies across some (or all) groups.
+```
+
+## Coffee, depression, and physical activity.
+
+Caffeine is the world's most widely used stimulant, with approximately 80% consumed in the form of coffee.
+Participants in a study investigating the relationship between coffee consumption and exercise were asked to report the number of hours they spent per week on moderate (e.g., brisk walking) and vigorous (e.g., strenuous sports and jogging) exercise.
+Based on these data the researchers estimated the total hours of metabolic equivalent tasks (MET) per week, a value always greater than 0.
+The table below gives summary statistics of MET for women in this study based on the amount of coffee consumed.
+    
+```{r}
+library(tidyverse)
+library(kableExtra)
+tribble(
+  ~` `, ~`1 cup / week or fewer`, ~`2-6 cups / week`, ~`1 cups / day`, ~`2-3 cups / day`, ~`4 cups / day or more`,
+  "Mean",    18.7, 19.6,  19.3,  18.9, 17.5,
+  "SD",      21.1, 25.5,  22.5,  22.0, 22.0,
+  "n",      12215, 6617, 17234, 12290, 2383
+) %>%
+  kbl(linesep = "", booktabs = TRUE, align = "lrrrrrr", format.args = list(big.mark = ",")) %>%
+  kable_styling(bootstrap_options = c("striped", "condensed"), 
+                latex_options = "HOLD_position", 
+                full_width = FALSE) %>%
+  column_spec(1:6, width = "3em") %>%
+  add_header_above(c(" " = 1, "Caffeinated coffee consumption" = 5))
+```
+
+a. Write the hypotheses for evaluating if the average physical activity level varies among the different levels of coffee consumption.
+
+b. Check conditions and describe any assumptions you must make to proceed with the test.
+
+c. Below is the output associated with this test. What is the conclusion of the test?
+
+```{r}
+tribble(
+  ~` `,         ~`df`, ~`sumsq`, ~`meansq`, ~`statistic`, ~`p.value`,
+  "cofee",          4,    10508,      2627,          5.2,     0.0003,
+  "Residuals",  50734, 25564819,       504,           NA,         NA,
+  "Total",      50738, 25575327,        NA,           NA,         NA  
+) %>%
+  kbl(linesep = "", booktabs = TRUE, align = "lrrrrrr", 
+      format.args = list(big.mark = ",")) %>%
+  kable_styling(bootstrap_options = c("striped", "condensed"), 
+                latex_options = "HOLD_position", 
+                full_width = FALSE) %>%
+  column_spec(1:6, width = "5em")
+```
+
+```{r coffee, exercise=TRUE}
+
+```
+
+```{r coffee-solution}
+# a) H0: The mean MET for each group is equal to each other.
+# μ≤1 cup/week=μ2-6 cups/week=μ1 cup/day=μ2-3 cups/day=μ≥4 cups/day
+# 
+# HA: At least one pair of means is different.
+# 
+# b) The conditions that need to be satisfied for ANOVA are:
+# Independence: We don’t have any information on how the data were collected, so we cannot assess independence. To proceed, we must assume the subjects in each group are independent. In practice, we would inquire for more details.
+# 
+# Normality: The data are bound below by zero and the standard deviations are larger than the means, indicating very strong skew. However, since the sample sizes are extremely large, even extreme skew is acceptable.
+# 
+# Constant variance: This condition is sufficiently met, as the standard deviations are reasonably consistent across groups.
+# 
+# In order to proceed with the test we will need to assume independence.
+# 
+# c) Since p-value is low, reject H0. The data provide convincing evidence that the average MET differs between at least one pair of groups.
+```
+
+## Submit
+
+```{css echo=FALSE}
+@media print {
+  .topicsContainer,
+  .topicActions,
+  .exerciseActions .skip {
+    display: none;
+  }
+  .topics .tutorialTitle,
+  .topics .section.level2,
+  .topics .section.level3:not(.hide) {
+    display: block;
+  }
+  .topics {
+    width: 100%;
+  }
+  .tutorial-exercise, .tutorial-question {
+    page-break-inside: avoid;
+  }
+  .section.level3.done h3 {
+    padding-left: 0;
+    background-image: none;
+  }
+  .topics .showSkip .exerciseActions::before {
+    content: "Topic not yet completed...";
+    font-style: italic;
+  }
+}
+```
+
+Make sure you have the tutorial open in a browser (preferably Google Chrome). Please press `print page` button below to print the tutorial. Print it to a `pdf` file and upload it into Moodle. Make sure all code boxed are visible. If you can't do that please submit your answers to [the Google Form](https://forms.gle/h2Tp9Qj8rxGaAytZ8).
+
+```{js print2pdf1, context="server"}
+    // the following 2 chunks print the completed sections of the tutorial to PDF
+    // uses "css/print2pdf.css"
+    $(document).on('shiny:inputchanged', function(event) {
+      if (event.name === 'print2pdf') {
+        window.print();
+      }
+    });
+```
+    
+```{r print2pdf2}
+    # button can be placed anywhere in the tutorial
+    actionButton("print2pdf", "Print page", style="opacity: .7; color: #000;")
+```
