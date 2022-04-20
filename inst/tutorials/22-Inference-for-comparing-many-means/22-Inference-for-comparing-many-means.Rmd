@@ -15,14 +15,14 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ## Chicken diet. 
 
-We return to the question of chicken diets. Chicken farming is a multi-billion dollar industry, and any methods that increase the growth rate of young chicks can reduce consumer costs while increasing company profits, possibly by millions of dollars. An experiment was conducted to measure and compare the effectiveness of various feed supplements on the growth rate of chickens. Newly hatched chicks were randomly allocated into six groups, and each group was given a different feed supplement. In this exercise we consider chicks that were fed horsebean and linseed. The dataset can be found in the data frame `chickwts`. Take a look below:
+We return to the question of chicken diets. Chicken farming is a multi-billion dollar industry, and any methods that increase the growth rate of young chicks can reduce consumer costs while increasing company profits, possibly by millions of dollars. An experiment was conducted to measure and compare the effectiveness of various feed supplements on the growth rate of chickens. Newly hatched chicks were randomly allocated into six groups, and each group was given a different feed supplement. The dataset can be found in the data frame `chickwts`. Take a look below:
 
 
 ```{r sandbox-2, exercise=TRUE}
 
 ```
 
-Your task is to test whether there is any difference between the weights of chicken under any of their diets. If you feel comfortable doing this on you own please do so in the console below. Please perform the hypothesis test directly first, and then compare your results the results you get using `lm` and `anova`. Don't forget to check whether the data meets the normality and constant variance assumptions:
+Your task is to test whether there is any difference between the weights of chicken under any of their diets. If you feel comfortable doing this on your own please do so in the console below. Please perform the hypothesis test directly first, and then compare your results with the results you get using `lm` and `anova`. Don't forget to check whether the data meets the normality and constant variance assumptions:
 
 ```{r self-2, exercise=TRUE}
 
@@ -41,7 +41,7 @@ In the console below or on a separate sheet of paper write down the null and alt
 ```
 
 
-In the console below, create faceted histograms (use 5 bins) and box plots of every group:
+In the console below, create faceted histograms (use 5 bins) and box plots of every group. Based on what you see, do you think the data satisfies the normality condition?
 
 ```{r ben-viz, exercise=TRUE}
 
@@ -85,7 +85,7 @@ ggplot(chickwts, aes(x=weight, y=feed)) +
 
 While the data set is small, it does not seems to be skewed and there are no outliers so we should feel comfortable comfortable that each of our groups is normally distributed.
 
-Now let's check whether there is constant variance. The boxplots above all have (very roughly) the same spread. In the console below compute the standard deviation for each group:
+Now let's check whether there is constant variance. The boxplots above all have (very roughly) the same spread. In the console below compute the standard deviation for each group. Based on what you see (and the boxplots above), do you think the data satisfies the constant variance condition?
 
 ```{r sd-comp, exercise=TRUE}
 
@@ -109,7 +109,7 @@ chickwts %>%
   summarize(sd(weight))
 ```
 
-In this case, the standard deviation don't seem to be somewhat different without be too different. In the real world, you would apply a statistical test (called Bartlett's test) to determine whether the standard deviations are different between groups. However, this is beyond the scope of this course so let's assume that the constant variance assumption holds.
+In this case, the standard deviation does seem to be somewhat different without but not too different. In the real world, you would apply a statistical test (called Bartlett's test) to determine whether the standard deviations are different between groups. However, this is beyond the scope of this course so let's assume that the constant variance assumption holds.
 
 In the console below compute the group means, variances, and number of observations in each group and for the whole dataset:
 
