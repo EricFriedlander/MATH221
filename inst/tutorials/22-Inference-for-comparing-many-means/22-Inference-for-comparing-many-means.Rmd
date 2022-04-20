@@ -259,7 +259,7 @@ question_radio("What would be the outcome of the test with a significance level 
                allow_retry = TRUE)
 ```
 
-In the console below, repeat the F-test using the `lm` and `anova` commands:
+In the console below, repeat the ANOVA using the `lm` and `anova` commands:
 
 ```{r lm, exercise=TRUE}
 
