@@ -53,7 +53,7 @@ At the 1976 Pro Bowl, Ray Guy, a punter for the Oakland Raiders, punted a ball t
 
 ## Choose your own
 
-Choose a dataset from [here](https://www.openintro.org/data/) that interests you, come up with a research questions, and use statistics to analyze the questions. All datasets should be available in the console below:
+Choose a dataset from [here](https://www.openintro.org/data/) that interests you, come up with a research question, and use statistics to analyze the questions. All datasets should be available in the console below:
 
 ```{r choose_your_own, exercise=TRUE}
 
