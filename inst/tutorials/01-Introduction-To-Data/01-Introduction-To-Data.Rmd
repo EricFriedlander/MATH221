@@ -192,6 +192,6 @@ Plot the explanatory vs. the response variable below.
 
 ```
 
-Describe the relationshipo between your explanatory and response variables in
+Describe the relationship between your explanatory and response variables in
 the context of your research question. Be prepared to discuss in class.
 
