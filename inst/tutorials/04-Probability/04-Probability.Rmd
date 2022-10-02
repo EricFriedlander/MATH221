@@ -1,0 +1,108 @@
+---
+title: "Probability"
+output: learnr::tutorial
+runtime: shiny_prerendered
+---
+
+```{r setup, include=FALSE}
+library(learnr)
+library(openintro)
+library(tidyverse)
+library(janitor)
+
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+
+## Smallpox
+
+The smallpox data set provides a sample of 6,224 individuals from the year 1721 who were exposed to smallpox in Boston. Doctors at the time believed that inoculation, which involves exposing a person to the disease in a controlled form, could reduce the likelihood of death. In theconsole below, take a minute to explore the ``smallpox`` dataset:
+
+```{r explore, exercise=TRUE}
+
+```
+
+In the console below, generate a contingency table with `inoculated` in the columns and `result` in the rows. The `janitor` package has been loaded so feel free to use `adorn_totals` if you'd like:
+
+```{r cont-table, exercise=TRUE}
+
+```
+
+```{r cont-table-solution}
+smallpox %>% 
+  count(result, inoculated) %>% 
+  pivot_wider(id_cols = result, names_from = inoculated, values_from = n) %>% 
+  adorn_totals(where = c("row", "col"))
+```
+
+On a separate sheet of paper, compute the table proportions for this data.
+
+Now use R to compute the table proportions to verify your solutions:
+
+```{r table-props, exercise=TRUE}
+
+```
+
+```{r table-props-solution}
+smallpox %>% 
+  count(result, inoculated) %>% 
+  mutate(prop = n/sum(n)) %>% 
+  pivot_wider(id_cols = result, names_from = inoculated, values_from = prop) %>% 
+  adorn_totals(where = c("row", "col"))
+```
+
+```{r questions-1}
+quiz(
+  question_numeric("What is the probability that a randomly selected individual died of small pox?",
+                 answer(0.1365681, correct=TRUE),
+                 allow_retry = TRUE,
+                 tolerance = 0.001),
+  question("What type of probability is the above probability?",
+           answer("Marginal", correct=TRUE),
+           answer("Joint"),
+           answer("Conditional"),
+           allow_retry=TRUE),
+  
+  question_numeric("What is the probability that a randomly selected individual was inoculated and lived?",
+                 answer(0.0382390746, correct=TRUE),
+                 allow_retry = TRUE,
+                 tolerance = 0.001),
+  question("What type of probability is the above probability?",
+           answer("Marginal"),
+           answer("Joint", correct=TRUE),
+           answer("Conditional"),
+           allow_retry=TRUE),
+  
+  question_numeric("What is the probability that a randomly selected individual who lived was inoculated?",
+                 answer(0.044287309, correct=TRUE),
+                 allow_retry = TRUE,
+                 tolerance = 0.001),
+  question("What type of probability is the above probability?",
+           answer("Marginal"),
+           answer("Joint"),
+           answer("Conditional", correct=TRUE),
+           allow_retry=TRUE),
+  
+  question_numeric("What is the probability that a randomly selected individual was not inoculated and lived?",
+                 answer(0.8251928, correct=TRUE),
+                 allow_retry = TRUE,
+                 tolerance = 0.001),
+  question("What type of probability is the above probability?",
+           answer("Marginal"),
+           answer("Joint", correct=TRUE),
+           answer("Conditional"),
+           allow_retry=TRUE),
+  
+  question_numeric("What is the probability that a randomly selected individual who wasn’t inoculated lived?",
+                 answer(0.8588629, correct=TRUE),
+                 allow_retry = TRUE,
+                 tolerance = 0.001),
+  question("What type of probability is the above probability?",
+           answer("Marginal"),
+           answer("Joint"),
+           answer("Conditional", correct=TRUE),
+           allow_retry=TRUE)
+)
+```
+
+Was it better to be inoculated or not inoculated? Make an argument using marginal, joint, or conditional probabilities and be prepared to discuss with the class.
