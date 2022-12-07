@@ -1,0 +1,448 @@
+---
+title: "Inference For A Single Mean"
+output: learnr::tutorial
+runtime: shiny_prerendered
+---
+
+```{r setup, include=FALSE}
+library(learnr)
+library(openintro)
+library(tidyverse)
+library(infer)
+
+set.seed(1989)
+
+mankato <- read_csv("mankato_flood.csv")
+
+benzene <- tibble(level = rnorm(20, 0.0055, sd = 0.002))
+
+
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+
+## Mankato Flooding
+
+In this activity we'll continue the example we worked on in the lecture. This time we'll create a 99% confidence interval for the elevation of the flood waters. This variable is called `Stage` and is stored in the `mankato` data frame:
+
+```{r sandbox-1, exercise=TRUE}
+
+```
+
+
+If you feel up to it, please create the 99% confidence interval in the console below. This includes doing a little exploratory data analysis a verifying that the data is suitable for the CLT. Also, please construct your confidence interval directly (i.e. without using `infer`) and then reproduce your results using the `infer` package. If you don't feel comfortable doing this the remaining consoles will walk you through the steps.
+
+```{r self-1, exercise=TRUE}
+
+```
+
+In the console below generate a histogram and box plot of the `Stage` variable. For the histogram, use 8 bins:
+
+```{r stage-viz, exercise=TRUE}
+
+```
+
+```{r stage-viz-hint-1}
+ggplot(_____) +
+  _____(_____)
+
+ggplot(_____) +
+  _____(_____)
+```
+
+```{r stage-viz-hint-2}
+ggplot(_____, _____) +
+  geom_histogram(_____)
+
+ggplot(_____, _____) +
+  geom_boxplot()
+```
+
+```{r stage-viz-hint-3}
+ggplot(_____, aes(x=_____)) +
+  geom_histogram(bins=_____)
+
+ggplot(_____, aes(x=_____)) +
+  geom_boxplot()
+```
+
+```{r stage-viz-hint-4}
+ggplot(mankato, aes(x=Stage)) +
+  geom_histogram(bins=8)
+
+ggplot(mankato, aes(x=Stage)) +
+  geom_boxplot()
+```
+
+```{r q-1}
+question_radio("(Practice Test Question): Does this data seem to meet the conditions for the central limit theorem? On a separate sheet of paper explain your answer.",
+               answer("Yes", correct=TRUE),
+               answer("No"),
+               allow_retry = TRUE)
+```
+
+The data has little to no skew and there are no outliers. In addition, the sample size is 85 which is quite large so we should feel comfortable using the central limit theorem.
+
+Recall the the formula for a confidence interval is $\bar{x} \pm t^* SE$ where $SE = s/\sqrt{n}$. In the console below, compute $\bar{x}$ and $SE$:
+
+```{r xbar-se-1, exercise=TRUE}
+
+```
+
+```{r xbar-se-1-hint-1}
+mankato %>% 
+  _____
+```
+
+```{r xbar-se-1-hint-2}
+mankato %>% 
+  summarize(_____)
+```
+
+```{r xbar-se-1-hint-3}
+mankato %>% 
+  summarize(xbar = _____,
+            se = _____)
+```
+
+```{r xbar-se-1-hint-4}
+mankato %>% 
+  summarize(xbar = mean(_____),
+            se = sd(_____)/sqrt(_____))
+```
+
+```{r xbar-se-1-hint-5}
+mankato %>% 
+  summarize(xbar = mean(Stage),
+            se = sd(Stage)/sqrt(n()))
+```
+
+
+Now let's find $t^\star$ for a 99% confidence interval.
+
+```{r q-2}
+question_numeric("How many degrees of free would you use in this t-distribution?",
+                 answer(84, correct=TRUE),
+                 allow_retry = TRUE)
+```
+
+In the console below, find $t^\star$:
+
+```{r t-1, exercise=TRUE}
+
+```
+
+```{r t-1-hint-1}
+qt(_____, df=______)
+```
+
+```{r t-1-hint-2}
+qt(.995, df=85)
+```
+
+In the console below, compute the final confidence interval:
+
+```{r ci-1, exercise=TRUE}
+
+```
+
+
+```{r ci-1-hint-1}
+_____ - _____ * _____
+
+_____ + _____ * _____
+```
+
+```{r ci-1-hint-2}
+763.6974	 - 2.634914 * 0.600952
+
+763.6974	 + 2.634914 * 0.600952
+```
+
+So our point estimate for the average Stage of the maximum flood is 763.6974 feet with 99% confidence interval of (762.1139, 765.2809) feet.
+
+In the console below, reproduce this confidence interval using the `infer` package:
+
+```{r infer-ci, exercise=TRUE}
+
+```
+
+```{r infer-ci-hint-1}
+samp_dist <- mankato %>% 
+  # specify the variable you're interested in
+  specify(_____) %>% 
+  # specify sampling distribution
+  assume(_____)
+
+point_est <- mankato %>% 
+  # specify the variable you're interested in
+  specify(_____) %>% 
+  # specify the statistic you want to compute
+  calculate(_____)
+
+point_est
+
+ci <- samp_dist %>% 
+  get_ci(_____, _____)
+
+ci
+
+samp_dist %>% 
+  visualize() +
+    shade_confidence_interval(_____) 
+```
+
+```{r infer-ci-hint-2}
+samp_dist <- mankato %>% 
+  # specify the variable you're interested in
+  specify(response = _____) %>% 
+  # specify sampling distribution
+  assume(distribution = "_____")
+
+point_est <- mankato %>% 
+  # specify the variable you're interested in
+  specify(response = _____) %>% 
+  # specify the statistic you want to compute
+  calculate("_____")
+
+point_est
+
+ci <- samp_dist %>% 
+  get_ci(level = _____, point_estimate = _____)
+
+ci
+
+samp_dist %>% 
+  visualize() +
+    shade_confidence_interval(_____) 
+```
+
+```{r infer-ci-hint-3}
+samp_dist <- mankato %>% 
+  # specify the variable you're interested in
+  specify(response = Stage) %>% 
+  # specify sampling distribution
+  assume(distribution = "t")
+
+point_est <- mankato %>% 
+  # specify the variable you're interested in
+  specify(response = Stage) %>% 
+  # specify the statistic you want to compute
+  calculate("mean")
+
+point_est
+
+ci <- samp_dist %>% 
+  get_ci(level = 0.99, point_estimate = point_est)
+
+ci
+
+samp_dist %>% 
+  visualize() +
+    shade_confidence_interval(ci) 
+```
+
+## Benzene in drinking water
+
+The Environmental Protection Agency specifies the amount of a variety of chemicals that are safe to be in our drinking water. You can see a list [here](https://www.epa.gov/ground-water-and-drinking-water/national-primary-drinking-water-regulations#one). Today we're going to be focusing on Benzene. The maximum allowable about of Benzene in our drinking water is 0.005 mg/L. Suppose you work at a water treatment plant and, instead of relying on a single measurement, you take 20 different measurements of the drinking water. The data from the most recent set of tests is stored in the data frame `benzene`. Take a look:
+
+```{r sandbox-2, exercise=TRUE}
+
+```
+
+Your task is the perform a hypothesis test to see if that the concentration of benzene in the water is above 0.005 mg/L. If you feel comfortable doing this on you own please do so in the console below. Please conduct your hypothesis test without using the `infer` package and then reproduce your results using the `infer` package. Don't forget to check whether the data meets the normality assumption:
+
+```{r self-2, exercise=TRUE}
+
+```
+
+In the console below or on a separate sheet of paper write down the null and alternative hypotheses for this test:
+
+```{r hyp, exercise=TRUE}
+#
+```
+
+```{r hyp-solution}
+# H0: mu <= 0.005 (<= mean less than or equal to)
+
+# HA: me > 0.005
+```
+
+
+In the console below, create a histogram (use 6 bins) and box plot of the data and determine whether you feel comfortable using the CLT to approximate the null distribution:
+
+```{r ben-viz, exercise=TRUE}
+
+```
+
+```{r ben-viz-hint-1}
+ggplot(_____) +
+  _____(_____)
+
+ggplot(_____) +
+  _____(_____)
+```
+
+```{r ben-viz-hint-2}
+ggplot(_____, _____) +
+  geom_histogram(_____)
+
+ggplot(_____, _____) +
+  geom_boxplot()
+```
+
+```{r ben-viz-hint-3}
+ggplot(_____, aes(x=_____)) +
+  geom_histogram(bins=_____)
+
+ggplot(_____, aes(x=_____)) +
+  geom_boxplot()
+```
+
+```{r ben-viz-hint-4}
+ggplot(benzene, aes(x=level)) +
+  geom_histogram(bins=6)
+
+ggplot(benzene, aes(x=level)) +
+  geom_boxplot()
+```
+
+Our data appear to be symmetric so we can feel comfortable assuming the null distribution is a t-distribution.
+
+Recall that the formula for the t-statistic $\frac{\bar{x}-\mu}{SE}$ where $\mu = 0.005$ in this case. In the console below compute the t-statistic of the data. Note:
+
+```{r t-stat, exercise=TRUE}
+
+```
+
+```{r t-stat-hint-1}
+benzene %>% 
+  _____
+```
+
+```{r t-stat-hint-2}
+benzene %>% 
+  summarize(_____)
+```
+
+```{r t-stat-hint-3}
+benzene %>% 
+  summarize(xbar = _____,
+            se = _____,
+            t_stat = _____)
+```
+
+```{r t-stat-hint-4}
+benzene %>% 
+  summarize(xbar = mean(_____),
+            se = sd(_____)/sqrt(_____),
+            t_stat = (_____ - _____)/_____)
+```
+
+```{r t-stat-hint-5}
+benzene %>% 
+  summarize(xbar = mean(level),
+            se = sd(level)/sqrt(n()),
+            t_stat = (xbar - 0.005)/se)
+```
+
+```{r df-q}
+question_numeric("When computing our p-value, how many degrees of freedom should we use?",
+                 answer(19, correct=TRUE),
+                 allow_retry = TRUE)
+```
+
+In the console below, compute the p-value for this test. On a separate sheet of paper sketch the t-distribution and shade the region corresponding to the p-value:
+
+```{r p-val, exercise=TRUE}
+
+```
+
+```{r p-val-hint-1}
+1-pt(_____, df=_____)
+```
+
+```{r p-val-hint-2}
+1-pt(1.014435, df=19)
+```
+
+```{r outcome-2}
+question_radio("What would be the outcome of the test with a significance level of $\\alpha=0.01?$",
+               answer("Fail to reject", correct=TRUE),
+               answer("Reject the null"),
+               allow_retry = TRUE)
+```
+
+In the context of this problem, what do you think would be an appropriate $\alpha$ to select? Why?
+
+Now, reproduce your results using the `infer` package in the console below:
+
+```{r infer-1, exercise=TRUE}
+
+```
+
+```{r infer-1-hint-1}
+null_dist <- mice %>% 
+  specify_____) %>% 
+  hypothesize(_____, _____) %>% 
+  assume(_____)
+
+null_dist %>% 
+  visualize()
+
+test_stat <- mice %>% 
+  specify_____) %>% 
+  hypothesize(______, ______) %>% 
+  calculate(_____)
+
+null_dist %>% 
+  visualize() +
+    shade_p_value(______, ______)
+
+null_dist %>% 
+  get_p_value(_____, _____)
+```
+
+```{r infer-1-hint-2}
+null_dist <- benzene %>% 
+  specify(response = _____) %>% 
+  hypothesize(null = "_____", mu = _____) %>% 
+  assume(distribution = "_____")
+
+null_dist %>% 
+  visualize()
+
+test_stat <- benzene %>% 
+  specify(response = ______) %>% 
+  hypothesize(null = "_____", mu = _____) %>% 
+  calculate(stat = "_____")
+
+null_dist %>% 
+  visualize() +
+    shade_p_value(obs_stat = _____, direction = "______")
+
+null_dist %>% 
+  get_p_value(obs_stat = ______, direction = "______")
+```
+
+```{r infer-1-hint-3}
+null_dist <- benzene %>% 
+  specify(response = level) %>% 
+  hypothesize(null = "point", mu = 0.005) %>% 
+  assume(distribution = "t")
+
+null_dist %>% 
+  visualize()
+
+test_stat <- benzene %>% 
+  specify(response = level) %>% 
+  hypothesize(null = "point", mu = 0.005) %>% 
+  calculate(stat = "t")
+
+null_dist %>% 
+  visualize() +
+    shade_p_value(obs_stat = test_stat, direction = "right")
+
+null_dist %>% 
+  get_p_value(obs_stat = test_stat, direction = "right")
+```

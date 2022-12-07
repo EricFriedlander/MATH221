@@ -1,0 +1,64 @@
+---
+title: "Confidence Intervals"
+output: learnr::tutorial
+runtime: shiny_prerendered
+---
+
+```{r setup, include=FALSE}
+library(learnr)
+library(openintro)
+library(tidyverse)
+library(infer)
+
+healthcare_law_survey <-healthcare_law_survey %>% 
+  mutate(response = ifelse(response == "approve", "approve", "don't approve"))
+
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+
+## Pew Research Center poll on health care
+
+We will be analyzing the data set `healthcare_law_survey`. Metadata for this data set can be found [here](https://www.openintro.org/data/index.php?data=healthcare_law_survey). We would like to estimate the proportion of Americans (in 2012) who approve of the ACA policy of requiring all Americans to have health insurance or face a fine. Please use the console below to take a look at the data set:
+
+```{r sandbox, exercise=TRUE}
+
+```
+
+What is the parameter of interest and what is the sample in this scenario:
+
+```{r parameter-sample, exercise=TRUE}
+# Parameter:
+
+# Sample:
+```
+
+Let's call the proportion of all Americans that approve of the policy $p_{app}$ and our point estimate of this quantity $\hat{p}_{app}$. In the console below, compute $\hat{p}_{app}$ (you may want to look at my slides from this lesson):
+
+```{r p-hat, exercise=TRUE}
+
+```
+
+What is our point estimate and a 95% confidence interval for the $p_{app}$:
+
+```{r point-estimate-ci, exercise=TRUE}
+# Point estimate:
+
+# 95% Confidence interval:
+```
+
+Use the console below to compute a 99% confidence interval:
+
+```{r ci-99, exercise=TRUE}
+
+```
+
+
+
+
+
+
+
+
+
+

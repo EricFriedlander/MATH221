@@ -1,0 +1,131 @@
+---
+title: "05 Distributions"
+output: learnr::tutorial
+runtime: shiny_prerendered
+---
+
+```{r setup, include=FALSE}
+library(learnr)
+library(openintro)
+library(tidyverse)
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+
+## Computing Probabilities with the Normal Distribution
+
+We can use the `normTail` function from the `openintro` package to automatically generate shaded regions for us! There are four ways to use this function.
+
+1. Say we want to shade the area to the left. In the example below we are shading the area under the normal curve with mean $\mu = 10$ and standard deviation $\sigma = 5$ to the left of $x=7$:
+
+```{r, echo=TRUE}
+normTail(m = 10, s = 5, L = 7)
+```
+
+2. Say we want to shade the area to the right. In the example below we are shading the area under the normal curve with mean $\mu = 10$ and standard deviation $\sigma = 5$ to the right of $x=7$:
+
+```{r, echo=TRUE}
+normTail(m = 10, s = 5, U = 7)
+```
+
+3. Say we want to shade the area in between two values. In the example below we are shading the area under the normal curve with mean $\mu = 10$ and standard deviation $\sigma = 5$ between $x=7$ and $x=11$:
+
+```{r, echo=TRUE}
+normTail(m = 10, s = 5, M = c(7, 11))
+```
+
+4. Say we want to shade the area in to the left of one value and to the right of another. In the example below we are shading the area under the normal curve with mean $\mu = 10$ and standard deviation $\sigma = 5$ to the left of $x=7$ and to the right of $x=11$:
+
+```{r, echo=TRUE}
+normTail(m = 10, s = 5, L = 7, U = 11)
+```
+
+Suppose that the weight of newborn babies is normally distributed with mean $7.5$ lb and standard deviation $0.7$ lb.
+
+For each of the questions below, generate a plot shading the region of a normal curve corresponding to the requested probability and compute the true probability.
+
+What is the probability of a baby weighing less than 7.5 lb? (You should be able to do this in your head). 
+
+```{r prob-1, exercise=TRUE}
+
+```
+
+What is the probability of a baby weighing less than 6.5 lb?
+
+```{r prob-2, exercise=TRUE}
+
+```
+
+What is the probability that a new born weighs at least 8 lb?
+
+```{r prob-3, exercise=TRUE}
+
+```
+
+What is the probability that a new born weighs between 7 and 9 lb?
+
+```{r prob-4, exercise=TRUE}
+
+```
+
+What is the probability that a new born weighs between 5.5 and 7 lb?
+
+```{r prob-5, exercise=TRUE}
+
+```
+
+What is the probability that a new born weighs more than 8.5 lb or less than 5.5 lb?
+
+```{r prob-6, exercise=TRUE}
+
+```
+
+What is the probability that a new born weighs more than 9 lb or less than 6 lb?
+
+```{r prob-7, exercise=TRUE}
+
+```
+
+What is the probability that a new born weighs more than 9 lb or less than 5 lb?
+
+```{r prob-8, exercise=TRUE}
+
+```
+
+## Computing Quantiles/Percentiles with the Normal Distribution
+
+Suppose that the weight of newborn babies is normally distributed with mean $7.5$ lb and standard deviation $0.7$ lb.
+
+For each of the questions below, generate a plot shading the region of a normal curve corresponding to the requested probability and compute the requested quantities.
+
+What is the 90th percentile of baby weighs?
+
+```{r perc-1, exercise=TRUE}
+
+```
+
+Doctors recommend bed rest for pregnant women whose babies are projected to weigh less than 95% of newborns. What is this weight? (Note: This is a made up fact)
+
+```{r perc-2, exercise=TRUE}
+
+```
+
+Doctors recommend a c-section for women whose babies are projected to weigh more than 96.5% of newborns. What is this weight? (Note: This is a made up fact)
+
+```{r perc-3, exercise=TRUE}
+
+```
+
+A baby is considered a "normal weight" if it falls in the middle 90% of weighs. What are the cutoffs for this interval? (Note: This is a made up fact)
+
+```{r perc-4, exercise=TRUE}
+
+```
+
+Doctors recommend extra screenings for babies predicted to be in the 20% of baby weighs that are farthest away from the mean (7.5 lb). What are the cutoffs for the extra monitoring?
+
+```{r perc-5, exercise=TRUE}
+
+```
+
+

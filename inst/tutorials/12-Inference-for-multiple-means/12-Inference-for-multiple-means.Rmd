@@ -1,0 +1,1385 @@
+---
+title: "12: Inference for Multiple Means"
+output: learnr::tutorial
+runtime: shiny_prerendered
+---
+
+```{r setup, include=FALSE}
+library(learnr)
+library(tidyverse)
+library(openintro)
+library(infer)
+
+chickwts_all <- chickwts
+
+chickwts <- chickwts %>% 
+  filter(feed == "horsebean" | feed == "linseed") %>% 
+  mutate(feed = ifelse(feed == "horsebean", "horsebean", "linseed"))
+
+set.seed(1234)
+epa2021_sample <- epa2021 %>%
+  filter(transmission_desc %in% c("Manual", "Automatic")) %>%
+  group_by(transmission_desc) %>%
+  sample_n(size = 25) %>% 
+  ungroup() %>% 
+  mutate(transmission = fct_drop(transmission))
+
+epa_pm2.5 <- read_csv("ctyfactbook2015_2020.csv") 
+
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+
+## Chicken diet: horsebean vs. linseed. 
+
+Chicken farming is a multi-billion dollar industry, and any methods that increase the growth rate of young chicks can reduce consumer costs while increasing company profits, possibly by millions of dollars. An experiment was conducted to measure and compare the effectiveness of various feed supplements on the growth rate of chickens. Newly hatched chicks were randomly allocated into six groups, and each group was given a different feed supplement. In this exercise we consider chicks that were fed horsebean and linseed. The dataset can be found in the data frame `chickwts`. Take a look below:
+
+
+```{r sandbox-2, exercise=TRUE}
+
+```
+
+Your task is to test whether there is any difference between the weights of chicken under a horsebean vs linseed diet. If you feel comfortable doing this on you own please do so in the console below. Don't forget to check whether the data meets the normality assumptions:
+
+```{r self-2, exercise=TRUE}
+
+```
+
+```{r test-type-1}
+question_radio("What setting are we in?",
+               answer("Single Mean"),
+               answer("Paired-Means"),
+               answer("Difference of Two Independent Means", correct=TRUE),
+               answer("Comparing more than Two Means"),
+               allow_retry = TRUE)
+```
+
+In the console below or on a separate sheet of paper write down the null and alternative hypotheses for this test:
+
+```{r hyp, exercise=TRUE}
+#
+```
+
+```{r hyp-solution}
+# H0: mu_lin - mu_horse = 0
+
+# HA: mu_lin - mu_horse ≠ 0
+```
+
+
+In the console below, create a histograms (use 5 bins) and box plots of both groups and count the number of observations in each group:
+
+```{r ben-viz, exercise=TRUE}
+
+```
+
+```{r ben-viz-hint-1}
+ggplot(_____) +
+  _____(_____)
+
+ggplot(_____) +
+  _____(_____)
+
+_____ %>% 
+  _____(_____)
+```
+
+```{r ben-viz-hint-2}
+ggplot(_____, _____) +
+  geom_histogram(_____)
+
+ggplot(_____, _____) +
+  geom_boxplot()
+
+_____ %>% 
+  count(_____)
+```
+
+```{r ben-viz-hint-3}
+ggplot(_____, aes(x=_____, fill=______)) +
+  geom_histogram(bins=_____, alpha=0.5, position="identity")
+
+ggplot(_____, aes(x=_____, y=______)) +
+  geom_boxplot()
+
+chickwts %>% 
+  count(_____)
+```
+
+```{r ben-viz-hint-4}
+ggplot(chickwts, aes(x=weight, fill=feed)) +
+  geom_histogram(bins=6, alpha=0.5, position="identity")
+
+ggplot(chickwts, aes(x=weight, y=feed)) +
+  geom_boxplot()
+
+chickwts %>% 
+  count(feed)
+```
+
+While the data set is small, it does not seems to be skewed and there are no outliers so we should feel comfortable applying the central limit theorem.
+
+Recall that the formula for the t-statistic is \[T = \frac{(\bar{x}_1 - \bar{x}_2) - 0}{\sqrt{s_1^2/n_1 + s_2^2/n_2}}.\] In the console below compute the t-statistic of the data.
+
+```{r t-stat, exercise=TRUE}
+
+```
+
+```{r t-stat-hint-1}
+chickwts %>% 
+  _____ %>% 
+  _____
+
+
+T = ______
+T
+```
+
+```{r t-stat-hint-2}
+chickwts %>% 
+  group_by(_____) %>% 
+  summarize(______, _____, _____)
+
+
+T = ______
+T
+```
+
+```{r t-stat-hint-3}
+chickwts %>% 
+  group_by(feed) %>% 
+  summarize(mean(weight), var(weight), n())
+
+
+T = ______
+T
+```
+
+```{r t-stat-hint-4}
+chickwts %>% 
+  group_by(feed) %>% 
+  summarize(mean(weight), var(weight), n())
+
+
+T = (218.75 - 160.20) / sqrt(2728.568 / 12		+ 1491.956 / 10)
+T
+```
+
+```{r df-q}
+question_numeric("When computing our p-value (by hand), how many degrees of freedom should we use?",
+                 answer(9, correct=TRUE),
+                 allow_retry = TRUE)
+```
+
+In the console below, compute the p-value for this test. On a separate sheet of paper sketch the t-distribution and shade the region corresponding to the p-value:
+
+```{r p-val-setup}
+T = (218.75 - 160.20) / sqrt(2728.568 / 12		+ 1491.956 / 10)
+```
+
+```{r p-val, exercise=TRUE}
+
+```
+
+```{r p-val-hint-1}
+2*pt(_____, df=_____)
+```
+
+```{r p-val-hint-2}
+2*pt(-T, df=9)
+
+2* (1-pt(T, df=9)) # Also works
+```
+
+```{r outcome-1}
+question_radio("What would be the outcome of the test with a significance level of 0.05?",
+               answer("Fail to reject"),
+               answer("Reject the null", correct=TRUE),
+               allow_retry = TRUE)
+```
+
+```{r outcome-2}
+question_radio("What would be the outcome of the test with a significance level of 0.01?",
+               answer("Fail to reject", correct=TRUE),
+               answer("Reject the null"),
+               allow_retry = TRUE)
+```
+
+Now, reproduce your results using the `infer` package in the console below. Note that your p-value should be slightly different... Why?
+
+```{r infer-1, exercise=TRUE}
+
+```
+
+```{r infer-1-hint-1}
+null_dist <- chickwts %>% 
+  specify(_____, _____) %>% 
+  hypothesize(_____) %>% 
+  assume(_____)
+
+null_dist %>% 
+  visualize()
+
+test_stat <- chickwts %>% 
+  specify(_____, ______) %>% 
+  calculate(_____, ______)
+
+null_dist %>% 
+  visualize() +
+    shade_p_value(______, ______)
+
+null_dist %>% 
+  get_p_value(_____, _____)
+```
+
+```{r infer-1-hint-2}
+null_dist <- chickwts %>% 
+  specify(response = ______, explanatory = ______) %>% 
+  hypothesize(null = "_____") %>% 
+  assume(distribution = "_____")
+
+null_dist %>% 
+  visualize()
+
+test_stat <- chickwts %>% 
+  specify(response = ______, explanatory = ______) %>% 
+  calculate(stat = "_____", order = c("_____", "______"))
+
+null_dist %>% 
+  visualize() +
+    shade_p_value(obs_stat = _____, direction = "______")
+
+null_dist %>% 
+  get_p_value(obs_stat = ______, direction = "______")
+```
+
+```{r infer-1-hint-3}
+null_dist <- chickwts %>% 
+  specify(weight ~ feed) %>% 
+  hypothesize(null = "independence") %>% 
+  assume(distribution = "t")
+
+null_dist %>% 
+  visualize()
+
+test_stat <- chickwts %>% 
+  specify(weight ~ feed) %>% 
+  calculate(stat = "t", order = c("linseed", "horsebean"))
+
+null_dist %>% 
+  visualize() +
+    shade_p_value(obs_stat = test_stat, direction = "two-sided")
+
+null_dist %>% 
+  get_p_value(obs_stat = test_stat, direction = "two-sided")
+```
+
+## Chicken diet. 
+
+We return to the question of chicken diets. Chicken farming is a multi-billion dollar industry, and any methods that increase the growth rate of young chicks can reduce consumer costs while increasing company profits, possibly by millions of dollars. An experiment was conducted to measure and compare the effectiveness of various feed supplements on the growth rate of chickens. Newly hatched chicks were randomly allocated into six groups, and each group was given a different feed supplement. The dataset can be found in the data frame `chickwts_all`. Take a look below:
+
+
+```{r sandbox-all, exercise=TRUE}
+
+```
+
+Your task is to test whether there is any difference between the weights of chicken under any of their diets. 
+
+```{r test-type-2}
+question_radio("What setting are we in?",
+               answer("Single Mean"),
+               answer("Paired-Means"),
+               answer("Difference of Two Independent Means"),
+               answer("Comparing more than Two Means", correct=TRUE),
+               allow_retry = TRUE)
+```
+
+If you feel comfortable doing this on your own please do so in the console below. Please perform the hypothesis test directly first, then compare your results with the results you get using `lm` and `anova`. If you'd like, you can also verify your results using the `infer` package. Don't forget to check whether the data meets the normality and constant variance assumptions:
+
+```{r self-3, exercise=TRUE}
+
+```
+
+In the console below or on a separate sheet of paper write down the null and alternative hypotheses for this test:
+
+```{r hyp-1, exercise=TRUE}
+#
+```
+
+```{r hyp-1-solution}
+# H0: all means are equal (mu_1 = mu_2 = ...= mu_6)
+
+# HA: at least one of the means is different
+```
+
+
+In the console below, create faceted histograms (use 5 bins) and box plots of every group and count the number of observations in each group. Based on what you see, do you think the data satisfies the normality condition?
+
+```{r ben-viz-1, exercise=TRUE}
+
+```
+
+```{r ben-viz-1-hint-1}
+ggplot(_____) +
+  _____(_____) +
+  _____(_____)
+
+ggplot(_____) +
+  _____(_____)
+
+______ %>% 
+  _____(______)
+```
+
+```{r ben-viz-1-hint-2}
+ggplot(_____, _____) +
+  geom_histogram(_____) +
+  facet_wrap(_____)
+
+ggplot(_____, _____) +
+  geom_boxplot()
+
+_____ %>% 
+  count(______)
+```
+
+```{r ben-viz-1-hint-3}
+ggplot(_____, aes(x=_____)) +
+  geom_histogram(bins=_____) +
+  facet_wrap(_____)
+
+ggplot(_____, aes(x=_____, y=______)) +
+  geom_boxplot()
+```
+
+```{r ben-viz-1-hint-4}
+ggplot(chickwts_all, aes(x=weight)) +
+  geom_histogram(bins=5) +
+  facet_wrap(~feed)
+
+ggplot(chickwts_all, aes(x=weight, y=feed)) +
+  geom_boxplot()
+
+chickwts_all %>% 
+  count(feed)
+```
+
+While the data set is small, it does not seems to be skewed and there are no major outliers. The sunflower category is a little be worrisome but we should feel relatively comfortable that each of our groups is normally distributed.
+
+Now let's check whether there is constant variance. The boxplots above all have (very roughly) the same spread. In the console below compute the standard deviation for each group. Based on what you see (and the boxplots above), do you think the data satisfies the constant variance condition?
+
+```{r sd-comp, exercise=TRUE}
+
+```
+
+```{r sd-comp-hint-1}
+chickwts_all %>% 
+  _____ %>% 
+  _____
+```
+
+```{r sd-comp-hint-2}
+chickwts_all %>% 
+  group_by(_____) %>% 
+  summarize(_____)
+```
+
+```{r sd-comp-hint-3}
+chickwts_all %>% 
+  group_by(feed) %>% 
+  summarize(sd(weight))
+```
+
+In this case, the standard deviation does seem to be somewhat different without but not too different. In the real world, you would apply a statistical test (called Bartlett's test) to determine whether the standard deviations are different between groups. However, this is beyond the scope of this course so let's assume that the constant variance assumption holds.
+
+In the console below compute the group means, variances, and number of observations in each group and for the whole dataset:
+
+```{r summary-stats, exercise=TRUE}
+
+```
+
+```{r summary-stats-hint-1}
+chickwts_all %>% 
+  _____ %>% 
+  ______
+
+chickwts_all %>% 
+  ______
+```
+
+```{r summary-stats-hint-2}
+chickwts_all %>% 
+  group_by(_____) %>% 
+  summarize(_____, ______, _____)
+
+chickwts_all %>% 
+  summarize(_____, ______, _____)
+```
+
+```{r summary-stats-hint-3}
+chickwts_all %>% 
+  group_by(feed) %>% 
+  summarize(mean(weight), var(weight), n())
+
+chickwts_all %>% 
+  summarize(mean(weight), var(weight), n())
+```
+
+Using the summary statistics from above, compute the $MSG$, $MSE$, and the $F$-statistic:
+
+```{r t-stat-1, exercise=TRUE}
+
+```
+
+```{r t-stat-1-hint-1}
+SSG <- _____
+MSG <- _____
+MSG
+
+SSE <- _____
+MSE <- _____
+MSE
+
+F <- ______
+F
+```
+
+```{r t-stat-1-hint-2}
+SSG <- 12*(323.5833 - 261.3099)^2 + 10*(160.2000 - 261.3099)^2 + 12*(218.7500	 - 261.3099)^2 +
+      11*(276.9091 - 261.3099)^2+ 14*(246.4286 - 261.3099)^2+ 12*(328.9167 - 261.3099)^2
+MSG <- SSG / (6-1)
+MSG
+
+SSE <- ______
+MSE <- _____
+MSE
+
+F <- ______
+F
+```
+
+```{r t-stat-1-hint-3}
+SSG <- 12*(323.5833 - 261.3099)^2 + 10*(160.2000 - 261.3099)^2 + 12*(218.7500	 - 261.3099)^2 +
+      11*(276.9091 - 261.3099)^2+ 14*(246.4286 - 261.3099)^2+ 12*(328.9167 - 261.3099)^2
+MSG <- SSG / (6-1)
+MSG
+
+SSE <- (12-1)*4151.720 + (10-1)*1491.956 + (12-1)*2728.568 + (11-1)*4212.091 + 
+  (14-1)*2929.956 + (12-1)*2384.992
+MSE <- SSE / (71-6)
+MSE
+
+F <- ______
+F
+```
+
+```{r t-stat-1-hint-4}
+SSG <- 12*(323.5833 - 261.3099)^2 + 10*(160.2000 - 261.3099)^2 + 12*(218.7500	 - 261.3099)^2 +
+      11*(276.9091 - 261.3099)^2+ 14*(246.4286 - 261.3099)^2+ 12*(328.9167 - 261.3099)^2
+MSG <- SSG / (6-1)
+MSG
+
+SSE <- (12-1)*4151.720 + (10-1)*1491.956 + (12-1)*2728.568 + (11-1)*4212.091 + 
+  (14-1)*2929.956 + (12-1)*2384.992
+MSE <- SSE / (71-6)
+MSE
+
+F <- MSG / MSE
+F
+```
+
+```{r df-q-1}
+question_numeric("When computing our p-value, what is the first degrees of freedom?",
+                 answer(5, correct=TRUE),
+                 allow_retry = TRUE)
+```
+
+```{r df-q-2}
+question_numeric("When computing our p-value, what is the second degrees of freedom?",
+                 answer(65, correct=TRUE),
+                 allow_retry = TRUE)
+```
+
+In the console below, compute the p-value for this test. On a separate sheet of paper sketch the F-distribution and shade the region corresponding to the p-value:
+
+```{r p-val-1, exercise=TRUE}
+
+```
+
+```{r p-val-1-hint-1}
+1-pf(_____, df1=_____, df2=_____)
+```
+
+```{r p-val-1-hint-2}
+1-pf(15.3648, df1=5, df2=65)
+```
+
+```{r outcome-3}
+question_radio("What would be the outcome of the test with a significance level of 0.05?",
+               answer("Fail to reject"),
+               answer("Reject the null", correct=TRUE),
+               allow_retry = TRUE)
+```
+
+```{r outcome-4}
+question_radio("What would be the outcome of the test with a significance level of 0.01?",
+               answer("Fail to reject"),
+               answer("Reject the null", correct=TRUE),
+               allow_retry = TRUE)
+```
+
+In the console below, repeat the ANOVA using the `lm` and `anova` commands:
+
+```{r lm, exercise=TRUE}
+
+```
+
+```{r lm-hint-1}
+chick_model <- lm(______ ~ ______, data=______)
+anova(______)
+```
+
+```{r lm-hint-2}
+chick_model <- lm(weight ~ feed, data=chickwts_all)
+anova(chick_model)
+```
+
+Finally, reproduce your results using the `infer` package in the console below:
+
+```{r infer-2, exercise=TRUE}
+
+```
+
+```{r infer-2-hint-1}
+null_dist <- chickwts_all %>% 
+  specify(_____, _____) %>% 
+  hypothesize(_____) %>% 
+  assume(_____)
+
+null_dist %>% 
+  visualize()
+
+test_stat <- chickwts_all %>% 
+  specify(_____, ______) %>% 
+  calculate(_____, ______)
+
+null_dist %>% 
+  visualize() +
+    shade_p_value(______, ______)
+
+null_dist %>% 
+  get_p_value(_____, _____)
+```
+
+```{r infer-2-hint-2}
+null_dist <- chickwts_all %>% 
+  specify(response = ______, explanatory = ______) %>% 
+  hypothesize(null = "_____") %>% 
+  assume(distribution = "_____")
+
+null_dist %>% 
+  visualize()
+
+test_stat <- chickwts_all %>% 
+  specify(response = ______, explanatory = ______) %>% 
+  calculate(stat = "_____", order = c("_____", "______"))
+
+null_dist %>% 
+  visualize() +
+    shade_p_value(obs_stat = _____, direction = "______")
+
+null_dist %>% 
+  get_p_value(obs_stat = ______, direction = "______")
+```
+
+```{r infer-2-hint-3}
+null_dist <- chickwts_all %>% 
+  specify(weight ~ feed) %>% 
+  hypothesize(null = "independence") %>% 
+  assume(distribution = "F")
+
+null_dist %>% 
+  visualize()
+
+test_stat <- chickwts_all %>% 
+  specify(weight ~ feed) %>% 
+  calculate(stat = "F")
+
+null_dist %>% 
+  visualize() +
+    shade_p_value(obs_stat = test_stat, direction = "right")
+
+null_dist %>% 
+  get_p_value(obs_stat = test_stat, direction = "right")
+```
+
+## Air pollution and COVD-19
+
+The EPA collects data and maintains datasets on all sorts of environmentally related things. One area that they monitor is [air quality]("https://www.airnow.gov/"). Fine particulate matter (PM2.5) is an air pollutant that is a concern for people's health when levels in air are high. PM2.5 are tiny particles in the air that reduce visibility and cause the air to appear hazy when levels are elevated. We'd like to know whether the disruption in people lives due to the pandemic altered the level of air pollution in the US. In the data set `epa_pm2.5`, you will find PM2.5 data from the years 2015 (pre-pandemic) `PM2.5_2015` and 2020 (post-pandemic) `PM2.5_2020`. Take a look in the console below:
+
+```{r sandbox-3, exercise=TRUE}
+
+```
+
+Your task is to test whether there is any difference between the the pre- and post-pandemic levels of pollution. 
+
+```{r test-type-3}
+question_radio("What setting are we in?",
+               answer("Single Mean"),
+               answer("Paired-Means", correct=TRUE),
+               answer("Difference of Two Independent Means"),
+               answer("Comparing more than Two Means"),
+               allow_retry = TRUE)
+```
+
+If you feel comfortable doing this on your own please do so in the console below. Don't forget to check whether the data meets the normality assumptions:
+
+```{r self-4, exercise=TRUE}
+
+```
+
+In the console below or on a separate sheet of paper write down the null and alternative hypotheses for this test:
+
+```{r hyp-3, exercise=TRUE}
+# 
+```
+
+```{r hyp-3-solution}
+# H0: mu_2020 - mu_2015 = mu_diff = 0
+
+# HA: mu_2020 - mu_2015 = mu_diff ≠ 0
+```
+
+We need to create a new column in our data frame representing the difference between the 2020 and 2015 pollution levels. Note that in general the results of your analysis won't change based on the order in which you subtract the two quantities but you will have to remember the ordering when you interpret the results of any hypothesis tests and confidence intervals. In this case, please subtract 2015 from 2020 or the tutorial won't function correctly. In the console below, use `mutate` to add a column to the data frame `epa_pm2.5` called `diff`. Don't forget to store the result back in `epa_pm2.5`:
+
+```{r trans, exercise=TRUE}
+
+```
+
+```{r trans-hint-1}
+_____ <- _____ %>% 
+  mutate(_____)
+
+head(epa_pm2.5)
+```
+
+```{r trans-hint-2}
+epa_pm2.5 <- epa_pm2.5 %>% 
+  mutate(diff = _____ - _____)
+
+head(epa_pm2.5)
+```
+
+```{r trans-hint-3}
+epa_pm2.5 <- epa_pm2.5 %>% 
+  mutate(diff = PM2.5_2020 - PM2.5_2015)
+
+head(epa_pm2.5)
+```
+
+```{r transform}
+epa_pm2.5 <- epa_pm2.5 %>% 
+  mutate(diff = PM2.5_2020 - PM2.5_2015)
+```
+
+In the console below, create a histogram (use 10 bins) and box plot of the differences:
+
+```{r ben-viz-3, exercise=TRUE, exercise.setup = "transform"}
+
+```
+
+```{r ben-viz-3-hint-1}
+ggplot(_____) +
+  _____(_____)
+
+ggplot(_____) +
+  _____(_____)
+```
+
+```{r ben-viz-3-hint-2}
+ggplot(_____, _____) +
+  geom_histogram(_____)
+
+ggplot(_____, _____) +
+  geom_boxplot()
+```
+
+```{r ben-viz-3-hint-3}
+ggplot(_____, aes(x=_____)) +
+  geom_histogram(bins=_____)
+
+ggplot(_____, aes(x=_____)) +
+  geom_boxplot()
+```
+
+```{r ben-viz-3-hint-4}
+ggplot(epa_pm2.5, aes(x=diff)) +
+  geom_histogram(bins=10)
+
+ggplot(epa_pm2.5, aes(x=diff)) +
+  geom_boxplot()
+```
+
+1. Do you think we can use the t-distribution to model this data? Why or why not? 
+2. (Challenging question:) Why might our data not be independent?
+
+```{r suitable, exercise=TRUE}
+# 
+```
+
+```{r suitable-hint-1}
+# Would you expect data from counties that are close together to have similar measurements?
+```
+
+Going forward, assume that we can apply the t-distribution to model the test statistic, perform a hypothesis test, and construct confidence intervals.
+
+Recall that the formula for the t-statistic is \[T = \frac{\bar{x}_{diff} - 0}{s_{diff}/\sqrt{n}}.\] In the console below, compute the t-statistic of the data.
+
+```{r t-stat-3, exercise=TRUE, exercise.setup = "transform"}
+
+```
+
+```{r t-stat-3-hint-1}
+epa_pm2.5 %>% 
+  _____
+
+
+t_stat <- ______
+t_stat
+```
+
+```{r t-stat-3-hint-2}
+epa_pm2.5 %>% 
+  summarize(______, _____, _____)
+
+
+t_stat <- ______
+t_stat
+```
+
+```{r t-stat-3-hint-3}
+epa_pm2.5 %>% 
+  summarize(mean(diff), sd(diff), n())
+
+
+t_stat <- ______
+t_stat
+```
+
+```{r t-stat-3-hint-4}
+epa_pm2.5 %>% 
+  summarize(mean(diff), sd(diff), n())
+
+
+t_stat <- 3.708779/ (24.04611 / sqrt(467))
+t_stat
+```
+
+```{r df-q-3}
+question_numeric("When computing our p-value, how many degrees of freedom should we use?",
+                 answer(466, correct=TRUE),
+                 allow_retry = TRUE)
+```
+
+In the console below, compute the p-value for this test. On a separate sheet of paper sketch the t-distribution and shade the region corresponding to the p-value:
+
+```{r p-val-3-setup}
+t_stat = 3.708779/ (24.04611 / sqrt(467))
+```
+
+```{r p-val-3, exercise=TRUE}
+
+```
+
+```{r p-val-3-hint-1}
+2*pt(_____, df=_____)
+```
+
+```{r p-val-3-hint-2}
+2*pt(-t_stat, df=466)
+
+2* (1-pt(t_stat, df=466)) # Also works
+```
+
+```{r outcome-3-1}
+question_radio("What would be the outcome of the test with a significance level of 0.05?",
+               answer("Fail to reject"),
+               answer("Reject the null", correct=TRUE),
+               allow_retry = TRUE)
+```
+
+```{r outcome-3-2}
+question_radio("What would be the outcome of the test with a significance level of 0.01?",
+               answer("Fail to reject"),
+               answer("Reject the null", correct=TRUE),
+               allow_retry = TRUE)
+```
+
+Reproduce your results below using the `infer` package:
+
+```{r infer-3, exercise=TRUE, exercise.setup = "transform"}
+
+```
+
+```{r infer-3-hint-1}
+null_dist <- epa_pm2.5 %>% 
+  specify(_____) %>% 
+  hypothesize(_____, _____) %>% 
+  assume(_____)
+
+null_dist %>% 
+  visualize()
+
+test_stat <- epa_pm2.5 %>% 
+  specify_____) %>% 
+  hypothesize(______, ______) %>% 
+  calculate(_____)
+
+null_dist %>% 
+  visualize() +
+    shade_p_value(______, ______)
+
+null_dist %>% 
+  get_p_value(_____, _____)
+```
+
+```{r infer-3-hint-2}
+null_dist <- epa_pm2.5 %>% 
+  specify(response = _____) %>% 
+  hypothesize(null = "_____", mu = _____) %>% 
+  assume(distribution = "_____")
+
+null_dist %>% 
+  visualize()
+
+test_stat <- epa_pm2.5 %>% 
+  specify(response = ______) %>% 
+  hypothesize(null = "_____", mu = _____) %>% 
+  calculate(stat = "_____")
+
+null_dist %>% 
+  visualize() +
+    shade_p_value(obs_stat = _____, direction = "______")
+
+null_dist %>% 
+  get_p_value(obs_stat = ______, direction = "______")
+```
+
+```{r infer-3-hint-3}
+null_dist <- epa_pm2.5 %>% 
+  specify(response = diff) %>% 
+  hypothesize(null = "point", mu = 0) %>% 
+  assume(distribution = "t")
+
+null_dist %>% 
+  visualize()
+
+test_stat <- epa_pm2.5 %>% 
+  specify(response = diff) %>% 
+  hypothesize(null = "point", mu = 0) %>% 
+  calculate(stat = "t")
+
+null_dist %>% 
+  visualize() +
+    shade_p_value(obs_stat = test_stat, direction = "two-sided")
+
+null_dist %>% 
+  get_p_value(obs_stat = test_stat, direction = "two-sided")
+```
+
+
+Now that we've established that the levels of air pollution in 2020 are different than in 2015, let's estimate HOW different they are. We'll do this by constructing a 95% confidence interval for the difference in PM2.5 levels between 2015 and 2020. If you feel comfortable, go ahead and construct the confidence interval in the console below. Otherwise, the remainder of the tutorial will walk you through the process:
+
+```{r self-5, exercise=TRUE}
+
+```
+
+Recall the the formula for a confidence interval is $\bar{x}_{diff} \pm t^* SE$ where $SE = s_{diff}/\sqrt{n}$ and $\bar{x}_{diff}$ is the point estimate (our best guess) for the change in PM2.5 levels. In the console below, compute $\bar{x}_{diff}$ and the $SE$ (note that we've already computed these above, but compute them again for practice):
+
+```{r xbar-se-2, exercise=TRUE, exercise.setup = "transform"}
+
+```
+
+```{r xbar-se-2-hint-1}
+epa_pm2.5 %>% 
+  _____
+
+point_est <- _____
+SE <- _____
+
+point_est
+SE
+```
+
+```{r xbar-se-2-hint-2}
+epa_pm2.5 %>% 
+  summarize(______)
+
+point_est <- _____
+SE <- _____
+
+point_est
+SE
+```
+
+```{r xbar-se-2-hint-3}
+epa_pm2.5 %>% 
+  summarize(______, _____, _____)
+
+point_est <- _____
+SE <- _____
+
+point_est
+SE
+```
+
+```{r xbar-se-2-hint-4}
+epa_pm2.5 %>% 
+  summarize(mean(diff), sd(diff), n())
+
+point_est <- _____
+SE <- _____
+
+point_est
+SE
+```
+
+```{r xbar-se-2-hint-5}
+epa_pm2.5 %>% 
+  summarize(mean(diff), sd(diff), n())
+
+point_est <- 3.708779	
+SE <- 24.04611 / sqrt(467)
+
+point_est
+SE
+```
+
+
+Now let's find $t^\star$ for a 95% confidence interval.
+
+```{r q-12}
+question_numeric("How many degrees of free would you use in this t-distribution?",
+                 answer(466, correct=TRUE),
+                 allow_retry = TRUE)
+```
+
+In the console below, find $t^\star$. Compute $t^\star$ in two different ways:
+
+```{r t-2, exercise=TRUE}
+
+```
+
+```{r t-2-hint-1}
+tstar <- qt(_____, df=______)
+tstar
+
+tstar <- qt(_____, df=______)
+tstar
+```
+
+```{r t-2-hint-2}
+tstar <- qt(.975, df=466)
+tstar
+
+tstar <- -qt(.025, df=466)
+tstar
+```
+
+In the console below, compute the final confidence interval:
+
+```{r ci-2-setup}
+point_est <- 3.708779
+SE <- 24.04611 / sqrt(467)
+tstar <- qt(.975, df=466)
+```
+
+```{r ci-2, exercise=TRUE}
+
+```
+
+
+```{r ci-2-hint-1}
+_____ - _____ * _____
+
+_____ + _____ * _____
+```
+
+```{r ci-2-hint-2}
+point_est - tstar * SE
+
+point_est + tstar * SE
+```
+
+So our point estimate for the average increase in PM2.5 from 2015 to 2020 is 3.71 $\mu g/m^3$ with a 95% confidence interval of 1.52 to 5.90 $\mu g/m^3$. Taking into account everything we know, is this enough evidence to conclude that COVID-19 is CAUSING an increase in pollution?
+
+```{r covid-q, exercise=TRUE}
+
+```
+
+```{r covid-q-hint-1}
+# Is this an experiment or observational study?
+```
+
+Reproduce your results below using the `infer` package:
+
+```{r infer-ci, exercise=TRUE, exercise.setup = "transform"}
+
+```
+
+```{r infer-ci-hint-1}
+samp_dist <- epa_pm2.5 %>% 
+  # specify the variable you're interested in
+  specify(_____) %>% 
+  # specify sampling distribution
+  assume(_____)
+
+point_est <- epa_pm2.5 %>% 
+  # specify the variable you're interested in
+  specify(_____) %>% 
+  # specify the statistic you want to compute
+  calculate(_____)
+
+point_est
+
+ci <- samp_dist %>% 
+  get_ci(_____, _____)
+
+ci
+
+samp_dist %>% 
+  visualize() +
+    shade_confidence_interval(_____) 
+```
+
+```{r infer-ci-hint-2}
+samp_dist <- epa_pm2.5 %>% 
+  # specify the variable you're interested in
+  specify(response = _____) %>% 
+  # specify sampling distribution
+  assume(distribution = "_____")
+
+point_est <- epa_pm2.5 %>% 
+  # specify the variable you're interested in
+  specify(response = _____) %>% 
+  # specify the statistic you want to compute
+  calculate("_____")
+
+point_est
+
+ci <- samp_dist %>% 
+  get_ci(level = _____, point_estimate = _____)
+
+ci
+
+samp_dist %>% 
+  visualize() +
+    shade_confidence_interval(_____) 
+```
+
+```{r infer-ci-hint-3}
+samp_dist <- epa_pm2.5 %>% 
+  # specify the variable you're interested in
+  specify(response = diff) %>% 
+  # specify sampling distribution
+  assume(distribution = "t")
+
+point_est <- epa_pm2.5 %>% 
+  # specify the variable you're interested in
+  specify(response = diff) %>% 
+  # specify the statistic you want to compute
+  calculate("mean")
+
+point_est
+
+ci <- samp_dist %>% 
+  get_ci(level = 0.95, point_estimate = point_est)
+
+ci
+
+samp_dist %>% 
+  visualize() +
+    shade_confidence_interval(ci) 
+```
+
+## Fuel efficiency in the city.
+
+Each year the US Environmental Protection Agency (EPA) releases fuel economy data on cars manufactured in that year. A random sample of cars with manual and automatic transmissions manufactured in 2021 is contained in the data frame `epa2021_sample`. We're interested in whether there is a difference in fuel efficiency in the city between manual and automatic cars. The variables we're interested in are `transmission` and `city_mpg`. Take a peak below:
+
+```{r sandbox-1, exercise=TRUE}
+
+```
+
+
+
+If you feel up to it, please create the 95% confidence interval in the console below for the difference in city mileage between cars with automatic and manual transmissions.This includes doing a little exploratory data analysis and verifying that the data is meets the normality conditions. If you don't feel comfortable doing this the remaining consoles will walk you through the steps.
+
+```{r self-1, exercise=TRUE}
+
+```
+
+```{r test-type-5}
+question_radio("What setting are we in?",
+               answer("Single Mean"),
+               answer("Paired-Means"),
+               answer("Difference of Two Independent Means", correct=TRUE),
+               answer("Comparing more than Two Means"),
+               allow_retry = TRUE)
+```
+
+In the console below generate histograms and box plots of the `city_mpg` variable for both automatic and manual transmissions and count the number of observations in each group. For the histogram, use 5 bins:
+
+```{r stage-viz, exercise=TRUE}
+
+```
+
+```{r stage-viz-hint-1}
+ggplot(_____) +
+  _____(_____)
+
+ggplot(_____) +
+  _____(_____)
+
+______ %>% 
+  ______(______)
+```
+
+```{r stage-viz-hint-2}
+ggplot(_____, _____) +
+  geom_histogram(_____)
+
+ggplot(_____, _____) +
+  geom_boxplot()
+
+______ %>% 
+  count(______)
+```
+
+```{r stage-viz-hint-3}
+ggplot(_____, aes(x=_____, fill=_____)) +
+  geom_histogram(bins=_____, alpha=0.5, position="identity")
+
+ggplot(_____, aes(x=_____, y=_____)) +
+  geom_boxplot()
+
+epa2021_sample %>% 
+  count(______)
+```
+
+```{r stage-viz-hint-4}
+ggplot(epa2021_sample, aes(x=city_mpg, fill=transmission)) +
+  geom_histogram(bins=5, alpha=0.5, position="identity")
+
+ggplot(epa2021_sample, aes(x=city_mpg, y=transmission)) +
+  geom_boxplot()
+
+epa2021_sample %>% 
+  count(transmission)
+```
+
+```{r q-1}
+question_radio("(Practice Test Question): Does this data seem to meet the normality conditions? On a separate sheet of paper explain your answer.",
+               answer("Yes", correct=TRUE),
+               answer("No"),
+               allow_retry = TRUE)
+```
+
+The data has little to no skew but there are some outliers in the manual group. In addition, the sample size is 25 for each group which is borderline. Since none of the outliers are extreme and both histograms look relatively symmetric we should feel comfortable assuming the data is normal. However this is a bit of a borderline case.
+
+Recall the the formula for a confidence interval is $\bar{x}_{man}-\bar{x}_{aut} \pm t^* SE$ where $SE = \sqrt{s_{man}^2/n_{man} + s_{aut}^2/n_{aut}}$. In the console below, compute $\bar{x}_{man}-\bar{x}_{aut}$ and $SE$:
+
+```{r xbar-se-1, exercise=TRUE}
+
+```
+
+```{r xbar-se-1-hint-1}
+epa2021_sample %>% 
+  _____
+
+point_est <- _____
+SE <- _____
+
+point_est
+SE
+```
+
+```{r xbar-se-1-hint-2}
+epa2021_sample %>% 
+  group_by(_____) %>% 
+  summarize(______)
+
+point_est <- _____
+SE <- _____
+
+point_est
+SE
+```
+
+```{r xbar-se-1-hint-3}
+epa2021_sample %>% 
+  group_by(_____) %>% 
+  summarize(______, _____, _____)
+
+point_est <- _____
+SE <- _____
+
+point_est
+SE
+```
+
+```{r xbar-se-1-hint-4}
+epa2021_sample %>% 
+  group_by(transmission) %>% 
+  summarize(mean(city_mpg), var(city_mpg), n())
+
+point_est <- _____
+SE <- _____
+
+point_est
+SE
+```
+
+```{r xbar-se-1-hint-5}
+epa2021_sample %>% 
+  group_by(transmission) %>% 
+  summarize(mean(city_mpg), var(city_mpg), n())
+
+point_est <- 22.68-17.44
+SE <- sqrt(20.97667/25 + 11.84000/25)
+
+point_est
+SE
+```
+
+
+Now let's find $t^\star$ for a 95% confidence interval.
+
+```{r q-2}
+question_numeric("How many degrees of free would you use in this t-distribution?",
+                 answer(24, correct=TRUE),
+                 allow_retry = TRUE)
+```
+
+In the console below, find $t^\star$:
+
+```{r t-1, exercise=TRUE}
+
+```
+
+```{r t-1-hint-1}
+tstar <- qt(_____, df=______)
+tstar
+```
+
+```{r t-1-hint-2}
+tstar <- qt(.975, df=24)
+tstar
+```
+
+In the console below, compute the final confidence interval:
+
+```{r ci-1-setup}
+point_est <- 22.68-17.44
+SE <- sqrt(20.97667/25 + 11.84000/25)
+tstar <- qt(.975, df=24)
+```
+
+```{r ci-1, exercise=TRUE}
+
+```
+
+
+```{r ci-1-hint-1}
+_____ - _____ * _____
+
+_____ + _____ * _____
+```
+
+```{r ci-1-hint-2}
+point_est - tstar * SE
+
+point_est + tstar * SE
+```
+
+So our point estimate for the average increase in city MPG in manual cars is 5.24 with a 95% confidence intervals of 2.88 to 7.60 MPG.
+
+Reproduce your results below using the `infer` package. Note taht you'll get slightly different answers:
+
+```{r infer-ci-2, exercise=TRUE}
+
+```
+
+```{r infer-ci-2-hint-1}
+samp_dist <- epa2021_sample %>% 
+  # specify the variable you're interested in
+  specify(_____, ______) %>% 
+  # specify sampling distribution
+  assume(_____)
+
+point_est <- epa2021_sample %>% 
+  # specify the variable you're interested in
+  specify(_____, ______) %>% 
+  # specify the statistic you want to compute
+  calculate(_____, ______)
+
+point_est
+
+ci <- samp_dist %>% 
+  get_ci(_____, _____)
+
+ci
+
+samp_dist %>% 
+  visualize() +
+    shade_confidence_interval(_____) 
+```
+
+```{r infer-ci-2-hint-2}
+samp_dist <- epa2021_sample %>% 
+  # specify the variable you're interested in
+  specify(response = _____, explanatory = ______) %>% 
+  # specify sampling distribution
+  assume(distribution = "_____")
+
+point_est <- epa2021_sample %>% 
+  # specify the variable you're interested in
+  specify(response = _____, explanatory = ______) %>% 
+  # specify the statistic you want to compute
+  calculate("_____", order = c("_____", "______"))
+
+point_est
+
+ci <- samp_dist %>% 
+  get_ci(level = _____, point_estimate = _____)
+
+ci
+
+samp_dist %>% 
+  visualize() +
+    shade_confidence_interval(_____) 
+```
+
+```{r infer-ci-2-hint-3}
+samp_dist <- epa2021_sample %>% 
+  # specify the variable you're interested in
+  specify(response = city_mpg, explanatory = transmission) %>% 
+  # specify sampling distribution
+  assume(distribution = "t")
+
+point_est <- epa2021_sample %>% 
+  # specify the variable you're interested in
+  specify(response = city_mpg, explanatory = transmission) %>%
+  # specify the statistic you want to compute
+  calculate("diff in means", order = c("M", "A"))
+
+point_est
+
+ci <- samp_dist %>% 
+  get_ci(level = 0.95, point_estimate = point_est)
+
+ci
+
+samp_dist %>% 
+  visualize() +
+    shade_confidence_interval(ci) 
+```

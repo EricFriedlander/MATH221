@@ -1,0 +1,131 @@
+---
+title: "14 Decision Errors"
+output: learnr::tutorial
+runtime: shiny_prerendered
+---
+
+```{r setup, include=FALSE}
+library(learnr)
+library(tidyverse)
+library(openintro)
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+
+## One-Sided Hypothesis Testing with Dr. Arbuthnot
+
+### Exercise 1
+
+Recall the Dr. Arbuthnot data set on birthrates. We are interested in testing whether boys are born at a higher rate than girls. Take a quick look at the `arbuthnot` data set in the console below:
+
+```{r arbuthnot-glimpse, exercise=TRUE}
+
+```
+
+We are interested in answering the following research question:
+
+> Are male babies more at a higher rate than female babies?
+
+In the console below, answer the following:
+
+1. What is the population of interest?
+2. What is the sample we're using to answer this question?
+3. Do you believe this is an unbiased sample? Explain.
+4. How would you write this in a hypothesis testing framework?
+
+```{r q-1, exercise=TRUE}
+# 1:
+
+# 2:
+
+# 3:
+
+# 4:
+```
+
+### Exercise 2
+
+In the console below,
+
+1. Use the summarize function to compute the test statistic for this test.
+2. What should the standard error of our test statistics be? Hint: you won't have to use the data at all for this part.
+
+```{r q-2, exercise=TRUE}
+
+```
+
+In the console below,
+
+3. Compute the p-value for this test.
+
+```{r q-3, exercise=TRUE}
+
+```
+
+What is the outcome of our hypothesis test?
+
+```{r q-4, exercise=TRUE}
+# 
+```
+
+### Exercise 3
+
+Use the console below to answer the following questions:
+
+1. If the null were true, what would be the probability of accidentally rejecting the null?
+2. What would be the cutoff for the critical region of this test?
+3. What is the smallest proportion of boys that would result in rejecting the null hypothesis?
+4. If the point estimate stayed the same, what would be the minimum sample size that would still lead to rejecting the null?
+
+```{r q-5, exercise=TRUE}
+
+```
+
+And put your answers here:
+
+```{r q-6, exercise=TRUE}
+#
+```
+
+### Exercise 4
+
+Perhaps a better research questions would have been:
+
+> Are male and female babies born at the same rate?
+
+What would the hypotheses be in this scenario?
+
+```{r q-7, exercise=TRUE}
+# 
+```
+
+
+### Exercise 4
+
+Use the console below to find the critical regions for the hypothesis test you just wrote down above using a significance level of $\alpha=0.01$:
+
+```{r q-8, exercise=TRUE}
+
+```
+
+Find a sample size at which you would reject the null for the first (one-sided) test we did but would not reject the null for this two-sided test. You might want to use pen and paper for this rather than R.
+
+```{r q-9, exercise=TRUE}
+
+```
+
+### Exercise 5
+
+Suppose you are Dr. Arbuthnot and have not yet collected your data. You think that the true proportion of babies that are male is 52%. You may assume a population standard deviation of 0.5. If this is the true proportion, what sample size would you need so that the power (i.e. the probability of rejecting the null) of your two-sided hypothesis test is 90%? Use the console below for any  calculations.
+
+```{r calculator, exercise=TRUE}
+
+```
+
+Enter your answer here:
+
+```{r answer, exercise=TRUE}
+# 
+```
+
+    

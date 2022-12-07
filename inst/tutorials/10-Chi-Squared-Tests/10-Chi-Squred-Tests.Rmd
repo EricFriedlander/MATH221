@@ -1,0 +1,455 @@
+---
+title: "Chi Squared Tests"
+output: learnr::tutorial
+runtime: shiny_prerendered
+---
+
+```{r setup, include=FALSE}
+library(learnr)
+library(openintro)
+library(tidyverse)
+library(infer)
+library(janitor)
+
+assortative_mating <- assortive_mating %>% 
+  mutate(color_XY = self_male,
+         color_XX = partner_female) %>% 
+  select(color_XY, color_XX)
+
+cwd <- read_csv("https://raw.githubusercontent.com/EricFriedlander/MATH221SP22/main/Datasets/PRNPII-data.csv") %>% 
+  drop_na(Q95H, G96S, Status) %>% 
+  filter(Status != "NOT TESTED")
+
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+
+## Assortative Mating
+
+In this activity we'll be exploring an example of a phenomena called "assortative mating". Assortative mating is a mating pattern and a form of sexual selection in which individuals with similar phenotypes or genotypes mate with one another more frequently than would be expected under a random mating pattern. In this case we'll be exploring whether a persons eye color impacts the eye color of the person they reproduce with. The data for this exercise is contained in `assortative_mating`. The column `color_XY` represents the eye color of the person with an X and Y chromosome and `color_XX` represents the eye color of the person with two X chromosomes. Note that this study treated `color_XY` as the explanatory variable. Check it out:
+
+```{r sandbox-1, exercise=TRUE}
+
+```
+
+In the console below create an appropriate plot to investigate your research question:
+
+```{r bar_plot-1, exercise=TRUE}
+
+```
+
+```{r bar_plot-1-hint-1}
+ggplot(_____, aes(_____)) +
+  ------
+```
+
+```{r bar_plot-1-hint-2}
+ggplot(_____, aes(_____)) +
+geom_bar(______)
+```
+
+```{r bar_plot-1-hint-3}
+ggplot(_____, aes(x=_____, fill=______)) +
+geom_bar(position='______')
+```
+
+```{r bar_plot-1-hint-4}
+ggplot(assortative_mating, aes(x=color_XY, fill=color_XX)) +
+  geom_bar(position="fill")
+```
+
+Formulate the hypotheses to test whether there is assortative mating based on eye color:
+
+```{r hyp-test-2, exercise=TRUE}
+#H0: 
+
+#HA:
+```
+
+```{r hyp-test-2-solution}
+#H0: There is no assortative mating (Independence)
+
+#HA: There is assortative mating
+```
+
+In the console below create a contingency table of the data. Note that the `janitor` package is loaded so you can use the `adorn_totals` function:
+
+```{r cont-tab-2, exercise=TRUE}
+
+```
+
+```{r cont-tab-2-hint-1}
+______ %>% 
+  _____() %>%
+  ______() %>% 
+  ______()
+```
+
+```{r cont-tab-2-hint-2}
+assortative_mating %>% 
+  count(_____, _____) %>% 
+  pivot_wider(names_from = "_____", values_from = _____) %>% 
+  adorn_totals(where=c("row", "col"))
+```
+
+```{r cont-tab-2-hint-3}
+assortative_mating %>% 
+  count(color_XX, color_XY) %>% 
+  pivot_wider(names_from = "color_XY", values_from = n) %>% 
+  adorn_totals(where=c("row", "col"))
+```
+
+Assuming that our data is independent does this data meet our success-failure condition?
+
+```{r sf-2, exercise=TRUE}
+
+```
+
+```{r sf-2-hint-1}
+# Note that its enough to just check that the smallest expected count is 
+# greater than 5
+36*41/204
+```
+
+If you feel up to it, try conduct your own hypothesis test in the console below. This includes selecting your own significance level. Please try doing it directly (without using `infer`) and then use `infer` to reproduce your results. If you don't feel comfortable doing this the remaining consoles will walk you through the steps.
+
+```{r self-1, exercise=TRUE}
+
+```
+
+In the console below compute our $X^2$ statistic:
+
+```{r x2-1, exercise=TRUE}
+
+```
+
+```{r x2-1-hint-1}
+# First compute expected cell counts
+# Then compute (observe - expected)^2/expected for each cell
+# Finally, add them all up
+```
+
+```{r x2-1-hint-2}
+# First compute expected cell counts
+cell11 <- 114 * 108 / 204
+cell12 <- 54 * 108 / 204
+cell13 <- 36 * 108 / 204
+cell21 <- 114 * 55 / 204
+cell22 <- 54 * 55 / 204
+cell23 <- 36 * 55 / 204
+cell31 <- 114 * 41 / 204
+cell32 <- 54 * 41 / 204
+cell33 <- 36 * 41 / 204
+
+
+# Then compute (observe - expected)^2/expected for each cell
+
+
+# Finally, add them all up
+
+```
+
+```{r x2-1-hint-3}
+# First compute expected cell counts
+cell11 <- 114 * 108 / 204
+cell12 <- 54 * 108 / 204
+cell13 <- 36 * 108 / 204
+cell21 <- 114 * 55 / 204
+cell22 <- 54 * 55 / 204
+cell23 <- 36 * 55 / 204
+cell31 <- 114 * 41 / 204
+cell32 <- 54 * 41 / 204
+cell33 <- 36 * 41 / 204
+
+
+# Then compute (observe - expected)^2/expected for each cell
+chisq11 <- (78 - cell11)^2 / cell11
+chisq12 <- (19 - cell12)^2 / cell12
+chisq13 <- (11 - cell13)^2 / cell13
+chisq21 <- (23 - cell21)^2 / cell21
+chisq22 <- (23 - cell22)^2 / cell22
+chisq23 <- (9 - cell23)^2 / cell23
+chisq31 <- (13 - cell31)^2 / cell31
+chisq32 <- (12 - cell32)^2 / cell32
+chisq33 <- (16 - cell33)^2 / cell33
+
+
+# Finally, add them all up
+
+```
+
+```{r x2-1-hint-4}
+# First compute expected cell counts
+cell11 <- 114 * 108 / 204
+cell12 <- 54 * 108 / 204
+cell13 <- 36 * 108 / 204
+cell21 <- 114 * 55 / 204
+cell22 <- 54 * 55 / 204
+cell23 <- 36 * 55 / 204
+cell31 <- 114 * 41 / 204
+cell32 <- 54 * 41 / 204
+cell33 <- 36 * 41 / 204
+
+
+# Then compute (observe - expected)^2/expected for each cell
+chisq11 <- (78 - cell11)^2 / cell11
+chisq12 <- (19 - cell12)^2 / cell12
+chisq13 <- (11 - cell13)^2 / cell13
+chisq21 <- (23 - cell21)^2 / cell21
+chisq22 <- (23 - cell22)^2 / cell22
+chisq23 <- (9 - cell23)^2 / cell23
+chisq31 <- (13 - cell31)^2 / cell31
+chisq32 <- (12 - cell32)^2 / cell32
+chisq33 <- (16 - cell33)^2 / cell33
+
+
+# Finally, add them all up
+chisq <- chisq11 + chisq12 + chisq13 +
+  chisq21 + chisq22 + chisq23 +
+  chisq31 + chisq32 + chisq33
+    
+chisq
+```
+
+```{r q-2}
+question_numeric("How many degrees of freedom should we use in our Chi-Squared Distribution", 
+                 answer(4, correct=TRUE),
+                 allow_retry = TRUE)
+```
+
+On a separate sheet of paper sketch a Chi-Squared distribution and shade in the region corresponding to the p-value.
+
+In the console below, compute the p-value:
+
+```{r p-val-1, exercise=TRUE}
+
+```
+
+```{r p-val-1-hint-1}
+1-pchisq(33.7, df=4)
+```
+
+```{r q-8}
+question_radio("What is the outcome of the test with a sginificant level of $\\alpha=0.05$ ?",
+               answer("Fail to reject the null"),
+               answer("Reject the null", correct=TRUE),
+               allow_retry = TRUE)
+```
+
+Now replicate your results using the `infer` package in the console below:
+
+1. Define the null distribution.
+2. (Optional) Visualize the null distribution.
+3. Compute the test statistic.
+4. (Optional) Visualize the p-value.
+5. Compute the p_value.
+
+```{r infer-1, exercise=TRUE}
+
+```
+
+```{r infer-1-hint-1}
+null_dist <- assortative_mating %>% 
+  specify_____, _____) %>% 
+  hypothesize(_____) %>% 
+  assume(_____)
+
+null_dist %>% 
+  visualize()
+
+test_stat <- assortative_mating %>% 
+  specify_____, _____) %>% 
+  hypothesize(______) %>% 
+  calculate(_____, _____)
+
+null_dist %>% 
+  visualize() +
+    shade_p_value(______, ______)
+
+null_dist %>% 
+  get_p_value(_____, _____)
+```
+
+```{r infer-1-hint-2}
+null_dist <- assortative_mating %>% 
+  specify(response = _____, explanatory = _____) %>% 
+  hypothesize(null = "_____") %>% 
+  assume(distribution = "_____")
+
+null_dist %>% 
+  visualize()
+
+test_stat <- assortative_mating %>% 
+  specify(response = ______, explanatory = _____) %>% 
+  hypothesize(null = "_____") %>% 
+  calculate(stat = "_____")
+
+null_dist %>% 
+  visualize() +
+    shade_p_value(obs_stat = _____, direction = "______")
+
+null_dist %>% 
+  get_p_value(obs_stat = ______, direction = "______")
+```
+
+```{r infer-1-hint-3}
+null_dist <- assortative_mating %>% 
+  specify(response = color_XX, explanatory = color_XY) %>% 
+  hypothesize(null = "independence") %>% 
+  assume(distribution = "Chisq")
+
+null_dist %>% 
+  visualize()
+
+test_stat <- assortative_mating %>% 
+  specify(response = color_XX, explanatory = color_XY) %>% 
+  hypothesize(null = "independence") %>% 
+  calculate(stat = "Chisq")
+
+null_dist %>% 
+  visualize() +
+    shade_p_value(obs_stat = test_stat, direction = "right")
+
+null_dist %>% 
+  get_p_value(obs_stat = test_stat, direction = "right")
+```
+
+Let's consider a different question based on this data. When collecting the data, researchers randomly selected Norwegian individuals with an XY chromosome and then looked at the eye color of their partners. Suppose we wish to test whether the sample is representative of the population. I.e. if the individuals with XY chromosomes are represented in (relatively) the correct proportions compared to the population of Norwegian adults (since this study was conducted in Norway). Suppose the true proportion of Norwegian adults with blue eyes, brown eyes, and green eyes is 50%, 25%, and 25%, respectively.
+
+Formulate the hypotheses to test this question (make sure to choose a significance level):
+
+```{r hyp-test-3, exercise=TRUE}
+#H0: 
+
+#HA:
+```
+
+```{r hyp-test-3-solution}
+#H0: The individuals with XY chromosomes are representative of the population
+
+#HA: The individuals with XY chromosomes are not representative of the population
+```
+
+In the console below create a contingency table of the data. Note that the `janitor` package is loaded so you can use the `adorn_totals` function:
+
+```{r cont-tab-3, exercise=TRUE}
+
+```
+
+```{r cont-tab-3-hint-1}
+______ %>% 
+  _____() %>%
+  ______()
+```
+
+```{r cont-tab-3-hint-2}
+assortative_mating %>% 
+  count(_____) %>% 
+  adorn_totals(where=c("row"))
+```
+
+```{r cont-tab-3-hint-3}
+assortative_mating %>% 
+  count(color_XY) %>% 
+  adorn_totals(where=c("row"))
+```
+
+Does this data meet our success-failure condition?
+
+```{r sf-3, exercise=TRUE}
+
+```
+
+```{r sf-3-hint-1}
+# Note that its enough to just check that the smallest expected count is 
+# greater than 5
+0.25 * 204
+```
+
+Now conduct your hypothesis test using the `infer` package in the console below:
+
+1. Define the null distribution.
+2. (Optional) Visualize the null distribution.
+3. Compute the test statistic.
+4. (Optional) Visualize the p-value.
+5. Compute the p_value.
+
+```{r infer-2, exercise=TRUE}
+
+```
+
+```{r infer-2-hint-1}
+null_dist <- assortative_mating %>% 
+  specify_____) %>% 
+  hypothesize(_____, _____) %>% 
+  assume(_____)
+
+null_dist %>% 
+  visualize()
+
+test_stat <- assortative_mating %>% 
+  specify_____) %>% 
+  hypothesize(______, _____) %>% 
+  calculate(_____, _____)
+
+null_dist %>% 
+  visualize() +
+    shade_p_value(______, ______)
+
+null_dist %>% 
+  get_p_value(_____, _____)
+```
+
+```{r infer-2-hint-2}
+null_dist <- assortative_mating %>% 
+  specify(response = _____) %>% 
+  hypothesize(null = "_____", p = c("_____" = _____,
+                                    "_____" = _____,
+                                    "_____" = _____)) %>% 
+  assume(distribution = "_____")
+
+null_dist %>% 
+  visualize()
+
+test_stat <- assortative_mating %>% 
+  specify(response = ______) %>% 
+  hypothesize(null = "_____", p = c("_____" = _____,
+                                    "_____" = _____,
+                                    "_____" = _____)) %>% 
+  calculate(stat = "_____")
+
+null_dist %>% 
+  visualize() +
+    shade_p_value(obs_stat = _____, direction = "______")
+
+null_dist %>% 
+  get_p_value(obs_stat = ______, direction = "______")
+```
+
+```{r infer-2-hint-3}
+null_dist <- assortative_mating %>% 
+  specify(response = color_XY) %>% 
+  hypothesize(null = "point", p = c("blue" = 0.5,
+                                    "brown" = 0.25,
+                                    "green" = 0.25)) %>% 
+  assume(distribution = "Chisq")
+
+null_dist %>% 
+  visualize()
+
+test_stat <- assortative_mating %>% 
+  specify(response = color_XY) %>% 
+  hypothesize(null = "point", p = c("blue" = 0.5,
+                                    "brown" = 0.25,
+                                    "green" = 0.25)) %>%
+  calculate(stat = "Chisq")
+
+null_dist %>% 
+  visualize() +
+    shade_p_value(obs_stat = test_stat, direction = "right")
+
+null_dist %>% 
+  get_p_value(obs_stat = test_stat, direction = "right")
+```
+
+What can you conclude based on the significance level you chose?
